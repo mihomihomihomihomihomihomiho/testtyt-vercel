@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="ja" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Project Detail - web3/AI概論</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+  <style>
+    :root{--bg:#F2F4F7;--bg-weak:#F6F7F9;--text:#111111;--muted:#6B7280;--line:#E5E7EB;--accent:#E50064;--accentHover:#C70057;}
+    body{font-family:'Noto Sans JP',system-ui,-apple-system,Segoe UI,Roboto,sans-serif;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;font-feature-settings:"palt" 1;letter-spacing:.01em;color:var(--text);background:#fff;}
+    .btn-entry{background:var(--accent);color:#fff;font-weight:700;border-radius:9999px;padding:.6rem 1.2rem;transition:.2s;box-shadow:none;cursor:pointer;border:none;}
+    .btn-entry:hover{background:var(--accentHover);transform:translateY(-1px);}
+    .white-badge{background:#fff;padding:.5rem .75rem;border-radius:.25rem;display:inline-block;font-weight:700;font-size:.9rem;}
+    .badge-title{background:#000;color:#fff;padding:.25rem .5rem;box-decoration-break:clone;-webkit-box-decoration-break:clone;border-radius:.125rem;}
+    .section-label{writing-mode:vertical-rl;transform:rotate(180deg);}
+    .prose-p{font-size:1.05rem;line-height:1.9;color:#1f2937;}
+    .mega-outline{font-weight:900;letter-spacing:.02em;color:transparent;-webkit-text-stroke:1px rgba(255,255,255,.30);text-stroke:1px rgba(255,255,255,.30);writing-mode:vertical-rl;text-orientation:mixed;pointer-events:none;user-select:none;}
+    .diag-mask{clip-path: polygon(0 0, 86% 0, 100% 100%, 0 100%);}
+    .left-rail{position:absolute;left:0;top:0;bottom:0;width:24px;pointer-events:none;background:linear-gradient(#fff,#fff) left 10px top 120px/16px 2px no-repeat,linear-gradient(#fff,#fff) left 10px top 420px/16px 2px no-repeat,linear-gradient(#fff,#fff) left 10px top 720px/16px 2px no-repeat,linear-gradient(#fff,#fff) left 10px top 1020px/16px 2px no-repeat;opacity:.9;}
+    .category-pill{display:inline-block;background:#fff;color:var(--text);font-size:.8rem;font-weight:700;padding:.4rem .9rem;border-radius:9999px;text-transform:uppercase;letter-spacing:.05em;}
+    .search-input{width:100%;max-width:32rem;padding:.9rem 1.5rem;border-radius:9999px;border:1px solid rgba(255,255,255,.3);background:rgba(255,255,255,.1);color:#fff;font-size:.95rem;transition:.2s;}
+    .search-input::placeholder{color:rgba(255,255,255,.6);}
+    .search-input:focus{outline:none;background:rgba(255,255,255,.18);border-color:rgba(255,255,255,.5);}
+    .photo-overlap{position:relative;z-index:1;}
+    .photo-overlap img{width:100%;height:100%;object-fit:cover;}
+    .stat-huge{font-size:clamp(3.5rem,8vw,6rem);font-weight:900;line-height:1;letter-spacing:-.02em;}
+    .quote-mark{font-size:4rem;line-height:1;color:var(--accent);opacity:.2;font-family:Georgia,serif;}
+    .fixed-logo{position:fixed;left:20px;top:20px;z-index:50;width:80px;height:auto;transition:.2s;}
+    .fixed-logo:hover{transform:scale(1.1);}
+  </style>
+</head>
+<body>
+  <!-- Fixed Penguin Logo -->
+  <a href="index.html" class="fixed-logo" style="pointer-events:auto;display:block;width:80px;">
+    <img src="penguin.png" alt="Logo" style="width:100%;height:auto;display:block;">
+  </a>
+
+  <!-- Hero Section -->
+  <header class="relative overflow-hidden">
+    <div class="absolute z-30 right-5 top-5 flex items-center gap-3">
+      <a href="contact.html" class="btn-entry">Entry</a>
+      <button onclick="document.getElementById('menu').classList.toggle('hidden')" class="w-11 h-11 rounded-full bg-white/95 backdrop-blur shadow-sm flex items-center justify-center">
+        <span class="sr-only">Menu</span>
+        <div class="w-5 h-5 relative">
+          <span class="absolute inset-x-0 top-1 block h-0.5 bg-gray-700 rounded"></span>
+          <span class="absolute inset-x-0 top-2.5 block h-0.5 bg-gray-700 rounded"></span>
+          <span class="absolute inset-x-0 top-4 block h-0.5 bg-gray-700 rounded"></span>
+        </div>
+      </button>
+    </div>
+    <div id="menu" class="hidden fixed inset-0 z-40 bg-black/95 backdrop-blur-sm">
+      <div class="container mx-auto px-6 py-20 max-w-[88rem]">
+        <button onclick="document.getElementById('menu').classList.add('hidden')" class="absolute top-5 right-5 text-white text-3xl">&times;</button>
+        <nav class="space-y-4 text-white text-2xl font-bold">
+          <a href="index.html" class="block hover:text-pink-400">Home</a>
+          <a href="chibatech.html" class="block hover:text-pink-400">Chibatech</a>
+          <a href="reading.html" class="block hover:text-pink-400">Reading</a>
+          <a href="business.html" class="block hover:text-pink-400">For Business</a>
+          <a href="partners.html" class="block hover:text-pink-400">Partners</a>
+          <a href="news.html" class="block hover:text-pink-400">News</a>
+          <a href="contact.html" class="block hover:text-pink-400">Contact</a>
+        </nav>
+      </div>
+    </div>
+    <div class="relative min-h-[80vh]">
+      <div class="absolute inset-0">
+        <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1600&q=85" alt="Project Hero" class="w-full h-full object-cover">
+        <div class="absolute inset-0 bg-gradient-to-r from-black/50 via-black/25 to-transparent"></div>
+      </div>
+      <div class="absolute right-[2vw] top-[8vh] hidden lg:block">
+        <div class="mega-outline text-[22vw] leading-none">PROJECT</div>
+      </div>
+      <div class="relative z-20 container mx-auto px-6 max-w-[88rem] pt-48 pb-16">
+        <span class="white-badge mb-4">Web3 × Education</span>
+        <h1 class="inline-block bg-white text-gray-900 font-black leading-snug text-[clamp(2rem,5vw,3.6rem)] shadow-sm px-4 py-3 mt-3">
+          大学生と社会人が<br>本気でプロダクトを作る<br>15週間のプロジェクト
+        </h1>
+      </div>
+    </div>
+  </header>
+
+  <!-- Info Bar -->
+  <section class="bg-[var(--bg)] border-b border-[var(--line)]">
+    <div class="container mx-auto px-6 max-w-[88rem] py-6">
+      <div class="flex flex-wrap items-center justify-between gap-4">
+        <div>
+          <p class="text-xs text-[var(--muted)] uppercase tracking-wider mb-1">Project Title</p>
+          <p class="font-bold text-lg">千葉工大 総合科学特論 2025春学期</p>
+        </div>
+        <div class="flex gap-3">
+          <span class="category-pill">Education</span>
+          <span class="category-pill">Innovation</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 01 - OUTLINE -->
+  <section class="relative bg-white">
+    <div class="left-rail hidden md:block"></div>
+    <div class="container mx-auto px-6 max-w-[88rem] py-24">
+      <div class="grid grid-cols-1 lg:grid-cols-[56px_1fr] gap-4 items-start mb-16">
+        <div class="hidden lg:block">
+          <div class="bg-[var(--bg)] text-gray-600 text-xs tracking-[0.12em] px-2 py-1 rounded-sm section-label">SECTION 01</div>
+        </div>
+        <h2 class="leading-snug text-[clamp(1.7rem,3.6vw,2.5rem)] font-black">
+          <span class="badge-title">本件の狙いと背景</span>
+        </h2>
+      </div>
+
+      <div class="mb-12 pb-12 border-b border-[var(--line)]">
+        <p class="text-sm text-[var(--muted)] mb-2">Producer</p>
+        <p class="font-bold text-lg">田中 太郎 / Gaironチーム 代表</p>
+      </div>
+
+      <div class="mb-20">
+        <div class="prose-p space-y-8 max-w-3xl">
+          <p>
+            本プロジェクトは、千葉工業大学の正式科目として2022年度から開講している「総合科学特論（Web3/AI概論）」の2025年春学期実施分です。学生30名、社会人10名の計40名が参加し、15週間にわたりチーム単位で実際に動くプロダクトを開発します。
+          </p>
+          <p>
+            従来の座学中心の授業とは異なり、実際の開発環境を使い、GitHub、Figma、Notion、Slackなどのツールを駆使しながら、プロトタイプからリリースまでを一貫して体験します。
+          </p>
+        </div>
+      </div>
+
+      <div class="relative">
+        <div class="photo-overlap">
+          <img src="https://images.unsplash.com/photo-1517048676732-d65bc937f952?w=1400&q=85" alt="Team working" class="w-full h-[60vh] object-cover">
+        </div>
+        <div class="absolute bottom-8 left-8 right-8 lg:left-12 lg:right-auto lg:max-w-xl">
+          <div class="bg-white/95 backdrop-blur-sm p-8 shadow-xl">
+            <p class="prose-p">
+              このプロジェクトの最大の特徴は、<strong>「学生と社会人が対等に学び合う」</strong>という点にあります。社会人参加者は自身のスキルアップだけでなく、学生へのメンタリングを通じて次世代の育成にも貢献します。
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 02 - PRODUCTION -->
+  <section class="relative bg-[var(--bg-weak)]">
+    <div class="left-rail hidden md:block"></div>
+    <div class="container mx-auto px-6 max-w-[88rem] py-24">
+      <div class="grid grid-cols-1 lg:grid-cols-[56px_1fr] gap-4 items-start mb-16">
+        <div class="hidden lg:block">
+          <div class="bg-white text-gray-600 text-xs tracking-[0.12em] px-2 py-1 rounded-sm section-label">SECTION 02</div>
+        </div>
+        <h2 class="leading-snug text-[clamp(1.7rem,3.6vw,2.5rem)] font-black">
+          <span class="badge-title">プロジェクトの進め方</span>
+        </h2>
+      </div>
+
+      <div class="grid lg:grid-cols-2 gap-16 items-start mb-24">
+        <div>
+          <div class="prose-p space-y-8">
+            <p>
+              初回授業でチームビルディングを行い、4〜5名のチームを編成します。各チームにはメンターとして社会人参加者が1名アサインされ、週次のミーティングでプロジェクトの進捗確認とアドバイスを行います。
+            </p>
+            <p>
+              開発テーマは「生成AIを活用した教育支援ツール」「NFTを使ったコミュニティ運営」「DAO型の意思決定プラットフォーム」など、Web3/AI技術を実際に使ったものであれば自由に設定可能です。
+            </p>
+          </div>
+        </div>
+        <div class="photo-overlap">
+          <img src="https://images.unsplash.com/photo-1531482615713-2afd69097998?w=800&q=85" alt="Workshop scene" class="w-full h-[50vh] object-cover">
+        </div>
+      </div>
+
+      <div class="max-w-4xl mx-auto mb-20">
+        <div class="relative py-16 px-10 bg-white">
+          <div class="quote-mark absolute top-4 left-4">"</div>
+          <p class="text-2xl font-bold leading-relaxed mb-6">
+            作りながら学ぶ、が最も効率的な学習方法である
+          </p>
+          <p class="prose-p">
+            座学で技術を学んでから開発に入るのではなく、開発しながら必要な技術を学ぶスタイルを採用しています。これにより、受講者は「なぜこの技術が必要なのか」を体感しながら習得でき、定着率が飛躍的に向上します。
+          </p>
+        </div>
+      </div>
+
+      <div class="photo-overlap">
+        <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=1400&q=85" alt="Collaboration" class="w-full h-[70vh] object-cover">
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 03 - RESULT -->
+  <section class="relative bg-white">
+    <div class="left-rail hidden md:block"></div>
+    <div class="container mx-auto px-6 max-w-[88rem] py-24">
+      <div class="grid grid-cols-1 lg:grid-cols-[56px_1fr] gap-4 items-start mb-16">
+        <div class="hidden lg:block">
+          <div class="bg-[var(--bg)] text-gray-600 text-xs tracking-[0.12em] px-2 py-1 rounded-sm section-label">SECTION 03</div>
+        </div>
+        <h2 class="leading-snug text-[clamp(1.7rem,3.6vw,2.5rem)] font-black">
+          <span class="badge-title">成果と反響</span>
+        </h2>
+      </div>
+
+      <div class="prose-p space-y-8 max-w-3xl mb-24">
+        <p>
+          2024年度の成果発表会では、15チームがプロトタイプを発表しました。中でも「AIが自動で質問を生成する学習アプリ」は実際に200名以上のユーザーを獲得し、継続的な運用が行われています。
+        </p>
+        <p>
+          また、社会人参加者からは「久しぶりに手を動かして開発できた」「学生の柔軟な発想に刺激を受けた」といったポジティブなフィードバックが多数寄せられました。
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-16 mb-20">
+        <div>
+          <p class="stat-huge mb-4" style="color:var(--accent);">15</p>
+          <p class="text-lg font-bold">プロジェクト数</p>
+        </div>
+        <div>
+          <p class="stat-huge mb-4" style="color:var(--accent);">40</p>
+          <p class="text-lg font-bold">参加者数</p>
+        </div>
+        <div>
+          <p class="stat-huge mb-4" style="color:var(--accent);">92<span class="text-5xl">%</span></p>
+          <p class="text-lg font-bold">満足度</p>
+        </div>
+      </div>
+
+      <div class="photo-overlap">
+        <img src="https://images.unsplash.com/photo-1523580494863-6f3031224c94?w=1400&q=85" alt="Presentation" class="w-full h-[65vh] object-cover">
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 04 - NEXT -->
+  <section class="relative bg-[var(--bg-weak)]">
+    <div class="left-rail hidden md:block"></div>
+    <div class="container mx-auto px-6 max-w-[88rem] py-24">
+      <div class="grid grid-cols-1 lg:grid-cols-[56px_1fr] gap-4 items-start mb-16">
+        <div class="hidden lg:block">
+          <div class="bg-white text-gray-600 text-xs tracking-[0.12em] px-2 py-1 rounded-sm section-label">SECTION 04</div>
+        </div>
+        <h2 class="leading-snug text-[clamp(1.7rem,3.6vw,2.5rem)] font-black">
+          <span class="badge-title">関連プロジェクト</span>
+        </h2>
+      </div>
+
+      <div class="space-y-16">
+        <a href="business.html" class="block group">
+          <div class="grid lg:grid-cols-2 gap-12 items-center">
+            <div class="photo-overlap">
+              <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=800&q=85" alt="Corporate training" class="w-full h-[50vh] object-cover group-hover:scale-105 transition-transform duration-500">
+            </div>
+            <div>
+              <span class="category-pill mb-4">Corporate Training</span>
+              <h3 class="font-bold text-3xl mb-6 group-hover:text-[var(--accent)] transition">大手IT企業向け<br>生成AI研修プログラム</h3>
+              <p class="prose-p mb-6">DX推進チーム20名を対象に、2日間の実践ワークショップを実施。LLM APIを使ったプロトタイプ開発を体験。</p>
+              <span class="text-sm font-bold" style="color:var(--accent);">詳しく見る →</span>
+            </div>
+          </div>
+        </a>
+
+        <a href="reading.html" class="block group">
+          <div class="grid lg:grid-cols-2 gap-12 items-center">
+            <div class="lg:order-2 photo-overlap">
+              <img src="https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?w=800&q=85" alt="Learning resources" class="w-full h-[50vh] object-cover group-hover:scale-105 transition-transform duration-500">
+            </div>
+            <div class="lg:order-1">
+              <span class="category-pill mb-4">Reading Program</span>
+              <h3 class="font-bold text-3xl mb-6 group-hover:text-[var(--accent)] transition">Web3/AI技術の<br>学習リソース集</h3>
+              <p class="prose-p mb-6">授業で使用している記事、動画、ノートをまとめた学習リソース。初学者から中級者まで幅広く対応。</p>
+              <span class="text-sm font-bold" style="color:var(--accent);">詳しく見る →</span>
+            </div>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Black CTA Section -->
+  <section class="bg-[#0F1115] text-white">
+    <div class="container mx-auto px-6 max-w-[88rem] py-16">
+      <div class="text-center max-w-3xl mx-auto">
+        <h2 class="text-[clamp(1.4rem,3vw,2rem)] font-bold mb-8">あらたなプロジェクトを探す</h2>
+        <div class="flex flex-col sm:flex-row gap-4 items-center justify-center mb-6">
+          <input type="text" placeholder="キーワードで検索..." class="search-input">
+          <button class="btn-entry px-8 py-3 whitespace-nowrap">検索</button>
+        </div>
+        <p class="text-sm text-gray-400">または <a href="index.html" class="underline hover:text-white transition">ホームに戻る</a></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-gray-900 text-white py-12">
+    <div class="container mx-auto px-6 max-w-[88rem]">
+      <div class="grid md:grid-cols-4 gap-8 mb-8">
+        <div><h4 class="font-bold mb-4">web3/AI概論</h4><p class="text-sm text-gray-400">最新テクノロジーを実践で学ぶ、大学発プロジェクト型コミュニティ</p></div>
+        <div><h4 class="font-bold mb-4 text-sm">ナビゲーション</h4><ul class="space-y-2 text-sm"><li><a href="index.html" class="text-gray-400 hover:text-white">Home</a></li><li><a href="chibatech.html" class="text-gray-400 hover:text-white">Chibatech</a></li><li><a href="reading.html" class="text-gray-400 hover:text-white">Reading</a></li><li><a href="business.html" class="text-gray-400 hover:text-white">For Business</a></li></ul></div>
+        <div><h4 class="font-bold mb-4 text-sm">その他</h4><ul class="space-y-2 text-sm"><li><a href="partners.html" class="text-gray-400 hover:text-white">Partners</a></li><li><a href="news.html" class="text-gray-400 hover:text-white">News</a></li><li><a href="contact.html" class="text-gray-400 hover:text-white">Contact</a></li></ul></div>
+        <div><h4 class="font-bold mb-4 text-sm">お問い合わせ</h4><p class="text-sm text-gray-400">gairon.henkaku.org</p></div>
+      </div>
+      <div class="border-t border-gray-800 pt-8">
+        <p class="text-xs text-gray-500 leading-relaxed">web3/AI概論プロジェクトはHENKAKU COMMUNITYから生まれた最新テクノロジーの学びを研究するプロジェクトです。千葉工大の正式科目web3/AI概論を運営しています。</p>
+        <p class="text-xs text-gray-500 mt-4">&copy; 2025 web3/AI概論. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

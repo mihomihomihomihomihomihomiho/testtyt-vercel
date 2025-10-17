@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="ja" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>web3/AI概論 - 最新テクノロジーを実践で学ぶ、大学発プロジェクト型コミュニティ</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#F2F4F7;
+      --bg-weak:#F6F7F9;
+      --text:#111111;
+      --text-body:#1f2937;
+      --text-light:#4b5563;
+      --muted:#6B7280;
+      --muted-light:#9CA3AF;
+      --line:#E5E7EB;
+      --accent:#E50064;
+      --accentHover:#C70057;
+    }
+    body{font-family:'Noto Sans JP',system-ui,-apple-system,Segoe UI,Roboto,sans-serif;
+      -webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;font-feature-settings:"palt" 1;letter-spacing:-.01em;color:var(--text);background:#fff;font-weight:400;}
+
+    /* Typography hierarchy */
+    .hero-title{font-size:clamp(1.8rem,6vw,4.5rem);font-weight:900;line-height:1.1;letter-spacing:.05em;color:var(--text);}
+    .section-title{font-size:clamp(2rem,4.5vw,3.2rem);font-weight:900;line-height:1.15;letter-spacing:.04em;color:var(--text);}
+    .subsection-title{font-size:clamp(1.5rem,3vw,2rem);font-weight:700;line-height:1.3;letter-spacing:.03em;color:var(--text);}
+    .card-title{font-size:1.25rem;font-weight:700;line-height:1.4;letter-spacing:.04em;color:var(--text);}
+    .lead-text{font-size:1.25rem;font-weight:400;line-height:1.7;letter-spacing:.03em;color:var(--text-body);}
+    .body-text{font-size:1.0625rem;font-weight:400;line-height:1.85;letter-spacing:.04em;color:var(--text-body);}
+    .small-text{font-size:0.9375rem;font-weight:400;line-height:1.6;letter-spacing:.04em;color:var(--text-light);}
+    .tiny-text{font-size:0.8125rem;font-weight:500;line-height:1.5;letter-spacing:.06em;color:var(--muted);text-transform:uppercase;}
+    .caption{font-size:0.75rem;font-weight:500;line-height:1.4;letter-spacing:.08em;color:var(--muted-light);text-transform:uppercase;}
+
+    .btn-entry{background:var(--accent);color:#fff;font-weight:700;font-size:1rem;border-radius:9999px;padding:.75rem 1.5rem;transition:.2s;box-shadow:none;letter-spacing:0;}
+    .btn-entry:hover{background:var(--accentHover);transform:translateY(-1px);}
+    .white-badge{background:#fff;padding:.5rem .75rem;border-radius:.25rem;display:inline-block;font-weight:700;font-size:.875rem;letter-spacing:.01em;}
+    .badge-title{background:#000;color:#fff;padding:.3rem .6rem;box-decoration-break:clone;-webkit-box-decoration-break:clone;border-radius:.15rem;font-weight:900;letter-spacing:.08em;}
+    .section-label{writing-mode:vertical-rl;transform:rotate(180deg);font-weight:500;}
+    .mega-outline{font-weight:900;letter-spacing:.02em;color:transparent;-webkit-text-stroke:1px rgba(255,255,255,.30);text-stroke:1px rgba(255,255,255,.30);writing-mode:vertical-rl;text-orientation:mixed;pointer-events:none;user-select:none;}
+    .diag-mask{clip-path: polygon(0 0, 86% 0, 100% 100%, 0 100%);}
+    .left-rail{position:absolute;left:0;top:0;bottom:0;width:24px;pointer-events:none;
+      background:
+        linear-gradient(#fff,#fff) left 10px top 120px/16px 2px no-repeat,
+        linear-gradient(#fff,#fff) left 10px top 420px/16px 2px no-repeat,
+        linear-gradient(#fff,#fff) left 10px top 720px/16px 2px no-repeat,
+        linear-gradient(#fff,#fff) left 10px top 1020px/16px 2px no-repeat;
+      opacity:.9;}
+    .fixed-logo{position:fixed;left:20px;top:20px;z-index:50;width:80px;height:auto;transition:.2s;}
+    .fixed-logo:hover{transform:scale(1.1);}
+  </style>
+</head>
+<body>
+  <!-- Fixed Penguin Logo -->
+  <a href="index.html" class="fixed-logo" style="pointer-events:auto;display:block;width:80px;">
+    <img src="penguin.png" alt="Logo" style="width:100%;height:auto;display:block;">
+  </a>
+
+  <!-- HERO -->
+  <header class="relative overflow-hidden">
+    <!-- 右上：Entry / Menu -->
+    <div class="absolute z-30 right-5 top-5 flex items-center gap-3">
+      <a href="contact.html" class="btn-entry">Entry</a>
+      <button onclick="document.getElementById('menu').classList.toggle('hidden')" class="w-11 h-11 rounded-full bg-white/95 backdrop-blur shadow-sm flex items-center justify-center">
+        <span class="sr-only">Menu</span>
+        <div class="w-5 h-5 relative">
+          <span class="absolute inset-x-0 top-1 block h-0.5 bg-gray-700 rounded"></span>
+          <span class="absolute inset-x-0 top-2.5 block h-0.5 bg-gray-700 rounded"></span>
+          <span class="absolute inset-x-0 top-4 block h-0.5 bg-gray-700 rounded"></span>
+        </div>
+      </button>
+    </div>
+
+    <!-- メニュー（トグル） -->
+    <div id="menu" class="hidden fixed inset-0 z-40 bg-gray-900 backdrop-blur-sm">
+      <div class="container mx-auto px-6 py-20 max-w-[88rem]">
+        <button onclick="document.getElementById('menu').classList.add('hidden')" class="absolute top-5 right-5 text-white text-3xl">&times;</button>
+        <nav class="space-y-4 text-white text-2xl font-bold">
+          <a href="index.html" class="block hover:text-pink-400">Home</a>
+          <a href="chibatech.html" class="block hover:text-pink-400">Chibatech</a>
+          <a href="reading.html" class="block hover:text-pink-400">Reading</a>
+          <a href="business.html" class="block hover:text-pink-400">For Business</a>
+          <a href="partners.html" class="block hover:text-pink-400">Partners</a>
+          <a href="news.html" class="block hover:text-pink-400">News</a>
+          <a href="contact.html" class="block hover:text-pink-400">Contact</a>
+        </nav>
+      </div>
+    </div>
+
+    <!-- 写真 -->
+    <div class="relative min-h-[64vh] md:min-h-[72vh]">
+      <div class="absolute inset-0">
+        <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1600&q=85" alt="Team collaboration" class="w-full h-full object-cover">
+        <div class="absolute inset-0 bg-gradient-to-r from-black/35 via-black/10 to-transparent"></div>
+      </div>
+
+      <!-- 右の巨大縦アウトライン英字 -->
+      <div class="absolute right-[2vw] top-[6vh] hidden lg:block">
+        <div class="mega-outline text-[22vw] leading-none">PROJECT</div>
+      </div>
+
+      <!-- 白帯の見出し -->
+      <div class="relative z-20 container mx-auto px-6 max-w-[88rem] pt-24 md:pt-36 pb-16 md:pb-24">
+        <div class="max-w-6xl">
+          <div class="mb-6">
+            <span class="white-badge inline-block">web3/AI概論</span>
+          </div>
+          <div class="mb-6">
+            <h1 class="bg-white text-gray-900 hero-title shadow-sm px-3 py-1 leading-tight mb-2" style="display:block;width:fit-content;">未来は、</h1>
+            <h1 class="bg-white text-gray-900 hero-title shadow-sm px-3 py-1 leading-tight mb-2" style="display:block;width:fit-content;">誰かが創るものではなく、</h1>
+            <h1 class="bg-white text-gray-900 hero-title shadow-sm px-3 py-1 leading-tight" style="display:block;width:fit-content;">私たちが、つかむもの。</h1>
+          </div>
+          <p class="text-base md:text-3xl font-bold bg-black text-white shadow-sm px-4 py-2 inline-block leading-tight" style="letter-spacing:.04em;">
+            最新テクノロジーを実践で学ぶ、大学発プロジェクト型コミュニティ
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- 情報バー -->
+    <div class="bg-white">
+      <div class="container mx-auto px-6 max-w-[88rem] py-12 md:py-16">
+        <div class="grid md:grid-cols-3 gap-6">
+          <a href="#who-we-are" class="group relative bg-[var(--bg-weak)] rounded-2xl p-8 md:p-10 hover:shadow-lg transition overflow-hidden block">
+            <div class="absolute inset-0 opacity-5 pointer-events-none">
+              <div class="absolute top-1/2 left-0 -translate-y-1/2 text-[6rem] md:text-[8rem] font-black text-gray-300" style="writing-mode:horizontal-tb;letter-spacing:-.05em;">WHO WE ARE</div>
+            </div>
+            <div class="relative z-10">
+              <div class="flex items-start justify-between mb-4">
+                <div>
+                  <h3 class="text-xl md:text-2xl font-black mb-2 tracking-wider">WHO WE ARE</h3>
+                  <p class="text-sm md:text-base font-bold">私たちについて</p>
+                </div>
+                <div class="w-12 h-12 bg-black rounded flex items-center justify-center flex-shrink-0 group-hover:bg-gray-800 transition">
+                  <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                  </svg>
+                </div>
+              </div>
+            </div>
+          </a>
+          <a href="chibatech.html" class="group relative bg-[var(--bg-weak)] rounded-2xl p-8 md:p-10 hover:shadow-lg transition overflow-hidden block">
+            <div class="absolute inset-0 opacity-5 pointer-events-none">
+              <div class="absolute top-1/2 left-0 -translate-y-1/2 text-[6rem] md:text-[8rem] font-black text-gray-300" style="writing-mode:horizontal-tb;letter-spacing:-.05em;">CHIBATECH</div>
+            </div>
+            <div class="relative z-10">
+              <div class="flex items-start justify-between mb-4">
+                <div>
+                  <h3 class="text-xl md:text-2xl font-black mb-2 tracking-wider">CHIBATECH</h3>
+                  <p class="text-sm md:text-base font-bold">千葉工業大学 正式科目</p>
+                </div>
+                <div class="w-12 h-12 bg-black rounded flex items-center justify-center flex-shrink-0 group-hover:bg-gray-800 transition">
+                  <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                  </svg>
+                </div>
+              </div>
+            </div>
+          </a>
+          <a href="#business-section" class="group relative bg-[var(--bg-weak)] rounded-2xl p-8 md:p-10 hover:shadow-lg transition overflow-hidden block">
+            <div class="absolute inset-0 opacity-5 pointer-events-none">
+              <div class="absolute top-1/2 left-0 -translate-y-1/2 text-[6rem] md:text-[8rem] font-black text-gray-300" style="writing-mode:horizontal-tb;letter-spacing:-.05em;">BUSINESS</div>
+            </div>
+            <div class="relative z-10">
+              <div class="flex items-start justify-between mb-4">
+                <div>
+                  <h3 class="text-xl md:text-2xl font-black mb-2 tracking-wider">FOR BUSINESS</h3>
+                  <p class="text-sm md:text-base font-bold">法人向け研修サービス</p>
+                </div>
+                <div class="w-12 h-12 bg-black rounded flex items-center justify-center flex-shrink-0 group-hover:bg-gray-800 transition">
+                  <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                  </svg>
+                </div>
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Who We Are -->
+  <section id="who-we-are" class="relative bg-white">
+    <div class="left-rail hidden md:block"></div>
+    <div class="container mx-auto px-6 max-w-[88rem] py-20">
+      <div class="grid grid-cols-1 lg:grid-cols-[56px_1fr] gap-4 items-start mb-12">
+        <div class="hidden lg:block">
+          <div class="bg-white caption px-2 py-1 rounded-sm section-label">WHO WE ARE</div>
+        </div>
+        <h2 class="section-title">
+          <span class="badge-title">私たちについて</span>
+        </h2>
+      </div>
+      <div class="grid md:grid-cols-2 gap-12 items-start">
+        <div class="space-y-7">
+          <p class="body-text">web3/AI概論は、最新テクノロジーを実践で学ぶ、大学発のプロジェクト型コミュニティです。</p>
+          <p class="body-text">千葉工業大学の正式科目として始まり、今では学生と社会人が共に学び、企業とも協業しながら、実践的なプロジェクトに取り組んでいます。</p>
+        </div>
+        <div class="aspect-[4/3] bg-gray-200 rounded-2xl"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Mission -->
+  <section class="relative bg-[var(--bg-weak)]">
+    <div class="left-rail hidden md:block"></div>
+    <div class="container mx-auto px-6 max-w-[88rem] py-20">
+      <div class="grid grid-cols-1 lg:grid-cols-[56px_1fr] gap-4 items-start mb-12">
+        <div class="hidden lg:block">
+          <div class="bg-white caption px-2 py-1 rounded-sm section-label">MISSION</div>
+        </div>
+        <h2 class="section-title">
+          <span class="badge-title">私たちのミッション</span>
+        </h2>
+      </div>
+      <div class="grid md:grid-cols-2 gap-12 items-start">
+        <div class="space-y-7">
+          <p class="body-text">テクノロジーの進化が加速する現代において、座学だけでは本質的な理解は得られません。私たちは「実践を通じた学び」と「多様な仲間との協働」を大切にしています。</p>
+          <p class="body-text">大学の枠を超えて、学生も社会人も、企業も研究者も、みんなが学び合えるコミュニティを創ります。</p>
+        </div>
+        <div class="aspect-[4/3] bg-gray-200 rounded-2xl"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Chibatech -->
+  <section class="relative">
+    <div class="left-rail hidden md:block"></div>
+    <div class="container mx-auto px-6 max-w-[88rem] py-20">
+      <div class="grid grid-cols-1 lg:grid-cols-[56px_1fr] gap-4 items-start mb-12">
+        <div class="hidden lg:block">
+          <div class="bg-white caption px-2 py-1 rounded-sm section-label">CHIBATECH</div>
+        </div>
+        <h2 class="section-title">
+          <span class="badge-title">千葉工業大学 正式科目</span>
+        </h2>
+      </div>
+      <div class="grid md:grid-cols-3 gap-10">
+        <div class="bg-white border border-[var(--line)] rounded-2xl p-7 hover:shadow-lg transition">
+          <div class="aspect-video bg-gray-200 rounded-lg mb-5"></div>
+          <h3 class="card-title mb-3">総合科学特論（Web3/AI概論）</h3>
+          <p class="small-text mb-5">千葉工大の学生はもちろん、社会人も参加できる大学の正式科目です。</p>
+          <a href="chibatech.html" class="tiny-text font-bold" style="color:var(--accent);">詳しく見る →</a>
+        </div>
+        <div class="bg-white border border-[var(--line)] rounded-2xl p-7 hover:shadow-lg transition">
+          <div class="aspect-video bg-gray-200 rounded-lg mb-5"></div>
+          <h3 class="card-title mb-3">プロジェクト型学習</h3>
+          <p class="small-text mb-5">講義だけでなく、実際にチームでプロダクトを作り、発表します。</p>
+        </div>
+        <div class="bg-white border border-[var(--line)] rounded-2xl p-7 hover:shadow-lg transition">
+          <div class="aspect-video bg-gray-200 rounded-lg mb-5"></div>
+          <h3 class="card-title mb-3">成果発表会</h3>
+          <p class="small-text mb-5">学期末には成果発表会を実施。企業や外部の方も参加します。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Reading -->
+  <section class="relative bg-[var(--bg-weak)]">
+    <div class="left-rail hidden md:block"></div>
+    <div class="container mx-auto px-6 max-w-[88rem] py-20">
+      <div class="grid grid-cols-1 lg:grid-cols-[56px_1fr] gap-4 items-start mb-12">
+        <div class="hidden lg:block">
+          <div class="bg-white caption px-2 py-1 rounded-sm section-label">READING</div>
+        </div>
+        <h2 class="section-title">
+          <span class="badge-title">学習リソース</span>
+        </h2>
+      </div>
+      <div class="grid md:grid-cols-3 gap-10 mb-10">
+        <div class="bg-white rounded-2xl overflow-hidden hover:shadow-lg transition">
+          <div class="bg-gradient-to-br from-purple-400 to-pink-500 aspect-video"></div>
+          <div class="p-7">
+            <div class="flex gap-2 mb-4">
+              <span class="caption px-2 py-1 bg-gray-100 rounded">AI</span>
+              <span class="caption px-2 py-1 bg-gray-100 rounded">シラバス</span>
+            </div>
+            <h3 class="card-title mb-3">生成AIの基礎と実践</h3>
+            <p class="small-text">ChatGPTやStable Diffusionの仕組みを理解し、実際に使ってみる入門記事。</p>
+          </div>
+        </div>
+        <div class="bg-white rounded-2xl overflow-hidden hover:shadow-lg transition">
+          <div class="bg-gradient-to-br from-blue-400 to-cyan-500 aspect-video"></div>
+          <div class="p-7">
+            <div class="flex gap-2 mb-4">
+              <span class="caption px-2 py-1 bg-gray-100 rounded">Web3</span>
+              <span class="caption px-2 py-1 bg-gray-100 rounded">ケース</span>
+            </div>
+            <h3 class="card-title mb-3">ブロックチェーンの社会実装事例</h3>
+            <p class="small-text">国内外の先進事例から、Web3技術が実社会でどう使われているかを学ぶ。</p>
+          </div>
+        </div>
+        <div class="bg-white rounded-2xl overflow-hidden hover:shadow-lg transition">
+          <div class="bg-gradient-to-br from-green-400 to-teal-500 aspect-video"></div>
+          <div class="p-7">
+            <div class="flex gap-2 mb-4">
+              <span class="caption px-2 py-1 bg-gray-100 rounded">AI</span>
+              <span class="caption px-2 py-1 bg-gray-100 rounded">Web3</span>
+            </div>
+            <h3 class="card-title mb-3">プロジェクト設計の考え方</h3>
+            <p class="small-text">技術を使って何を作るか、どう設計するかのフレームワークを紹介。</p>
+          </div>
+        </div>
+      </div>
+      <div class="text-center">
+        <a href="reading.html" class="btn-entry">すべての記事を見る</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- For Business -->
+  <section id="business-section" class="relative">
+    <div class="left-rail hidden md:block"></div>
+    <div class="container mx-auto px-6 max-w-[88rem] py-20">
+      <div class="grid grid-cols-1 lg:grid-cols-[56px_1fr] gap-4 items-start mb-12">
+        <div class="hidden lg:block">
+          <div class="bg-white caption px-2 py-1 rounded-sm section-label">FOR BUSINESS</div>
+        </div>
+        <h2 class="section-title">
+          <span class="badge-title">法人向けサービス</span>
+        </h2>
+      </div>
+      <p class="lead-text mb-12 max-w-3xl">大学での教育ノウハウを活かし、企業向けの研修プログラムを提供しています。</p>
+      <div class="grid md:grid-cols-3 gap-10 mb-12">
+        <div class="border border-[var(--line)] rounded-2xl p-7 bg-white">
+          <div class="w-12 h-12 bg-gray-200 rounded-lg mb-5"></div>
+          <h3 class="subsection-title mb-4">イントロ講座</h3>
+          <p class="small-text">Web3やAIの基礎知識を短時間で習得できる入門プログラム。</p>
+        </div>
+        <div class="border border-[var(--line)] rounded-2xl p-7 bg-white">
+          <div class="w-12 h-12 bg-gray-200 rounded-lg mb-5"></div>
+          <h3 class="subsection-title mb-4">実践ワークショップ</h3>
+          <p class="small-text">チームで手を動かしながら、実際にプロダクトを作る実践型研修。</p>
+        </div>
+        <div class="border border-[var(--line)] rounded-2xl p-7 bg-white">
+          <div class="w-12 h-12 bg-gray-200 rounded-lg mb-5"></div>
+          <h3 class="subsection-title mb-4">カスタム研修</h3>
+          <p class="small-text">貴社の課題や目的に合わせて、カリキュラムをフルカスタマイズ。</p>
+        </div>
+      </div>
+      <div class="text-center">
+        <a href="business.html" class="btn-entry">法人向けサービスの詳細</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Partners -->
+  <section id="partner-section" class="relative bg-[var(--bg-weak)]">
+    <div class="left-rail hidden md:block"></div>
+    <div class="container mx-auto px-6 max-w-[88rem] py-20">
+      <div class="grid grid-cols-1 lg:grid-cols-[56px_1fr] gap-4 items-start mb-12">
+        <div class="hidden lg:block">
+          <div class="bg-white caption px-2 py-1 rounded-sm section-label">PARTNERS</div>
+        </div>
+        <h2 class="section-title">
+          <span class="badge-title">協業パートナー募集</span>
+        </h2>
+      </div>
+      <p class="lead-text mb-10 max-w-3xl">教育・イベント・技術実装・社会連携など、さまざまな企業・団体との協業を募集しています。</p>
+      <div class="text-center">
+        <a href="partners.html" class="btn-entry">協業について詳しく見る</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- News -->
+  <section class="relative">
+    <div class="left-rail hidden md:block"></div>
+    <div class="container mx-auto px-6 max-w-[88rem] py-20">
+      <div class="grid grid-cols-1 lg:grid-cols-[56px_1fr] gap-4 items-start mb-12">
+        <div class="hidden lg:block">
+          <div class="bg-white caption px-2 py-1 rounded-sm section-label">NEWS</div>
+        </div>
+        <h2 class="section-title">
+          <span class="badge-title">お知らせ</span>
+        </h2>
+      </div>
+      <div class="grid md:grid-cols-3 gap-10 mb-10">
+        <div class="border-b border-[var(--line)] pb-7">
+          <p class="caption mb-3">2025.04.01</p>
+          <h3 class="card-title mb-3">2025年度春学期 授業開始のお知らせ</h3>
+          <p class="small-text">千葉工業大学での授業が4月8日よりスタートします。</p>
+        </div>
+        <div class="border-b border-[var(--line)] pb-7">
+          <p class="caption mb-3">2025.03.15</p>
+          <h3 class="card-title mb-3">法人研修プログラムをリニューアル</h3>
+          <p class="small-text">企業向け研修の内容を大幅にアップデートしました。</p>
+        </div>
+        <div class="border-b border-[var(--line)] pb-7">
+          <p class="caption mb-3">2025.02.28</p>
+          <h3 class="card-title mb-3">2024年度成果発表会を開催</h3>
+          <p class="small-text">学生・社会人合わせて15チームが成果を発表しました。</p>
+        </div>
+      </div>
+      <div class="text-center">
+        <a href="news.html" class="btn-entry">すべてのお知らせを見る</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="bg-[var(--bg-weak)]">
+    <div class="container mx-auto px-6 max-w-[88rem] py-16">
+      <div class="text-center">
+        <h2 class="subsection-title mb-8">まずはお気軽にお問い合わせください</h2>
+        <a href="contact.html" class="btn-entry inline-block">お問い合わせフォームへ</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-gray-900 text-white py-14">
+    <div class="container mx-auto px-6 max-w-[88rem]">
+      <div class="grid md:grid-cols-4 gap-10 mb-10">
+        <div>
+          <h4 class="font-bold text-base mb-4">web3/AI概論</h4>
+          <p class="small-text text-gray-400">最新テクノロジーを実践で学ぶ、大学発プロジェクト型コミュニティ</p>
+        </div>
+        <div>
+          <h4 class="tiny-text mb-4">ナビゲーション</h4>
+          <ul class="space-y-2.5 small-text">
+            <li><a href="index.html" class="text-gray-400 hover:text-white transition">Home</a></li>
+            <li><a href="chibatech.html" class="text-gray-400 hover:text-white transition">Chibatech</a></li>
+            <li><a href="reading.html" class="text-gray-400 hover:text-white transition">Reading</a></li>
+            <li><a href="business.html" class="text-gray-400 hover:text-white transition">For Business</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="tiny-text mb-4">その他</h4>
+          <ul class="space-y-2.5 small-text">
+            <li><a href="partners.html" class="text-gray-400 hover:text-white transition">Partners</a></li>
+            <li><a href="news.html" class="text-gray-400 hover:text-white transition">News</a></li>
+            <li><a href="contact.html" class="text-gray-400 hover:text-white transition">Contact</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="tiny-text mb-4">お問い合わせ</h4>
+          <p class="small-text text-gray-400">gairon.henkaku.org</p>
+        </div>
+      </div>
+      <div class="border-t border-gray-800 pt-8">
+        <p class="caption text-gray-500 leading-relaxed normal-case">
+          web3/AI概論プロジェクトはHENKAKU COMMUNITYから生まれた最新テクノロジーの学びを研究するプロジェクトです。千葉工大の正式科目web3/AI概論を運営しています。
+        </p>
+        <p class="caption text-gray-500 mt-4 normal-case">&copy; 2025 web3/AI概論. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
