@@ -67,6 +67,10 @@
     .staff-card{width:260px;flex:0 0 260px;background:#fff;border:1px solid var(--line);border-radius:1.75rem;overflow:hidden;display:flex;flex-direction:column;transition:transform .2s ease;}
     .staff-card:hover{transform:translateY(-6px);}
     .staff-card-link{text-decoration:none;color:inherit;}
+    .apply-step{background:#fff;border:1px solid var(--line);border-radius:1.75rem;padding:1.75rem;display:flex;gap:1.25rem;align-items:flex-start;}
+    .apply-step-number{flex:0 0 auto;width:48px;height:48px;border-radius:9999px;background:#000;color:#fff;font-weight:800;font-size:1.05rem;display:flex;align-items:center;justify-content:center;}
+    .apply-step-content h3{font-size:1.05rem;font-weight:700;margin-bottom:.35rem;}
+    .apply-step-content p{font-size:.9rem;line-height:1.7;color:var(--text-body);}
     .staff-photo{width:100%;aspect-ratio:3/4;background:#E5E7EB center/cover no-repeat;}
     .staff-content{padding:1.25rem 1.25rem 1.75rem;}
     .staff-caption{font-size:.7rem;font-weight:700;letter-spacing:.28em;color:var(--muted);text-transform:uppercase;text-align:center;margin-bottom:.5rem;}
@@ -478,32 +482,43 @@
           <span class="badge-title">申込み方法</span>
         </h2>
       </div>
-      <div class="grid md:grid-cols-4 gap-6 mb-12">
-        <div class="bg-white rounded-2xl p-6 text-center">
-          <div class="w-16 h-16 bg-pink-100 rounded-full flex items-center justify-center text-pink-600 text-2xl font-bold mx-auto mb-4">1</div>
+      <div class="grid md:grid-cols-3 xl:grid-cols-4 gap-6 mb-12">
+        <div class="bg-white rounded-2xl p-6">
+          <div class="w-12 h-12 bg-black text-white flex items-center justify-center text-lg font-bold rounded-full mb-4">01</div>
           <h3 class="font-bold mb-3">募集要項を確認</h3>
           <p class="text-sm text-gray-600">応募資格や期間を確認してください。</p>
         </div>
-        <div class="bg-white rounded-2xl p-6 text-center">
-          <div class="w-16 h-16 bg-pink-100 rounded-full flex items-center justify-center text-pink-600 text-2xl font-bold mx-auto mb-4">2</div>
+        <div class="bg-white rounded-2xl p-6">
+          <div class="w-12 h-12 bg-black text-white flex items-center justify-center text-lg font-bold rounded-full mb-4">02</div>
           <h3 class="font-bold mb-3">大学サイトで申込み</h3>
-          <p class="text-sm text-gray-600">千葉工大の公式申込みページから手続きを行います。</p>
+          <p class="text-sm text-gray-600">千葉工大の公式申込みページから手続きを行います。<br>「お名前」「ご所属」「電話番号」を入力の後、「所管部署」は必ずプルダウンで「教務」を選択してください。</p>
         </div>
-        <div class="bg-white rounded-2xl p-6 text-center">
-          <div class="w-16 h-16 bg-pink-100 rounded-full flex items-center justify-center text-pink-600 text-2xl font-bold mx-auto mb-4">3</div>
+        <div class="bg-white rounded-2xl p-6">
+          <div class="w-12 h-12 bg-black text-white flex items-center justify-center text-lg font-bold rounded-full mb-4">03</div>
+          <h3 class="font-bold mb-3">メールが届く</h3>
+          <p class="text-sm text-gray-600">申し込み後＊＊＊日以内に大学から受講手続きなどの詳細情報をメールでお送りします。<br>noreply@it-chiba.ac.jp を受信できる状態にしておいてください。</p>
+        </div>
+        <div class="bg-white rounded-2xl p-6">
+          <div class="w-12 h-12 bg-black text-white flex items-center justify-center text-lg font-bold rounded-full mb-4">04</div>
+          <h3 class="font-bold mb-3">出願情報を送付</h3>
+          <p class="text-sm text-gray-600">出願期間内に＊＊＊＊＊にて必要な情報を入力してください。</p>
+        </div>
+        <div class="bg-white rounded-2xl p-6">
+          <div class="w-12 h-12 bg-black text-white flex items-center justify-center text-lg font-bold rounded-full mb-4">05</div>
           <h3 class="font-bold mb-3">選考・結果通知</h3>
-          <p class="text-sm text-gray-600">書類選考の上、合否をメールでお知らせします。</p>
+          <p class="text-sm text-gray-600">出願に基づき、原則として書類審査により履修の可否を決定します。メールにて審査結果通知をお知らせします。</p>
         </div>
-        <div class="bg-white rounded-2xl p-6 text-center">
-          <div class="w-16 h-16 bg-pink-100 rounded-full flex items-center justify-center text-pink-600 text-2xl font-bold mx-auto mb-4">4</div>
+        <div class="bg-white rounded-2xl p-6">
+          <div class="w-12 h-12 bg-black text-white flex items-center justify-center text-lg font-bold rounded-full mb-4">06</div>
+          <h3 class="font-bold mb-3">受講手続き</h3>
+          <p class="text-sm text-gray-600">所定の期間内に授業料の振り込みを行ってください。また、履修に関する必要情報の確認を行ってください。</p>
+        </div>
+        <div class="bg-white rounded-2xl p-6">
+          <div class="w-12 h-12 bg-black text-white flex items-center justify-center text-lg font-bold rounded-full mb-4">07</div>
           <h3 class="font-bold mb-3">授業開始</h3>
-          <p class="text-sm text-gray-600">4月から授業スタート。</p>
+          <p class="text-sm text-gray-600">4月から授業スタートとなります。</p>
         </div>
       </div>
-      <div class="text-center">
-        <a href="#" class="btn-entry inline-block" target="_blank">大学公式申込みページへ</a>
-      </div>
-      <p class="text-center text-sm text-gray-500 mt-4">※申込みは千葉工業大学の公式サイトにて受付しています。</p>
     </div>
   </section>
 
