@@ -58,6 +58,14 @@
     .fixed-logo{position:fixed;left:20px;top:20px;z-index:50;width:80px;height:auto;transition:.2s;}
     .fixed-logo:hover{transform:scale(1.1);}
     .slider-hide::-webkit-scrollbar{display:none;}
+    .staff-card{width:260px;display:flex;flex-direction:column;background:#fff;border:1px solid var(--line);border-radius:1.75rem;box-shadow:0 12px 28px rgba(15,23,42,.12);overflow:hidden;transition:transform .2s ease,box-shadow .2s ease;}
+    .staff-card:hover{transform:translateY(-6px);box-shadow:0 18px 40px rgba(15,23,42,.16);}
+    .staff-card .staff-photo{aspect-ratio:3/4;background:#E5E7EB;background-size:cover;background-position:center;}
+    .staff-card .staff-content{padding:1.25rem 1.25rem 1.75rem;}
+    .staff-card .staff-caption{font-size:0.7rem;font-weight:700;letter-spacing:.28em;color:var(--muted);text-transform:uppercase;text-align:center;margin-bottom:.5rem;}
+    .staff-card .staff-name{font-size:1.15rem;font-weight:800;text-align:center;margin-bottom:.25rem;}
+    .staff-card .staff-note{font-size:.8rem;color:var(--muted);text-align:center;line-height:1.5;}
+    .staff-card-link{text-decoration:none;color:inherit;}
   </style>
 </head>
 <body>
@@ -211,53 +219,53 @@
       </div>
       <div class="relative">
         <div id="staffSlider" class="flex gap-6 overflow-x-auto pb-6 scroll-smooth snap-x snap-mandatory slider-hide" style="scrollbar-width:none;">
-          <article data-card class="flex-shrink-0 w-[240px] bg-white border border-[var(--line)] rounded-2xl shadow-sm p-6 snap-center">
-            <div class="w-20 h-20 bg-[#5865F2] rounded-full mx-auto mb-6 flex items-center justify-center">
-              <img src="https://cdn.simpleicons.org/discord/FFFFFF" alt="Discord" class="w-10 h-10">
+          <article data-card class="staff-card snap-center">
+            <div class="staff-photo" style="background-image:url('penguin.png');"></div>
+            <div class="staff-content">
+              <p class="staff-caption">科目責任者</p>
+              <p class="staff-name">伊藤穰一</p>
+              <p class="staff-note">MITメディアラボ所長としての知見を授業へ。</p>
             </div>
-            <p class="text-xs font-bold tracking-[0.2em] uppercase text-gray-500 text-center mb-1">科目責任者</p>
-            <p class="text-lg font-bold text-center">伊藤穰一</p>
-            <p class="text-xs text-gray-500 text-center mt-3">MITメディアラボ所長としての知見を授業へ。</p>
           </article>
-          <article data-card class="flex-shrink-0 w-[240px] bg-white border border-[var(--line)] rounded-2xl shadow-sm p-6 snap-center">
-            <div class="w-20 h-20 bg-[#5865F2] rounded-full mx-auto mb-6 flex items-center justify-center">
-              <img src="https://cdn.simpleicons.org/discord/FFFFFF" alt="Discord" class="w-10 h-10">
+          <a data-card class="staff-card staff-card-link snap-center" href="nishimura.html" aria-label="西村奈々の詳細ページへ">
+            <div class="staff-photo" style="background-image:url('penguin.png');"></div>
+            <div class="staff-content">
+              <p class="staff-caption">講師</p>
+              <p class="staff-name">西村奈々 <span class="text-sm font-semibold text-gray-500">(minta)</span></p>
+              <p class="staff-note">生成AIデザインの最前線を解説。</p>
             </div>
-            <p class="text-xs font-bold tracking-[0.2em] uppercase text-gray-500 text-center mb-1">講師</p>
-            <p class="text-lg font-bold text-center">西村奈々 <span class="text-sm font-semibold text-gray-500">(minta)</span></p>
-            <p class="text-xs text-gray-500 text-center mt-3">生成AIデザインの最前線を解説。</p>
+          </a>
+          <a data-card class="staff-card staff-card-link snap-center" href="shimose.html" aria-label="下瀬浩一の詳細ページへ">
+            <div class="staff-photo" style="background-image:url('penguin.png');"></div>
+            <div class="staff-content">
+              <p class="staff-caption">講師</p>
+              <p class="staff-name">下瀬浩一 <span class="text-sm font-semibold text-gray-500">(spark)</span></p>
+              <p class="staff-note">Web3プロダクト開発を実践的にサポート。</p>
+            </div>
+          </a>
+          <article data-card class="staff-card snap-center">
+            <div class="staff-photo" style="background-image:url('penguin.png');"></div>
+            <div class="staff-content">
+              <p class="staff-caption">CTO</p>
+              <p class="staff-name">石部達也 <span class="text-sm font-semibold text-gray-500">(DOU,Inc)</span></p>
+              <p class="staff-note">技術アーキテクチャと実装面を統括。</p>
+            </div>
           </article>
-          <article data-card class="flex-shrink-0 w-[240px] bg-white border border-[var(--line)] rounded-2xl shadow-sm p-6 snap-center">
-            <div class="w-20 h-20 bg-[#5865F2] rounded-full mx-auto mb-6 flex items-center justify-center">
-              <img src="https://cdn.simpleicons.org/discord/FFFFFF" alt="Discord" class="w-10 h-10">
+          <article data-card class="staff-card snap-center">
+            <div class="staff-photo" style="background-image:url('penguin.png');"></div>
+            <div class="staff-content">
+              <p class="staff-caption">運営</p>
+              <p class="staff-name">品田美帆</p>
+              <p class="staff-note">学生と社会人の学びを支えるコミュニティ運営。</p>
             </div>
-            <p class="text-xs font-bold tracking-[0.2em] uppercase text-gray-500 text-center mb-1">講師</p>
-            <p class="text-lg font-bold text-center">下瀬浩一 <span class="text-sm font-semibold text-gray-500">(spark)</span></p>
-            <p class="text-xs text-gray-500 text-center mt-3">Web3プロダクト開発を実践的にサポート。</p>
           </article>
-          <article data-card class="flex-shrink-0 w-[240px] bg-white border border-[var(--line)] rounded-2xl shadow-sm p-6 snap-center">
-            <div class="w-20 h-20 bg-[#5865F2] rounded-full mx-auto mb-6 flex items-center justify-center">
-              <img src="https://cdn.simpleicons.org/discord/FFFFFF" alt="Discord" class="w-10 h-10">
+          <article data-card class="staff-card snap-center">
+            <div class="staff-photo" style="background-image:url('penguin.png');"></div>
+            <div class="staff-content">
+              <p class="staff-caption">監修</p>
+              <p class="staff-name">？？？？</p>
+              <p class="staff-note">近日公開予定。</p>
             </div>
-            <p class="text-xs font-bold tracking-[0.2em] uppercase text-gray-500 text-center mb-1">CTO</p>
-            <p class="text-lg font-bold text-center">石部達也 <span class="text-sm font-semibold text-gray-500">(DOU,Inc)</span></p>
-            <p class="text-xs text-gray-500 text-center mt-3">技術アーキテクチャと実装面を統括。</p>
-          </article>
-          <article data-card class="flex-shrink-0 w-[240px] bg-white border border-[var(--line)] rounded-2xl shadow-sm p-6 snap-center">
-            <div class="w-20 h-20 bg-[#5865F2] rounded-full mx-auto mb-6 flex items-center justify-center">
-              <img src="https://cdn.simpleicons.org/discord/FFFFFF" alt="Discord" class="w-10 h-10">
-            </div>
-            <p class="text-xs font-bold tracking-[0.2em] uppercase text-gray-500 text-center mb-1">運営</p>
-            <p class="text-lg font-bold text-center">品田美帆</p>
-            <p class="text-xs text-gray-500 text-center mt-3">学生と社会人の学びを支えるコミュニティ運営。</p>
-          </article>
-          <article data-card class="flex-shrink-0 w-[240px] bg-white border border-[var(--line)] rounded-2xl shadow-sm p-6 snap-center">
-            <div class="w-20 h-20 bg-[#5865F2] rounded-full mx-auto mb-6 flex items-center justify-center">
-              <img src="https://cdn.simpleicons.org/discord/FFFFFF" alt="Discord" class="w-10 h-10">
-            </div>
-            <p class="text-xs font-bold tracking-[0.2em] uppercase text-gray-500 text-center mb-1">監修</p>
-            <p class="text-lg font-bold text-center">？？？？</p>
-            <p class="text-xs text-gray-500 text-center mt-3">近日公開予定。</p>
           </article>
         </div>
         <div class="absolute inset-y-0 right-0 hidden md:flex items-center pointer-events-none pr-2">
