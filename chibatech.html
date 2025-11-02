@@ -119,12 +119,12 @@
         <div class="grid md:grid-cols-2 gap-6">
           <a href="#requirements" class="group relative bg-[var(--bg-weak)] rounded-2xl p-8 md:p-10 hover:shadow-lg transition overflow-hidden block">
             <div class="absolute inset-0 opacity-5 pointer-events-none">
-              <div class="absolute top-1/2 left-0 -translate-y-1/2 text-[6rem] md:text-[8rem] font-black text-gray-300" style="writing-mode:horizontal-tb;letter-spacing:-.05em;">REQUIREMENTS</div>
+              <div class="absolute top-1/2 left-0 -translate-y-1/2 text-[6rem] md:text-[8rem] font-black text-gray-300" style="writing-mode:horizontal-tb;letter-spacing:-.05em;">GUIDELINES</div>
             </div>
             <div class="relative z-10">
               <div class="flex items-start justify-between mb-4">
                 <div class="flex-1 min-w-0 pr-3">
-                  <h3 class="text-xl md:text-2xl font-black mb-2 tracking-wider">REQUIREMENTS</h3>
+                  <h3 class="text-xl md:text-2xl font-black mb-2 tracking-wider">GUIDELINES</h3>
                   <p class="text-sm md:text-base font-bold whitespace-normal break-words">募集要項を見る</p>
                 </div>
                 <div class="w-12 h-12 bg-black rounded flex items-center justify-center flex-shrink-0 group-hover:bg-gray-800 transition">
@@ -196,7 +196,7 @@
     <div class="container mx-auto px-6 max-w-[88rem] py-20">
       <div class="grid grid-cols-1 lg:grid-cols-[56px_1fr] gap-4 items-start mb-10">
         <div class="hidden lg:block">
-          <div class="bg-white text-gray-600 text-xs tracking-[0.12em] px-2 py-1 rounded-sm section-label">REQUIREMENTS</div>
+          <div class="bg-white text-gray-600 text-xs tracking-[0.12em] px-2 py-1 rounded-sm section-label">GUIDELINES</div>
         </div>
         <h2 class="leading-snug text-[clamp(1.7rem,3.6vw,2.5rem)] font-black">
           <span class="badge-title">募集要項</span>
@@ -204,11 +204,11 @@
       </div>
 
       <div class="flex border-b border-gray-200 mb-8">
-        <button class="tab-btn active" onclick="switchTab('student')" id="tab-student">学生枠</button>
-        <button class="tab-btn" onclick="switchTab('professional')" id="tab-professional">社会人枠</button>
+        <button class="tab-btn active" onclick="switchTab('professional')" id="tab-professional">社会人枠</button>
+        <button class="tab-btn" onclick="switchTab('student')" id="tab-student">学生枠</button>
       </div>
 
-      <div id="content-student" class="tab-content">
+      <div id="content-student" class="tab-content hidden">
         <div class="grid md:grid-cols-2 gap-8">
           <div class="bg-white border border-[var(--line)] rounded-2xl p-8">
             <h3 class="font-bold text-lg mb-4">応募資格</h3>
@@ -235,7 +235,7 @@
         </div>
       </div>
 
-      <div id="content-professional" class="tab-content hidden">
+      <div id="content-professional" class="tab-content">
         <div class="grid md:grid-cols-2 gap-8">
           <div class="bg-white border border-[var(--line)] rounded-2xl p-8">
             <h3 class="font-bold text-lg mb-4">応募資格</h3>
