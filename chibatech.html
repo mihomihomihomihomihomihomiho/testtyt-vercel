@@ -51,6 +51,10 @@
       opacity:.9;}
     .tab-btn{padding:.5rem 1.5rem;border-bottom:2px solid transparent;font-weight:700;transition:.2s;cursor:pointer;}
     .tab-btn.active{border-bottom-color:var(--accent);color:var(--accent);}
+    .headline-caption{display:inline-block;font-size:.75rem;font-weight:700;letter-spacing:.2em;color:var(--muted);text-transform:uppercase;}
+    .headline-main{display:inline-block;font-size:clamp(2rem,4.2vw,3rem);font-weight:900;color:var(--text);letter-spacing:.04em;line-height:1.15;border-bottom:4px solid #111;padding-bottom:.35rem;}
+    .headline-statement{margin:0;}
+    .headline-highlight{display:inline;background:#000;color:#fff;padding:.85rem 2.3rem;border-radius:.55rem;font-size:clamp(1.6rem,3.6vw,2.4rem);line-height:1.35;font-weight:900;letter-spacing:.02em;box-decoration-break:clone;-webkit-box-decoration-break:clone;}
     .fixed-logo{position:fixed;left:20px;top:20px;z-index:50;width:80px;height:auto;transition:.2s;}
     .fixed-logo:hover{transform:scale(1.1);}
   </style>
@@ -194,20 +198,22 @@
   <section id="requirements" class="relative">
     <div class="left-rail hidden md:block"></div>
     <div class="container mx-auto px-6 max-w-[88rem] py-20">
-      <div class="grid grid-cols-1 lg:grid-cols-[56px_1fr] gap-4 items-start mb-10">
+      <div class="grid grid-cols-1 lg:grid-cols-[56px_1fr] gap-6 items-start mb-12">
         <div class="hidden lg:block">
           <div class="bg-white text-gray-600 text-xs tracking-[0.12em] px-2 py-1 rounded-sm section-label">GUIDELINES</div>
         </div>
-        <h2 class="leading-snug text-[clamp(1.7rem,3.6vw,2.5rem)] font-black">
-          <span class="badge-title">募集要項</span>
-        </h2>
+        <div class="space-y-4">
+          <span class="headline-caption">GUIDELINES</span>
+          <h2 class="leading-snug font-black">
+            <span class="headline-main">募集要項</span>
+          </h2>
+          <div class="headline-highlight">授業への参加資格は、プロダクトを作る意欲があるかどうか。学歴や職歴は不問です。</div>
+        </div>
       </div>
-
       <div class="flex border-b border-gray-200 mb-8">
         <button class="tab-btn active" onclick="switchTab('professional')" id="tab-professional">社会人枠</button>
         <button class="tab-btn" onclick="switchTab('student')" id="tab-student">学生枠</button>
       </div>
-
       <div id="content-student" class="tab-content hidden">
         <div class="grid md:grid-cols-2 gap-8">
           <div class="bg-white border border-[var(--line)] rounded-2xl p-8">
