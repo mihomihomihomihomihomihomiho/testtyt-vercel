@@ -57,6 +57,7 @@
     .tab-btn.active{border-bottom-color:var(--accent);color:var(--accent);}
     .fixed-logo{position:fixed;left:20px;top:20px;z-index:50;width:80px;height:auto;transition:.2s;}
     .fixed-logo:hover{transform:scale(1.1);}
+    .slider-hide::-webkit-scrollbar{display:none;}
   </style>
 </head>
 <body>
@@ -468,6 +469,15 @@
   </footer>
 
   <script>
+    function scrollStaff(direction) {
+      const slider = document.getElementById('staffSlider');
+      if (!slider) return;
+      const card = slider.querySelector('[data-card]');
+      const gap = 24;
+      const amount = card ? card.offsetWidth + gap : 260;
+      slider.scrollBy({ left: direction === 'right' ? amount : -amount, behavior: 'smooth' });
+    }
+
     function switchTab(tab) {
       document.getElementById('tab-student').classList.remove('active');
       document.getElementById('tab-professional').classList.remove('active');
