@@ -58,16 +58,19 @@
     .fixed-logo{position:fixed;left:20px;top:20px;z-index:50;width:80px;height:auto;transition:.2s;}
     .fixed-logo:hover{transform:scale(1.1);}
     .slider-hide::-webkit-scrollbar{display:none;}
-    .feature-card{width:320px;flex:0 0 320px;background:#fff;border:1px solid var(--line);border-radius:1.75rem;padding:2rem;display:flex;flex-direction:column;gap:1.25rem;transition:transform .2s ease;}
+    .feature-card{width:320px;flex:0 0 320px;background:#fff;border:1px solid var(--line);border-radius:1rem;padding:2rem;display:flex;flex-direction:column;gap:1.25rem;transition:transform .2s ease;}
     .feature-card:hover{transform:translateY(-4px);}
     .feature-card-index{display:inline-flex;align-items:center;justify-content:center;width:48px;height:48px;background:#111;color:#fff;font-weight:800;font-size:1.1rem;border-radius:9999px;letter-spacing:.08em;}
     .feature-card-title{font-weight:800;font-size:1.125rem;letter-spacing:.04em;line-height:1.5;}
     .feature-card-text{font-size:0.95rem;line-height:1.9;color:var(--text-body);}
     .feature-divider{height:1px;background:var(--line);opacity:.9;margin-top:.5rem;margin-bottom:.5rem;}
-    .staff-card{width:260px;flex:0 0 260px;background:#fff;border:1px solid var(--line);border-radius:1.75rem;overflow:hidden;display:flex;flex-direction:column;transition:transform .2s ease;}
+    .staff-card{width:260px;flex:0 0 260px;background:#fff;border:1px solid var(--line);border-radius:1rem;overflow:hidden;display:flex;flex-direction:column;transition:transform .2s ease;}
     .staff-card:hover{transform:translateY(-6px);}
     .staff-card-link{text-decoration:none;color:inherit;}
-    .apply-step{background:#fff;border:1px solid var(--line);border-radius:1.75rem;padding:1.75rem;display:flex;gap:1.25rem;align-items:flex-start;}
+    .apply-steps-wrapper{position:relative;margin-left:1.5rem;}
+    .apply-steps-wrapper::before{content:"";position:absolute;left:48px;top:0;bottom:0;width:2px;background:linear-gradient(180deg,rgba(17,17,17,0.08),rgba(17,17,17,0.24));}
+    .apply-step{position:relative;background:#fff;border:1px solid var(--line);border-radius:1rem;padding:1.75rem;display:flex;gap:1.25rem;align-items:flex-start;}
+    .apply-step::before{display:none;}
     .apply-step-number{flex:0 0 auto;width:48px;height:48px;border-radius:9999px;background:#000;color:#fff;font-weight:800;font-size:1.05rem;display:flex;align-items:center;justify-content:center;}
     .apply-step-content h3{font-size:1.05rem;font-weight:700;margin-bottom:.35rem;}
     .apply-step-content p{font-size:.9rem;line-height:1.7;color:var(--text-body);}
@@ -76,7 +79,7 @@
     .staff-caption{font-size:.7rem;font-weight:700;letter-spacing:.28em;color:var(--muted);text-transform:uppercase;text-align:center;margin-bottom:.5rem;}
     .staff-name{font-size:1.1rem;font-weight:800;text-align:center;margin-bottom:.35rem;}
     .staff-note{font-size:.8rem;color:var(--muted);text-align:center;line-height:1.5;}
-    .staff-card{width:260px;display:flex;flex-direction:column;background:#fff;border:1px solid var(--line);border-radius:1.75rem;overflow:hidden;transition:transform .2s ease;}
+    .staff-card{width:260px;display:flex;flex-direction:column;background:#fff;border:1px solid var(--line);border-radius:1rem;overflow:hidden;transition:transform .2s ease;}
     .staff-card:hover{transform:translateY(-6px);}
     .staff-card .staff-photo{aspect-ratio:3/4;background:#E5E7EB;background-size:cover;background-position:center;}
     .staff-card .staff-content{padding:1.25rem 1.25rem 1.75rem;}
@@ -478,45 +481,64 @@
         <div class="hidden lg:block">
           <div class="bg-white text-gray-600 text-xs tracking-[0.12em] px-2 py-1 rounded-sm section-label">HOW TO APPLY</div>
         </div>
-        <h2 class="leading-snug text-[clamp(1.7rem,3.6vw,2.5rem)] font-black">
-          <span class="badge-title">申込み方法</span>
-        </h2>
+        <div class="space-y-4">
+          <h2 class="leading-snug text-[clamp(1.7rem,3.6vw,2.5rem)] font-black">
+            <span class="badge-title">申込み方法</span>
+          </h2>
+          <p class="body-text leading-relaxed max-w-full lg:pr-16">
+            web3/AI概論の受講には、千葉工業大学公式サイトからの申込みが必要です。以下の手順で、申込みから授業開始までの流れをご案内します。
+          </p>
+        </div>
       </div>
-      <div class="grid md:grid-cols-3 xl:grid-cols-4 gap-6 mb-12">
-        <div class="bg-white rounded-2xl p-6">
-          <div class="w-12 h-12 bg-black text-white flex items-center justify-center text-lg font-bold rounded-full mb-4">01</div>
-          <h3 class="font-bold mb-3">募集要項を確認</h3>
-          <p class="text-sm text-gray-600">応募資格や期間を確認してください。</p>
+      <div class="apply-steps-wrapper space-y-4 mb-12">
+        <div class="apply-step">
+          <div class="apply-step-number">01</div>
+          <div class="apply-step-content">
+            <h3>募集要項を確認</h3>
+            <p>応募資格や期間を確認してください。</p>
+          </div>
         </div>
-        <div class="bg-white rounded-2xl p-6">
-          <div class="w-12 h-12 bg-black text-white flex items-center justify-center text-lg font-bold rounded-full mb-4">02</div>
-          <h3 class="font-bold mb-3">大学サイトで申込み</h3>
-          <p class="text-sm text-gray-600">千葉工大の公式申込みページから手続きを行います。<br>「お名前」「ご所属」「電話番号」を入力の後、「所管部署」は必ずプルダウンで「教務」を選択してください。</p>
+        <div class="apply-step">
+          <div class="apply-step-number">02</div>
+          <div class="apply-step-content">
+            <h3>大学サイトで申込み</h3>
+            <p>千葉工大の公式申込みページから手続きを行います。「お名前」「ご所属」「電話番号」を入力の後、「所管部署」は必ずプルダウンで「教務」を選択してください。</p>
+          </div>
         </div>
-        <div class="bg-white rounded-2xl p-6">
-          <div class="w-12 h-12 bg-black text-white flex items-center justify-center text-lg font-bold rounded-full mb-4">03</div>
-          <h3 class="font-bold mb-3">メールが届く</h3>
-          <p class="text-sm text-gray-600">申し込み後＊＊＊日以内に大学から受講手続きなどの詳細情報をメールでお送りします。<br>noreply@it-chiba.ac.jp を受信できる状態にしておいてください。</p>
+        <div class="apply-step">
+          <div class="apply-step-number">03</div>
+          <div class="apply-step-content">
+            <h3>メールが届く</h3>
+            <p>申し込み後＊＊＊日以内に大学から受講手続きなどの詳細情報をメールでお送りします。noreply@it-chiba.ac.jp を受信できる状態にしておいてください。</p>
+          </div>
         </div>
-        <div class="bg-white rounded-2xl p-6">
-          <div class="w-12 h-12 bg-black text-white flex items-center justify-center text-lg font-bold rounded-full mb-4">04</div>
-          <h3 class="font-bold mb-3">出願情報を送付</h3>
-          <p class="text-sm text-gray-600">出願期間内に＊＊＊＊＊にて必要な情報を入力してください。</p>
+        <div class="apply-step">
+          <div class="apply-step-number">04</div>
+          <div class="apply-step-content">
+            <h3>出願情報を送付</h3>
+            <p>出願期間内に＊＊＊＊＊にて必要な情報を入力してください。</p>
+          </div>
         </div>
-        <div class="bg-white rounded-2xl p-6">
-          <div class="w-12 h-12 bg-black text-white flex items-center justify-center text-lg font-bold rounded-full mb-4">05</div>
-          <h3 class="font-bold mb-3">選考・結果通知</h3>
-          <p class="text-sm text-gray-600">出願に基づき、原則として書類審査により履修の可否を決定します。メールにて審査結果通知をお知らせします。</p>
+        <div class="apply-step">
+          <div class="apply-step-number">05</div>
+          <div class="apply-step-content">
+            <h3>選考・結果通知</h3>
+            <p>出願に基づき、原則として書類審査により履修の可否を決定します。メールにて審査結果通知をお知らせします。</p>
+          </div>
         </div>
-        <div class="bg-white rounded-2xl p-6">
-          <div class="w-12 h-12 bg-black text-white flex items-center justify-center text-lg font-bold rounded-full mb-4">06</div>
-          <h3 class="font-bold mb-3">受講手続き</h3>
-          <p class="text-sm text-gray-600">所定の期間内に授業料の振り込みを行ってください。また、履修に関する必要情報の確認を行ってください。</p>
+        <div class="apply-step">
+          <div class="apply-step-number">06</div>
+          <div class="apply-step-content">
+            <h3>受講手続き</h3>
+            <p>所定の期間内に授業料の振り込みを行ってください。また、履修に関する必要情報の確認を行ってください。</p>
+          </div>
         </div>
-        <div class="bg-white rounded-2xl p-6">
-          <div class="w-12 h-12 bg-black text-white flex items-center justify-center text-lg font-bold rounded-full mb-4">07</div>
-          <h3 class="font-bold mb-3">授業開始</h3>
-          <p class="text-sm text-gray-600">4月から授業スタートとなります。</p>
+        <div class="apply-step">
+          <div class="apply-step-number">07</div>
+          <div class="apply-step-content">
+            <h3>授業開始</h3>
+            <p>4月から授業スタートとなります。</p>
+          </div>
         </div>
       </div>
     </div>
