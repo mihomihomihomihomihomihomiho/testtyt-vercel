@@ -58,6 +58,12 @@
     .fixed-logo{position:fixed;left:20px;top:20px;z-index:50;width:80px;height:auto;transition:.2s;}
     .fixed-logo:hover{transform:scale(1.1);}
     .slider-hide::-webkit-scrollbar{display:none;}
+    .feature-card{width:320px;flex:0 0 320px;background:#fff;border:1px solid var(--line);border-radius:1.75rem;padding:2rem;display:flex;flex-direction:column;gap:1.25rem;box-shadow:0 10px 28px rgba(15,23,42,.08);transition:transform .2s ease,box-shadow .2s ease;}
+    .feature-card:hover{transform:translateY(-4px);box-shadow:0 18px 36px rgba(15,23,42,.12);}
+    .feature-card-index{display:inline-flex;align-items:center;justify-content:center;width:48px;height:48px;background:#111;color:#fff;font-weight:800;font-size:1.1rem;border-radius:9999px;letter-spacing:.08em;}
+    .feature-card-title{font-weight:800;font-size:1.125rem;letter-spacing:.04em;line-height:1.5;}
+    .feature-card-text{font-size:0.95rem;line-height:1.9;color:var(--text-body);}
+    .feature-divider{height:1px;background:var(--line);opacity:.9;margin-top:.5rem;margin-bottom:.5rem;}
     .staff-card{width:260px;flex:0 0 260px;background:#fff;border:1px solid var(--line);border-radius:1.75rem;box-shadow:0 10px 28px rgba(15,23,42,.12);overflow:hidden;display:flex;flex-direction:column;transition:transform .2s ease,box-shadow .2s ease;}
     .staff-card:hover{transform:translateY(-6px);box-shadow:0 18px 40px rgba(15,23,42,.16);}
     .staff-card-link{text-decoration:none;color:inherit;}
@@ -183,30 +189,82 @@
   <section class="relative bg-[var(--bg-weak)]">
     <div class="left-rail hidden md:block"></div>
     <div class="container mx-auto px-6 max-w-[88rem] py-20">
-      <div class="grid grid-cols-1 lg:grid-cols-[56px_1fr] gap-4 items-start mb-10">
+      <div class="grid grid-cols-1 lg:grid-cols-[56px_minmax(0,1fr)] gap-4 items-start mb-10">
         <div class="hidden lg:block lg:-mt-8">
           <div class="bg-white text-gray-600 text-xs tracking-[0.12em] px-2 py-1 rounded-sm section-label">OVERVIEW</div>
         </div>
-        <h2 class="leading-snug text-[clamp(1.7rem,3.6vw,2.5rem)] font-black space-y-2">
-          <span class="badge-title block w-fit">デジタル変革の、その先へ。</span>
-          <span class="badge-title block w-fit">思考をアップデートする、次世代の教養。</span>
-        </h2>
+        <div class="space-y-6">
+          <h2 class="leading-snug text-[clamp(1.7rem,3.6vw,2.5rem)] font-black space-y-2">
+            <span class="badge-title block w-fit">デジタル変革の、その先へ。</span>
+            <span class="badge-title block w-fit">思考をアップデートする、次世代の教養。</span>
+          </h2>
+          <p class="body-text leading-relaxed max-w-full lg:pr-16">
+            千葉工業大学「web3/AI概論」は、生成AIとブロックチェーンを軸に、“つくることで学ぶ”を実践するプロジェクト型授業です。最新テクノロジーを駆使しながら、学生・社会人・研究者が同じフィールドで問いを立て、プロジェクトを形にし、社会へ実装していきます。AIと人間、中央集権と分散、知と創造などなど。さまざまなクロスポイントを探りながら、考え、つくり、試し続ける。ここは、デジタル変革のその先を生きるための、次世代の教養を体験する場です。教室から社会へ、学びがそのままアクションにつながる。「web3/AI概論」は、そんな新しい学びの実験場なんです。
+          </p>
+        </div>
       </div>
-      <div class="grid md:grid-cols-3 gap-8">
-        <div class="bg-white rounded-2xl p-8">
-          <div class="w-16 h-16 bg-gradient-to-br from-pink-500 to-purple-600 rounded-xl mb-6 flex items-center justify-center text-white text-2xl font-bold">01</div>
-          <h3 class="font-bold text-xl mb-4">最先端のテクノロジー</h3>
-          <p class="prose-p text-sm">生成AI、ブロックチェーン、Web3など、今まさに社会を変えつつある技術を実践的に学びます。</p>
+      <div class="relative">
+        <div id="featureSlider" class="flex gap-6 overflow-x-auto pb-6 scroll-smooth snap-x snap-mandatory slider-hide" style="scrollbar-width:none;">
+          <article class="feature-card snap-center" data-feature-card>
+            <span class="feature-card-index">01</span>
+            <div>
+              <h3 class="feature-card-title">最先端のテクノロジー</h3>
+              <div class="feature-divider"></div>
+            </div>
+            <p class="feature-card-text">
+              生成AI、ブロックチェーン、ノーコードツールなど、社会を変革する最前線の技術を実践的に学びます。単なるツール習得ではなく、AIとWeb3を「問いを立てるための道具」として使いこなす力を養います。
+            </p>
+          </article>
+          <article class="feature-card snap-center" data-feature-card>
+            <span class="feature-card-index">02</span>
+            <div>
+              <h3 class="feature-card-title">多様な仲間との共同学習</h3>
+              <div class="feature-divider"></div>
+            </div>
+            <p class="feature-card-text">
+              学部生・大学院生・社会人が一緒に学び合い、異なる視点や経験を持ち寄りながらプロジェクトを進めます。世代や専門を超えたチームで協働することで、新しい発想と学びが生まれます。
+            </p>
+          </article>
+          <article class="feature-card snap-center" data-feature-card>
+            <span class="feature-card-index">03</span>
+            <div>
+              <h3 class="feature-card-title">プロジェクト型実践</h3>
+              <div class="feature-divider"></div>
+            </div>
+            <p class="feature-card-text">
+              講義で得た知識をそのまま現実の開発へ。顧客インタビューからプロトタイプ制作、検証、ローンチまでを一貫して行い、使われるプロダクトの完成を目指します。
+            </p>
+          </article>
+          <article class="feature-card snap-center" data-feature-card>
+            <span class="feature-card-index">04</span>
+            <div>
+              <h3 class="feature-card-title">世界水準の教材</h3>
+              <div class="feature-divider"></div>
+            </div>
+            <p class="feature-card-text">
+              アリゾナ州立大学（ASU）の教材とEthereum FoundationのUethを統合。反転学習形式で理論と実践を両立します。
+            </p>
+          </article>
+          <article class="feature-card snap-center" data-feature-card>
+            <span class="feature-card-index">05</span>
+            <div>
+              <h3 class="feature-card-title">NFT修了証の発行</h3>
+              <div class="feature-divider"></div>
+            </div>
+            <p class="feature-card-text">
+              プロジェクトを完遂した受講生にはNFT形式の修了証を発行し、スキルをブロックチェーン上に永続的に記録します。
+            </p>
+          </article>
         </div>
-        <div class="bg-white rounded-2xl p-8">
-          <div class="w-16 h-16 bg-gradient-to-br from-blue-500 to-cyan-600 rounded-xl mb-6 flex items-center justify-center text-white text-2xl font-bold">02</div>
-          <h3 class="font-bold text-xl mb-4">多様な仲間との共同学習</h3>
-          <p class="prose-p text-sm">学生と社会人が一緒に学ぶ環境。多様なバックグラウンドを持つ仲間と協働します。</p>
+        <div class="absolute inset-y-0 left-0 hidden lg:flex items-center pointer-events-none pl-2">
+          <button id="featurePrev" type="button" aria-label="前の特徴を見る" class="pointer-events-auto w-12 h-12 rounded-full bg-white shadow-md border border-[var(--line)] flex items-center justify-center hover:bg-gray-50 transition" onclick="scrollFeatures('left')">
+            <span class="text-xl font-bold text-gray-600">&lt;</span>
+          </button>
         </div>
-        <div class="bg-white rounded-2xl p-8">
-          <div class="w-16 h-16 bg-gradient-to-br from-green-500 to-teal-600 rounded-xl mb-6 flex items-center justify-center text-white text-2xl font-bold">03</div>
-          <h3 class="font-bold text-xl mb-4">プロジェクト型実践</h3>
-          <p class="prose-p text-sm">座学だけでなく、チームでプロダクトを作り上げ、最後に成果発表を行います。</p>
+        <div class="absolute inset-y-0 right-0 hidden lg:flex items-center pointer-events-none pr-2">
+          <button id="featureNext" type="button" aria-label="次の特徴を見る" class="pointer-events-auto w-12 h-12 rounded-full bg-white shadow-md border border-[var(--line)] flex items-center justify-center hover:bg-gray-50 transition" onclick="scrollFeatures('right')">
+            <span class="text-xl font-bold text-gray-600">&gt;</span>
+          </button>
         </div>
       </div>
     </div>
@@ -220,10 +278,15 @@
         <div class="hidden lg:block lg:-mt-8">
           <div class="bg-white text-gray-600 text-xs tracking-[0.12em] px-2 py-1 rounded-sm section-label">STAFF</div>
         </div>
-        <h2 class="leading-snug text-[clamp(1.7rem,3.6vw,2.4rem)] font-black space-y-2">
-          <span class="badge-title block w-fit">教育と実践をつなぐ、</span>
-          <span class="badge-title block w-fit">web3/AI概論の中核チーム</span>
-        </h2>
+        <div class="space-y-6">
+          <h2 class="leading-snug text-[clamp(1.7rem,3.6vw,2.4rem)] font-black space-y-2">
+            <span class="badge-title block w-fit">教育と実践をつなぐ、</span>
+            <span class="badge-title block w-fit">web3/AI概論の中核チーム</span>
+          </h2>
+          <p class="body-text leading-relaxed max-w-full lg:pr-16">
+            この講義を支えるのは、研究・開発・制作の現場を横断する実践者たち。理論を教えるだけでなく、AIやWeb3を用いた試作や社会実装まで学生と並走します。知を現場へ、現場の気づきを知へと繋ぐ。教育と実践の循環をデザインする中核チームです。
+          </p>
+        </div>
       </div>
       <div class="relative">
         <div id="staffSlider" class="flex gap-6 overflow-x-auto pb-6 scroll-smooth snap-x snap-mandatory slider-hide" style="scrollbar-width:none;">
@@ -301,10 +364,12 @@
         <h2 class="leading-snug text-[clamp(1.7rem,3.6vw,2.5rem)] font-black space-y-2">
           <span class="tiny-text block text-gray-500 tracking-[0.28em]">募集要項</span>
           <span class="badge-title block w-fit">千葉工大の正式科目として</span>
-          <span class="badge-title block w-fit">2026年度も開講が決定！</span>
+          <span class="badge-title block w-fit">2026年度も開講予定！</span>
           <span class="badge-title block w-fit">社会人も参加可能です。</span>
         </h2>
       </div>
+
+      
       <div class="flex border-b border-gray-200 mb-8">
         <button class="tab-btn active" onclick="switchTab('professional')" id="tab-professional">社会人枠</button>
         <button class="tab-btn" onclick="switchTab('student')" id="tab-student">学生枠</button>
@@ -490,6 +555,40 @@
   </footer>
 
   <script>
+    function scrollFeatures(direction) {
+      const slider = document.getElementById('featureSlider');
+      if (!slider) return;
+      const gap = parseFloat(window.getComputedStyle(slider).gap) || 24;
+      const card = slider.querySelector('[data-feature-card]');
+      const cardWidth = card ? card.getBoundingClientRect().width : 320;
+      const amount = cardWidth + gap;
+      const maxScroll = Math.max(slider.scrollWidth - slider.clientWidth, 0);
+      const target = direction === 'right'
+        ? Math.min(slider.scrollLeft + amount, maxScroll)
+        : Math.max(slider.scrollLeft - amount, 0);
+
+      slider.scrollTo({ left: target, behavior: 'smooth' });
+      window.requestAnimationFrame(updateFeatureArrows);
+    }
+
+    function updateFeatureArrows() {
+      const slider = document.getElementById('featureSlider');
+      const prev = document.getElementById('featurePrev');
+      const next = document.getElementById('featureNext');
+      if (!slider || !prev || !next) return;
+
+      const maxScroll = Math.max(slider.scrollWidth - slider.clientWidth, 0);
+      const disablePrev = slider.scrollLeft <= 2;
+      const disableNext = slider.scrollLeft >= maxScroll - 2;
+
+      prev.disabled = disablePrev;
+      next.disabled = disableNext;
+      prev.classList.toggle('opacity-40', disablePrev);
+      prev.classList.toggle('cursor-not-allowed', disablePrev);
+      next.classList.toggle('opacity-40', disableNext);
+      next.classList.toggle('cursor-not-allowed', disableNext);
+    }
+
     function scrollStaff(direction) {
       const slider = document.getElementById('staffSlider');
       if (!slider) return;
@@ -525,12 +624,22 @@
     }
 
     document.addEventListener('DOMContentLoaded', () => {
-      const slider = document.getElementById('staffSlider');
-      if (slider) {
-        slider.addEventListener('scroll', () => window.requestAnimationFrame(updateStaffArrows));
+      const staffSlider = document.getElementById('staffSlider');
+      if (staffSlider) {
+        staffSlider.addEventListener('scroll', () => window.requestAnimationFrame(updateStaffArrows));
+        updateStaffArrows();
       }
-      window.addEventListener('resize', updateStaffArrows);
-      updateStaffArrows();
+
+      const featureSlider = document.getElementById('featureSlider');
+      if (featureSlider) {
+        featureSlider.addEventListener('scroll', () => window.requestAnimationFrame(updateFeatureArrows));
+        updateFeatureArrows();
+      }
+
+      window.addEventListener('resize', () => {
+        updateStaffArrows();
+        updateFeatureArrows();
+      });
     });
 
     function switchTab(tab) {
