@@ -98,10 +98,10 @@
     }
     .numbers-section{position:relative;background:#F8F9FA;}
     .numbers-section .left-rail{opacity:0.6;}
-    .numbers-headline{text-align:center;max-width:720px;margin:0 auto 3rem;}
-    .numbers-eyebrow{display:inline-block;font-size:0.75rem;font-weight:700;letter-spacing:0.4em;color:#E63946;margin-bottom:0.75rem;}
-    .numbers-headline h2{font-size:clamp(1.6rem,3vw,2.3rem);font-weight:900;color:#2D2D2D;line-height:1.3;margin-bottom:1rem;}
-    .numbers-headline p{font-size:clamp(1rem,2.1vw,1.25rem);color:#2D2D2D;line-height:1.8;}
+    .numbers-headline{max-width:100%;margin:0;text-align:left;}
+    .numbers-eyebrow{display:inline-flex;align-items:center;justify-content:center;font-size:0.75rem;font-weight:700;letter-spacing:0.32em;color:#4b5563;border:1px solid rgba(17,17,17,0.12);padding:0.4rem 0.75rem;border-radius:0.4rem;background:#fff;}
+    .numbers-headline h2{font-size:clamp(1.6rem,3vw,2.3rem);font-weight:900;color:#2D2D2D;line-height:1.3;}
+    .numbers-headline p{font-size:1.0625rem;font-weight:400;line-height:1.85;letter-spacing:.04em;color:var(--text-body);}
     .stats-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1.75rem;margin-bottom:2rem;}
     .stat-card{background:#fff;border-radius:1.5rem;border:1px solid rgba(0,0,0,0.06);padding:2rem 2rem 2.5rem;display:flex;flex-direction:column;align-items:center;text-align:center;gap:1.5rem;transition:transform .25s ease;}
     .stat-card:hover{transform:translateY(-6px);}
@@ -431,10 +431,17 @@
   <section id="numbersSection" class="numbers-section relative">
     <div class="left-rail hidden md:block"></div>
     <div class="container mx-auto px-6 max-w-[88rem] py-20">
-      <div class="numbers-headline">
-        <span class="numbers-eyebrow">BY NUMBERS</span>
-        <h2>学びが、成果に変わる瞬間。</h2>
-        <p>「web3/AI概論」では、AIやブロックチェーン、ノーコードツールを活用しながら、学生や社会人がチームで実際のプロダクトを開発しています。ここで生まれたプロジェクトは、学びの延長ではなく、社会に新しい仕組みを提案する“動く実験”です。AIとWeb3を通じて、次の社会を自らの手でデザインする挑戦が始まっています。</p>
+      <div class="grid grid-cols-1 lg:grid-cols-[56px_minmax(0,1fr)] gap-4 items-start mb-12">
+        <div class="hidden lg:block lg:-mt-8">
+          <div class="bg-white text-gray-600 text-xs tracking-[0.12em] px-2 py-1 rounded-sm section-label">NUMBERS</div>
+        </div>
+        <div class="numbers-headline space-y-6">
+          <span class="numbers-eyebrow lg:hidden">NUMBERS</span>
+          <h2 class="leading-snug text-[clamp(1.6rem,3vw,2.3rem)] font-black space-y-2">
+            <span class="badge-title block w-fit">学びが、成果に変わる瞬間。</span>
+          </h2>
+          <p class="md:pr-12">「web3/AI概論」では、AIやブロックチェーン、ノーコードツールを活用しながら、学生や社会人がチームで実際のプロダクトを開発しています。ここで生まれたプロジェクトは、学びの延長ではなく、社会に新しい仕組みを提案する“動く実験”です。AIとWeb3を通じて、次の社会を自らの手でデザインする挑戦が始まっています。</p>
+        </div>
       </div>
       <div id="statsGrid" class="stats-grid" aria-live="polite">
         <a data-product-card href="https://example.com/heart-sound-therapy" target="_blank" rel="noopener noreferrer" aria-label="技術的自信向上の詳細を新しいタブで開く" class="stat-card group">
