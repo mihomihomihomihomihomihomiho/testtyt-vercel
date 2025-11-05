@@ -88,13 +88,13 @@
     .staff-card .staff-note{font-size:.8rem;color:var(--muted);text-align:center;line-height:1.5;}
     .staff-card-link{text-decoration:none;color:inherit;}
     .product-card{position:relative;}
-    .product-visual{position:relative;width:100%;aspect-ratio:8/7;border-radius:1.25rem 1.25rem 0 0;overflow:hidden;background:#f5f6fa;margin:-2rem -2rem 1.5rem;}
+    .product-visual{position:relative;width:100%;aspect-ratio:8/7;overflow:hidden;background:#f5f6fa;margin:0 0 1.5rem;}
     .product-visual img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;}
     @media(min-width:768px){
-      .product-visual{margin:-2.5rem -2.5rem 1.75rem;border-radius:1.5rem 1.5rem 0 0;}
+      .product-visual{margin:0 0 1.75rem;}
     }
     @media(min-width:1024px){
-      .product-visual{margin:-2.5rem -2.5rem 2rem;}
+      .product-visual{margin:0 0 2rem;}
     }
   </style>
 </head>
@@ -319,45 +319,45 @@
           <div class="hidden md:block h-full w-16 ml-2 bg-gradient-to-l from-white via-white/70 to-transparent"></div>
         </div>
         <div id="productSlider" class="flex gap-6 overflow-x-auto pb-6 scroll-smooth snap-x snap-mandatory slider-hide" style="scrollbar-width:none;">
-          <article data-product-card class="product-card group relative bg-white border border-[var(--line)] rounded-3xl p-8 md:p-10 transition flex-shrink-0 w-[280px] md:w-[320px] lg:w-[360px] snap-center">
+          <article data-product-card class="product-card group relative bg-white border border-[var(--line)] rounded-3xl pt-0 pb-8 md:pb-10 transition flex-shrink-0 w-[280px] md:w-[320px] lg:w-[360px] snap-center overflow-hidden">
             <div class="product-visual">
               <img src="https://images.unsplash.com/photo-1545239351-1141bd82e8a6?auto=format&fit=crop&w=1200&q=80" alt="ハートサウンドセラピー iPad プレビュー">
             </div>
-            <div class="space-y-3 text-center md:text-left px-1">
+            <div class="px-8 md:px-10 space-y-3 text-center md:text-left">
               <h3 class="card-title">ハートサウンドセラピー</h3>
               <p class="small-text">重度障がいのある方の心拍を解析し、音楽療法のセッションを最適化する生成AIアプリ。</p>
             </div>
-            <span class="caption text-xs tracking-[0.3em] block text-center md:text-left text-gray-500 group-hover:text-[var(--accent)] transition">Music therapy app using heart sounds</span>
+            <span class="px-8 md:px-10 caption text-xs tracking-[0.3em] block text-center md:text-left text-gray-500 group-hover:text-[var(--accent)] transition">Music therapy app using heart sounds</span>
           </article>
-          <article data-product-card class="product-card group relative bg-white border border-[var(--line)] rounded-3xl p-8 md:p-10 transition flex-shrink-0 w-[280px] md:w-[320px] lg:w-[360px] snap-center">
+          <article data-product-card class="product-card group relative bg-white border border-[var(--line)] rounded-3xl pt-0 pb-8 md:pb-10 transition flex-shrink-0 w-[280px] md:w-[320px] lg:w-[360px] snap-center overflow-hidden">
             <div class="product-visual">
               <img src="https://images.unsplash.com/photo-1512496015851-a90fb38ba796?auto=format&fit=crop&w=1200&q=80" alt="Tokakari プレビュー">
             </div>
-            <div class="space-y-3 text-center md:text-left px-1">
+            <div class="px-8 md:px-10 space-y-3 text-center md:text-left">
               <h3 class="card-title">Tokakari</h3>
               <p class="small-text">ADHDの学生がステップごとに達成体験を積み重ねられる、AIナビ付きタスクマネジメントアプリ。</p>
             </div>
-            <span class="caption text-xs tracking-[0.3em] block text-center md:text-left text-gray-500 group-hover:text-[var(--accent)] transition">Task management app for ADHD</span>
+            <span class="px-8 md:px-10 caption text-xs tracking-[0.3em] block text-center md:text-left text-gray-500 group-hover:text-[var(--accent)] transition">Task management app for ADHD</span>
           </article>
-          <article data-product-card class="product-card group relative bg-white border border-[var(--line)] rounded-3xl p-8 md:p-10 transition flex-shrink-0 w-[280px] md:w-[320px] lg:w-[360px] snap-center">
+          <article data-product-card class="product-card group relative bg-white border border-[var(--line)] rounded-3xl pt-0 pb-8 md:pb-10 transition flex-shrink-0 w-[280px] md:w-[320px] lg:w-[360px] snap-center overflow-hidden">
             <div class="product-visual">
               <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1200&q=80" alt="Yama Grow プレビュー">
             </div>
-            <div class="space-y-3 text-center md:text-left px-1">
+            <div class="px-8 md:px-10 space-y-3 text-center md:text-left">
               <h3 class="card-title">Yama Grow</h3>
               <p class="small-text">山岳保全をDAO型で管理する「育てる登山道」アプリ。クエスト形式で行動を促し、地域の循環を創出。</p>
             </div>
-            <span class="caption text-xs tracking-[0.3em] block text-center md:text-left text-gray-500 group-hover:text-[var(--accent)] transition">“Growing Mountains Together”</span>
+            <span class="px-8 md:px-10 caption text-xs tracking-[0.3em] block text-center md:text-left text-gray-500 group-hover:text-[var(--accent)] transition">“Growing Mountains Together”</span>
           </article>
-          <article data-product-card class="product-card group relative bg-white border border-[var(--line)] rounded-3xl p-8 md:p-10 transition flex-shrink-0 w-[280px] md:w-[320px] lg:w-[360px] snap-center">
+          <article data-product-card class="product-card group relative bg-white border border-[var(--line)] rounded-3xl pt-0 pb-8 md:pb-10 transition flex-shrink-0 w-[280px] md:w-[320px] lg:w-[360px] snap-center overflow-hidden">
             <div class="product-visual">
               <img src="https://images.unsplash.com/photo-1523475472560-d2df97ec485c?auto=format&fit=crop&w=1200&q=80" alt="Campusハピネス プレビュー">
             </div>
-            <div class="space-y-3 text-center md:text-left px-1">
+            <div class="px-8 md:px-10 space-y-3 text-center md:text-left">
               <h3 class="card-title">Campusハピネス</h3>
               <p class="small-text">キャンパス内の不要品を即時マッチングする分散型システム。学生投票1位を獲得した注目プロジェクト。</p>
             </div>
-            <span class="caption text-xs tracking-[0.3em] block text-center md:text-left text-gray-500 group-hover:text-[var(--accent)] transition">Decentralized pickup system</span>
+            <span class="px-8 md:px-10 caption text-xs tracking-[0.3em] block text-center md:text-left text-gray-500 group-hover:text-[var(--accent)] transition">Decentralized pickup system</span>
           </article>
         </div>
       </div>
