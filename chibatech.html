@@ -96,6 +96,60 @@
     @media(min-width:1024px){
       .product-visual{margin:0 0 2rem;}
     }
+    .numbers-section{position:relative;background:#F8F9FA;}
+    .numbers-section .left-rail{opacity:0.6;}
+    .numbers-headline{text-align:center;max-width:720px;margin:0 auto 3rem;}
+    .numbers-eyebrow{display:inline-block;font-size:0.75rem;font-weight:700;letter-spacing:0.4em;color:#E63946;margin-bottom:0.75rem;}
+    .numbers-headline h2{font-size:clamp(1.6rem,3vw,2.3rem);font-weight:900;color:#2D2D2D;line-height:1.3;margin-bottom:1rem;}
+    .numbers-headline p{font-size:clamp(1rem,2.1vw,1.25rem);color:#2D2D2D;line-height:1.8;}
+    .stats-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1.75rem;margin-bottom:2rem;}
+    .stat-card{background:#fff;border-radius:1.5rem;border:1px solid rgba(0,0,0,0.06);box-shadow:0 2px 12px rgba(0,0,0,0.08);padding:2rem 2rem 2.5rem;display:flex;flex-direction:column;gap:1.5rem;transition:transform .25s ease;}
+    .stat-card:hover{transform:translateY(-6px);}
+    .stat-label{font-size:0.95rem;font-weight:700;letter-spacing:0.05em;text-transform:uppercase;color:#E63946;}
+    .stat-number{font-size:88px;font-weight:900;line-height:1;background:linear-gradient(135deg,#00B4D8,#0077B6);-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
+    .stat-description{font-size:0.95rem;color:#6C757D;font-weight:600;}
+    .stat-meta{font-size:0.85rem;color:#6C757D;letter-spacing:0.08em;text-transform:uppercase;}
+    .stat-card[data-extended]{display:none;}
+    .stats-grid.is-extended .stat-card[data-extended]{display:block;animation:fadeInUp 0.6s ease forwards;}
+    .toggle-stats-btn{display:inline-flex;align-items:center;gap:0.75rem;margin:0 auto 2rem;padding:0.85rem 1.75rem;border-radius:999px;border:1px solid #0077B6;background:#fff;color:#0077B6;font-weight:700;transition:background .25s ease,color .25s ease;cursor:pointer;}
+    .toggle-stats-btn:hover{background:#0077B6;color:#fff;}
+    .toggle-stats-btn:focus{outline:none;box-shadow:0 0 0 3px rgba(0,183,221,0.25);}
+    .toggle-stats-btn .toggle-icon{font-size:1.1rem;transition:transform .35s ease;}
+    .toggle-stats-btn.is-open .toggle-icon{transform:rotate(45deg);}
+    .stats-details{max-height:0;overflow:hidden;opacity:0;transform:translateY(12px);transition:max-height .6s cubic-bezier(0.4,0,0.2,1),opacity .6s ease,transform .6s ease;}
+    .stats-details.is-open{max-height:1200px;opacity:1;transform:translateY(0);}
+    .stats-detail-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1.5rem;}
+    .stats-detail-card{background:#fff;border-radius:1.25rem;border:1px solid rgba(0,0,0,0.05);padding:2rem;box-shadow:0 2px 12px rgba(0,0,0,0.06);}
+    .detail-title{font-size:1.1rem;font-weight:800;margin-bottom:1.25rem;}
+    .progress-item{margin-bottom:1rem;}
+    .progress-label{display:flex;justify-content:space-between;font-size:0.9rem;font-weight:600;color:#2D2D2D;margin-bottom:0.45rem;}
+    .progress-bar{width:100%;height:10px;border-radius:999px;background:#E5E7EB;overflow:hidden;}
+    .progress-bar span{display:block;height:100%;border-radius:999px;}
+    .progress-bar span.is-blue{background:linear-gradient(135deg,#00B4D8,#0077B6);}
+    .progress-bar span.is-purple{background:linear-gradient(135deg,#a855f7,#7c3aed);}
+    .progress-bar span.is-pink{background:linear-gradient(135deg,#fb7185,#f43f5e);}
+    .stats-comparison{display:grid;gap:1.2rem;}
+    .comparison-row{display:flex;justify-content:space-between;align-items:center;font-weight:700;color:#2D2D2D;}
+    .comparison-detail{font-size:0.85rem;color:#6C757D;}
+    .stats-badge{display:inline-flex;align-items:center;gap:0.4rem;font-size:0.85rem;font-weight:700;color:#0077B6;background:rgba(0,183,221,0.12);padding:0.4rem 0.85rem;border-radius:999px;}
+    .growth-list{display:grid;gap:1rem;}
+    .growth-item{display:flex;justify-content:space-between;font-size:0.95rem;font-weight:600;color:#2D2D2D;}
+    @media(max-width:1024px){
+      .stats-detail-grid{grid-template-columns:1fr;}
+    }
+    @media(max-width:768px){
+      .stats-grid{grid-template-columns:1fr;gap:1.25rem;}
+      .stat-number{font-size:64px;}
+      .numbers-headline h2{font-size:1.5rem;}
+      .numbers-headline p{font-size:1rem;}
+    }
+    @media(max-width:640px){
+      .toggle-stats-btn{width:100%;justify-content:center;}
+    }
+    @keyframes fadeInUp{
+      from{opacity:0;transform:translateY(20px);}
+      to{opacity:1;transform:translateY(0);}
+    }
   </style>
 </head>
 <body>
@@ -360,6 +414,99 @@
             </div>
             <span class="px-8 md:px-10 caption text-xs tracking-[0.3em] block text-center md:text-left text-gray-500 group-hover:text-[var(--accent)] transition">Decentralized pickup system</span>
           </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 数字で見る web3/AI概論 -->
+  <section id="numbersSection" class="numbers-section relative">
+    <div class="left-rail hidden md:block"></div>
+    <div class="container mx-auto px-6 max-w-[88rem] py-20">
+      <div class="numbers-headline">
+        <span class="numbers-eyebrow">BY NUMBERS</span>
+        <h2>学びが、成果に変わる瞬間。</h2>
+        <p>「web3/AI概論」では、AIやブロックチェーン、ノーコードツールを活用しながら、学生や社会人がチームで実際のプロダクトを開発しています。ここで生まれたプロジェクトは、学びの延長ではなく、社会に新しい仕組みを提案する“動く実験”です。AIとWeb3を通じて、次の社会を自らの手でデザインする挑戦が始まっています。</p>
+      </div>
+      <div id="statsGrid" class="stats-grid" aria-live="polite">
+        <a data-product-card href="https://example.com/heart-sound-therapy" target="_blank" rel="noopener noreferrer" aria-label="ハートサウンドセラピーの詳細を新しいタブで開く" class="stat-card group">
+          <div class="stat-label">プロトタイプ完成率</div>
+          <span id="statPrototype" class="stat-number" data-countup data-end="80" data-prefix="" data-suffix="%" data-decimals="0">0</span>
+          <p class="stat-description">Before: 10%</p>
+          <span class="stat-meta">進化し続ける完成品質</span>
+        </a>
+        <a data-product-card href="https://example.com/tokakari" target="_blank" rel="noopener noreferrer" aria-label="Tokakariの詳細を新しいタブで開く" class="stat-card group">
+          <div class="stat-label">スキル向上</div>
+          <span id="statSkill" class="stat-number" data-countup data-end="44" data-prefix="+" data-suffix="%" data-decimals="0">0</span>
+          <p class="stat-description">web3/AI理解度の伸び</p>
+          <span class="stat-meta">現場で使える知識へアップデート</span>
+        </a>
+        <a data-product-card href="https://example.com/yama-grow" target="_blank" rel="noopener noreferrer" aria-label="参加者数の詳細を新しいタブで開く" class="stat-card group" data-extended>
+          <div class="stat-label">参加者数</div>
+          <span id="statParticipants" class="stat-number" data-countup data-end="240" data-prefix="" data-suffix="名" data-decimals="0">0</span>
+          <p class="stat-description">多様な背景のメンバーが集結</p>
+          <span class="stat-meta">大学・企業・行政の垣根を越えて</span>
+        </a>
+        <a data-product-card href="https://example.com/campus-happiness" target="_blank" rel="noopener noreferrer" aria-label="創出時間の詳細を新しいタブで開く" class="stat-card group" data-extended>
+          <div class="stat-label">創出時間</div>
+          <span id="statHours" class="stat-number" data-countup data-end="132" data-prefix="" data-suffix="h" data-decimals="0">0</span>
+          <p class="stat-description">AI講師による教育サポート</p>
+          <span class="stat-meta">チーム学習のための共創時間</span>
+        </a>
+      </div>
+      <div class="flex justify-center">
+        <button id="statsToggle" type="button" class="toggle-stats-btn" aria-expanded="false">
+          <span class="toggle-icon" aria-hidden="true">⊕</span>
+          <span class="toggle-text">続きを見る</span>
+        </button>
+      </div>
+      <div id="statsDetails" class="stats-details" aria-hidden="true">
+        <div class="stats-detail-grid">
+          <div class="stats-detail-card">
+            <p class="stats-badge">社会人の職業構成</p>
+            <h3 class="detail-title">多様な専門性がプロジェクトを牽引</h3>
+            <div class="progress-item">
+              <div class="progress-label"><span>コンサルティング・企画</span><span>19.0%</span></div>
+              <div class="progress-bar"><span class="is-blue" style="width:19%;"></span></div>
+            </div>
+            <div class="progress-item">
+              <div class="progress-label"><span>技術・エンジニアリング</span><span>16.5%</span></div>
+              <div class="progress-bar"><span class="is-purple" style="width:16.5%;"></span></div>
+            </div>
+            <div class="progress-item">
+              <div class="progress-label"><span>営業・サービス</span><span>10.1%</span></div>
+              <div class="progress-bar"><span class="is-pink" style="width:10.1%;"></span></div>
+            </div>
+          </div>
+          <div class="stats-detail-card">
+            <p class="stats-badge">実践経験の増加</p>
+            <h3 class="detail-title">学びが実務経験へと変わるプロセス</h3>
+            <div class="stats-comparison">
+              <div>
+                <div class="comparison-row">
+                  <span>開発経験あり</span>
+                  <span>17.6% → 45.6%</span>
+                </div>
+                <p class="comparison-detail">2.6倍の実践経験を獲得</p>
+              </div>
+              <div>
+                <div class="comparison-row">
+                  <span>未経験者</span>
+                  <span>62.5% → 28.7%</span>
+                </div>
+                <p class="comparison-detail">未経験からの挑戦が半減</p>
+              </div>
+            </div>
+          </div>
+          <div class="stats-detail-card">
+            <p class="stats-badge">測定可能な成長</p>
+            <h3 class="detail-title">定量データで捉える受講後の変化</h3>
+            <div class="growth-list">
+              <div class="growth-item"><span>技術的自信</span><span>+46.3%</span></div>
+              <div class="growth-item"><span>チーム開発自信</span><span>+42.4%</span></div>
+              <div class="growth-item"><span>目標の明確さ</span><span>+20.5%</span></div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -714,7 +861,37 @@
     </div>
   </footer>
 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/countup.js/2.8.0/countUp.umd.min.js" integrity="sha512-yLNSb60hzB9HbSm/1Om/zzvSt8L56zwe1m7J5n3JevAV2X6i3j4RHvCD0O7R6I0Q5MMU4gLAyVwhQ3fH4YMR3Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
   <script>
+    // 数字をなめらかに終端させるための easing 関数
+    function easeOutQuart(t) {
+      return 1 - Math.pow(1 - t, 4);
+    }
+
+    // CountUp.js を使ってカウントアップを開始
+    function startCountUp(element, baseOptions) {
+      const endValue = parseFloat(element.dataset.end || element.textContent || '0');
+      const prefix = element.dataset.prefix || '';
+      const suffix = element.dataset.suffix || '';
+      const decimals = parseInt(element.dataset.decimals || '0', 10);
+      const options = Object.assign({}, baseOptions, {
+        prefix,
+        suffix,
+        decimalPlaces: decimals
+      });
+
+      try {
+        const counter = new countUp.CountUp(element, endValue, options);
+        if (!counter.error) {
+          counter.start();
+        } else {
+          element.textContent = `${prefix}${endValue}${suffix}`;
+        }
+      } catch (error) {
+        element.textContent = `${prefix}${endValue}${suffix}`;
+      }
+    }
+
     function scrollProducts(direction) {
       const slider = document.getElementById('productSlider');
       if (!slider) return;
@@ -834,6 +1011,57 @@
       if (productSlider) {
         productSlider.addEventListener('scroll', () => window.requestAnimationFrame(updateProductArrows));
         updateProductArrows();
+      }
+
+      const numbersSection = document.getElementById('numbersSection');
+      if (numbersSection && window.countUp) {
+        const statElements = numbersSection.querySelectorAll('[data-countup]');
+        const countUpOptions = {
+          duration: 2.5,
+          useEasing: true,
+          useGrouping: false,
+          separator: '',
+          decimalPlaces: 0,
+          easingFn: easeOutQuart
+        };
+        let statsAnimated = false;
+        const statsObserver = new IntersectionObserver((entries, observer) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting && !statsAnimated) {
+              statsAnimated = true;
+              statElements.forEach((el, index) => {
+                setTimeout(() => startCountUp(el, countUpOptions), index * 200);
+              });
+              observer.disconnect();
+            }
+          });
+        }, { threshold: 0.3 });
+        statsObserver.observe(numbersSection);
+      }
+
+      const statsToggle = document.getElementById('statsToggle');
+      const statsGrid = document.getElementById('statsGrid');
+      const statsDetails = document.getElementById('statsDetails');
+      if (statsToggle && statsGrid && statsDetails) {
+        statsToggle.addEventListener('click', () => {
+          const expanded = !statsGrid.classList.contains('is-extended');
+          statsGrid.classList.toggle('is-extended', expanded);
+          statsDetails.classList.toggle('is-open', expanded);
+          statsToggle.classList.toggle('is-open', expanded);
+          statsToggle.setAttribute('aria-expanded', expanded ? 'true' : 'false');
+          statsDetails.setAttribute('aria-hidden', expanded ? 'false' : 'true');
+          const icon = statsToggle.querySelector('.toggle-icon');
+          const text = statsToggle.querySelector('.toggle-text');
+          if (icon && text) {
+            if (expanded) {
+              icon.textContent = '⊖';
+              text.textContent = '閉じる';
+            } else {
+              icon.textContent = '⊕';
+              text.textContent = '続きを見る';
+            }
+          }
+        });
       }
 
       switchTab('overview');
