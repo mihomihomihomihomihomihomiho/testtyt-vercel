@@ -103,7 +103,7 @@
     .numbers-headline h2{font-size:clamp(1.6rem,3vw,2.3rem);font-weight:900;color:#2D2D2D;line-height:1.3;margin-bottom:1rem;}
     .numbers-headline p{font-size:clamp(1rem,2.1vw,1.25rem);color:#2D2D2D;line-height:1.8;}
     .stats-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1.75rem;margin-bottom:2rem;}
-    .stat-card{background:#fff;border-radius:1.5rem;border:1px solid rgba(0,0,0,0.06);box-shadow:0 2px 12px rgba(0,0,0,0.08);padding:2rem 2rem 2.5rem;display:flex;flex-direction:column;gap:1.5rem;transition:transform .25s ease;}
+    .stat-card{background:#fff;border-radius:1.5rem;border:1px solid rgba(0,0,0,0.06);padding:2rem 2rem 2.5rem;display:flex;flex-direction:column;align-items:center;text-align:center;gap:1.5rem;transition:transform .25s ease;}
     .stat-card:hover{transform:translateY(-6px);}
     .stat-label{font-size:0.95rem;font-weight:700;letter-spacing:0.05em;text-transform:uppercase;color:#E63946;}
     .stat-number{font-size:88px;font-weight:900;line-height:1;background:linear-gradient(135deg,#00B4D8,#0077B6);-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
@@ -119,21 +119,28 @@
     .stats-details{max-height:0;overflow:hidden;opacity:0;transform:translateY(12px);transition:max-height .6s cubic-bezier(0.4,0,0.2,1),opacity .6s ease,transform .6s ease;}
     .stats-details.is-open{max-height:1200px;opacity:1;transform:translateY(0);}
     .stats-detail-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1.5rem;}
-    .stats-detail-card{background:#fff;border-radius:1.25rem;border:1px solid rgba(0,0,0,0.05);padding:2rem;box-shadow:0 2px 12px rgba(0,0,0,0.06);}
-    .detail-title{font-size:1.1rem;font-weight:800;margin-bottom:1.25rem;}
-    .progress-item{margin-bottom:1rem;}
-    .progress-label{display:flex;justify-content:space-between;font-size:0.9rem;font-weight:600;color:#2D2D2D;margin-bottom:0.45rem;}
-    .progress-bar{width:100%;height:10px;border-radius:999px;background:#E5E7EB;overflow:hidden;}
-    .progress-bar span{display:block;height:100%;border-radius:999px;}
-    .progress-bar span.is-blue{background:linear-gradient(135deg,#00B4D8,#0077B6);}
-    .progress-bar span.is-purple{background:linear-gradient(135deg,#a855f7,#7c3aed);}
-    .progress-bar span.is-pink{background:linear-gradient(135deg,#fb7185,#f43f5e);}
+    .stats-detail-card{background:#fff;border-radius:1.25rem;border:1px solid rgba(0,0,0,0.05);padding:2rem;display:flex;flex-direction:column;gap:1.75rem;}
+    .detail-title{font-size:1.1rem;font-weight:800;}
+    .progress-list{display:flex;flex-direction:column;gap:1.25rem;}
+    .progress-item{display:grid;grid-template-columns:240px minmax(0,1fr) 60px;grid-template-areas:"name bar value";align-items:center;gap:1rem;}
+    .progress-name{grid-area:name;font-size:0.95rem;font-weight:600;color:#1f2937;}
+    .progress-bar{grid-area:bar;position:relative;width:100%;height:24px;border-radius:12px;background:#E9ECEF;overflow:hidden;}
+    .progress-fill{position:absolute;inset:0;height:100%;width:0;border-radius:inherit;background:linear-gradient(135deg,#00B4D8,#0077B6);transition:width 1s ease-out;}
+    .progress-value{grid-area:value;font-size:0.95rem;font-weight:700;color:#1f2937;text-align:right;}
     .stats-comparison{display:grid;gap:1.2rem;}
     .comparison-row{display:flex;justify-content:space-between;align-items:center;font-weight:700;color:#2D2D2D;}
     .comparison-detail{font-size:0.85rem;color:#6C757D;}
     .stats-badge{display:inline-flex;align-items:center;gap:0.4rem;font-size:0.85rem;font-weight:700;color:#0077B6;background:rgba(0,183,221,0.12);padding:0.4rem 0.85rem;border-radius:999px;}
     .growth-list{display:grid;gap:1rem;}
     .growth-item{display:flex;justify-content:space-between;font-size:0.95rem;font-weight:600;color:#2D2D2D;}
+    .student-major-card{padding:2.25rem 2rem;}
+    .student-major-card .progress-list{margin-top:1.5rem;}
+    @media(max-width:768px){
+      .progress-item{grid-template-columns:1fr;grid-template-areas:"name" "bar" "value";gap:0.75rem;}
+      .progress-name{font-size:0.9rem;}
+      .progress-bar{height:20px;}
+      .progress-value{text-align:left;justify-self:start;font-size:0.9rem;}
+    }
     @media(max-width:1024px){
       .stats-detail-grid{grid-template-columns:1fr;}
     }
@@ -150,6 +157,7 @@
       from{opacity:0;transform:translateY(20px);}
       to{opacity:1;transform:translateY(0);}
     }
+    .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0;}
   </style>
 </head>
 <body>
@@ -429,27 +437,31 @@
         <p>「web3/AI概論」では、AIやブロックチェーン、ノーコードツールを活用しながら、学生や社会人がチームで実際のプロダクトを開発しています。ここで生まれたプロジェクトは、学びの延長ではなく、社会に新しい仕組みを提案する“動く実験”です。AIとWeb3を通じて、次の社会を自らの手でデザインする挑戦が始まっています。</p>
       </div>
       <div id="statsGrid" class="stats-grid" aria-live="polite">
-        <a data-product-card href="https://example.com/heart-sound-therapy" target="_blank" rel="noopener noreferrer" aria-label="ハートサウンドセラピーの詳細を新しいタブで開く" class="stat-card group">
-          <div class="stat-label">プロトタイプ完成率</div>
-          <span id="statPrototype" class="stat-number" data-countup data-end="80" data-prefix="" data-suffix="%" data-decimals="0">0</span>
-          <p class="stat-description">Before: 10%</p>
-          <span class="stat-meta">進化し続ける完成品質</span>
+        <a data-product-card href="https://example.com/heart-sound-therapy" target="_blank" rel="noopener noreferrer" aria-label="技術的自信向上の詳細を新しいタブで開く" class="stat-card group">
+          <div class="stat-label">技術的自信</div>
+          <span class="sr-only">技術的自信が46.3パーセント増加</span>
+          <span id="statPrototype" class="stat-number js-countup" data-end="46.3" data-prefix="+" data-suffix="%" data-decimals="1">0</span>
+          <p class="stat-description">開講前と比較した自信の伸び</p>
+          <span class="stat-meta">実践が学びを確信へ変える</span>
         </a>
         <a data-product-card href="https://example.com/tokakari" target="_blank" rel="noopener noreferrer" aria-label="Tokakariの詳細を新しいタブで開く" class="stat-card group">
           <div class="stat-label">スキル向上</div>
-          <span id="statSkill" class="stat-number" data-countup data-end="44" data-prefix="+" data-suffix="%" data-decimals="0">0</span>
+          <span class="sr-only">スキル向上プラス44パーセント</span>
+          <span id="statSkill" class="stat-number js-countup" data-end="44" data-prefix="+" data-suffix="%" data-decimals="0">0</span>
           <p class="stat-description">web3/AI理解度の伸び</p>
           <span class="stat-meta">現場で使える知識へアップデート</span>
         </a>
         <a data-product-card href="https://example.com/yama-grow" target="_blank" rel="noopener noreferrer" aria-label="参加者数の詳細を新しいタブで開く" class="stat-card group" data-extended>
           <div class="stat-label">参加者数</div>
-          <span id="statParticipants" class="stat-number" data-countup data-end="240" data-prefix="" data-suffix="名" data-decimals="0">0</span>
+          <span class="sr-only">参加者数240名 多様な背景</span>
+          <span id="statParticipants" class="stat-number js-countup" data-end="240" data-prefix="" data-suffix="名" data-decimals="0">0</span>
           <p class="stat-description">多様な背景のメンバーが集結</p>
           <span class="stat-meta">大学・企業・行政の垣根を越えて</span>
         </a>
         <a data-product-card href="https://example.com/campus-happiness" target="_blank" rel="noopener noreferrer" aria-label="創出時間の詳細を新しいタブで開く" class="stat-card group" data-extended>
           <div class="stat-label">創出時間</div>
-          <span id="statHours" class="stat-number" data-countup data-end="132" data-prefix="" data-suffix="h" data-decimals="0">0</span>
+          <span class="sr-only">創出時間132時間 AI講師による教育</span>
+          <span id="statHours" class="stat-number js-countup" data-end="132" data-prefix="" data-suffix="h" data-decimals="0">0</span>
           <p class="stat-description">AI講師による教育サポート</p>
           <span class="stat-meta">チーム学習のための共創時間</span>
         </a>
@@ -461,54 +473,122 @@
         </button>
       </div>
       <div id="statsDetails" class="stats-details" aria-hidden="true">
-        <div class="stats-detail-grid">
-          <div class="stats-detail-card">
-            <p class="stats-badge">社会人の職業構成</p>
-            <h3 class="detail-title">多様な専門性がプロジェクトを牽引</h3>
-            <div class="progress-item">
-              <div class="progress-label"><span>コンサルティング・企画</span><span>19.0%</span></div>
-              <div class="progress-bar"><span class="is-blue" style="width:19%;"></span></div>
+      <div class="stats-detail-grid">
+        <div class="stats-detail-card">
+          <p class="stats-badge">社会人の職業構成</p>
+          <h3 class="detail-title">多様な専門性がプロジェクトを牽引</h3>
+          <div class="progress-list">
+            <div class="progress-item" data-percent="19.0" data-gradient="linear-gradient(135deg,#00B4D8,#0077B6)">
+              <span class="progress-name">コンサルティング・企画</span>
+              <div class="progress-bar"><span class="progress-fill"></span></div>
+              <span class="progress-value">19.0%</span>
             </div>
-            <div class="progress-item">
-              <div class="progress-label"><span>技術・エンジニアリング</span><span>16.5%</span></div>
-              <div class="progress-bar"><span class="is-purple" style="width:16.5%;"></span></div>
+            <div class="progress-item" data-percent="16.5" data-gradient="linear-gradient(135deg,#a855f7,#7c3aed)">
+              <span class="progress-name">技術・エンジニアリング</span>
+              <div class="progress-bar"><span class="progress-fill"></span></div>
+              <span class="progress-value">16.5%</span>
             </div>
-            <div class="progress-item">
-              <div class="progress-label"><span>営業・サービス</span><span>10.1%</span></div>
-              <div class="progress-bar"><span class="is-pink" style="width:10.1%;"></span></div>
+            <div class="progress-item" data-percent="10.1" data-gradient="linear-gradient(135deg,#fb7185,#f43f5e)">
+              <span class="progress-name">営業・サービス</span>
+              <div class="progress-bar"><span class="progress-fill"></span></div>
+              <span class="progress-value">10.1%</span>
+            </div>
+            <div class="progress-item" data-percent="9.8" data-gradient="linear-gradient(135deg,#6366f1,#4338ca)">
+              <span class="progress-name">マーケティング・広報</span>
+              <div class="progress-bar"><span class="progress-fill"></span></div>
+              <span class="progress-value">9.8%</span>
+            </div>
+            <div class="progress-item" data-percent="9.2" data-gradient="linear-gradient(135deg,#f472b6,#ec4899)">
+              <span class="progress-name">デザイン・クリエイティブ</span>
+              <div class="progress-bar"><span class="progress-fill"></span></div>
+              <span class="progress-value">9.2%</span>
+            </div>
+            <div class="progress-item" data-percent="8.4" data-gradient="linear-gradient(135deg,#22d3ee,#0ea5e9)">
+              <span class="progress-name">研究・教育</span>
+              <div class="progress-bar"><span class="progress-fill"></span></div>
+              <span class="progress-value">8.4%</span>
+            </div>
+            <div class="progress-item" data-percent="7.6" data-gradient="linear-gradient(135deg,#c084fc,#a855f7)">
+              <span class="progress-name">スタートアップ創業</span>
+              <div class="progress-bar"><span class="progress-fill"></span></div>
+              <span class="progress-value">7.6%</span>
+            </div>
+            <div class="progress-item" data-percent="6.3" data-gradient="linear-gradient(135deg,#fb7185,#f43f5e)">
+              <span class="progress-name">プロダクトマネジメント</span>
+              <div class="progress-bar"><span class="progress-fill"></span></div>
+              <span class="progress-value">6.3%</span>
+            </div>
+            <div class="progress-item" data-percent="5.0" data-gradient="linear-gradient(135deg,#38bdf8,#0ea5e9)">
+              <span class="progress-name">公共・行政・NPO</span>
+              <div class="progress-bar"><span class="progress-fill"></span></div>
+              <span class="progress-value">5.0%</span>
+            </div>
+            <div class="progress-item" data-percent="7.1" data-gradient="linear-gradient(135deg,#94a3b8,#64748b)">
+              <span class="progress-name">その他</span>
+              <div class="progress-bar"><span class="progress-fill"></span></div>
+              <span class="progress-value">7.1%</span>
             </div>
           </div>
-          <div class="stats-detail-card">
-            <p class="stats-badge">実践経験の増加</p>
-            <h3 class="detail-title">学びが実務経験へと変わるプロセス</h3>
-            <div class="stats-comparison">
-              <div>
-                <div class="comparison-row">
-                  <span>開発経験あり</span>
-                  <span>17.6% → 45.6%</span>
-                </div>
-                <p class="comparison-detail">2.6倍の実践経験を獲得</p>
-              </div>
-              <div>
-                <div class="comparison-row">
-                  <span>未経験者</span>
-                  <span>62.5% → 28.7%</span>
-                </div>
-                <p class="comparison-detail">未経験からの挑戦が半減</p>
-              </div>
+        </div>
+        <div class="stats-detail-card student-major-card" id="studentMajors">
+          <p class="stats-badge">🎓 学生の所属学科・専攻</p>
+          <h3 class="detail-title">多様な専門性がプロジェクトを支える</h3>
+          <div class="progress-list">
+            <div class="progress-item" data-percent="16.8" data-gradient="linear-gradient(135deg,#FF6B9D,#FF8FAB)">
+              <span class="progress-name">デザイン科学科</span>
+              <div class="progress-bar"><span class="progress-fill"></span></div>
+              <span class="progress-value">16.8%</span>
             </div>
-          </div>
-          <div class="stats-detail-card">
-            <p class="stats-badge">測定可能な成長</p>
-            <h3 class="detail-title">定量データで捉える受講後の変化</h3>
-            <div class="growth-list">
-              <div class="growth-item"><span>技術的自信</span><span>+46.3%</span></div>
-              <div class="growth-item"><span>チーム開発自信</span><span>+42.4%</span></div>
-              <div class="growth-item"><span>目標の明確さ</span><span>+20.5%</span></div>
+            <div class="progress-item" data-percent="12.8" data-gradient="linear-gradient(135deg,#00B4D8,#48CAE4)">
+              <span class="progress-name">経営情報科学科</span>
+              <div class="progress-bar"><span class="progress-fill"></span></div>
+              <span class="progress-value">12.8%</span>
+            </div>
+            <div class="progress-item" data-percent="9.4" data-gradient="linear-gradient(135deg,#9D4EDD,#C77DFF)">
+              <span class="progress-name">知能メディア工学科</span>
+              <div class="progress-bar"><span class="progress-fill"></span></div>
+              <span class="progress-value">9.4%</span>
+            </div>
+            <div class="progress-item" data-percent="8.7" data-gradient="linear-gradient(135deg,#06FFA5,#4DFFC3)">
+              <span class="progress-name">未来ロボティクス学科</span>
+              <div class="progress-bar"><span class="progress-fill"></span></div>
+              <span class="progress-value">8.7%</span>
+            </div>
+            <div class="progress-item" data-percent="6.0" data-gradient="linear-gradient(135deg,#FF6B35,#FF8B5A)">
+              <span class="progress-name">電気電子工学科</span>
+              <div class="progress-bar"><span class="progress-fill"></span></div>
+              <span class="progress-value">6.0%</span>
+            </div>
+            <div class="progress-item" data-percent="5.4" data-gradient="linear-gradient(135deg,#4CC9F0,#72D7F7)">
+              <span class="progress-name">情報ネットワーク学科</span>
+              <div class="progress-bar"><span class="progress-fill"></span></div>
+              <span class="progress-value">5.4%</span>
+            </div>
+            <div class="progress-item" data-percent="4.7" data-gradient="linear-gradient(135deg,#5E60CE,#7678ED)">
+              <span class="progress-name">金融・経営リスク科学科</span>
+              <div class="progress-bar"><span class="progress-fill"></span></div>
+              <span class="progress-value">4.7%</span>
+            </div>
+            <div class="progress-item" data-percent="4.0" data-gradient="linear-gradient(135deg,#E63946,#F15B67)">
+              <span class="progress-name">情報通信システム工学科</span>
+              <div class="progress-bar"><span class="progress-fill"></span></div>
+              <span class="progress-value">4.0%</span>
+            </div>
+            <div class="progress-item" data-percent="3.4" data-gradient="linear-gradient(135deg,#52B788,#74C69D)">
+              <span class="progress-name">未来ロボティクス専攻（大学院）</span>
+              <div class="progress-bar"><span class="progress-fill"></span></div>
+              <span class="progress-value">3.4%</span>
+            </div>
+            <div class="progress-item" data-percent="3.4" data-gradient="linear-gradient(135deg,#8B5CF6,#A78BFA)">
+              <span class="progress-name">情報科学専攻（大学院）</span>
+              <div class="progress-bar"><span class="progress-fill"></span></div>
+              <span class="progress-value">3.4%</span>
             </div>
           </div>
         </div>
       </div>
+    </div>
+    </div>
     </div>
   </section>
 
@@ -861,11 +941,33 @@
     </div>
   </footer>
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/countup.js/2.8.0/countUp.umd.min.js" integrity="sha512-yLNSb60hzB9HbSm/1Om/zzvSt8L56zwe1m7J5n3JevAV2X6i3j4RHvCD0O7R6I0Q5MMU4gLAyVwhQ3fH4YMR3Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/countup.js/2.8.0/countUp.umd.min.js" crossorigin="anonymous"></script>
   <script>
     // 数字をなめらかに終端させるための easing 関数
-    function easeOutQuart(t) {
-      return 1 - Math.pow(1 - t, 4);
+    function easeOutQuart(t, b, c, d) {
+      t /= d;
+      t--;
+      return -c * (t * t * t * t - 1) + b;
+    }
+
+    // CountUp.js が利用できない場合のフォールバックアニメーション
+    function manualCountUp(element, endValue, options) {
+      const prefix = options.prefix || '';
+      const suffix = options.suffix || '';
+      const decimals = options.decimalPlaces || 0;
+      const durationMs = (options.duration || 2.5) * 1000;
+      const start = performance.now();
+
+      const step = (now) => {
+        const elapsed = now - start;
+        const progress = Math.min(elapsed / durationMs, 1);
+        const eased = easeOutQuart(elapsed, 0, endValue, durationMs);
+        element.textContent = `${prefix}${eased.toFixed(decimals)}${suffix}`;
+        if (progress < 1) {
+          requestAnimationFrame(step);
+        }
+      };
+      requestAnimationFrame(step);
     }
 
     // CountUp.js を使ってカウントアップを開始
@@ -877,18 +979,29 @@
       const options = Object.assign({}, baseOptions, {
         prefix,
         suffix,
-        decimalPlaces: decimals
+        decimal: '.',
+        decimalPlaces: decimals,
+        easingFn: easeOutQuart
       });
 
+      const CountUpClass = (window.countUp && window.countUp.CountUp) || window.CountUp;
+      if (!CountUpClass) {
+        console.error('CountUp library not available');
+        element.textContent = `${prefix}${endValue}${suffix}`;
+        return;
+      }
+
       try {
-        const counter = new countUp.CountUp(element, endValue, options);
+        const counter = new CountUpClass(element, endValue, options);
         if (!counter.error) {
           counter.start();
         } else {
-          element.textContent = `${prefix}${endValue}${suffix}`;
+          console.warn('CountUp error:', counter.error, element);
+          manualCountUp(element, endValue, options);
         }
       } catch (error) {
-        element.textContent = `${prefix}${endValue}${suffix}`;
+        console.error('CountUp exception:', error, element);
+        manualCountUp(element, endValue, options);
       }
     }
 
@@ -1015,7 +1128,7 @@
 
       const numbersSection = document.getElementById('numbersSection');
       if (numbersSection && window.countUp) {
-        const statElements = numbersSection.querySelectorAll('[data-countup]');
+        const statElements = numbersSection.querySelectorAll('.js-countup');
         const countUpOptions = {
           duration: 2.5,
           useEasing: true,
@@ -1037,6 +1150,30 @@
           });
         }, { threshold: 0.3 });
         statsObserver.observe(numbersSection);
+      }
+
+      const detailCards = document.querySelectorAll('#statsDetails .stats-detail-card');
+      if (detailCards.length) {
+        const progressObserver = new IntersectionObserver((entries, observer) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              const rows = entry.target.querySelectorAll('.progress-item[data-percent]');
+              rows.forEach((row, index) => {
+                setTimeout(() => {
+                  const fill = row.querySelector('.progress-fill');
+                  const percent = row.dataset.percent || '0';
+                  const gradient = row.dataset.gradient || 'linear-gradient(135deg,#00B4D8,#0077B6)';
+                  if (fill) {
+                    fill.style.background = gradient;
+                    fill.style.width = `${percent}%`;
+                  }
+                }, index * 100);
+              });
+              observer.unobserve(entry.target);
+            }
+          });
+        }, { threshold: 0.3 });
+        detailCards.forEach(card => progressObserver.observe(card));
       }
 
       const statsToggle = document.getElementById('statsToggle');
