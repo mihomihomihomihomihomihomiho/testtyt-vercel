@@ -42,7 +42,10 @@
     .btn-entry{background:var(--accent);color:#fff;font-weight:700;font-size:1rem;border-radius:9999px;padding:.75rem 1.5rem;transition:.2s;box-shadow:none;letter-spacing:0;}
     .btn-entry:hover{background:var(--accentHover);transform:translateY(-1px);}
     .white-badge{background:#fff;padding:.5rem .75rem;border-radius:.25rem;display:inline-block;font-weight:700;font-size:.875rem;letter-spacing:.01em;}
-    .badge-title{background:#000;color:#fff;padding:.3rem .6rem;box-decoration-break:clone;-webkit-box-decoration-break:clone;border-radius:.15rem;font-weight:900;letter-spacing:.08em;white-space:nowrap;}
+    .badge-title{background:#000;color:#fff;padding:.25rem .55rem;box-decoration-break:clone;-webkit-box-decoration-break:clone;border-radius:.15rem;font-weight:900;letter-spacing:.06em;white-space:nowrap;font-size:clamp(0.9rem,3.1vw,1.15rem);}
+    @media(max-width:480px){
+      .badge-title{font-size:0.95rem;letter-spacing:.04em;}
+    }
     .section-label{writing-mode:vertical-rl;transform:rotate(180deg);font-weight:500;}
     .mega-outline{font-weight:900;letter-spacing:.02em;color:transparent;-webkit-text-stroke:1px rgba(255,255,255,.30);text-stroke:1px rgba(255,255,255,.30);writing-mode:vertical-rl;text-orientation:mixed;pointer-events:none;user-select:none;}
     .diag-mask{clip-path: polygon(0 0, 86% 0, 100% 100%, 0 100%);}
