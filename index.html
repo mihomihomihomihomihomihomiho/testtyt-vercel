@@ -42,7 +42,10 @@
     .btn-entry{background:var(--accent);color:#fff;font-weight:700;font-size:1rem;border-radius:9999px;padding:.75rem 1.5rem;transition:.2s;box-shadow:none;letter-spacing:0;}
     .btn-entry:hover{background:var(--accentHover);transform:translateY(-1px);}
     .white-badge{background:#fff;padding:.5rem .75rem;border-radius:.25rem;display:inline-block;font-weight:700;font-size:.875rem;letter-spacing:.01em;}
-    .badge-title{background:#000;color:#fff;padding:.3rem .6rem;box-decoration-break:clone;-webkit-box-decoration-break:clone;border-radius:.15rem;font-weight:900;letter-spacing:.08em;}
+    .badge-title{background:#000;color:#fff;padding:.34rem .78rem;box-decoration-break:clone;-webkit-box-decoration-break:clone;border-radius:.2rem;font-weight:900;letter-spacing:.09em;white-space:nowrap;font-size:clamp(1.6rem,3.6vw,2.4rem);}
+    @media(max-width:480px){
+      .badge-title{font-size:1.12rem;letter-spacing:.055em;}
+    }
     .section-label{writing-mode:vertical-rl;transform:rotate(180deg);font-weight:500;}
     .mega-outline{font-weight:900;letter-spacing:.02em;color:transparent;-webkit-text-stroke:1px rgba(255,255,255,.30);text-stroke:1px rgba(255,255,255,.30);writing-mode:vertical-rl;text-orientation:mixed;pointer-events:none;user-select:none;}
     .diag-mask{clip-path: polygon(0 0, 86% 0, 100% 100%, 0 100%);}
@@ -193,7 +196,7 @@
     <div class="container mx-auto px-6 max-w-[88rem] py-20">
       <div class="grid grid-cols-1 lg:grid-cols-[56px_1fr] gap-4 items-start mb-12">
         <div class="hidden lg:block">
-          <div class="bg-white caption px-2 py-1 rounded-sm section-label">WHO WE ARE</div>
+          <div class="bg-white text-gray-600 text-xs tracking-[0.12em] px-2 py-1 rounded-sm section-label">WHO WE ARE</div>
         </div>
         <h2 class="section-title">
           <span class="badge-title">私たちについて</span>
@@ -215,7 +218,7 @@
     <div class="container mx-auto px-6 max-w-[88rem] py-20">
       <div class="grid grid-cols-1 lg:grid-cols-[56px_1fr] gap-4 items-start mb-12">
         <div class="hidden lg:block">
-          <div class="bg-white caption px-2 py-1 rounded-sm section-label">MISSION</div>
+          <div class="bg-white text-gray-600 text-xs tracking-[0.12em] px-2 py-1 rounded-sm section-label">MISSION</div>
         </div>
         <h2 class="section-title">
           <span class="badge-title">私たちのミッション</span>
@@ -237,7 +240,7 @@
     <div class="container mx-auto px-6 max-w-[88rem] py-20">
       <div class="grid grid-cols-1 lg:grid-cols-[56px_1fr] gap-4 items-start mb-12">
         <div class="hidden lg:block">
-          <div class="bg-white caption px-2 py-1 rounded-sm section-label">CHIBATECH</div>
+          <div class="bg-white text-gray-600 text-xs tracking-[0.12em] px-2 py-1 rounded-sm section-label">CHIBATECH</div>
         </div>
         <h2 class="section-title">
           <span class="badge-title">千葉工業大学 正式科目</span>
@@ -270,7 +273,7 @@
     <div class="container mx-auto px-6 max-w-[88rem] py-20">
       <div class="grid grid-cols-1 lg:grid-cols-[56px_1fr] gap-4 items-start mb-12">
         <div class="hidden lg:block">
-          <div class="bg-white caption px-2 py-1 rounded-sm section-label">READING</div>
+          <div class="bg-white text-gray-600 text-xs tracking-[0.12em] px-2 py-1 rounded-sm section-label">READING</div>
         </div>
         <h2 class="section-title">
           <span class="badge-title">学習リソース</span>
@@ -323,7 +326,7 @@
     <div class="container mx-auto px-6 max-w-[88rem] py-20">
       <div class="grid grid-cols-1 lg:grid-cols-[56px_1fr] gap-4 items-start mb-12">
         <div class="hidden lg:block">
-          <div class="bg-white caption px-2 py-1 rounded-sm section-label">FOR BUSINESS</div>
+          <div class="bg-white text-gray-600 text-xs tracking-[0.12em] px-2 py-1 rounded-sm section-label">FOR BUSINESS</div>
         </div>
         <h2 class="section-title">
           <span class="badge-title">法人向けサービス</span>
@@ -359,7 +362,7 @@
     <div class="container mx-auto px-6 max-w-[88rem] py-20">
       <div class="grid grid-cols-1 lg:grid-cols-[56px_1fr] gap-4 items-start mb-12">
         <div class="hidden lg:block">
-          <div class="bg-white caption px-2 py-1 rounded-sm section-label">PARTNERS</div>
+          <div class="bg-white text-gray-600 text-xs tracking-[0.12em] px-2 py-1 rounded-sm section-label">PARTNERS</div>
         </div>
         <h2 class="section-title">
           <span class="badge-title">協業パートナー募集</span>
@@ -378,7 +381,7 @@
     <div class="container mx-auto px-6 max-w-[88rem] py-20">
       <div class="grid grid-cols-1 lg:grid-cols-[56px_1fr] gap-4 items-start mb-12">
         <div class="hidden lg:block">
-          <div class="bg-white caption px-2 py-1 rounded-sm section-label">NEWS</div>
+          <div class="bg-white text-gray-600 text-xs tracking-[0.12em] px-2 py-1 rounded-sm section-label">NEWS</div>
         </div>
         <h2 class="section-title">
           <span class="badge-title">お知らせ</span>
