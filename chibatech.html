@@ -90,6 +90,25 @@
     .staff-card .staff-name{font-size:1.15rem;font-weight:800;text-align:center;margin-bottom:.25rem;}
     .staff-card .staff-note{font-size:.8rem;color:var(--muted);text-align:center;line-height:1.5;}
     .staff-card-link{text-decoration:none;color:inherit;}
+    .staff-card-clickable{cursor:pointer;}
+
+    /* Staff Modal */
+    .staff-modal{position:fixed;inset:0;z-index:9999;display:none;align-items:center;justify-content:center;padding:1rem;}
+    .staff-modal.is-open{display:flex;}
+    .staff-modal-overlay{position:absolute;inset:0;background:rgba(0,0,0,0.6);backdrop-filter:blur(4px);animation:fadeIn 0.3s ease;}
+    .staff-modal-content{position:relative;background:#fff;border-radius:1.5rem;max-width:640px;width:100%;max-height:90vh;overflow-y:auto;box-shadow:0 20px 60px rgba(0,0,0,0.25);animation:modalSlideUp 0.4s cubic-bezier(0.34,1.56,0.64,1);}
+    .staff-modal-close{position:absolute;top:1.25rem;right:1.25rem;width:40px;height:40px;border-radius:50%;background:rgba(0,0,0,0.05);border:none;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:all 0.2s;z-index:10;}
+    .staff-modal-close:hover{background:rgba(0,0,0,0.1);transform:scale(1.1);}
+    .staff-modal-body{padding:3rem 2.5rem;}
+    .staff-modal-photo{width:180px;height:240px;margin:0 auto 2rem;border-radius:1rem;overflow:hidden;background:#f5f5f5;}
+    .staff-modal-photo img{width:100%;height:100%;object-fit:cover;}
+    .staff-modal-caption{font-size:0.75rem;font-weight:700;letter-spacing:0.28em;color:var(--muted);text-transform:uppercase;text-align:center;margin-bottom:0.5rem;}
+    .staff-modal-name{font-size:1.75rem;font-weight:900;text-align:center;margin-bottom:2rem;color:var(--text);}
+    .staff-modal-bio{font-size:1.0625rem;line-height:1.9;letter-spacing:0.04em;color:var(--text-body);text-align:left;}
+
+    @keyframes fadeIn{from{opacity:0;}to{opacity:1;}}
+    @keyframes modalSlideUp{from{opacity:0;transform:translateY(30px) scale(0.95);}to{opacity:1;transform:translateY(0) scale(1);}}
+
     .product-card{position:relative;}
     .product-visual{position:relative;width:100%;aspect-ratio:8/7;overflow:hidden;background:#f5f6fa;margin:0 0 1.5rem;}
     .product-visual img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;}
@@ -622,7 +641,7 @@
       </div>
       <div class="relative">
         <div id="staffSlider" class="flex gap-6 overflow-x-auto pb-6 scroll-smooth snap-x snap-mandatory slider-hide" style="scrollbar-width:none;">
-          <article data-card class="staff-card snap-center">
+          <article data-card class="staff-card staff-card-clickable snap-center" onclick="openStaffModal('joi')" data-staff="joi">
             <div class="staff-photo" style="background-image:url('assets/images/staff/joi_p.jpg');"></div>
             <div class="staff-content">
               <p class="staff-caption">科目責任者</p>
@@ -630,23 +649,23 @@
               <p class="staff-note">MITメディアラボ所長としての知見を授業へ。</p>
             </div>
           </article>
-          <a data-card class="staff-card staff-card-link snap-center" href="nishimura.html" aria-label="西村奈々の詳細ページへ">
+          <article data-card class="staff-card staff-card-clickable snap-center" onclick="openStaffModal('minta')" data-staff="minta">
             <div class="staff-photo" style="background-image:url('assets/images/staff/minta.jpg');"></div>
             <div class="staff-content">
               <p class="staff-caption">講師</p>
               <p class="staff-name">西村奈々 <span class="text-sm font-semibold text-gray-500">(minta)</span></p>
               <p class="staff-note">生成AIデザインの最前線を解説。</p>
             </div>
-          </a>
-          <a data-card class="staff-card staff-card-link snap-center" href="shimose.html" aria-label="下瀬浩一の詳細ページへ">
+          </article>
+          <article data-card class="staff-card staff-card-clickable snap-center" onclick="openStaffModal('spark')" data-staff="spark">
             <div class="staff-photo" style="background-image:url('assets/images/staff/spark.jpg');"></div>
             <div class="staff-content">
               <p class="staff-caption">講師</p>
               <p class="staff-name">下瀬浩一 <span class="text-sm font-semibold text-gray-500">(spark)</span></p>
               <p class="staff-note">Web3プロダクト開発を実践的にサポート。</p>
             </div>
-          </a>
-          <article data-card class="staff-card snap-center">
+          </article>
+          <article data-card class="staff-card staff-card-clickable snap-center" onclick="openStaffModal('ishibe')" data-staff="ishibe">
             <div class="staff-photo" style="background-image:url('assets/images/staff/ishibe.jpg');"></div>
             <div class="staff-content">
               <p class="staff-caption">CTO</p>
@@ -654,7 +673,7 @@
               <p class="staff-note">技術アーキテクチャと実装面を統括。</p>
             </div>
           </article>
-          <article data-card class="staff-card snap-center">
+          <article data-card class="staff-card staff-card-clickable snap-center" onclick="openStaffModal('miho')" data-staff="miho">
             <div class="staff-photo" style="background-image:url('assets/images/staff/miho2.jpg');"></div>
             <div class="staff-content">
               <p class="staff-caption">運営</p>
@@ -684,6 +703,20 @@
       </div>
     </div>
   </section>
+
+  <!-- スタッフモーダル -->
+  <div id="staffModal" class="staff-modal">
+    <div class="staff-modal-overlay" onclick="closeStaffModal()"></div>
+    <div class="staff-modal-content">
+      <button class="staff-modal-close" onclick="closeStaffModal()" aria-label="閉じる">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
+      </button>
+      <div id="staffModalBody" class="staff-modal-body"></div>
+    </div>
+  </div>
 
   <!-- 募集要項 -->
   <section id="requirements" class="relative">
@@ -1417,6 +1450,70 @@
       prev.classList.toggle('cursor-not-allowed', disablePrev);
       next.classList.toggle('opacity-40', disableNext);
       next.classList.toggle('cursor-not-allowed', disableNext);
+    }
+
+    // スタッフプロフィールデータ
+    const staffProfiles = {
+      joi: {
+        name: '伊藤穰一',
+        caption: '科目責任者',
+        photo: 'assets/images/staff/joi_p.jpg',
+        bio: 'ベンチャーキャピタリスト、起業家、作家、学者として、主に社会とテクノロジーの変革に取り組む。千葉工業大学学長、変革センター所長。2011年から2019年までは、米マサチューセッツ工科大学（MIT）メディアラボの所長。非営利団体クリエイティブ・コモンズ最高経営責任者のほか、ニューヨーク・タイムズ、ソニー、ナイト財団、マッカーサー財団、ICANN、Mozilla財団の取締役を歴任。'
+      },
+      minta: {
+        name: '西村奈々 (minta)',
+        caption: '講師',
+        photo: 'assets/images/staff/minta.jpg',
+        bio: '千葉工業大学 客員研究員。ハンドルネームmintaとしてspark氏とバディを組み変革センターに参画。今年で3年目を迎える千葉工業大学「web3・AI概論」では講義設計、講師、コミュニティマネジメントを担い、VibeCodingと仮説検証を組み合わせ"つくって動かして学ぶ"プロト開発を支援。Anything公式アンバサダーとしても生成AI教育・実装を推進し、本業ではspark氏と共に新規事業開発を担う。'
+      },
+      spark: {
+        name: '下瀬浩一 (spark)',
+        caption: '講師',
+        photo: 'assets/images/staff/spark.jpg',
+        bio: '千葉工業大学 客員研究員。ハンドルネームsparkとしてminta氏とバディを組み変革センターに参画。千葉工業大学「web3・AI概論」の戦略・オペレーション、講師、コミュニティマネジメントを担当（今年で３年目）。本業はNTT西日本 未来事業共創室の担当部長として先端技術活用による事業創出を担当。これまで通信キャリアの大規模システム開発、アジャイル開発プロセスやブロックチェーン技術の研究開発、及び組織マネジメント等を歴任。'
+      },
+      ishibe: {
+        name: '石部達也',
+        caption: 'CTO',
+        photo: 'assets/images/staff/ishibe.jpg',
+        bio: '株式会社DOU 代表取締役。2014年 リクルートホールディングス入社。2018年 株式会社DOU(旧PitPa)を創業。web3/AI概論のCTOでもある。'
+      },
+      miho: {
+        name: '品田美帆',
+        caption: '運営',
+        photo: 'assets/images/staff/miho2.jpg',
+        bio: '千葉工業大学 変革センター 客員研究員。大学卒業後、全米公共放送に入社。Joi Ito\'s Podcastの制作に携わる中でweb3やAIに触れ、2022年より千葉工業大学客員研究員として、web3/AI概論の開発・運営を担当。 番組制作のノウハウを教育に応用し、ゲーム手法やトークン経済、AI講師などを取り入れた独自の教育手法を実践。 現在は、授業から生まれるプロジェクトを実際のビジネスや社会課題解決につなげる仕組み作りを進めている。'
+      }
+    };
+
+    // スタッフモーダルを開く
+    function openStaffModal(staffId) {
+      const profile = staffProfiles[staffId];
+      if (!profile) return;
+
+      const modal = document.getElementById('staffModal');
+      const modalBody = document.getElementById('staffModalBody');
+
+      // モーダルコンテンツを生成
+      modalBody.innerHTML = `
+        <div class="staff-modal-photo">
+          <img src="${profile.photo}" alt="${profile.name}">
+        </div>
+        <p class="staff-modal-caption">${profile.caption}</p>
+        <h3 class="staff-modal-name">${profile.name}</h3>
+        <p class="staff-modal-bio">${profile.bio}</p>
+      `;
+
+      // モーダルを表示
+      modal.classList.add('is-open');
+      document.body.style.overflow = 'hidden';
+    }
+
+    // スタッフモーダルを閉じる
+    function closeStaffModal() {
+      const modal = document.getElementById('staffModal');
+      modal.classList.remove('is-open');
+      document.body.style.overflow = '';
     }
 
     document.addEventListener('DOMContentLoaded', () => {
