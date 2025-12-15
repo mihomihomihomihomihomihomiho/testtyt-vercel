@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Reading - 学習リソース - web3/AI概論</title>
+  <title>学習リソース詳細 - web3/AI概論</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700;900&display=swap" rel="stylesheet">
   <link rel="icon" type="image/png" sizes="32x32" href="penguin.png">
@@ -25,14 +25,10 @@
     .caption{font-size:0.75rem;font-weight:500;line-height:1.4;letter-spacing:.08em;color:var(--muted-light);text-transform:uppercase;}
     .btn-entry{background:var(--accent);color:#fff;font-weight:700;font-size:1rem;border-radius:9999px;padding:.75rem 1.5rem;transition:.2s;box-shadow:none;letter-spacing:0;}
     .btn-entry:hover{background:var(--accentHover);transform:translateY(-1px);}
+    .btn-back{background:#fff;color:var(--text);font-weight:700;font-size:1rem;border-radius:9999px;padding:.75rem 1.5rem;transition:.2s;box-shadow:0 1px 3px rgba(0,0,0,.1);border:1px solid var(--line);}
+    .btn-back:hover{background:var(--bg);transform:translateY(-1px);}
     .white-badge{background:#fff;padding:.5rem .75rem;border-radius:.25rem;display:inline-block;font-weight:700;font-size:.875rem;letter-spacing:.01em;}
     .badge-title{background:#000;color:#fff;padding:.3rem .6rem;box-decoration-break:clone;-webkit-box-decoration-break:clone;border-radius:.15rem;font-weight:900;letter-spacing:.08em;}
-    .section-label{writing-mode:vertical-rl;transform:rotate(180deg);font-weight:500;}
-    .mega-outline{font-weight:900;letter-spacing:.02em;color:transparent;-webkit-text-stroke:1px rgba(255,255,255,.30);text-stroke:1px rgba(255,255,255,.30);writing-mode:vertical-rl;text-orientation:mixed;pointer-events:none;user-select:none;}
-    .diag-mask{clip-path: polygon(0 0, 86% 0, 100% 100%, 0 100%);}
-    .left-rail{position:absolute;left:0;top:0;bottom:0;width:24px;pointer-events:none;background:linear-gradient(#fff,#fff) left 10px top 120px/16px 2px no-repeat,linear-gradient(#fff,#fff) left 10px top 420px/16px 2px no-repeat,linear-gradient(#fff,#fff) left 10px top 720px/16px 2px no-repeat,linear-gradient(#fff,#fff) left 10px top 1020px/16px 2px no-repeat;opacity:.9;}
-    .filter-btn{padding:.5rem 1rem;border-radius:9999px;border:1px solid #E5E7EB;transition:.2s;font-size:.9rem;font-weight:500;cursor:pointer;}
-    .filter-btn.active{background:var(--accent);color:#fff;border-color:var(--accent);}
     .fixed-logo{position:fixed;left:20px;top:20px;z-index:50;width:80px;height:auto;transition:.2s;}
     .fixed-logo:hover{transform:scale(1.1);}
   </style>
@@ -69,56 +65,62 @@
         </nav>
       </div>
     </div>
-    <div class="relative min-h-[64vh] md:min-h-[72vh]">
-      <div class="absolute inset-0">
-        <img src="https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?w=1600&q=85" alt="Learning resources" class="w-full h-full object-cover">
-        <div class="absolute inset-0 bg-gradient-to-r from-black/35 via-black/10 to-transparent"></div>
-      </div>
-      <div class="absolute right-[2vw] top-[6vh] hidden lg:block">
-        <div class="mega-outline text-[22vw] leading-none">READING</div>
-      </div>
-      <div class="relative z-20 container mx-auto px-6 max-w-[88rem] pt-24 md:pt-36 pb-12">
-        <div class="max-w-4xl">
-          <div class="mb-6">
-            <span class="white-badge inline-block">Learning Resources</span>
-          </div>
-          <h1 class="bg-white text-gray-900 hero-title shadow-sm px-4 py-3 inline-block leading-tight">学習リソース</h1>
-        </div>
-      </div>
-    </div>
-    <div class="bg-[var(--bg)]">
-      <div class="container mx-auto px-6 max-w-[88rem] py-6">
-        <div class="flex flex-wrap gap-3">
-          <button class="filter-btn active" onclick="filterContent('all')" id="filter-all">All</button>
-          <button class="filter-btn" onclick="filterContent('articles')" id="filter-articles">Articles</button>
-          <button class="filter-btn" onclick="filterContent('notes')" id="filter-notes">Notes</button>
-          <button class="filter-btn" onclick="filterContent('videos')" id="filter-videos">Videos</button>
-        </div>
-      </div>
-    </div>
   </header>
 
-  <section class="relative bg-[var(--bg-weak)]">
-    <div class="left-rail hidden md:block"></div>
+  <section class="relative bg-[var(--bg-weak)] min-h-screen">
     <div class="container mx-auto px-6 max-w-[88rem] py-20">
+      <!-- 戻るボタン -->
+      <div class="mb-8">
+        <a href="reading.html" class="btn-back inline-flex items-center gap-2">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
+          </svg>
+          一覧に戻る
+        </a>
+      </div>
+
       <!-- ローディング表示 -->
       <div id="loading" class="text-center py-20">
         <p class="text-gray-500">読み込み中...</p>
       </div>
+
       <!-- エラー表示 -->
       <div id="error" class="hidden text-center py-20">
         <p class="text-red-500">データの読み込みに失敗しました。</p>
+        <a href="reading.html" class="btn-back inline-block mt-4">一覧に戻る</a>
       </div>
-      <!-- 記事カード -->
-      <div id="resourcesContainer" class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 hidden"></div>
-    </div>
-  </section>
 
-  <section class="bg-[var(--bg-weak)]">
-    <div class="container mx-auto px-6 max-w-[88rem] py-12">
-      <div class="text-center">
-        <h2 class="subsection-title mb-6">もっと学習リソースを探す</h2>
-        <a href="index.html" class="btn-entry inline-block">ホームに戻る</a>
+      <!-- リソース詳細 -->
+      <div id="resourceDetail" class="hidden">
+        <div class="bg-white rounded-2xl overflow-hidden shadow-lg">
+          <!-- カテゴリ -->
+          <div id="categoryBadge" class="px-8 pt-8 pb-4"></div>
+
+          <!-- タイトル -->
+          <h1 id="resourceTitle" class="px-8 pb-6 section-title"></h1>
+
+          <!-- メディア（動画 or 画像） -->
+          <div id="resourceMedia" class="w-full bg-gray-100"></div>
+
+          <!-- コンテンツ -->
+          <div class="p-8">
+            <!-- 公開日 -->
+            <p id="publishedDate" class="text-sm text-gray-400 mb-6"></p>
+
+            <!-- 説明 -->
+            <div id="description" class="body-text mb-8 whitespace-pre-line"></div>
+
+            <!-- 外部リンク -->
+            <div id="externalLink" class="hidden">
+              <a id="resourceUrl" href="#" target="_blank" rel="noopener noreferrer" class="btn-entry inline-flex items-center gap-2">
+                詳細を見る
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -139,70 +141,99 @@
   </footer>
 
   <script>
-    // Airtableから学習リソースを取得
-    async function loadResources() {
+    // URLパラメータからIDを取得
+    const urlParams = new URLSearchParams(window.location.search);
+    const resourceId = urlParams.get('id');
+
+    // IDがない場合は一覧に戻る
+    if (!resourceId) {
+      window.location.href = 'reading.html';
+    }
+
+    // Airtableからリソース詳細を取得
+    async function loadResourceDetail() {
       const loading = document.getElementById('loading');
       const error = document.getElementById('error');
-      const container = document.getElementById('resourcesContainer');
+      const detail = document.getElementById('resourceDetail');
 
       try {
-        const response = await fetch('/api/reading');
+        const response = await fetch(`/api/reading-detail?id=${resourceId}`);
         const data = await response.json();
 
         if (!response.ok || !data.success) {
-          throw new Error(data.error || 'Failed to load resources');
+          throw new Error(data.error || 'Failed to load resource');
         }
+
+        const resource = data.resource;
 
         // ローディングを非表示
         loading.classList.add('hidden');
 
-        // リソースがない場合
-        if (data.resources.length === 0) {
-          container.innerHTML = '<p class="text-center text-gray-500 col-span-full">まだ学習リソースがありません。</p>';
-          container.classList.remove('hidden');
-          return;
+        // カテゴリ
+        if (resource.category) {
+          document.getElementById('categoryBadge').innerHTML = `
+            <span class="text-sm px-3 py-1 bg-gray-100 rounded-full inline-block">${resource.category}</span>
+          `;
         }
 
-        // カードを生成
-        container.innerHTML = data.resources.map(resource => createResourceCard(resource)).join('');
-        container.classList.remove('hidden');
+        // タイトル
+        document.getElementById('resourceTitle').textContent = resource.title;
+
+        // メディア（YouTube埋め込み or サムネイル）
+        const mediaContainer = document.getElementById('resourceMedia');
+        if (resource.youtubeId) {
+          mediaContainer.innerHTML = `
+            <div class="aspect-video">
+              <iframe class="w-full h-full" src="https://www.youtube.com/embed/${resource.youtubeId}" frameborder="0" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe>
+            </div>
+          `;
+        } else if (resource.thumbnail) {
+          mediaContainer.innerHTML = `
+            <img src="${resource.thumbnail}" alt="${resource.title}" class="w-full object-cover max-h-[600px]">
+          `;
+        } else {
+          mediaContainer.innerHTML = `
+            <div class="aspect-video bg-gradient-to-br from-purple-400 to-pink-500 flex items-center justify-center">
+              <span class="text-white text-8xl font-bold">${resource.title.charAt(0)}</span>
+            </div>
+          `;
+        }
+
+        // 公開日
+        if (resource.publishedDate) {
+          document.getElementById('publishedDate').textContent =
+            new Date(resource.publishedDate).toLocaleDateString('ja-JP', {
+              year: 'numeric',
+              month: 'long',
+              day: 'numeric'
+            });
+        }
+
+        // 説明
+        if (resource.description) {
+          document.getElementById('description').textContent = resource.description;
+        } else {
+          document.getElementById('description').remove();
+        }
+
+        // 外部リンク
+        if (resource.url) {
+          document.getElementById('externalLink').classList.remove('hidden');
+          document.getElementById('resourceUrl').href = resource.url;
+        }
+
+        // 詳細を表示
+        detail.classList.remove('hidden');
 
       } catch (err) {
-        console.error('Error loading resources:', err);
+        console.error('Error loading resource detail:', err);
         loading.classList.add('hidden');
         error.classList.remove('hidden');
       }
     }
 
-    // リソースカードのHTML生成（一覧用：サムネイルとタイトルのみ）
-    function createResourceCard(resource) {
-      // サムネイル画像
-      const thumbnail = resource.thumbnail
-        ? `<img src="${resource.thumbnail}" alt="${resource.title}" class="w-full h-full object-cover">`
-        : `<div class="w-full h-full bg-gradient-to-br from-purple-400 to-pink-500 flex items-center justify-center">
-             <span class="text-white text-4xl font-bold">${resource.title.charAt(0)}</span>
-           </div>`;
-
-      return `
-        <a href="reading-detail.html?id=${resource.id}" class="bg-white rounded-2xl overflow-hidden hover:shadow-lg transition block group">
-          <div class="aspect-video relative bg-gray-100 overflow-hidden">
-            ${thumbnail}
-          </div>
-          <div class="p-6">
-            <h3 class="font-bold text-lg leading-tight group-hover:text-pink-600 transition">${resource.title}</h3>
-          </div>
-        </a>
-      `;
-    }
-
-    function filterContent(type) {
-      document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
-      document.getElementById('filter-' + type).classList.add('active');
-      console.log('Filtering by:', type);
-    }
-
     // ページ読み込み時にデータを取得
-    document.addEventListener('DOMContentLoaded', loadResources);
+    document.addEventListener('DOMContentLoaded', loadResourceDetail);
   </script>
 </body>
 </html>
