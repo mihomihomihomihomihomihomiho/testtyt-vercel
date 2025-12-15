@@ -89,43 +89,72 @@
   <section class="relative bg-[var(--bg-weak)]">
     <div class="left-rail hidden md:block"></div>
     <div class="container mx-auto px-6 max-w-[88rem] py-20">
-      <div class="space-y-6">
-        <a href="#" class="block bg-white rounded-2xl p-6 md:p-8 hover:shadow-lg transition">
-          <div class="flex flex-col md:flex-row md:items-start gap-6">
-            <div class="bg-gray-200 rounded-xl w-full md:w-48 aspect-video md:aspect-square flex-shrink-0"></div>
-            <div class="flex-grow">
-              <p class="text-xs text-gray-500 mb-3">2025.04.01</p>
-              <h2 class="font-bold text-xl md:text-2xl mb-3">2025年度春学期 授業開始のお知らせ</h2>
-              <p class="prose-p text-sm mb-4">千葉工業大学での総合科学特論（Web3/AI概論）の授業が4月8日よりスタートします。今学期は学生30名、社会人10名の計40名が参加予定です。</p>
-              <span class="text-sm font-bold" style="color:var(--accent);">続きを読む →</span>
-            </div>
-          </div>
-        </a>
-        <a href="#" class="block bg-white rounded-2xl p-6 md:p-8 hover:shadow-lg transition">
-          <div class="flex flex-col md:flex-row md:items-start gap-6">
-            <div class="bg-gray-200 rounded-xl w-full md:w-48 aspect-video md:aspect-square flex-shrink-0"></div>
-            <div class="flex-grow">
-              <p class="text-xs text-gray-500 mb-3">2025.03.15</p>
-              <h2 class="font-bold text-xl md:text-2xl mb-3">法人研修プログラムをリニューアル</h2>
-              <p class="prose-p text-sm mb-4">企業向け研修の内容を大幅にアップデートしました。最新の生成AI技術やブロックチェーンの実装手法を盛り込み、より実践的なカリキュラムに進化しています。</p>
-              <span class="text-sm font-bold" style="color:var(--accent);">続きを読む →</span>
-            </div>
-          </div>
-        </a>
-        <a href="#" class="block bg-white rounded-2xl p-6 md:p-8 hover:shadow-lg transition">
-          <div class="flex flex-col md:flex-row md:items-start gap-6">
-            <div class="bg-gray-200 rounded-xl w-full md:w-48 aspect-video md:aspect-square flex-shrink-0"></div>
-            <div class="flex-grow">
-              <p class="text-xs text-gray-500 mb-3">2025.02.28</p>
-              <h2 class="font-bold text-xl md:text-2xl mb-3">2024年度成果発表会を開催</h2>
-              <p class="prose-p text-sm mb-4">学生・社会人合わせて15チームが成果を発表しました。生成AIを活用した教育アプリ、NFTを使ったコミュニティ運営ツールなど、多様なプロジェクトが登場。</p>
-              <span class="text-sm font-bold" style="color:var(--accent);">続きを読む →</span>
-            </div>
-          </div>
-        </a>
+      <div id="news-container" class="space-y-6">
+        <!-- ニュース記事がここに動的に表示されます -->
+        <div class="text-center py-12">
+          <p class="text-gray-500">読み込み中...</p>
+        </div>
       </div>
     </div>
   </section>
+
+  <script>
+    // ニュースをAirtableから取得して表示
+    async function loadNews() {
+      const container = document.getElementById('news-container');
+
+      try {
+        const response = await fetch('/api/news');
+        const data = await response.json();
+
+        if (!data.success || !data.news || data.news.length === 0) {
+          container.innerHTML = `
+            <div class="text-center py-12">
+              <p class="text-gray-500">現在、お知らせはありません。</p>
+            </div>
+          `;
+          return;
+        }
+
+        // ニュース記事を表示
+        container.innerHTML = data.news.map(item => {
+          // 日付をフォーマット（YYYY.MM.DD形式）
+          const date = item.date ? new Date(item.date).toLocaleDateString('ja-JP', {
+            year: 'numeric',
+            month: '2-digit',
+            day: '2-digit'
+          }).replace(/\//g, '.') : '';
+
+          return `
+            <div class="block bg-white rounded-2xl p-6 md:p-8 hover:shadow-lg transition">
+              <div class="flex flex-col md:flex-row md:items-start gap-6">
+                ${item.thumbnailUrl ?
+                  `<img src="${item.thumbnailUrl}" alt="${item.title}" class="rounded-xl w-full md:w-48 aspect-video md:aspect-square object-cover flex-shrink-0">` :
+                  `<div class="bg-gray-200 rounded-xl w-full md:w-48 aspect-video md:aspect-square flex-shrink-0"></div>`
+                }
+                <div class="flex-grow">
+                  <p class="text-xs text-gray-500 mb-3">${date}</p>
+                  <h2 class="font-bold text-xl md:text-2xl mb-3">${item.title}</h2>
+                  <p class="prose-p text-sm mb-4">${item.summary}</p>
+                </div>
+              </div>
+            </div>
+          `;
+        }).join('');
+
+      } catch (error) {
+        console.error('Error loading news:', error);
+        container.innerHTML = `
+          <div class="text-center py-12">
+            <p class="text-red-500">ニュースの読み込みに失敗しました。</p>
+          </div>
+        `;
+      }
+    }
+
+    // ページ読み込み時にニュースを取得
+    document.addEventListener('DOMContentLoaded', loadNews);
+  </script>
 
   <section class="bg-[var(--bg-weak)]">
     <div class="container mx-auto px-6 max-w-[88rem] py-12">
