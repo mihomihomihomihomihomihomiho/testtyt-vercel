@@ -101,44 +101,16 @@
   <section class="relative bg-[var(--bg-weak)]">
     <div class="left-rail hidden md:block"></div>
     <div class="container mx-auto px-6 max-w-[88rem] py-20">
-      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-        <a href="#" class="bg-white rounded-2xl overflow-hidden hover:shadow-lg transition block">
-          <div class="bg-gradient-to-br from-purple-400 to-pink-500 aspect-video"></div>
-          <div class="p-6">
-            <div class="flex gap-2 mb-3">
-              <span class="text-xs px-2 py-1 bg-gray-100 rounded">AI</span>
-              <span class="text-xs px-2 py-1 bg-gray-100 rounded">シラバス</span>
-            </div>
-            <h3 class="font-bold text-lg mb-2">生成AIの基礎と実践</h3>
-            <p class="text-sm text-gray-600 mb-3">ChatGPTやStable Diffusionの仕組みを理解し、実際に使ってみる入門記事。</p>
-            <p class="text-xs text-gray-400">所要時間: 15分</p>
-          </div>
-        </a>
-        <a href="#" class="bg-white rounded-2xl overflow-hidden hover:shadow-lg transition block">
-          <div class="bg-gradient-to-br from-blue-400 to-cyan-500 aspect-video"></div>
-          <div class="p-6">
-            <div class="flex gap-2 mb-3">
-              <span class="text-xs px-2 py-1 bg-gray-100 rounded">Web3</span>
-              <span class="text-xs px-2 py-1 bg-gray-100 rounded">ケース</span>
-            </div>
-            <h3 class="font-bold text-lg mb-2">ブロックチェーンの社会実装事例</h3>
-            <p class="text-sm text-gray-600 mb-3">国内外の先進事例から、Web3技術が実社会でどう使われているかを学ぶ。</p>
-            <p class="text-xs text-gray-400">所要時間: 20分</p>
-          </div>
-        </a>
-        <a href="#" class="bg-white rounded-2xl overflow-hidden hover:shadow-lg transition block">
-          <div class="bg-gradient-to-br from-green-400 to-teal-500 aspect-video"></div>
-          <div class="p-6">
-            <div class="flex gap-2 mb-3">
-              <span class="text-xs px-2 py-1 bg-gray-100 rounded">AI</span>
-              <span class="text-xs px-2 py-1 bg-gray-100 rounded">Web3</span>
-            </div>
-            <h3 class="font-bold text-lg mb-2">プロジェクト設計の考え方</h3>
-            <p class="text-sm text-gray-600 mb-3">技術を使って何を作るか、どう設計するかのフレームワークを紹介。</p>
-            <p class="text-xs text-gray-400">所要時間: 25分</p>
-          </div>
-        </a>
+      <!-- ローディング表示 -->
+      <div id="loading" class="text-center py-20">
+        <p class="text-gray-500">読み込み中...</p>
       </div>
+      <!-- エラー表示 -->
+      <div id="error" class="hidden text-center py-20">
+        <p class="text-red-500">データの読み込みに失敗しました。</p>
+      </div>
+      <!-- 記事カード -->
+      <div id="resourcesContainer" class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 hidden"></div>
     </div>
   </section>
 
@@ -167,11 +139,75 @@
   </footer>
 
   <script>
+    // Airtableから学習リソースを取得
+    async function loadResources() {
+      const loading = document.getElementById('loading');
+      const error = document.getElementById('error');
+      const container = document.getElementById('resourcesContainer');
+
+      try {
+        const response = await fetch('/api/reading');
+        const data = await response.json();
+
+        if (!response.ok || !data.success) {
+          throw new Error(data.error || 'Failed to load resources');
+        }
+
+        // ローディングを非表示
+        loading.classList.add('hidden');
+
+        // リソースがない場合
+        if (data.resources.length === 0) {
+          container.innerHTML = '<p class="text-center text-gray-500 col-span-full">まだ学習リソースがありません。</p>';
+          container.classList.remove('hidden');
+          return;
+        }
+
+        // カードを生成
+        container.innerHTML = data.resources.map(resource => createResourceCard(resource)).join('');
+        container.classList.remove('hidden');
+
+      } catch (err) {
+        console.error('Error loading resources:', err);
+        loading.classList.add('hidden');
+        error.classList.remove('hidden');
+      }
+    }
+
+    // リソースカードのHTML生成
+    function createResourceCard(resource) {
+      // YouTube埋め込み用
+      const videoEmbed = resource.youtubeId
+        ? `<iframe class="w-full h-full" src="https://www.youtube.com/embed/${resource.youtubeId}" frameborder="0" allowfullscreen></iframe>`
+        : resource.thumbnail
+        ? `<img src="${resource.thumbnail}" alt="${resource.title}" class="w-full h-full object-cover">`
+        : `<div class="bg-gradient-to-br from-purple-400 to-pink-500"></div>`;
+
+      return `
+        <a href="${resource.url || '#'}" target="_blank" rel="noopener noreferrer" class="bg-white rounded-2xl overflow-hidden hover:shadow-lg transition block">
+          <div class="aspect-video relative bg-gray-100">
+            ${videoEmbed}
+          </div>
+          <div class="p-6">
+            ${resource.category ? `<div class="flex gap-2 mb-3">
+              <span class="text-xs px-2 py-1 bg-gray-100 rounded">${resource.category}</span>
+            </div>` : ''}
+            <h3 class="font-bold text-lg mb-2">${resource.title}</h3>
+            ${resource.description ? `<p class="text-sm text-gray-600 mb-3">${resource.description}</p>` : ''}
+            ${resource.publishedDate ? `<p class="text-xs text-gray-400">${new Date(resource.publishedDate).toLocaleDateString('ja-JP')}</p>` : ''}
+          </div>
+        </a>
+      `;
+    }
+
     function filterContent(type) {
       document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
       document.getElementById('filter-' + type).classList.add('active');
       console.log('Filtering by:', type);
     }
+
+    // ページ読み込み時にデータを取得
+    document.addEventListener('DOMContentLoaded', loadResources);
   </script>
 </body>
 </html>
