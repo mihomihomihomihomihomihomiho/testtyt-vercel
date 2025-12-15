@@ -216,8 +216,8 @@
           document.getElementById('description').remove();
         }
 
-        // 外部リンク
-        if (resource.url) {
+        // 外部リンク（動画が埋め込まれていない場合のみ表示）
+        if (resource.url && !resource.youtubeId) {
           document.getElementById('externalLink').classList.remove('hidden');
           document.getElementById('resourceUrl').href = resource.url;
         }
