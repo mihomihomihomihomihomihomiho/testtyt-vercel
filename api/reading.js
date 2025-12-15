@@ -38,8 +38,9 @@ export default async function handler(req, res) {
     // クエリパラメータ: 公開フラグがtrueのもののみ、公開日の降順で取得
     const params = new URLSearchParams({
       filterByFormula: '{公開} = TRUE()',
-      sort: [JSON.stringify({ field: '公開日', direction: 'desc' })]
     });
+    params.append('sort[0][field]', '公開日');
+    params.append('sort[0][direction]', 'desc');
 
     const airtableResponse = await fetch(`${airtableUrl}?${params}`, {
       method: 'GET',
