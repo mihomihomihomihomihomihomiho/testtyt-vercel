@@ -1080,10 +1080,29 @@
           </p>
         </div>
       </div>
-      <div class="bg-white rounded-2xl p-8 md:p-12 text-center max-w-3xl mx-auto">
-        <h3 class="text-xl font-bold text-neutral-900 mb-4">募集開始を通知で受け取る</h3>
-        <p class="text-sm text-gray-500 mb-6">※募集開始のお知らせをメールで受け取ることができます。<br>登録いただいた方には、2026年度プログラムの詳細を優先的にお届けします。</p>
-        <a href="contact.html" class="btn-entry inline-block">通知を受け取る</a>
+      <div class="bg-white rounded-2xl p-8 md:p-12 max-w-3xl mx-auto">
+        <h3 class="text-xl font-bold text-neutral-900 mb-4 text-center">募集開始を通知で受け取る</h3>
+        <p class="text-sm text-gray-500 mb-6 text-center">※募集開始のお知らせをメールで受け取ることができます。<br>登録いただいた方には、2026年度プログラムの詳細を優先的にお届けします。</p>
+
+        <!-- 通知登録フォーム -->
+        <form id="notificationForm" class="max-w-md mx-auto space-y-4">
+          <div>
+            <label for="notification-name" class="block text-sm font-medium text-gray-700 mb-2 text-left">お名前 <span class="text-red-500">*</span></label>
+            <input type="text" id="notification-name" name="name" required
+                   class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-pink-500 focus:border-transparent"
+                   placeholder="山田太郎">
+          </div>
+          <div>
+            <label for="notification-email" class="block text-sm font-medium text-gray-700 mb-2 text-left">メールアドレス <span class="text-red-500">*</span></label>
+            <input type="email" id="notification-email" name="email" required
+                   class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-pink-500 focus:border-transparent"
+                   placeholder="example@email.com">
+          </div>
+          <button type="submit" id="notification-submit" class="btn-entry w-full">
+            通知を登録する
+          </button>
+          <p id="notification-message" class="text-sm text-center hidden"></p>
+        </form>
       </div>
     </div>
   </section>
@@ -1448,6 +1467,58 @@
         const isActive = name === tab;
         tabBtn.classList.toggle('active', isActive);
         content.classList.toggle('hidden', !isActive);
+      });
+    }
+
+    // 通知登録フォーム
+    const notificationForm = document.getElementById('notificationForm');
+    if (notificationForm) {
+      notificationForm.addEventListener('submit', async (e) => {
+        e.preventDefault();
+
+        const submitBtn = document.getElementById('notification-submit');
+        const messageEl = document.getElementById('notification-message');
+        const name = document.getElementById('notification-name').value;
+        const email = document.getElementById('notification-email').value;
+
+        // ボタンを無効化
+        submitBtn.disabled = true;
+        submitBtn.textContent = '送信中...';
+        messageEl.classList.add('hidden');
+
+        try {
+          const response = await fetch('/api/notification-signup', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ name, email })
+          });
+
+          const data = await response.json();
+
+          if (response.ok) {
+            // 成功
+            messageEl.textContent = '✓ 登録が完了しました。募集開始時にメールでお知らせします。';
+            messageEl.className = 'text-sm text-center text-green-600';
+            messageEl.classList.remove('hidden');
+            notificationForm.reset();
+          } else {
+            // エラー
+            messageEl.textContent = `エラー: ${data.details || data.error || '登録に失敗しました'}`;
+            messageEl.className = 'text-sm text-center text-red-600';
+            messageEl.classList.remove('hidden');
+          }
+        } catch (error) {
+          console.error('Error:', error);
+          messageEl.textContent = 'エラーが発生しました。もう一度お試しください。';
+          messageEl.className = 'text-sm text-center text-red-600';
+          messageEl.classList.remove('hidden');
+        } finally {
+          // ボタンを再度有効化
+          submitBtn.disabled = false;
+          submitBtn.textContent = '通知を登録する';
+        }
       });
     }
   </script>
