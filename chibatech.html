@@ -1055,7 +1055,7 @@
         </section>
       </div>
       <div class="text-center mt-10">
-        <a href="#" class="btn-entry inline-block" target="_blank">募集開始を通知で受け取る</a>
+        <button id="top-notification-btn" class="btn-entry inline-block">募集開始を通知で受け取る</button>
       </div>
       <p class="text-center text-sm text-gray-500 mt-4">※募集開始のお知らせをメールで受け取ることができます。
 登録いただいた方には、2026年度プログラムの詳細を優先的にお届けします。</p>
@@ -1084,25 +1084,32 @@
         <h3 class="text-xl font-bold text-neutral-900 mb-4 text-center">募集開始を通知で受け取る</h3>
         <p class="text-sm text-gray-500 mb-6 text-center">※募集開始のお知らせをメールで受け取ることができます。<br>登録いただいた方には、2026年度プログラムの詳細を優先的にお届けします。</p>
 
-        <!-- 通知登録フォーム -->
-        <form id="notificationForm" class="max-w-md mx-auto space-y-4">
-          <div>
-            <label for="notification-name" class="block text-sm font-medium text-gray-700 mb-2 text-left">お名前 <span class="text-red-500">*</span></label>
-            <input type="text" id="notification-name" name="name" required
-                   class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-pink-500 focus:border-transparent"
-                   placeholder="山田太郎">
-          </div>
-          <div>
-            <label for="notification-email" class="block text-sm font-medium text-gray-700 mb-2 text-left">メールアドレス <span class="text-red-500">*</span></label>
-            <input type="email" id="notification-email" name="email" required
-                   class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-pink-500 focus:border-transparent"
-                   placeholder="example@email.com">
-          </div>
-          <button type="submit" id="notification-submit" class="btn-entry w-full">
-            通知を登録する
-          </button>
-          <p id="notification-message" class="text-sm text-center hidden"></p>
-        </form>
+        <!-- 通知登録ボタン（初期表示） -->
+        <div id="notification-btn-container" class="text-center">
+          <button id="bottom-notification-btn" class="btn-entry">通知を登録する</button>
+        </div>
+
+        <!-- 通知登録フォーム（初期非表示） -->
+        <div id="notification-form-container" class="hidden overflow-hidden" style="max-height: 0; transition: max-height 0.5s ease-out;">
+          <form id="notificationForm" class="max-w-md mx-auto space-y-4 pt-4">
+            <div>
+              <label for="notification-name" class="block text-sm font-medium text-gray-700 mb-2 text-left">お名前 <span class="text-red-500">*</span></label>
+              <input type="text" id="notification-name" name="name" required
+                     class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-pink-500 focus:border-transparent"
+                     placeholder="山田太郎">
+            </div>
+            <div>
+              <label for="notification-email" class="block text-sm font-medium text-gray-700 mb-2 text-left">メールアドレス <span class="text-red-500">*</span></label>
+              <input type="email" id="notification-email" name="email" required
+                     class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-pink-500 focus:border-transparent"
+                     placeholder="example@email.com">
+            </div>
+            <button type="submit" id="notification-submit" class="btn-entry w-full">
+              送信する
+            </button>
+            <p id="notification-message" class="text-sm text-center hidden"></p>
+          </form>
+        </div>
       </div>
     </div>
   </section>
@@ -1470,7 +1477,51 @@
       });
     }
 
-    // 通知登録フォーム
+    // 通知登録フォーム表示アニメーション
+    function showNotificationForm() {
+      const formContainer = document.getElementById('notification-form-container');
+      const btnContainer = document.getElementById('notification-btn-container');
+
+      if (formContainer && btnContainer) {
+        // ボタンを非表示
+        btnContainer.style.display = 'none';
+
+        // フォームを表示（スライドダウンアニメーション）
+        formContainer.classList.remove('hidden');
+        setTimeout(() => {
+          formContainer.style.maxHeight = '600px';
+        }, 10);
+
+        // フォームまでスクロール（スムーズに）
+        setTimeout(() => {
+          formContainer.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }, 300);
+      }
+    }
+
+    // 上部と下部の通知ボタンにイベントリスナー追加
+    const topBtn = document.getElementById('top-notification-btn');
+    const bottomBtn = document.getElementById('bottom-notification-btn');
+
+    if (topBtn) {
+      topBtn.addEventListener('click', () => {
+        // 申込みセクションまでスクロール
+        const applySection = document.getElementById('apply');
+        if (applySection) {
+          applySection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          // スクロール後にフォームを表示
+          setTimeout(() => {
+            showNotificationForm();
+          }, 500);
+        }
+      });
+    }
+
+    if (bottomBtn) {
+      bottomBtn.addEventListener('click', showNotificationForm);
+    }
+
+    // 通知登録フォーム送信処理
     const notificationForm = document.getElementById('notificationForm');
     if (notificationForm) {
       notificationForm.addEventListener('submit', async (e) => {
@@ -1517,7 +1568,7 @@
         } finally {
           // ボタンを再度有効化
           submitBtn.disabled = false;
-          submitBtn.textContent = '通知を登録する';
+          submitBtn.textContent = '送信する';
         }
       });
     }
