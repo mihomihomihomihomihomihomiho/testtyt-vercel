@@ -96,6 +96,11 @@
             <input type="text" id="name" name="name" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-pink-500 transition" placeholder="山田 太郎">
           </div>
           <div class="mb-6">
+            <label for="company" class="block font-bold mb-2">会社名</label>
+            <input type="text" id="company" name="company" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-pink-500 transition" placeholder="株式会社◯◯">
+            <p class="text-xs text-gray-500 mt-1">法人の方はご記入ください（任意）</p>
+          </div>
+          <div class="mb-6">
             <label for="email" class="block font-bold mb-2">メールアドレス <span class="text-red-500">*</span></label>
             <input type="email" id="email" name="email" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-pink-500 transition" placeholder="example@example.com">
           </div>
@@ -108,11 +113,6 @@
               <option value="宣伝について">宣伝について</option>
               <option value="その他">その他</option>
             </select>
-          </div>
-          <div class="mb-6">
-            <label for="company" class="block font-bold mb-2">会社名</label>
-            <input type="text" id="company" name="company" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-pink-500 transition" placeholder="株式会社◯◯">
-            <p class="text-xs text-gray-500 mt-1">法人の方はご記入ください（任意）</p>
           </div>
           <div class="mb-6">
             <label for="message" class="block font-bold mb-2">お問い合わせ内容 <span class="text-red-500">*</span></label>
@@ -202,7 +202,13 @@
           document.getElementById('successMessage').scrollIntoView({ behavior: 'smooth', block: 'center' });
         } else {
           // エラー時の処理
-          alert('送信に失敗しました。もう一度お試しください。\n\nエラー: ' + (result.error || '不明なエラー'));
+          console.error('Error response:', result);
+          let errorMsg = '送信に失敗しました。もう一度お試しください。\n\n';
+          errorMsg += 'エラー: ' + (result.error || '不明なエラー');
+          if (result.details) {
+            errorMsg += '\n詳細: ' + JSON.stringify(result.details);
+          }
+          alert(errorMsg);
           submitButton.disabled = false;
           submitButton.textContent = originalText;
         }

@@ -60,6 +60,12 @@ export default async function handler(req, res) {
       fields['会社名'] = company;
     }
 
+    // デバッグ用ログ
+    console.log('Sending to Airtable:', {
+      url: airtableUrl,
+      fields: fields
+    });
+
     const airtableResponse = await fetch(airtableUrl, {
       method: 'POST',
       headers: {
