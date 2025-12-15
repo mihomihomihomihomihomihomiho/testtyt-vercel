@@ -303,41 +303,12 @@
           <span class="badge-title">学習リソース</span>
         </h2>
       </div>
-      <div class="grid md:grid-cols-3 gap-10 mb-10">
-        <div class="bg-white rounded-2xl overflow-hidden hover:shadow-lg transition">
-          <div class="bg-gradient-to-br from-purple-400 to-pink-500 aspect-video"></div>
-          <div class="p-7">
-            <div class="flex gap-2 mb-4">
-              <span class="caption px-2 py-1 bg-gray-100 rounded">AI</span>
-              <span class="caption px-2 py-1 bg-gray-100 rounded">シラバス</span>
-            </div>
-            <h3 class="card-title mb-3">生成AIの基礎と実践</h3>
-            <p class="small-text">ChatGPTやStable Diffusionの仕組みを理解し、実際に使ってみる入門記事。</p>
-          </div>
-        </div>
-        <div class="bg-white rounded-2xl overflow-hidden hover:shadow-lg transition">
-          <div class="bg-gradient-to-br from-blue-400 to-cyan-500 aspect-video"></div>
-          <div class="p-7">
-            <div class="flex gap-2 mb-4">
-              <span class="caption px-2 py-1 bg-gray-100 rounded">Web3</span>
-              <span class="caption px-2 py-1 bg-gray-100 rounded">ケース</span>
-            </div>
-            <h3 class="card-title mb-3">ブロックチェーンの社会実装事例</h3>
-            <p class="small-text">国内外の先進事例から、Web3技術が実社会でどう使われているかを学ぶ。</p>
-          </div>
-        </div>
-        <div class="bg-white rounded-2xl overflow-hidden hover:shadow-lg transition">
-          <div class="bg-gradient-to-br from-green-400 to-teal-500 aspect-video"></div>
-          <div class="p-7">
-            <div class="flex gap-2 mb-4">
-              <span class="caption px-2 py-1 bg-gray-100 rounded">AI</span>
-              <span class="caption px-2 py-1 bg-gray-100 rounded">Web3</span>
-            </div>
-            <h3 class="card-title mb-3">プロジェクト設計の考え方</h3>
-            <p class="small-text">技術を使って何を作るか、どう設計するかのフレームワークを紹介。</p>
-          </div>
-        </div>
+      <!-- ローディング表示 -->
+      <div id="readingLoading" class="text-center py-10">
+        <p class="text-gray-500">読み込み中...</p>
       </div>
+      <!-- 最新記事（動的に読み込み） -->
+      <div id="latestReadings" class="grid md:grid-cols-3 gap-10 mb-10 hidden"></div>
       <div class="text-center">
         <a href="reading.html" class="btn-entry">すべての記事を見る</a>
       </div>
@@ -482,6 +453,70 @@
       </div>
     </div>
   </footer>
+
+  <script>
+    // 最新の学習リソース3件を取得して表示
+    async function loadLatestReadings() {
+      const loading = document.getElementById('readingLoading');
+      const container = document.getElementById('latestReadings');
+
+      try {
+        const response = await fetch('/api/reading');
+        const data = await response.json();
+
+        if (!response.ok || !data.success) {
+          throw new Error(data.error || 'Failed to load resources');
+        }
+
+        // ローディングを非表示
+        loading.classList.add('hidden');
+
+        // 最新3件のみ取得
+        const latestResources = data.resources.slice(0, 3);
+
+        if (latestResources.length === 0) {
+          container.innerHTML = '<p class="text-center text-gray-500 col-span-full">まだ学習リソースがありません。</p>';
+          container.classList.remove('hidden');
+          return;
+        }
+
+        // カードを生成
+        container.innerHTML = latestResources.map(resource => {
+          // サムネイル画像
+          const thumbnail = resource.thumbnail
+            ? `<img src="${resource.thumbnail}" alt="${resource.title}" class="w-full h-full object-cover">`
+            : `<div class="w-full h-full bg-gradient-to-br from-purple-400 to-pink-500 flex items-center justify-center">
+                 <span class="text-white text-4xl font-bold">${resource.title.charAt(0)}</span>
+               </div>`;
+
+          return `
+            <a href="reading-detail.html?id=${resource.id}" class="bg-white rounded-2xl overflow-hidden hover:shadow-lg transition block group">
+              <div class="aspect-video relative bg-gray-100 overflow-hidden">
+                ${thumbnail}
+              </div>
+              <div class="p-7">
+                ${resource.category ? `<div class="flex gap-2 mb-4">
+                  <span class="caption px-2 py-1 bg-gray-100 rounded">${resource.category}</span>
+                </div>` : ''}
+                <h3 class="card-title mb-3 group-hover:text-pink-600 transition">${resource.title}</h3>
+                ${resource.description ? `<p class="small-text line-clamp-2">${resource.description}</p>` : ''}
+              </div>
+            </a>
+          `;
+        }).join('');
+
+        container.classList.remove('hidden');
+
+      } catch (err) {
+        console.error('Error loading latest readings:', err);
+        loading.classList.add('hidden');
+        // エラー時は何も表示しない（静かに失敗）
+      }
+    }
+
+    // ページ読み込み時にデータを取得
+    document.addEventListener('DOMContentLoaded', loadLatestReadings);
+  </script>
 
 </body>
 </html>
