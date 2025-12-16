@@ -117,7 +117,9 @@
         }
 
         // ニュース記事を表示
-        container.innerHTML = data.news.map(item => {
+        container.innerHTML = '';
+
+        data.news.forEach(item => {
           // 日付をフォーマット（YYYY.MM.DD形式）
           const date = item.date ? new Date(item.date).toLocaleDateString('ja-JP', {
             year: 'numeric',
@@ -125,22 +127,31 @@
             day: '2-digit'
           }).replace(/\//g, '.') : '';
 
-          return `
-            <div class="block bg-white rounded-2xl p-6 md:p-8 hover:shadow-lg transition">
-              <div class="flex flex-col md:flex-row md:items-start gap-6">
-                ${item.thumbnailUrl ?
-                  `<img src="${item.thumbnailUrl}" alt="${item.title}" class="rounded-xl w-full md:w-48 aspect-video md:aspect-square object-cover flex-shrink-0">` :
-                  `<div class="bg-gray-200 rounded-xl w-full md:w-48 aspect-video md:aspect-square flex-shrink-0"></div>`
-                }
-                <div class="flex-grow">
-                  <p class="text-xs text-gray-500 mb-3">${date}</p>
-                  <h2 class="font-bold text-xl md:text-2xl mb-3">${item.title}</h2>
-                  <p class="prose-p text-sm mb-4">${item.summary}</p>
-                </div>
+          // 記事要素を作成
+          const article = document.createElement('div');
+          article.className = 'block bg-white rounded-2xl p-6 md:p-8 hover:shadow-lg transition';
+
+          const thumbnail = item.thumbnailUrl ?
+            `<img src="${item.thumbnailUrl}" alt="${item.title}" class="rounded-xl w-full md:w-48 aspect-video md:aspect-square object-cover flex-shrink-0">` :
+            `<div class="bg-gray-200 rounded-xl w-full md:w-48 aspect-video md:aspect-square flex-shrink-0"></div>`;
+
+          article.innerHTML = `
+            <div class="flex flex-col md:flex-row md:items-start gap-6">
+              ${thumbnail}
+              <div class="flex-grow">
+                <p class="text-xs text-gray-500 mb-3">${date}</p>
+                <h2 class="font-bold text-xl md:text-2xl mb-3">${item.title}</h2>
+                <div class="prose prose-sm mb-4 rich-text-content"></div>
               </div>
             </div>
           `;
-        }).join('');
+
+          // リッチテキストをHTMLとして挿入
+          const summaryContainer = article.querySelector('.rich-text-content');
+          summaryContainer.innerHTML = item.summary || '';
+
+          container.appendChild(article);
+        });
 
       } catch (error) {
         console.error('Error loading news:', error);
