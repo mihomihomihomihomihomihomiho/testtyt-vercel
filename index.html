@@ -391,21 +391,10 @@
           <span class="badge-title">お知らせ</span>
         </h2>
       </div>
-      <div class="grid md:grid-cols-3 gap-10 mb-10">
+      <div id="index-news-container" class="grid md:grid-cols-3 gap-10 mb-10">
+        <!-- Airtableから最新3件を自動取得して表示 -->
         <div class="border-b border-[var(--line)] pb-7">
-          <p class="caption mb-3">2025.04.01</p>
-          <h3 class="card-title mb-3">2025年度春学期 授業開始のお知らせ</h3>
-          <p class="small-text">千葉工業大学での授業が4月8日よりスタートします。</p>
-        </div>
-        <div class="border-b border-[var(--line)] pb-7">
-          <p class="caption mb-3">2025.03.15</p>
-          <h3 class="card-title mb-3">法人研修プログラムをリニューアル</h3>
-          <p class="small-text">企業向け研修の内容を大幅にアップデートしました。</p>
-        </div>
-        <div class="border-b border-[var(--line)] pb-7">
-          <p class="caption mb-3">2025.02.28</p>
-          <h3 class="card-title mb-3">2024年度成果発表会を開催</h3>
-          <p class="small-text">学生・社会人合わせて15チームが成果を発表しました。</p>
+          <p class="caption mb-3">読み込み中...</p>
         </div>
       </div>
       <div class="text-center">
@@ -526,6 +515,55 @@
 
     // ページ読み込み時にデータを取得
     document.addEventListener('DOMContentLoaded', loadLatestReadings);
+
+    // お知らせを最新3件取得して表示
+    async function loadLatestNews() {
+      const container = document.getElementById('index-news-container');
+
+      try {
+        const response = await fetch('/api/news');
+        const data = await response.json();
+
+        if (!data.success || !data.news || data.news.length === 0) {
+          container.innerHTML = `
+            <div class="border-b border-[var(--line)] pb-7">
+              <p class="small-text text-gray-500">現在、お知らせはありません。</p>
+            </div>
+          `;
+          return;
+        }
+
+        // 最新3件のみ表示
+        const latestNews = data.news.slice(0, 3);
+
+        container.innerHTML = latestNews.map(item => {
+          const date = item.date ? new Date(item.date).toLocaleDateString('ja-JP', {
+            year: 'numeric',
+            month: '2-digit',
+            day: '2-digit'
+          }).replace(/\//g, '.') : '';
+
+          return `
+            <div class="border-b border-[var(--line)] pb-7">
+              <p class="caption mb-3">${date}</p>
+              <h3 class="card-title mb-3">${item.title}</h3>
+              <p class="small-text">${item.summary || ''}</p>
+            </div>
+          `;
+        }).join('');
+
+      } catch (error) {
+        console.error('Error loading news:', error);
+        container.innerHTML = `
+          <div class="border-b border-[var(--line)] pb-7">
+            <p class="small-text text-gray-500">お知らせの読み込みに失敗しました。</p>
+          </div>
+        `;
+      }
+    }
+
+    // ページ読み込み時にお知らせも取得
+    document.addEventListener('DOMContentLoaded', loadLatestNews);
   </script>
 
 </body>

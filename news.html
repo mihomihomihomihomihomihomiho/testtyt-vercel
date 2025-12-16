@@ -141,14 +141,23 @@
               <div class="flex-grow">
                 <p class="text-xs text-gray-500 mb-3">${date}</p>
                 <h2 class="font-bold text-xl md:text-2xl mb-3">${item.title}</h2>
-                <div class="prose prose-sm mb-4 rich-text-content"></div>
+                ${item.summary ? '<div class="prose prose-sm mb-4 rich-text-summary"></div>' : ''}
+                ${item.content ? '<div class="prose prose-sm mt-4 rich-text-content border-t border-gray-200 pt-4"></div>' : ''}
               </div>
             </div>
           `;
 
-          // リッチテキストをHTMLとして挿入
-          const summaryContainer = article.querySelector('.rich-text-content');
-          summaryContainer.innerHTML = item.summary || '';
+          // 概要をHTMLとして挿入
+          if (item.summary) {
+            const summaryContainer = article.querySelector('.rich-text-summary');
+            summaryContainer.innerHTML = item.summary;
+          }
+
+          // 本文をHTMLとして挿入
+          if (item.content) {
+            const contentContainer = article.querySelector('.rich-text-content');
+            contentContainer.innerHTML = item.content;
+          }
 
           container.appendChild(article);
         });
