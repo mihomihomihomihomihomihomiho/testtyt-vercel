@@ -69,14 +69,18 @@ export default async function handler(req, res) {
     const newsItems = data.records.map(record => {
       // サムネイル画像の取得（アタッチメント優先、なければURL）
       let thumbnailUrl = '';
+      let images = [];
 
       // 1. アタッチメントフィールドをチェック
       if (record.fields['サムネイル画像'] && Array.isArray(record.fields['サムネイル画像']) && record.fields['サムネイル画像'].length > 0) {
         thumbnailUrl = record.fields['サムネイル画像'][0].url;
+        // 全ての画像URLを配列として保存
+        images = record.fields['サムネイル画像'].map(img => img.url);
       }
       // 2. アタッチメントがなければURL文字列フィールドを使用
       else if (record.fields['サムネイル画像URL']) {
         thumbnailUrl = record.fields['サムネイル画像URL'];
+        images = [thumbnailUrl];
       }
 
       return {
@@ -86,6 +90,7 @@ export default async function handler(req, res) {
         summary: record.fields['概要'] || '',
         content: record.fields['本文'] || '',
         thumbnailUrl: thumbnailUrl,
+        images: images,
         published: record.fields['公開'] || false,
         createdTime: record.createdTime
       };
