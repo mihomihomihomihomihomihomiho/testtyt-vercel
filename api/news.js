@@ -66,16 +66,30 @@ export default async function handler(req, res) {
     const data = await airtableResponse.json();
 
     // レコードを整形して返す
-    const newsItems = data.records.map(record => ({
-      id: record.id,
-      title: record.fields['タイトル'] || '',
-      date: record.fields['日付'] || '',
-      summary: record.fields['概要'] || '',
-      content: record.fields['本文'] || '',
-      thumbnailUrl: record.fields['サムネイル画像URL'] || '',
-      published: record.fields['公開'] || false,
-      createdTime: record.createdTime
-    }));
+    const newsItems = data.records.map(record => {
+      // サムネイル画像の取得（アタッチメント優先、なければURL）
+      let thumbnailUrl = '';
+
+      // 1. アタッチメントフィールドをチェック
+      if (record.fields['サムネイル画像'] && Array.isArray(record.fields['サムネイル画像']) && record.fields['サムネイル画像'].length > 0) {
+        thumbnailUrl = record.fields['サムネイル画像'][0].url;
+      }
+      // 2. アタッチメントがなければURL文字列フィールドを使用
+      else if (record.fields['サムネイル画像URL']) {
+        thumbnailUrl = record.fields['サムネイル画像URL'];
+      }
+
+      return {
+        id: record.id,
+        title: record.fields['タイトル'] || '',
+        date: record.fields['日付'] || '',
+        summary: record.fields['概要'] || '',
+        content: record.fields['本文'] || '',
+        thumbnailUrl: thumbnailUrl,
+        published: record.fields['公開'] || false,
+        createdTime: record.createdTime
+      };
+    });
 
     // 成功レスポンスを返す
     return res.status(200).json({
