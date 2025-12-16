@@ -99,6 +99,15 @@
   </section>
 
   <script>
+    // Markdown形式のリンクをHTMLリンクに変換
+    function convertMarkdownLinks(text) {
+      if (!text) return text;
+
+      // [テキスト](URL) 形式をHTMLリンクに変換
+      const markdownLinkPattern = /\[([^\]]+)\]\(([^)]+)\)/g;
+      return text.replace(markdownLinkPattern, '<a href="$2" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:text-blue-800 underline">$1</a>');
+    }
+
     // ニュースをAirtableから取得して表示
     async function loadNews() {
       const container = document.getElementById('news-container');
@@ -147,16 +156,16 @@
             </div>
           `;
 
-          // 概要をHTMLとして挿入
+          // 概要をHTMLとして挿入（Markdownリンクを変換）
           if (item.summary) {
             const summaryContainer = article.querySelector('.rich-text-summary');
-            summaryContainer.innerHTML = item.summary;
+            summaryContainer.innerHTML = convertMarkdownLinks(item.summary);
           }
 
-          // 本文をHTMLとして挿入
+          // 本文をHTMLとして挿入（Markdownリンクを変換）
           if (item.content) {
             const contentContainer = article.querySelector('.rich-text-content');
-            contentContainer.innerHTML = item.content;
+            contentContainer.innerHTML = convertMarkdownLinks(item.content);
           }
 
           container.appendChild(article);

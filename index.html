@@ -516,6 +516,15 @@
     // ページ読み込み時にデータを取得
     document.addEventListener('DOMContentLoaded', loadLatestReadings);
 
+    // Markdown形式のリンクをHTMLリンクに変換
+    function convertMarkdownLinks(text) {
+      if (!text) return text;
+
+      // [テキスト](URL) 形式をHTMLリンクに変換
+      const markdownLinkPattern = /\[([^\]]+)\]\(([^)]+)\)/g;
+      return text.replace(markdownLinkPattern, '<a href="$2" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:text-blue-800 underline">$1</a>');
+    }
+
     // お知らせを最新3件取得して表示
     async function loadLatestNews() {
       const container = document.getElementById('index-news-container');
@@ -547,7 +556,7 @@
             <div class="border-b border-[var(--line)] pb-7">
               <p class="caption mb-3">${date}</p>
               <h3 class="card-title mb-3">${item.title}</h3>
-              <p class="small-text">${item.summary || ''}</p>
+              <p class="small-text">${convertMarkdownLinks(item.summary || '')}</p>
             </div>
           `;
         }).join('');
