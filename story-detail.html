@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="ja" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>受講生作品 - web3/AI概論</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/png" sizes="32x32" href="penguin.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="penguin.png">
+  <link rel="apple-touch-icon" href="penguin.png">
+  <link rel="shortcut icon" href="penguin.png">
+  <link rel="icon" href="penguin.png" type="image/png">
+  <style>
+    :root{--bg:#F2F4F7;--bg-weak:#F6F7F9;--text:#111111;--text-body:#1f2937;--text-light:#4b5563;--muted:#6B7280;--muted-light:#9CA3AF;--line:#E5E7EB;--accent:#E50064;--accentHover:#C70057;}
+    body{font-family:'Noto Sans JP',system-ui,-apple-system,Segoe UI,Roboto,sans-serif;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;font-feature-settings:"palt" 1;letter-spacing:-.01em;color:var(--text);background:#fff;font-weight:400;}
+    .hero-title{font-size:clamp(1.5rem,6vw,4.5rem);font-weight:900;line-height:1.1;letter-spacing:.05em;color:var(--text);}
+    .section-title{font-size:clamp(1.5rem,4vw,2.5rem);font-weight:900;line-height:1.2;letter-spacing:.04em;color:var(--text);}
+    .body-text{font-size:1.0625rem;font-weight:400;line-height:1.85;letter-spacing:.04em;color:var(--text-body);}
+    .btn-entry{background:var(--accent);color:#fff;font-weight:700;font-size:1rem;border-radius:9999px;padding:.75rem 1.5rem;transition:.2s;box-shadow:none;letter-spacing:0;}
+    .btn-entry:hover{background:var(--accentHover);transform:translateY(-1px);}
+    .btn-back{background:#fff;color:var(--text);font-weight:700;font-size:1rem;border-radius:9999px;padding:.75rem 1.5rem;transition:.2s;box-shadow:0 1px 3px rgba(0,0,0,.1);border:1px solid var(--line);}
+    .btn-back:hover{background:var(--bg);transform:translateY(-1px);}
+    .fixed-logo{position:fixed;left:20px;top:20px;z-index:50;width:80px;height:auto;transition:.2s;}
+    .fixed-logo:hover{transform:scale(1.1);}
+
+    /* Markdown prose styling */
+    .prose { max-width: 100%; }
+    .prose h1 { font-size: 2rem; font-weight: 900; margin-top: 2rem; margin-bottom: 1rem; line-height: 1.2; }
+    .prose h2 { font-size: 1.5rem; font-weight: 700; margin-top: 1.75rem; margin-bottom: 0.75rem; line-height: 1.3; border-bottom: 1px solid var(--line); padding-bottom: 0.5rem; }
+    .prose h3 { font-size: 1.25rem; font-weight: 700; margin-top: 1.5rem; margin-bottom: 0.5rem; line-height: 1.4; }
+    .prose p { margin-bottom: 1.25rem; line-height: 1.85; }
+    .prose ul, .prose ol { margin-bottom: 1.25rem; padding-left: 1.5rem; }
+    .prose li { margin-bottom: 0.5rem; }
+    .prose blockquote { border-left: 4px solid var(--accent); padding-left: 1rem; margin: 1.5rem 0; font-style: italic; color: var(--text-light); background: var(--bg-weak); padding: 1rem 1.5rem; border-radius: 0 0.5rem 0.5rem 0; }
+    .prose code { background: var(--bg); padding: 0.2rem 0.4rem; border-radius: 0.25rem; font-size: 0.9em; }
+    .prose pre { background: #1f2937; color: #f9fafb; padding: 1rem; border-radius: 0.5rem; overflow-x: auto; margin-bottom: 1.25rem; }
+    .prose pre code { background: transparent; padding: 0; }
+    .prose strong { font-weight: 700; }
+    .prose em { font-style: italic; }
+    .prose a { color: var(--accent); text-decoration: underline; }
+    .prose a:hover { color: var(--accentHover); }
+    .prose hr { border: none; border-top: 1px solid var(--line); margin: 2rem 0; }
+  </style>
+</head>
+<body>
+  <!-- Fixed Penguin Logo -->
+  <a href="index.html" class="fixed-logo" style="pointer-events:auto;display:block;width:80px;">
+    <img src="penguin.png" alt="Logo" style="width:100%;height:auto;display:block;">
+  </a>
+
+  <header class="relative overflow-hidden">
+    <div class="absolute z-30 right-5 top-5 flex items-center gap-3">
+      <a href="contact.html" class="btn-entry">Entry</a>
+      <button onclick="document.getElementById('menu').classList.toggle('hidden')" class="w-11 h-11 rounded-full bg-white/95 backdrop-blur shadow-sm flex items-center justify-center">
+        <span class="sr-only">Menu</span>
+        <div class="w-5 h-5 relative">
+          <span class="absolute inset-x-0 top-1 block h-0.5 bg-gray-700 rounded"></span>
+          <span class="absolute inset-x-0 top-2.5 block h-0.5 bg-gray-700 rounded"></span>
+          <span class="absolute inset-x-0 top-4 block h-0.5 bg-gray-700 rounded"></span>
+        </div>
+      </button>
+    </div>
+    <div id="menu" class="hidden fixed inset-0 z-40 bg-gray-900 backdrop-blur-sm">
+      <div class="container mx-auto px-6 py-20 max-w-[88rem]">
+        <button onclick="document.getElementById('menu').classList.add('hidden')" class="absolute top-5 right-5 text-white text-3xl">&times;</button>
+        <nav class="space-y-4 text-white text-2xl font-bold">
+          <a href="index.html" class="block hover:text-pink-400">Home</a>
+          <a href="chibatech.html" class="block hover:text-pink-400">Chibatech</a>
+          <a href="reading.html" class="block hover:text-pink-400">Reading</a>
+          <a href="business.html" class="block hover:text-pink-400">For Business</a>
+          <a href="partners.html" class="block hover:text-pink-400">Partners</a>
+          <a href="news.html" class="block hover:text-pink-400">News</a>
+          <a href="contact.html" class="block hover:text-pink-400">Contact</a>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <section class="relative bg-[var(--bg-weak)] min-h-screen">
+    <div class="container mx-auto px-6 max-w-[88rem] py-20">
+      <!-- 戻るボタン -->
+      <div class="mb-8">
+        <a href="reading.html" class="btn-back inline-flex items-center gap-2">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
+          </svg>
+          一覧に戻る
+        </a>
+      </div>
+
+      <!-- ローディング表示 -->
+      <div id="loading" class="text-center py-20">
+        <p class="text-gray-500">読み込み中...</p>
+      </div>
+
+      <!-- エラー表示 -->
+      <div id="error" class="hidden text-center py-20">
+        <p class="text-red-500">データの読み込みに失敗しました。</p>
+        <a href="reading.html" class="btn-back inline-block mt-4">一覧に戻る</a>
+      </div>
+
+      <!-- ストーリー詳細 -->
+      <div id="storyDetail" class="hidden">
+        <div class="bg-white rounded-2xl overflow-hidden shadow-lg p-8 md:p-12">
+          <!-- バッジ -->
+          <div class="mb-4">
+            <span class="inline-block px-3 py-1 bg-purple-100 text-purple-700 text-sm font-medium rounded">Student Work</span>
+          </div>
+
+          <!-- メタ情報 -->
+          <div id="storyMeta" class="flex items-center gap-4 text-sm text-gray-400 mb-6"></div>
+
+          <!-- 本文 -->
+          <div id="storyContent" class="prose body-text"></div>
+
+          <!-- 下部の戻るボタン -->
+          <div class="mt-12 pt-8 border-t border-gray-100 text-center">
+            <a href="reading.html" class="btn-back inline-flex items-center gap-2">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
+              </svg>
+              一覧に戻る
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="bg-gray-900 text-white py-12">
+    <div class="container mx-auto px-6 max-w-[88rem]">
+      <div class="grid md:grid-cols-4 gap-8 mb-8">
+        <div><h4 class="font-bold mb-4">web3/AI概論</h4><p class="text-sm text-gray-400">最新テクノロジーを実践で学ぶ、大学発プロジェクト型コミュニティ</p></div>
+        <div><h4 class="font-bold mb-4 text-sm">ナビゲーション</h4><ul class="space-y-2 text-sm"><li><a href="index.html" class="text-gray-400 hover:text-white">Home</a></li><li><a href="chibatech.html" class="text-gray-400 hover:text-white">Chibatech</a></li><li><a href="reading.html" class="text-gray-400 hover:text-white">Reading</a></li><li><a href="business.html" class="text-gray-400 hover:text-white">For Business</a></li></ul></div>
+        <div><h4 class="font-bold mb-4 text-sm">その他</h4><ul class="space-y-2 text-sm"><li><a href="partners.html" class="text-gray-400 hover:text-white">Partners</a></li><li><a href="news.html" class="text-gray-400 hover:text-white">News</a></li></ul></div>
+        <div><h4 class="font-bold mb-4 text-sm">お問い合わせ</h4><ul class="space-y-2 text-sm"><li><a href="contact.html" class="text-gray-400 hover:text-white">Contact</a></li></ul></div>
+      </div>
+      <div class="border-t border-gray-800 pt-8">
+        <p class="text-xs text-gray-500 leading-relaxed">web3/AI概論プロジェクトはHENKAKU COMMUNITYから生まれた最新テクノロジーの学びを研究するプロジェクトです。千葉工大の正式科目web3/AI概論を運営しています。</p>
+        <p class="text-xs text-gray-500 mt-4">&copy; 2025 web3/AI概論. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // URLパラメータからIDを取得
+    const urlParams = new URLSearchParams(window.location.search);
+    const storyId = urlParams.get('id');
+
+    // IDがない場合は一覧に戻る
+    if (!storyId) {
+      window.location.href = 'reading.html';
+    }
+
+    // ストーリー詳細を取得
+    async function loadStoryDetail() {
+      const loading = document.getElementById('loading');
+      const error = document.getElementById('error');
+      const detail = document.getElementById('storyDetail');
+
+      try {
+        const response = await fetch(`/public/stories/${storyId}.json`);
+        if (!response.ok) {
+          throw new Error('Failed to load story');
+        }
+
+        const story = await response.json();
+
+        // ローディングを非表示
+        loading.classList.add('hidden');
+
+        // タイトルを更新
+        document.title = `${story.title} - web3/AI概論`;
+
+        // メタ情報
+        const dateStr = story.generatedAt ? story.generatedAt.split(' ')[0] : '';
+        document.getElementById('storyMeta').innerHTML = `
+          <span>${story.learnerId || ''}</span>
+          <span>|</span>
+          <time>${dateStr}</time>
+        `;
+
+        // 本文（MarkdownをHTMLに変換）
+        // タイトルのプレフィックスを除去（【タイトル】【物語】など）
+        let content = story.content || '';
+        content = content.replace(/^#\s*【[^】]+】[:：]?\s*/m, '# ');
+        document.getElementById('storyContent').innerHTML = marked.parse(content);
+
+        // 詳細を表示
+        detail.classList.remove('hidden');
+
+      } catch (err) {
+        console.error('Error loading story detail:', err);
+        loading.classList.add('hidden');
+        error.classList.remove('hidden');
+      }
+    }
+
+    // ページ読み込み時にデータを取得
+    document.addEventListener('DOMContentLoaded', loadStoryDetail);
+  </script>
+</body>
+</html>
