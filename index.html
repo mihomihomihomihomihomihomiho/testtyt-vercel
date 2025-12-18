@@ -78,22 +78,21 @@
     .fixed-logo{position:fixed;left:20px;top:20px;z-index:50;width:80px;height:auto;transition:.2s;}
     .fixed-logo:hover{transform:scale(1.1);}
 
-    /* スクロールアニメーション */
+    /* スクロールアニメーション - Toyota風ワイプ */
     .slide-in-right {
-      opacity: 0;
-      transform: translateY(40px);
-      transition: opacity 1s cubic-bezier(0.19, 1, 0.22, 1),
-                  transform 1s cubic-bezier(0.19, 1, 0.22, 1);
+      overflow: hidden;
+      clip-path: inset(0 100% 0 0);
+      transition: clip-path 1s cubic-bezier(0.19, 1, 0.22, 1);
     }
     .slide-in-right.animate {
-      opacity: 1;
-      transform: translateY(0);
+      clip-path: inset(0 0 0 0);
     }
     /* 遅延アニメーション */
-    .slide-in-right:nth-child(1) { transition-delay: 0.1s; }
-    .slide-in-right:nth-child(2) { transition-delay: 0.25s; }
-    .slide-in-right:nth-child(3) { transition-delay: 0.4s; }
-    .slide-in-right:nth-child(4) { transition-delay: 0.55s; }
+    .slide-in-right:nth-of-type(1) { transition-delay: 0.1s; }
+    .slide-in-right:nth-of-type(2) { transition-delay: 0.25s; }
+    .slide-in-right:nth-of-type(3) { transition-delay: 0.4s; }
+    .slide-in-right:nth-of-type(4) { transition-delay: 0.55s; }
+    .slide-in-right:nth-of-type(5) { transition-delay: 0.7s; }
   </style>
 </head>
 <body>
@@ -148,17 +147,25 @@
       <!-- 白帯の見出し -->
       <div class="relative z-20 container mx-auto px-6 max-w-[88rem] pt-24 md:pt-36 pb-16 md:pb-24">
         <div class="max-w-6xl" id="hero-text">
-          <div class="mb-6">
-            <span class="white-badge inline-block slide-in-right">web3/AI概論</span>
+          <div class="mb-6 slide-in-right">
+            <span class="white-badge inline-block">web3/AI概論</span>
           </div>
           <div class="mb-6 space-y-2">
-            <h1 class="bg-white text-gray-900 hero-title shadow-sm px-3 py-1 leading-tight block w-fit slide-in-right">未来は、</h1>
-            <h1 class="bg-white text-gray-900 hero-title shadow-sm px-3 py-1 leading-tight block w-fit slide-in-right">誰かが創るものではなく、</h1>
-            <h1 class="bg-white text-gray-900 hero-title shadow-sm px-3 py-1 leading-tight block w-fit slide-in-right">私たちが、つかむもの。</h1>
+            <div class="slide-in-right">
+              <h1 class="bg-white text-gray-900 hero-title shadow-sm px-3 py-1 leading-tight block w-fit">未来は、</h1>
+            </div>
+            <div class="slide-in-right">
+              <h1 class="bg-white text-gray-900 hero-title shadow-sm px-3 py-1 leading-tight block w-fit">誰かが創るものではなく、</h1>
+            </div>
+            <div class="slide-in-right">
+              <h1 class="bg-white text-gray-900 hero-title shadow-sm px-3 py-1 leading-tight block w-fit">私たちが、つかむもの。</h1>
+            </div>
           </div>
-          <p class="text-base md:text-3xl font-bold bg-black text-white shadow-sm px-4 py-2 inline-block leading-tight slide-in-right" style="letter-spacing:.04em;">
-            最新テクノロジーを実践で学ぶ、大学発プロジェクト型コミュニティ
-          </p>
+          <div class="slide-in-right">
+            <p class="text-base md:text-3xl font-bold bg-black text-white shadow-sm px-4 py-2 inline-block leading-tight" style="letter-spacing:.04em;">
+              最新テクノロジーを実践で学ぶ、大学発プロジェクト型コミュニティ
+            </p>
+          </div>
         </div>
       </div>
     </div>
