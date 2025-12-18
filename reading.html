@@ -114,6 +114,28 @@
     </div>
   </section>
 
+  <!-- 受講生が作ったAIプロダクト集 -->
+  <section class="relative bg-white">
+    <div class="container mx-auto px-6 max-w-[88rem] py-20">
+      <div class="mb-12">
+        <span class="tiny-text block mb-3">STUDENT WORKS</span>
+        <h2 class="section-title mb-4">受講生が作ったAIプロダクト集</h2>
+        <p class="body-text max-w-3xl">手を動かして形にした事例だけ。学びの深さはアウトプットで見てください。</p>
+      </div>
+
+      <!-- ローディング表示 -->
+      <div id="storiesLoading" class="text-center py-12">
+        <p class="text-gray-500">読み込み中...</p>
+      </div>
+      <!-- エラー表示 -->
+      <div id="storiesError" class="hidden text-center py-12">
+        <p class="text-red-500">データの読み込みに失敗しました。</p>
+      </div>
+      <!-- 記事カード -->
+      <div id="storiesContainer" class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 hidden"></div>
+    </div>
+  </section>
+
   <section class="bg-[var(--bg-weak)]">
     <div class="container mx-auto px-6 max-w-[88rem] py-12">
       <div class="text-center">
@@ -202,6 +224,59 @@
 
     // ページ読み込み時にデータを取得
     document.addEventListener('DOMContentLoaded', loadResources);
+
+    // 受講生作品を取得
+    async function loadStories() {
+      const loading = document.getElementById('storiesLoading');
+      const error = document.getElementById('storiesError');
+      const container = document.getElementById('storiesContainer');
+
+      try {
+        const response = await fetch('/public/stories.json');
+        const data = await response.json();
+
+        if (!response.ok || !data.success) {
+          throw new Error('Failed to load stories');
+        }
+
+        loading.classList.add('hidden');
+
+        if (data.stories.length === 0) {
+          container.innerHTML = '<p class="text-center text-gray-500 col-span-full">まだ作品がありません。</p>';
+          container.classList.remove('hidden');
+          return;
+        }
+
+        container.innerHTML = data.stories.map(story => createStoryCard(story)).join('');
+        container.classList.remove('hidden');
+
+      } catch (err) {
+        console.error('Error loading stories:', err);
+        loading.classList.add('hidden');
+        error.classList.remove('hidden');
+      }
+    }
+
+    // ストーリーカードのHTML生成
+    function createStoryCard(story) {
+      const dateStr = story.generatedAt ? story.generatedAt.split(' ')[0] : '';
+      return `
+        <a href="story-detail?id=${story.id}" class="bg-gray-50 rounded-2xl overflow-hidden hover:shadow-lg transition block group p-6">
+          <div class="mb-3">
+            <span class="inline-block px-2 py-1 bg-purple-100 text-purple-700 text-xs font-medium rounded">Student Work</span>
+          </div>
+          <h3 class="font-bold text-lg leading-tight group-hover:text-pink-600 transition mb-3">${story.title}</h3>
+          <p class="text-sm text-gray-600 line-clamp-3 mb-4">${story.excerpt}</p>
+          <div class="flex items-center justify-between text-xs text-gray-400">
+            <span>${story.learnerId}</span>
+            <time>${dateStr}</time>
+          </div>
+        </a>
+      `;
+    }
+
+    // ページ読み込み時に受講生作品も取得
+    document.addEventListener('DOMContentLoaded', loadStories);
   </script>
 </body>
 </html>

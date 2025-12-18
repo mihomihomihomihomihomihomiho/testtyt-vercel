@@ -1,0 +1,718 @@
+{
+  "success": true,
+  "count": 89,
+  "stories": [
+    {
+      "id": "0c6aa509ffb2",
+      "title": "ほのぼのと、共創の火を灯す。一人の社会人が描いた、現場のための物語",
+      "excerpt": "〜14週間の開発ジャーニーを追って〜...",
+      "learnerId": "0c6aa509ffb2",
+      "generatedAt": "2024-07-28 10:00:00",
+      "storyType": "development_journey"
+    },
+    {
+      "id": "6cc4dfde7006",
+      "title": "“もったいない”の心で灯した、日常を変える小さな光",
+      "excerpt": "〜ある学生が辿った、問いから学びへの14週間の物語〜...",
+      "learnerId": "6cc4dfde7006",
+      "generatedAt": "2024-05-29 15:30:00",
+      "storyType": "development_journey"
+    },
+    {
+      "id": "213159564b62",
+      "title": "“手につかない自分”を肯定するために。一人の学生が「亀」と歩んだ、やさしさの探求",
+      "excerpt": "〜14週間の開発ジャーニーを追って〜...",
+      "learnerId": "213159564b62",
+      "generatedAt": "2024-05-29 12:00:00",
+      "storyType": "development_journey"
+    },
+    {
+      "id": "665eff02a887",
+      "title": "「またね」が途切れない世界へ。一人の学生が“再会の価値”を問い続けた14週間の物語",
+      "excerpt": "〜14週間の開発ジャーニーを追って〜...",
+      "learnerId": "665eff02a887-anon",
+      "generatedAt": "2024-05-28T12:00:00Z",
+      "storyType": "development_journey"
+    },
+    {
+      "id": "e26d8267fc37",
+      "title": "「怠けがちな自分」と向き合った、ある学生の孤独な挑戦",
+      "excerpt": "〜14週間の開発ジャーニーを追って〜...",
+      "learnerId": "e26d8267fc37_anon",
+      "generatedAt": "2024-05-24 10:30:00",
+      "storyType": "development_journey"
+    },
+    {
+      "id": "27cc7a38afbb",
+      "title": "内なる地図を描く旅 — ある学生が見つけた、AIと自己対話の物語",
+      "excerpt": "〜14週間の開発ジャーニーを追って〜...",
+      "learnerId": "27cc7a38afbb",
+      "generatedAt": "2024-05-23T15:00:00Z",
+      "storyType": "development_journey"
+    },
+    {
+      "id": "a116ccceba11",
+      "title": "文脈を翻訳せよ — 一人の学生が「価値の共創」に辿り着くまでの物語",
+      "excerpt": "〜14週間の開発ジャーニーを追って〜...",
+      "learnerId": "a116ccceba11",
+      "generatedAt": "2024-05-23T15:00:00",
+      "storyType": "development_journey"
+    },
+    {
+      "id": "7de30ca1cc43",
+      "title": "「便利」の先にある「楽しい」を探して - 一人の学生がコスメ図鑑に辿り着いた物語",
+      "excerpt": "〜14週間の開発ジャーニーを追って〜...",
+      "learnerId": "7de30ca1cc43",
+      "generatedAt": "2024-05-23T15:00:00",
+      "storyType": "development_journey"
+    },
+    {
+      "id": "d5029fb8b0e9",
+      "title": "静かな確信から生まれた、教科書をめぐる小さな革命の物語",
+      "excerpt": "〜14週間の開発ジャーニーを追って〜...",
+      "learnerId": "d5029fb8b0e9",
+      "generatedAt": "2024-05-23T14:30:00",
+      "storyType": "development_journey"
+    },
+    {
+      "id": "a3240493e1bb",
+      "title": "静かなるモチベーションの探求者 - 一人の学生が「続ける力」を形にするまでの物語",
+      "excerpt": "〜14週間の開発ジャーニーを追って〜...",
+      "learnerId": "a3240493e1bb",
+      "generatedAt": "2024-05-23T14:30:00",
+      "storyType": "development_journey"
+    },
+    {
+      "id": "a40393e33d8c",
+      "title": "「なくてもいいかも」から始まった、つながりを問い直す物語",
+      "excerpt": "〜一人の学生が辿った、14週間の開発ジャーニーを追って〜...",
+      "learnerId": "a40393e33d8c-anon",
+      "generatedAt": "2024-05-23T12:00:00Z",
+      "storyType": "development_journey"
+    },
+    {
+      "id": "9f8b475e34c8",
+      "title": "「誰かの不満」から「私の物語」へ：駐輪場のモヤモヤがファッションアプリに変わるまで",
+      "excerpt": "〜14週間の開発ジャーニーを追って〜...",
+      "learnerId": "9f8b475e34c8_anon",
+      "generatedAt": "2024-05-23T12:00:00Z",
+      "storyType": "development_journey"
+    },
+    {
+      "id": "0a53b86eddd7",
+      "title": "「ひとりごと」から「励まし合い」へ。ある学生が見つけた、学びを続けるための灯火の物語",
+      "excerpt": "〜14週間の開発ジャーニーを追って〜...",
+      "learnerId": "0a53b86eddd7_anon",
+      "generatedAt": "2024-05-23T12:00:00Z",
+      "storyType": "development_journey"
+    },
+    {
+      "id": "98a04a71a61a",
+      "title": "抽象化の先に見た「本当の不便」――ドライブ割り勘アプリ開発者が辿った共感の旅路",
+      "excerpt": "〜11個の課題から紡ぐ、一人の学生の探求の記録〜...",
+      "learnerId": "98a04a71a61a",
+      "generatedAt": "2024-05-23T12:00:00",
+      "storyType": "development_journey"
+    },
+    {
+      "id": "5f76a032fba7",
+      "title": "「おいしいうちに」―冷蔵庫の小さな後悔から始まった、ある学生の優しい挑戦",
+      "excerpt": "〜14週間の開発ジャーニーを追って〜...",
+      "learnerId": "5f76a032fba7",
+      "generatedAt": "2024-05-23T12:00:00",
+      "storyType": "development_journey"
+    },
+    {
+      "id": "1cf80e1957ec",
+      "title": "「推し」が照らした道――ひとりの探求者が辿り着いた、やさしい繋がりの物語",
+      "excerpt": "〜14週間の開発ジャーニーを追って〜...",
+      "learnerId": "1cf80e1957ec",
+      "generatedAt": "2024-05-23T12:00:00",
+      "storyType": "development_journey"
+    },
+    {
+      "id": "b66a517f403f",
+      "title": "他者の靴を履く旅路 — 「わからない」から生まれた共感のデザイン",
+      "excerpt": "〜一人の学生が辿った、問いから学びへの物語〜...",
+      "learnerId": "b66a517f403f",
+      "generatedAt": "2024-05-23T11:00:00",
+      "storyType": "development_journey"
+    },
+    {
+      "id": "599db080e9e9",
+      "title": "静かなる探求者の物語 — 3Dモデルの奥に、人の心を求めて",
+      "excerpt": "〜14週間の開発ジャーニーを追って〜...",
+      "learnerId": "599db080e9e9_anon",
+      "generatedAt": "2024-05-23T11:00:00",
+      "storyType": "development_journey"
+    },
+    {
+      "id": "2c1737c266f9",
+      "title": "「記録」から「共感」へ。ライブの余韻を永遠にする、一人の学生が紡いだ物語",
+      "excerpt": "〜14週間の開発ジャーニーを追って〜...",
+      "learnerId": "2c1737c266f9",
+      "generatedAt": "2024-05-23T11:00:00",
+      "storyType": "development_journey"
+    },
+    {
+      "id": "e19e72b00814",
+      "title": "「使われるのか？」と問い続けた旅路 ―AIペルソナが照らした、開発者の迷いと光―",
+      "excerpt": "〜14週間の開発ジャーニーを追って〜...",
+      "learnerId": "e19e72b00814",
+      "generatedAt": "2024-05-23T10:00:00",
+      "storyType": "development_journey"
+    },
+    {
+      "id": "481bc5be2aca",
+      "title": "静かなる問いから始まった、他者と向き合う旅路",
+      "excerpt": "〜14週間の開発ジャーニーを追って〜...",
+      "learnerId": "481bc5be2aca",
+      "generatedAt": "2024-05-23 22:00:00",
+      "storyType": "development_journey"
+    },
+    {
+      "id": "f82a66e69f41",
+      "title": "問いが「他者」と出会うとき：写真とAI、そして自分を見つける物語",
+      "excerpt": "〜一人の学生が辿った、14週間の開発ジャーニー〜...",
+      "learnerId": "f82a66e69f41_anon",
+      "generatedAt": "2024-05-23 21:00:00",
+      "storyType": "development_journey"
+    },
+    {
+      "id": "6543724f882c",
+      "title": "「感謝」を価値に変える旅路 〜ある社会人が見つけた、空き家とコミュニティの物語〜",
+      "excerpt": "〜14週間の開発ジャーニーを追って〜...",
+      "learnerId": "6543724f882c_anon",
+      "generatedAt": "2024-05-23 21:00:00",
+      "storyType": "development_journey"
+    },
+    {
+      "id": "19d6a238c76c",
+      "title": "“学食諦めよっか”を無くす物語 — 一人の学生が抱いた小さな苛立ちが、仲間と未来を動かすまで",
+      "excerpt": "〜14週間の開発ジャーニーを追って〜...",
+      "learnerId": "19d6a238c76c",
+      "generatedAt": "2024-05-23 21:00:00",
+      "storyType": "development_journey"
+    },
+    {
+      "id": "ac063e034096",
+      "title": "一人の学生が「割り勘」から「安心」へと価値を見出した物語",
+      "excerpt": "〜14週間の開発ジャーニーを追って〜...",
+      "learnerId": "ac063e034096",
+      "generatedAt": "2024-05-23 18:30:00",
+      "storyType": "development_journey"
+    },
+    {
+      "id": "cc684db33949",
+      "title": "「書けない僕」から「伝える僕」へ 〜AIと紡ぐ自己紹介の物語〜",
+      "excerpt": "〜14週間の開発ジャーニーを追って〜...",
+      "learnerId": "cc684db33949",
+      "generatedAt": "2024-05-23 18:00:00",
+      "storyType": "development_journey"
+    },
+    {
+      "id": "7557f724fe99",
+      "title": "AIの眼差しに、僕らの「好き」は宿るのか",
+      "excerpt": "〜一人の学生が辿った、問いから学びへの14週間の物語〜...",
+      "learnerId": "7557f724fe99",
+      "generatedAt": "2024-05-23 18:00:00",
+      "storyType": "development_journey"
+    },
+    {
+      "id": "47d7467add89",
+      "title": "「読書」から「育児」へ、そして「自分」へ。問いの在り処を探す旅路",
+      "excerpt": "〜14週間の開発ジャーニーを追って〜...",
+      "learnerId": "47d7467add89",
+      "generatedAt": "2024-05-23 18:00:00",
+      "storyType": "development_journey"
+    },
+    {
+      "id": "445e6fe56cc5",
+      "title": "見えない損失を「価値」に変える旅路 〜ある学生がLINE Botに託した、地域と未来への想い〜",
+      "excerpt": "〜14週間の開発ジャーニーを追って〜...",
+      "learnerId": "445e6fe56cc5",
+      "generatedAt": "2024-05-23 18:00:00",
+      "storyType": "development_journey"
+    },
+    {
+      "id": "3de04ca611a7",
+      "title": "見えない「ありがとう」に光を灯すまで 〜個人の記録から、チームの文化を育む物語へ〜",
+      "excerpt": "〜14週間の開発ジャーニーを追って〜...",
+      "learnerId": "3de04ca611a7",
+      "generatedAt": "2024-05-23 18:00:00",
+      "storyType": "development_journey"
+    },
+    {
+      "id": "a57bc4e30de3",
+      "title": "「忘れる不安」に寄り添う、ある開発者の物語",
+      "excerpt": "〜14週間の開発ジャーニーを追って〜...",
+      "learnerId": "a57bc4e30de3",
+      "generatedAt": "2024-05-23 17:00:00",
+      "storyType": "development_journey"
+    },
+    {
+      "id": "bb9ab7e62ef8",
+      "title": "二つの問いと一人の探求者 ―「集合写真」と「粗大ゴミ」、交錯する開発の旅路",
+      "excerpt": "〜14週間の開発ジャーニーを追って〜...",
+      "learnerId": "bb9ab7e62ef8",
+      "generatedAt": "2024-05-23 16:00:00",
+      "storyType": "development_journey"
+    },
+    {
+      "id": "0bb578220eb0",
+      "title": "会いたい人に会えない。その心の壁に挑んだ、一人の学生の物語",
+      "excerpt": "〜14週間の開発ジャーニーを追って〜...",
+      "learnerId": "0bb578220eb0",
+      "generatedAt": "2024-05-23 16:00:00",
+      "storyType": "development_journey"
+    },
+    {
+      "id": "e2306a0d3623",
+      "title": "静かな転換点――問いと向き合い、他者とつながる物語",
+      "excerpt": "〜一人の学生が辿った、14週間の開発ジャーニーを追って〜...",
+      "learnerId": "e2306a0d3623",
+      "generatedAt": "2024-05-23 15:30:00",
+      "storyType": "development_journey"
+    },
+    {
+      "id": "b97046c1ba8d",
+      "title": "「やるべきこと」と「やりたいこと」の狭間で。ある学生が見つけた、他者と自分を支える方法",
+      "excerpt": "〜14週間の開発ジャーニーを追って〜...",
+      "learnerId": "b97046c1ba8d",
+      "generatedAt": "2024-05-23 15:30:00",
+      "storyType": "development_journey"
+    },
+    {
+      "id": "fd56f62ecbad",
+      "title": "「叱咤」ではなく「受容」から。ある学生が“やさしさ”で見つけた、最初の一歩の物語",
+      "excerpt": "〜14週間の開発ジャーニーを追って〜...",
+      "learnerId": "fd56f62ecbad_anon",
+      "generatedAt": "2024-05-23 15:00:00",
+      "storyType": "development_journey"
+    },
+    {
+      "id": "f930ba638e00",
+      "title": "ある学生が「孤独」から「つながり」を見出すまでの物語",
+      "excerpt": "〜14週間の開発ジャーニーを追って〜...",
+      "learnerId": "f930ba638e00",
+      "generatedAt": "2024-05-23 15:00:00",
+      "storyType": "development_journey"
+    },
+    {
+      "id": "bcef5519138f",
+      "title": "「見えない貢献」を照らす光 — ある社会人学生が仲間と見つけた、組織文化を変える挑戦の物語",
+      "excerpt": "〜14週間の開発ジャーニーを追って〜...",
+      "learnerId": "bcef5519138f",
+      "generatedAt": "2024-05-23 15:00:00",
+      "storyType": "development_journey"
+    },
+    {
+      "id": "bc6314032c48",
+      "title": "「まぁいっか」から生まれた、忘れん坊に寄り添う物語",
+      "excerpt": "〜一人の学生が辿った、問いから学びへの14週間〜...",
+      "learnerId": "bc6314032c48",
+      "generatedAt": "2024-05-23 15:00:00",
+      "storyType": "development_journey"
+    },
+    {
+      "id": "b3e7070a5d57",
+      "title": "「どこだっけ？」から始まった、誠実な問い直しの物語",
+      "excerpt": "〜一人の学生が辿った、14週間の開発ジャーニーを追って〜...",
+      "learnerId": "b3e7070a5d57",
+      "generatedAt": "2024-05-23 15:00:00",
+      "storyType": "development_journey"
+    },
+    {
+      "id": "840393fc1a39",
+      "title": "「残すのが楽しい」を見つけるまで。一人の学生が辿った、共感から価値への物語",
+      "excerpt": "〜14週間の開発ジャーニーを追って〜...",
+      "learnerId": "840393fc1a39",
+      "generatedAt": "2024-05-23 15:00:00",
+      "storyType": "development_journey"
+    },
+    {
+      "id": "7c8d3929e301",
+      "title": "知識の地図を広げ、自分の現在地を知る旅",
+      "excerpt": "〜一人の学生が辿った、内省から行動変容への物語〜...",
+      "learnerId": "7c8d3929e301",
+      "generatedAt": "2024-05-23 15:00:00",
+      "storyType": "development_journey"
+    },
+    {
+      "id": "6870a8ff8c88",
+      "title": "「いいね」の向こう側へ——共感を探す旅路",
+      "excerpt": "〜一人の学生が辿った、問いから学びへの物語〜...",
+      "learnerId": "6870a8ff8c88",
+      "generatedAt": "2024-05-23 15:00:00",
+      "storyType": "development_journey"
+    },
+    {
+      "id": "4ebb640b5d15",
+      "title": "冷蔵庫の中からこんにちは――暮らしと地球を想う、一人の開発者の物語",
+      "excerpt": "〜14週間の開発ジャーニーを追って〜...",
+      "learnerId": "4ebb640b5d15",
+      "generatedAt": "2024-05-23 15:00:00",
+      "storyType": "development_journey"
+    },
+    {
+      "id": "44512c369f4d",
+      "title": "文脈を翻訳せよ — 魚食文化とWeb3で「一期一会」を紡いだ物語",
+      "excerpt": "〜14週間の開発ジャーニーを追って〜...",
+      "learnerId": "44512c369f4d",
+      "generatedAt": "2024-05-23 15:00:00",
+      "storyType": "development_journey"
+    },
+    {
+      "id": "33d69e6856e7",
+      "title": "静かなる探求者の物語：献立の向こうに「続く価値」を見つけるまで",
+      "excerpt": "〜14週間の開発ジャーニーを追って〜...",
+      "learnerId": "33d69e6856e7",
+      "generatedAt": "2024-05-23 15:00:00",
+      "storyType": "development_journey"
+    },
+    {
+      "id": "2fa71b1e7716",
+      "title": "二つの問いの狭間で：完璧な解決策から、不完全さの中の楽しさへ",
+      "excerpt": "〜ある学生が辿った、14週間の開発ジャーニーを追って〜...",
+      "learnerId": "2fa71b1e7716",
+      "generatedAt": "2024-05-23 15:00:00",
+      "storyType": "development_journey"
+    },
+    {
+      "id": "288988f69de5",
+      "title": "「となりの気配便」— 言葉にならない想いを届ける、静かな旅路の物語",
+      "excerpt": "〜14週間の開発ジャーニーを追って〜...",
+      "learnerId": "288988f69de5",
+      "generatedAt": "2024-05-23 15:00:00",
+      "storyType": "development_journey"
+    },
+    {
+      "id": "d2201e08a1f7",
+      "title": "「ありがとう」が灯す場所 - ある学生が空き家に見た、つながりの物語",
+      "excerpt": "〜14週間の開発ジャーニーを追って〜...",
+      "learnerId": "d2201e08a1f7",
+      "generatedAt": "2024-05-23 14:30:00",
+      "storyType": "development_journey"
+    },
+    {
+      "id": "759fd342e225",
+      "title": "ひとりの「手助けしたい」から始まった、やさしいツールの物語",
+      "excerpt": "〜14週間の開発ジャーニーを追って〜...",
+      "learnerId": "759fd342e225",
+      "generatedAt": "2024-05-23 14:30:00",
+      "storyType": "development_journey"
+    },
+    {
+      "id": "239a7ad87200",
+      "title": "静かな部屋に音を灯すまで - ある学生が“届ける”ことの意味を見つけた物語",
+      "excerpt": "〜14週間の開発ジャーニーを追って〜...",
+      "learnerId": "239a7ad87200",
+      "generatedAt": "2024-05-23 14:30:00",
+      "storyType": "development_journey"
+    },
+    {
+      "id": "88e331184af6",
+      "title": "魚と文化の「翻訳者」になるまで。ある学生がWeb3で見つけた、一期一会の物語",
+      "excerpt": "〜14週間の開発ジャーニーを追って〜...",
+      "learnerId": "88e331184af6",
+      "generatedAt": "2024-05-23 11:30:23",
+      "storyType": "development_journey"
+    },
+    {
+      "id": "f5912243f0bd",
+      "title": "静かな違和感から始まった、\"本当に解くべき問い\" を見つける旅",
+      "excerpt": "〜16週間の開発ジャーニーを追って〜...",
+      "learnerId": "f5912243f0bd",
+      "generatedAt": "2024-05-23 11:30:00",
+      "storyType": "development_journey"
+    },
+    {
+      "id": "0f326aeaa415",
+      "title": "「探さない生活」を追い求めて。ある父親が紡いだ、多忙な日常から心の余裕を生む物語",
+      "excerpt": "〜14週間の開発ジャーニーを追って〜...",
+      "learnerId": "0f326aeaa415",
+      "generatedAt": "2024-05-23 11:30:00",
+      "storyType": "development_journey"
+    },
+    {
+      "id": "c7ede383b30c",
+      "title": "静かな観察者が見つけた、仲間と「公平さ」を届ける旅路",
+      "excerpt": "〜14週間の開発ジャーニーを追って〜...",
+      "learnerId": "c7ede383b30c",
+      "generatedAt": "2024-05-23 11:00:00",
+      "storyType": "development_journey"
+    },
+    {
+      "id": "c54cc6759003",
+      "title": "「いいね」の向こう側へ。一人の“おじさん”が紡いだ、共感とつながりの物語",
+      "excerpt": "〜14週間の開発ジャーニーを追って〜...",
+      "learnerId": "c54cc6759003-anon",
+      "generatedAt": "2024-05-23 11:00:00",
+      "storyType": "development_journey"
+    },
+    {
+      "id": "b1df9f17e265",
+      "title": "他者のための料理、その先にあった「自分の問い」との再会",
+      "excerpt": "〜14週間の開発ジャーニーを追って〜...",
+      "learnerId": "b1df9f17e265",
+      "generatedAt": "2024-05-23 11:00:00",
+      "storyType": "development_journey"
+    },
+    {
+      "id": "986b62fa9378",
+      "title": "心の音を聴くための旅路 — ある学生が技術の壁を越えて「癒し」を届けようとした物語",
+      "excerpt": "〜14週間の開発ジャーニーを追って〜...",
+      "learnerId": "986b62fa9378-anon",
+      "generatedAt": "2024-05-23 11:00:00",
+      "storyType": "development_journey"
+    },
+    {
+      "id": "914a7c31d66e",
+      "title": "退屈な家事を、創造の瞬間に変える物語",
+      "excerpt": "〜皿洗いの音から音楽が生まれるまで〜...",
+      "learnerId": "914a7c31d66e",
+      "generatedAt": "2024-05-23 11:00:00",
+      "storyType": "development_journey"
+    },
+    {
+      "id": "76c08eae4567",
+      "title": "ひとりユニコーンの道程：壮大な構想と、一人の顧客から始まった物語",
+      "excerpt": "〜14週間の開発ジャーニーを追って〜...",
+      "learnerId": "76c08eae4567",
+      "generatedAt": "2024-05-23 11:00:00",
+      "storyType": "development_journey"
+    },
+    {
+      "id": "60888c1e4078",
+      "title": "静かな探求者の旅路 —「便利さ」から「体験」へ、問いが磨かれた14週間",
+      "excerpt": "〜一人の学生が辿った、問いから学びへの物語〜...",
+      "learnerId": "60888c1e4078-anon",
+      "generatedAt": "2024-05-23 11:00:00",
+      "storyType": "development_journey"
+    },
+    {
+      "id": "2fc8a9b0204d",
+      "title": "時間を取り戻す、ひとりの学生が紡いだ「ありたい自分」への物語",
+      "excerpt": "〜14週間の開発ジャーニーを追って〜...",
+      "learnerId": "2fc8a9b0204d",
+      "generatedAt": "2024-05-23 11:00:00",
+      "storyType": "development_journey"
+    },
+    {
+      "id": "6791e280ddb8",
+      "title": "冷蔵庫の扉を開けて見つけた、本当に届けるべき価値の物語",
+      "excerpt": "〜一人の学生が辿った、14週間の開発ジャーニーを追って〜...",
+      "learnerId": "6791e280ddb8",
+      "generatedAt": "2024-05-23 10:30:12",
+      "storyType": "development_journey"
+    },
+    {
+      "id": "fe6120f67da3",
+      "title": "静かなる情熱の軌跡、インディー開発者のための灯火を創る物語",
+      "excerpt": "〜14週間の開発ジャーニーを追って〜...",
+      "learnerId": "fe6120f67da3",
+      "generatedAt": "2024-05-23 10:30:00",
+      "storyType": "development_journey"
+    },
+    {
+      "id": "f66c8b5681e0",
+      "title": "「読まない」僕らのための道しるべ — ある学生が不安と向き合い、価値を見つけた物語",
+      "excerpt": "〜14週間の開発ジャーニーを追って〜...",
+      "learnerId": "f66c8b5681e0",
+      "generatedAt": "2024-05-23 10:30:00",
+      "storyType": "development_journey"
+    },
+    {
+      "id": "ced925089fc6",
+      "title": "ひとりの公務員が、愛する山の「声なき声」を聴くために歩んだ14週間の旅路",
+      "excerpt": "〜「Yama Grow」開発ジャーニーを追って〜...",
+      "learnerId": "ced925089fc6-anon",
+      "generatedAt": "2024-05-23 10:30:00",
+      "storyType": "development_journey"
+    },
+    {
+      "id": "b94e6709fdfd",
+      "title": "“誰かのワクワク”を借りる旅路 〜「やりたいことがない」から始まった、ある学生の物語〜",
+      "excerpt": "〜14週間の開発ジャーニーを追って〜...",
+      "learnerId": "b94e6709fdfd",
+      "generatedAt": "2024-05-23 10:30:00",
+      "storyType": "development_journey"
+    },
+    {
+      "id": "a8c8c110f667",
+      "title": "EVオーナーが「ごはんのミカタ」になるまで - ある社会人学生の、他者への共感を追い求めた旅路",
+      "excerpt": "〜14週間の開発ジャーニーを追って〜...",
+      "learnerId": "a8c8c110f667",
+      "generatedAt": "2024-05-23 10:30:00",
+      "storyType": "development_journey"
+    },
+    {
+      "id": "7ab8e5197ff2",
+      "title": "「ありがとう」が灯す家 〜ある学生が“感謝経済”に辿り着くまでの物語〜",
+      "excerpt": "〜14週間の開発ジャーニーを追って〜...",
+      "learnerId": "7ab8e5197ff2",
+      "generatedAt": "2024-05-23 10:30:00",
+      "storyType": "development_journey"
+    },
+    {
+      "id": "782c0797c599",
+      "title": "「捨てる」から「繋ぐ」へ。一人の学生が辿り着いた、共感の価値デザイン",
+      "excerpt": "〜14週間の開発ジャーニーを追って〜...",
+      "learnerId": "782c0797c599",
+      "generatedAt": "2024-05-23 10:30:00",
+      "storyType": "development_journey"
+    },
+    {
+      "id": "029ef0148132",
+      "title": "「私」を語る言葉を探して。ある学生が自己紹介の”不便”から価値を見出す物語",
+      "excerpt": "〜14週間の開発ジャーニーを追って〜...",
+      "learnerId": "029ef0148132-anon",
+      "generatedAt": "2024-05-23 10:30:00",
+      "storyType": "development_journey"
+    },
+    {
+      "id": "e64b22b50d5d",
+      "title": "小さな「面倒」から始まった、仲間と見つけた大きな価値の物語",
+      "excerpt": "〜14週間の開発ジャーニーを追って〜...",
+      "learnerId": "e64b22b50d5d",
+      "generatedAt": "2024-05-23 10:00:00",
+      "storyType": "development_journey"
+    },
+    {
+      "id": "b2006dc61d9b",
+      "title": "「かわいい」の価値を信じて。一人の学生がアプリ開発で見つけた、クリエイターとしての新しい道",
+      "excerpt": "〜14週間の開発ジャーニーを追って〜...",
+      "learnerId": "b2006dc61d9b",
+      "generatedAt": "2024-05-23 10:00:00",
+      "storyType": "development_journey"
+    },
+    {
+      "id": "a6d030d21b94",
+      "title": "「わからない」から始まった、自己紹介を紡ぐ物語",
+      "excerpt": "〜14週間の開発ジャーニーを追って〜...",
+      "learnerId": "a6d030d21b94",
+      "generatedAt": "2024-05-23 10:00:00",
+      "storyType": "development_journey"
+    },
+    {
+      "id": "85f813f27418",
+      "title": "AIの瞳に、僕らの「好き」は映るのか",
+      "excerpt": "〜一人の学生が辿った、問いから学びへの14週間の物語〜...",
+      "learnerId": "85f813f27418",
+      "generatedAt": "2024-05-23 10:00:00",
+      "storyType": "development_journey"
+    },
+    {
+      "id": "5c35061bf78d",
+      "title": "問いが人と交わり、チームの物語になった日",
+      "excerpt": "〜一人の学生が辿った、14週間の開発ジャーニーを追って〜...",
+      "learnerId": "5c35061bf78d",
+      "generatedAt": "2024-05-23 10:00:00",
+      "storyType": "development_journey"
+    },
+    {
+      "id": "15d9ba742d52",
+      "title": "思いの容れ物、死蔵着物に宿る物語を未来へ紡ぐ旅路",
+      "excerpt": "〜14週間の開発ジャーニーを追って〜...",
+      "learnerId": "15d9ba742d52_anon",
+      "generatedAt": "2024-05-23 10:00:00",
+      "storyType": "development_journey"
+    },
+    {
+      "id": "0b90f7ca08da",
+      "title": "“動き”の探求者 〜写真一枚から物語を紡ぐまで〜",
+      "excerpt": "〜一人の学生が辿った、問いから学びへの物語〜...",
+      "learnerId": "0b90f7ca08da",
+      "generatedAt": "2024-05-23 10:00:00",
+      "storyType": "development_journey"
+    },
+    {
+      "id": "d2384b74dbe1",
+      "title": "「推し」を探す旅路 — 共感から生まれた、ひとりの学生の物語",
+      "excerpt": "〜14週間の開発ジャーニーを追って〜...",
+      "learnerId": "d2384b74dbe1",
+      "generatedAt": "2024-05-23 01:15:00",
+      "storyType": "development_journey"
+    },
+    {
+      "id": "09b7d0392d87",
+      "title": "壁の向こうの「自分」を探して",
+      "excerpt": "〜ある学生が辿った、問いから学びへの14週間の物語〜...",
+      "learnerId": "09b7d0392d87",
+      "generatedAt": "2024-05-22T10:30:00Z",
+      "storyType": "development_journey"
+    },
+    {
+      "id": "3b23a5824939",
+      "title": "「いいね」の向こう側へ。一人の学生が、問いと対話で見つけた「創作の育て方」の物語",
+      "excerpt": "〜14週間の開発ジャーニーを追って〜...",
+      "learnerId": "3b23a5824939",
+      "generatedAt": "2024-05-22 16:00:00",
+      "storyType": "development_journey"
+    },
+    {
+      "id": "abe5613f03b4",
+      "title": "静かな豊かさを探して - ある学生が「感謝」の価値を見出すまでの物語",
+      "excerpt": "〜14週間の開発ジャーニーを追って〜...",
+      "learnerId": "abe5613f03b4_anon",
+      "generatedAt": "2024-05-22 10:00:00",
+      "storyType": "development_journey"
+    },
+    {
+      "id": "afe2bb65c214",
+      "title": "静かなピボットの先にあった、他者のための「土壌」を育む物語",
+      "excerpt": "〜一人の学生が辿った、14週間の開発ジャーニーを追って〜...",
+      "learnerId": "afe2bb65c214",
+      "generatedAt": "2024-05-21T12:00:00",
+      "storyType": "development_journey"
+    },
+    {
+      "id": "954b34401584",
+      "title": "「誰かのため」から始まった、自分自身の地図を描く物語",
+      "excerpt": "〜14週間の開発ジャーニーを追って〜...",
+      "learnerId": "954b34401584",
+      "generatedAt": "2024-05-21 10:30:00",
+      "storyType": "development_journey"
+    },
+    {
+      "id": "8789a8b28465",
+      "title": "内なる地図を広げて：一人の学習者が「記録」の先に見つけた行動変容の物語",
+      "excerpt": "〜14週間の開発ジャーニーを追って〜...",
+      "learnerId": "8789a8b28465",
+      "generatedAt": "2024-05-21 10:30:00",
+      "storyType": "development_journey"
+    },
+    {
+      "id": "ca7630fc0299",
+      "title": "自己理解の地図を描いて：一人の学生が「内なる声」と向き合った14週間の旅路",
+      "excerpt": "〜14週間の開発ジャーニーを追って〜...",
+      "learnerId": "",
+      "generatedAt": "2024-01-01 00:00:00",
+      "storyType": ""
+    },
+    {
+      "id": "85c37179689f",
+      "title": "「今日の服、もう迷わない」 — 一人の学生が、問いと対話から紡いだ14週間の物語",
+      "excerpt": "〜14週間の開発ジャーニーを追って〜...",
+      "learnerId": "",
+      "generatedAt": "2024-01-01 00:00:00",
+      "storyType": ""
+    },
+    {
+      "id": "7ed2d599d5d2",
+      "title": "迷子のアイデア、見つけた「居場所」",
+      "excerpt": "---...",
+      "learnerId": "",
+      "generatedAt": "2024-01-01 00:00:00",
+      "storyType": ""
+    },
+    {
+      "id": "18471aed93a7",
+      "title": "感謝がめぐる場所 ―「空き家」から始まった、見えない価値を信じる物語",
+      "excerpt": "---...",
+      "learnerId": "",
+      "generatedAt": "2024-01-01 00:00:00",
+      "storyType": ""
+    }
+  ]
+}

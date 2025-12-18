@@ -31,3 +31,9 @@ dist/
 build/
 .next/
 out/
+
+# Claude Code
+.claude/
+
+# 元のNext.jsプロジェクト（データソース）
+assets/web/
