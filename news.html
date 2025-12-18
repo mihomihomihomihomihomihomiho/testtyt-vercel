@@ -53,6 +53,19 @@
     .fixed-logo{position:fixed;left:20px;top:20px;z-index:50;width:80px;height:auto;transition:.2s;}
     .fixed-logo:hover{transform:scale(1.1);}
 
+    /* スクロールアニメーション - Toyota風ワイプ */
+    .slide-in-right {
+      overflow: hidden;
+      clip-path: inset(0 100% 0 0);
+      transition: clip-path 1s cubic-bezier(0.19, 1, 0.22, 1);
+    }
+    .slide-in-right.animate {
+      clip-path: inset(0 0 0 0);
+    }
+    /* 遅延アニメーション */
+    .slide-in-right:nth-of-type(1) { transition-delay: 0.1s; }
+    .slide-in-right:nth-of-type(2) { transition-delay: 0.25s; }
+
     /* News Modal */
     .news-modal{position:fixed;inset:0;z-index:9999;display:none;align-items:center;justify-content:center;padding:1rem;}
     .news-modal.is-open{display:flex;}
@@ -121,10 +134,12 @@
       </div>
       <div class="relative z-20 container mx-auto px-6 max-w-[88rem] pt-24 md:pt-36 pb-12">
         <div class="max-w-4xl">
-          <div class="mb-6">
+          <div class="mb-6 slide-in-right">
             <span class="white-badge inline-block">Latest Updates</span>
           </div>
-          <h1 class="bg-white text-gray-900 hero-title shadow-sm px-4 py-3 inline-block leading-tight">お知らせ</h1>
+          <div class="slide-in-right">
+            <h1 class="bg-white text-gray-900 hero-title shadow-sm px-4 py-3 inline-block leading-tight">お知らせ</h1>
+          </div>
         </div>
       </div>
     </div>
@@ -375,5 +390,39 @@
       </div>
     </div>
   </footer>
+
+  <script>
+    // スクロールアニメーション
+    const observerOptions = {
+      threshold: 0.05,
+      rootMargin: '0px 0px 0px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('animate');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, observerOptions);
+
+    // アニメーション対象の要素を監視
+    document.addEventListener('DOMContentLoaded', () => {
+      const slideElements = document.querySelectorAll('.slide-in-right');
+      slideElements.forEach(el => observer.observe(el));
+
+      // ページロード時に既に表示されている要素は即座にアニメーション
+      setTimeout(() => {
+        slideElements.forEach(el => {
+          const rect = el.getBoundingClientRect();
+          if (rect.top < window.innerHeight && rect.bottom > 0) {
+            el.classList.add('animate');
+          }
+        });
+      }, 100);
+    });
+  </script>
+
 </body>
 </html>

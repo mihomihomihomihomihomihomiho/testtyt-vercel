@@ -80,6 +80,21 @@
     .fixed-logo{position:fixed;left:20px;top:20px;z-index:50;width:80px;height:auto;transition:.2s;}
     .fixed-logo:hover{transform:scale(1.1);}
     .slider-hide::-webkit-scrollbar{display:none;}
+
+    /* スクロールアニメーション - Toyota風ワイプ */
+    .slide-in-right {
+      overflow: hidden;
+      clip-path: inset(0 100% 0 0);
+      transition: clip-path 1s cubic-bezier(0.19, 1, 0.22, 1);
+    }
+    .slide-in-right.animate {
+      clip-path: inset(0 0 0 0);
+    }
+    /* 遅延アニメーション */
+    .slide-in-right:nth-of-type(1) { transition-delay: 0.1s; }
+    .slide-in-right:nth-of-type(2) { transition-delay: 0.25s; }
+    .slide-in-right:nth-of-type(3) { transition-delay: 0.4s; }
+    .slide-in-right:nth-of-type(4) { transition-delay: 0.55s; }
     .feature-card{width:320px;flex:0 0 320px;background:#fff;border:1px solid var(--line);border-radius:1rem;padding:2rem;display:flex;flex-direction:column;gap:1.25rem;transition:transform .2s ease;}
     .feature-card:hover{transform:translateY(-4px);}
     .feature-card-index{display:inline-flex;align-items:center;justify-content:center;width:48px;height:48px;background:#111;color:#fff;font-weight:800;font-size:1.1rem;border-radius:9999px;letter-spacing:.08em;}
@@ -251,13 +266,19 @@
 
       <div class="relative z-20 container mx-auto px-6 max-w-[88rem] pt-24 md:pt-36 pb-12">
         <div class="max-w-6xl">
-          <div class="mb-6">
+          <div class="mb-6 slide-in-right">
             <span class="white-badge inline-block">千葉工業大学 正式科目</span>
           </div>
           <div class="mb-6 space-y-2">
-            <h1 class="bg-white text-gray-900 hero-title shadow-sm px-3 py-1 leading-tight block w-fit">社会人と学生が一緒に学び</h1>
-            <h1 class="bg-white text-gray-900 hero-title shadow-sm px-3 py-1 leading-tight block w-fit">プロダクトをつくる</h1>
-            <h1 class="bg-white text-gray-900 hero-title shadow-sm px-3 py-1 leading-tight block w-fit">千葉工大「web3/AI概論」</h1>
+            <div class="slide-in-right">
+              <h1 class="bg-white text-gray-900 hero-title shadow-sm px-3 py-1 leading-tight block w-fit">社会人と学生が一緒に学び</h1>
+            </div>
+            <div class="slide-in-right">
+              <h1 class="bg-white text-gray-900 hero-title shadow-sm px-3 py-1 leading-tight block w-fit">プロダクトをつくる</h1>
+            </div>
+            <div class="slide-in-right">
+              <h1 class="bg-white text-gray-900 hero-title shadow-sm px-3 py-1 leading-tight block w-fit">千葉工大「web3/AI概論」</h1>
+            </div>
           </div>
         </div>
       </div>
@@ -1753,6 +1774,39 @@
         }
       });
     }
+  </script>
+
+  <script>
+    // スクロールアニメーション
+    const observerOptions = {
+      threshold: 0.05,
+      rootMargin: '0px 0px 0px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('animate');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, observerOptions);
+
+    // アニメーション対象の要素を監視
+    document.addEventListener('DOMContentLoaded', () => {
+      const slideElements = document.querySelectorAll('.slide-in-right');
+      slideElements.forEach(el => observer.observe(el));
+
+      // ページロード時に既に表示されている要素は即座にアニメーション
+      setTimeout(() => {
+        slideElements.forEach(el => {
+          const rect = el.getBoundingClientRect();
+          if (rect.top < window.innerHeight && rect.bottom > 0) {
+            el.classList.add('animate');
+          }
+        });
+      }, 100);
+    });
   </script>
 
 </body>
