@@ -78,22 +78,23 @@
     .fixed-logo{position:fixed;left:20px;top:20px;z-index:50;width:80px;height:auto;transition:.2s;}
     .fixed-logo:hover{transform:scale(1.1);}
 
-    /* スクロールアニメーション - 新幹線スタイル */
+    /* スクロールアニメーション - プロフェッショナルスタイル */
     .slide-in-right {
-      opacity: 0;
-      transform: translateX(-150px);
-      transition: opacity 0.8s cubic-bezier(0.25, 1, 0.5, 1),
-                  transform 1s cubic-bezier(0.25, 1, 0.5, 1);
+      overflow: hidden;
     }
-    .slide-in-right.animate {
-      opacity: 1;
-      transform: translateX(0);
+    .slide-in-right > * {
+      display: inline-block;
+      transform: translateY(100%);
+      transition: transform 1.2s cubic-bezier(0.19, 1, 0.22, 1);
+    }
+    .slide-in-right.animate > * {
+      transform: translateY(0);
     }
     /* 遅延アニメーション */
-    .slide-in-right:nth-child(1) { transition-delay: 0s; }
-    .slide-in-right:nth-child(2) { transition-delay: 0.12s; }
-    .slide-in-right:nth-child(3) { transition-delay: 0.24s; }
-    .slide-in-right:nth-child(4) { transition-delay: 0.36s; }
+    .slide-in-right:nth-child(1) > * { transition-delay: 0.1s; }
+    .slide-in-right:nth-child(2) > * { transition-delay: 0.25s; }
+    .slide-in-right:nth-child(3) > * { transition-delay: 0.4s; }
+    .slide-in-right:nth-child(4) > * { transition-delay: 0.55s; }
   </style>
 </head>
 <body>
