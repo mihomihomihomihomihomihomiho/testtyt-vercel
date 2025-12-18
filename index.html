@@ -619,8 +619,8 @@
 
     // スクロールアニメーション
     const observerOptions = {
-      threshold: 0.1,
-      rootMargin: '0px 0px -50px 0px'
+      threshold: 0.05,
+      rootMargin: '0px 0px 0px 0px'
     };
 
     const observer = new IntersectionObserver((entries) => {
@@ -636,6 +636,16 @@
     document.addEventListener('DOMContentLoaded', () => {
       const slideElements = document.querySelectorAll('.slide-in-right');
       slideElements.forEach(el => observer.observe(el));
+
+      // ページロード時に既に表示されている要素は即座にアニメーション
+      setTimeout(() => {
+        slideElements.forEach(el => {
+          const rect = el.getBoundingClientRect();
+          if (rect.top < window.innerHeight && rect.bottom > 0) {
+            el.classList.add('animate');
+          }
+        });
+      }, 100);
     });
   </script>
 
