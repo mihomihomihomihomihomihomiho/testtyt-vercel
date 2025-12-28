@@ -1,2 +1,3 @@
 User-agent: *
 Allow: /
+Sitemap: https://gairon.henkaku.org/sitemap.xml
