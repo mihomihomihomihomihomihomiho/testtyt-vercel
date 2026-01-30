@@ -227,8 +227,8 @@
           article.className = 'news-card block bg-white rounded-2xl p-6 md:p-8';
 
           const thumbnail = item.thumbnailUrl ?
-            `<img src="${item.thumbnailUrl}" alt="${item.title}" class="rounded-xl w-full md:w-48 aspect-video md:aspect-square object-cover flex-shrink-0">` :
-            `<div class="bg-gray-200 rounded-xl w-full md:w-48 aspect-video md:aspect-square flex-shrink-0"></div>`;
+            `<img src="${item.thumbnailUrl}" alt="${item.title}" class="rounded-xl w-full md:w-64 aspect-video object-cover flex-shrink-0">` :
+            `<div class="bg-gray-200 rounded-xl w-full md:w-64 aspect-video flex-shrink-0"></div>`;
 
           article.innerHTML = `
             <div class="flex flex-col md:flex-row md:items-start gap-6">
