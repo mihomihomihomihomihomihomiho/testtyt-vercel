@@ -1,0 +1,722 @@
+<!DOCTYPE html>
+<html lang="ja" class="scroll-smooth">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-78TSL21PG7"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-78TSL21PG7');
+  </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>web3/AI概論 - 最新テクノロジーを実践で学ぶ、大学発プロジェクト型コミュニティ</title>
+
+  <!-- SEO Meta Tags -->
+  <meta name="description" content="千葉工業大学の正式科目「web3/AI概論」。生成AIとWeb3を実践的に学び、学生・社会人・研究者が共に学ぶプロジェクト型コミュニティ。HENKAKUから生まれた次世代の教養プログラム。">
+  <meta name="keywords" content="web3,AI,生成AI,ブロックチェーン,千葉工業大学,HENKAKU,プログラミング教育,社会人教育,オンライン講座">
+  <link rel="canonical" href="https://gairon.henkaku.org/">
+
+  <!-- Open Graph Tags -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://gairon.henkaku.org/">
+  <meta property="og:title" content="web3/AI概論 - 最新テクノロジーを実践で学ぶ">
+  <meta property="og:description" content="千葉工業大学の正式科目。生成AIとWeb3を実践的に学び、学生・社会人・研究者が共に学ぶプロジェクト型コミュニティ。">
+  <meta property="og:image" content="https://gairon.henkaku.org/penguin.png">
+  <meta property="og:site_name" content="web3/AI概論">
+  <meta property="og:locale" content="ja_JP">
+
+  <!-- Twitter Card Tags -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="web3/AI概論 - 最新テクノロジーを実践で学ぶ">
+  <meta name="twitter:description" content="千葉工業大学の正式科目。生成AIとWeb3を実践的に学び、学生・社会人・研究者が共に学ぶプロジェクト型コミュニティ。">
+  <meta name="twitter:image" content="https://gairon.henkaku.org/penguin.png">
+
+  <!-- Structured Data: Organization Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "web3/AI概論",
+    "alternateName": "HENKAKU",
+    "url": "https://gairon.henkaku.org/",
+    "logo": "https://gairon.henkaku.org/penguin.png",
+    "description": "千葉工業大学の正式科目「web3/AI概論」。生成AIとWeb3を実践的に学び、学生・社会人・研究者が共に学ぶプロジェクト型コミュニティ。",
+    "sameAs": [
+      "https://www.it-chiba.ac.jp/"
+    ],
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "contactType": "お問い合わせ",
+      "url": "https://gairon.henkaku.org/contact"
+    }
+  }
+  </script>
+
+  <!-- Structured Data: WebSite Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "web3/AI概論",
+    "url": "https://gairon.henkaku.org/",
+    "description": "最新テクノロジーを実践で学ぶ、大学発プロジェクト型コミュニティ",
+    "inLanguage": "ja"
+  }
+  </script>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+
+  <!-- Favicons -->
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="48x48" href="/favicon-48x48.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="/favicon-192x192.png">
+  <link rel="icon" type="image/png" sizes="512x512" href="/favicon-512x512.png">
+  <link rel="apple-touch-icon" sizes="192x192" href="/favicon-192x192.png">
+  <style>
+    :root{
+      --bg:#F2F4F7;
+      --bg-weak:#F6F7F9;
+      --text:#111111;
+      --text-body:#1f2937;
+      --text-light:#4b5563;
+      --muted:#6B7280;
+      --muted-light:#9CA3AF;
+      --line:#E5E7EB;
+      --accent:#E50064;
+      --accentHover:#C70057;
+    }
+    body{font-family:'Noto Sans JP',system-ui,-apple-system,Segoe UI,Roboto,sans-serif;
+      -webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;font-feature-settings:"palt" 1;letter-spacing:-.01em;color:var(--text);background:#fff;font-weight:400;}
+
+    /* Typography hierarchy */
+    .hero-title{font-size:clamp(1.5rem,6vw,4.5rem);font-weight:900;line-height:1.1;letter-spacing:.05em;color:var(--text);}
+    .section-title{font-size:clamp(2rem,4.5vw,3.2rem);font-weight:900;line-height:1.15;letter-spacing:.04em;color:var(--text);}
+    .subsection-title{font-size:clamp(1.5rem,3vw,2rem);font-weight:700;line-height:1.3;letter-spacing:.03em;color:var(--text);}
+    .card-title{font-size:1.25rem;font-weight:700;line-height:1.4;letter-spacing:.04em;color:var(--text);}
+    .lead-text{font-size:1.25rem;font-weight:400;line-height:1.7;letter-spacing:.03em;color:var(--text-body);}
+    .body-text{font-size:1.0625rem;font-weight:400;line-height:1.85;letter-spacing:.04em;color:var(--text-body);}
+    .small-text{font-size:0.9375rem;font-weight:400;line-height:1.6;letter-spacing:.04em;color:var(--text-light);}
+    .tiny-text{font-size:0.8125rem;font-weight:500;line-height:1.5;letter-spacing:.06em;color:var(--muted);text-transform:uppercase;}
+    .caption{font-size:0.75rem;font-weight:500;line-height:1.4;letter-spacing:.08em;color:var(--muted-light);text-transform:uppercase;}
+
+    .btn-entry{background:var(--accent);color:#fff;font-weight:700;font-size:1rem;border-radius:9999px;padding:.75rem 1.5rem;transition:.2s;box-shadow:none;letter-spacing:0;}
+    .btn-entry:hover{background:var(--accentHover);transform:translateY(-1px);}
+    .white-badge{background:#fff;padding:.5rem .75rem;border-radius:.25rem;display:inline-block;font-weight:700;font-size:.875rem;letter-spacing:.01em;}
+    .badge-title{background:#000;color:#fff;padding:.34rem .78rem;box-decoration-break:clone;-webkit-box-decoration-break:clone;border-radius:.2rem;font-weight:900;letter-spacing:.09em;white-space:nowrap;font-size:clamp(1.6rem,3.6vw,2.4rem);}
+    @media(max-width:480px){
+      .badge-title{font-size:1.12rem;letter-spacing:.055em;}
+    }
+    .section-label{writing-mode:vertical-rl;transform:rotate(180deg);font-weight:500;}
+    .mega-outline{font-weight:900;letter-spacing:.02em;color:transparent;-webkit-text-stroke:1px rgba(255,255,255,.30);text-stroke:1px rgba(255,255,255,.30);writing-mode:vertical-rl;text-orientation:mixed;pointer-events:none;user-select:none;}
+    .diag-mask{clip-path: polygon(0 0, 86% 0, 100% 100%, 0 100%);}
+    .left-rail{position:absolute;left:0;top:0;bottom:0;width:24px;pointer-events:none;
+      background:
+        linear-gradient(#fff,#fff) left 10px top 120px/16px 2px no-repeat,
+        linear-gradient(#fff,#fff) left 10px top 420px/16px 2px no-repeat,
+        linear-gradient(#fff,#fff) left 10px top 720px/16px 2px no-repeat,
+        linear-gradient(#fff,#fff) left 10px top 1020px/16px 2px no-repeat;
+      opacity:.9;}
+    .fixed-logo{position:fixed;left:20px;top:20px;z-index:50;width:80px;height:auto;transition:.2s;}
+    .fixed-logo:hover{transform:scale(1.1);}
+
+    /* スクロールアニメーション - Toyota風ワイプ */
+    .slide-in-right {
+      overflow: hidden;
+      clip-path: inset(0 100% 0 0);
+      transition: clip-path 1s cubic-bezier(0.19, 1, 0.22, 1);
+    }
+    .slide-in-right.animate {
+      clip-path: inset(0 0 0 0);
+    }
+    /* 遅延アニメーション */
+    .slide-in-right:nth-of-type(1) { transition-delay: 0.1s; }
+    .slide-in-right:nth-of-type(2) { transition-delay: 0.25s; }
+    .slide-in-right:nth-of-type(3) { transition-delay: 0.4s; }
+    .slide-in-right:nth-of-type(4) { transition-delay: 0.55s; }
+    .slide-in-right:nth-of-type(5) { transition-delay: 0.7s; }
+  </style>
+</head>
+<body>
+  <!-- Fixed Penguin Logo -->
+  <a href="index.html" class="fixed-logo" style="pointer-events:auto;display:block;width:80px;">
+    <img src="penguin.png" alt="Logo" style="width:100%;height:auto;display:block;">
+  </a>
+
+  <!-- HERO -->
+  <header class="relative overflow-hidden">
+    <!-- 右上：Entry / Menu -->
+    <div class="absolute z-30 right-5 top-5 flex items-center gap-3">
+      <a href="chibatech2026.html" class="btn-entry" style="line-height:1.4;text-align:center;position:fixed;right:70px;top:20px;z-index:60;">2026年4月開講決定<br>受講生募集中</a>
+      <button onclick="document.getElementById('menu').classList.toggle('hidden')" class="w-11 h-11 rounded-full bg-white/95 backdrop-blur shadow-sm flex items-center justify-center">
+        <span class="sr-only">Menu</span>
+        <div class="w-5 h-5 relative">
+          <span class="absolute inset-x-0 top-1 block h-0.5 bg-gray-700 rounded"></span>
+          <span class="absolute inset-x-0 top-2.5 block h-0.5 bg-gray-700 rounded"></span>
+          <span class="absolute inset-x-0 top-4 block h-0.5 bg-gray-700 rounded"></span>
+        </div>
+      </button>
+    </div>
+
+    <!-- メニュー（トグル） -->
+    <div id="menu" class="hidden fixed inset-0 z-40 bg-gray-900 backdrop-blur-sm">
+      <div class="container mx-auto px-6 py-20 max-w-[88rem]">
+        <button onclick="document.getElementById('menu').classList.add('hidden')" class="absolute top-5 right-5 text-white text-3xl">&times;</button>
+        <nav class="space-y-4 text-white text-2xl font-bold">
+          <a href="index.html" class="block hover:text-pink-400">Home</a>
+          <a href="chibatech.html" class="block hover:text-pink-400">Chibatech</a>
+          <a href="reading.html" class="block hover:text-pink-400">Reading</a>
+          <a href="business.html" class="block hover:text-pink-400">For Business</a>
+          <a href="partners.html" class="block hover:text-pink-400">Partners</a>
+          <a href="news.html" class="block hover:text-pink-400">News</a>
+          <a href="contact.html" class="block hover:text-pink-400">Contact</a>
+        </nav>
+      </div>
+    </div>
+
+    <!-- 写真 -->
+    <div class="relative min-h-[64vh] md:min-h-[72vh]">
+      <div class="absolute inset-0">
+        <img src="assets/images/backgrounds/index_header.jpg" alt="Team collaboration" class="w-full h-full object-cover">
+        <div class="absolute inset-0 bg-gradient-to-r from-black/35 via-black/10 to-transparent"></div>
+      </div>
+
+      <!-- 右の巨大縦アウトライン英字 -->
+      <div class="absolute right-[2vw] top-[6vh] hidden lg:block">
+        <div class="mega-outline text-[22vw] leading-none">PROJECT</div>
+      </div>
+
+      <!-- 白帯の見出し -->
+      <div class="relative z-20 container mx-auto px-6 max-w-[88rem] pt-24 md:pt-36 pb-16 md:pb-24">
+        <div class="max-w-6xl" id="hero-text">
+          <div class="mb-6 slide-in-right">
+            <span class="white-badge inline-block">web3/AI概論</span>
+          </div>
+          <div class="mb-6 space-y-2">
+            <div class="slide-in-right">
+              <h1 class="bg-white text-gray-900 hero-title shadow-sm px-3 py-1 leading-tight block w-fit">未来は、</h1>
+            </div>
+            <div class="slide-in-right">
+              <h1 class="bg-white text-gray-900 hero-title shadow-sm px-3 py-1 leading-tight block w-fit">誰かが創るものではなく、</h1>
+            </div>
+            <div class="slide-in-right">
+              <h1 class="bg-white text-gray-900 hero-title shadow-sm px-3 py-1 leading-tight block w-fit">私たちが、つかむもの。</h1>
+            </div>
+          </div>
+          <div class="slide-in-right">
+            <p class="text-base md:text-3xl font-bold bg-black text-white shadow-sm px-4 py-2 inline-block leading-tight" style="letter-spacing:.04em;">
+              最新テクノロジーを実践で学ぶ、大学発プロジェクト型コミュニティ
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 情報バー -->
+    <div class="bg-white">
+      <div class="container mx-auto px-6 max-w-[88rem] py-12 md:py-16">
+        <div class="grid md:grid-cols-3 gap-6">
+          <a href="#who-we-are" class="group relative bg-[var(--bg-weak)] rounded-2xl p-8 md:p-10 hover:shadow-lg transition overflow-hidden block">
+            <div class="absolute inset-0 opacity-5 pointer-events-none">
+              <div class="absolute top-1/2 left-0 -translate-y-1/2 text-[6rem] md:text-[8rem] font-black text-gray-300" style="writing-mode:horizontal-tb;letter-spacing:-.05em;">WHO WE ARE</div>
+            </div>
+            <div class="relative z-10">
+              <div class="flex items-start justify-between mb-4">
+                <div>
+                  <h3 class="text-xl md:text-2xl font-black mb-2 tracking-wider">WHO WE ARE</h3>
+                  <p class="text-sm md:text-base font-bold">私たちについて</p>
+                </div>
+                <div class="w-12 h-12 bg-black rounded flex items-center justify-center flex-shrink-0 group-hover:bg-gray-800 transition">
+                  <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                  </svg>
+                </div>
+              </div>
+            </div>
+          </a>
+          <a href="chibatech.html" class="group relative bg-[var(--bg-weak)] rounded-2xl p-8 md:p-10 hover:shadow-lg transition overflow-hidden block">
+            <div class="absolute inset-0 opacity-5 pointer-events-none">
+              <div class="absolute top-1/2 left-0 -translate-y-1/2 text-[6rem] md:text-[8rem] font-black text-gray-300" style="writing-mode:horizontal-tb;letter-spacing:-.05em;">CHIBATECH</div>
+            </div>
+            <div class="relative z-10">
+              <div class="flex items-start justify-between mb-4">
+                <div class="flex-1 min-w-0 pr-3">
+                  <h3 class="text-xl md:text-2xl font-black mb-2 tracking-wider">CHIBATECH</h3>
+                  <p class="text-sm md:text-base font-bold whitespace-normal break-words">千葉工業大学 正式科目</p>
+                </div>
+                <div class="w-12 h-12 bg-black rounded flex items-center justify-center flex-shrink-0 group-hover:bg-gray-800 transition">
+                  <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                  </svg>
+                </div>
+              </div>
+            </div>
+          </a>
+          <a href="#business-section" class="group relative bg-[var(--bg-weak)] rounded-2xl p-8 md:p-10 hover:shadow-lg transition overflow-hidden block">
+            <div class="absolute inset-0 opacity-5 pointer-events-none">
+              <div class="absolute top-1/2 left-0 -translate-y-1/2 text-[6rem] md:text-[8rem] font-black text-gray-300" style="writing-mode:horizontal-tb;letter-spacing:-.05em;">BUSINESS</div>
+            </div>
+            <div class="relative z-10">
+              <div class="flex items-start justify-between mb-4">
+                <div>
+                  <h3 class="text-xl md:text-2xl font-black mb-2 tracking-wider">FOR BUSINESS</h3>
+                  <p class="text-sm md:text-base font-bold">法人向け研修サービス</p>
+                </div>
+                <div class="w-12 h-12 bg-black rounded flex items-center justify-center flex-shrink-0 group-hover:bg-gray-800 transition">
+                  <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                  </svg>
+                </div>
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+ <!-- Who We Are -->
+  <section id="who-we-are" class="relative bg-white">
+    <div class="left-rail hidden md:block"></div>
+    <div class="container mx-auto px-6 max-w-[88rem] py-20">
+      <div class="grid grid-cols-1 lg:grid-cols-[56px_minmax(0,1fr)] gap-4 items-start mb-12">
+        <div class="hidden lg:block lg:-mt-8">
+          <div class="bg-white text-gray-600 text-xs tracking-[0.12em] px-2 py-1 rounded-sm section-label">WHO WE ARE</div>
+        </div>
+        <div>
+          <h2 class="section-title space-y-2">
+            <span class="badge-title block w-fit">HENKAKUから生まれた、</span>
+            <span class="badge-title block w-fit">実践知のプログラム。</span>
+            <span class="badge-title block w-fit">AIとWeb3の学びを、社会へつなげる。</span>
+          </h2>
+          <div class="mt-8 grid grid-cols-1 lg:grid-cols-[1fr_auto] gap-8 items-start">
+            <div class="space-y-7">
+              <p class="body-text">web3/AI概論は、伊藤穰一が主宰する<a href="https://community.henkaku.org/ja" target="_blank" rel="noopener noreferrer" class="text-pink-600 hover:text-pink-700 underline">HENKAKU COMMUNITY</a>から生まれた、"つくりながら学ぶ"ための実践プログラムです。千葉工業大学の正式科目として開講し、学生・社会人・研究者・企業が同じフィールドでAIやWeb3を実際に動かしながら、問いを立て、プロジェクトを形にしています。</p>
+              <p class="body-text">大学の枠を越えて、企業向けセミナーやコミュニティ勉強会も展開し、最先端テクノロジーを社会実装へと結びつけています。</p>
+              <p class="body-text">講師やサポーターは全員が現場の実践者。知識を解説するのではなく、手を動かしながら未来を試す——それがHENKAKUの学びの文化です。</p>
+            </div>
+            <div class="flex items-center justify-center lg:justify-end">
+              <img src="assets/images/backgrounds/henkaku_logo_arrow_and_japanese_title_black.png" alt="HENKAKU Logo" class="w-48 lg:w-64">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+ 
+
+ <!-- Mission -->
+  <section id="mission" class="relative bg-[var(--bg-weak)]">
+    <div class="left-rail hidden md:block"></div>
+    <div class="container mx-auto px-6 max-w-[88rem] py-20">
+      <div class="grid grid-cols-1 lg:grid-cols-[56px_minmax(0,1fr)] gap-4 items-start mb-12">
+        <div class="hidden lg:block lg:-mt-8">
+          <div class="bg-white text-gray-600 text-xs tracking-[0.12em] px-2 py-1 rounded-sm section-label">MISSION</div>
+        </div>
+        <div class="w-full">
+          <h2 class="section-title space-y-2">
+            <span class="badge-title block w-fit">答えを探すのではなく、</span>
+            <span class="badge-title block w-fit">問いを立て、試しながら考える。</span>
+          </h2>
+          <div class="mt-8 flex flex-col lg:flex-row gap-8 items-start">
+            <div class="flex-1 space-y-7">
+              <p class="body-text">私たちのミッションは、テクノロジーを“学ぶ対象”としてではなく、“共につくるための道具”として扱うことです。AIやWeb3といった新しい技術を、自分たちの手で動かし、試し、考える。その過程で生まれる失敗や発見こそが、次の社会をかたちづくる原動力になると信じています。</p>
+              <p class="body-text">web3/AI概論では、学生も社会人も企業も研究者も対等な立場で学び合い、アイデアを実装しながら実社会に還元していくコミュニティを育てています。私たちは、行動と思考の往復を通じて、学びを“生きた実践知”へと変えていきます。</p>
+            </div>
+            <div class="w-full lg:w-2/5">
+              <div class="bg-white border border-[var(--line)] rounded-2xl overflow-hidden">
+                <div class="aspect-[4/3] relative">
+                  <img src="assets/images/backgrounds/IMG_2267.jpg" alt="実践をイメージした写真" class="absolute inset-0 w-full h-full object-cover">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- Chibatech -->
+  <section class="relative">
+    <div class="left-rail hidden md:block"></div>
+    <div class="container mx-auto px-6 max-w-[88rem] py-20">
+      <div class="grid grid-cols-1 lg:grid-cols-[56px_1fr] gap-4 items-start mb-12">
+        <div class="hidden lg:block lg:-mt-8">
+          <div class="bg-white text-gray-600 text-xs tracking-[0.12em] px-2 py-1 rounded-sm section-label">CHIBATECH</div>
+        </div>
+        <h2 class="section-title">
+          <span class="badge-title">千葉工業大学 正式科目</span>
+        </h2>
+      </div>
+      <div class="grid md:grid-cols-3 gap-10">
+        <div class="bg-white border border-[var(--line)] rounded-2xl p-7 hover:shadow-lg transition">
+          <div class="aspect-video rounded-lg mb-5 overflow-hidden">
+            <img src="assets/images/backgrounds/chibatech_header.jpg" alt="総合科学特論" class="w-full h-full object-cover">
+          </div>
+          <h3 class="card-title mb-3">総合科学特論（Web3/AI概論）</h3>
+          <p class="small-text mb-5">千葉工大の学生はもちろん、社会人も参加できる大学の正式科目です。</p>
+          <a href="chibatech.html" class="tiny-text font-bold" style="color:var(--accent);">詳しく見る →</a>
+        </div>
+        <div class="bg-white border border-[var(--line)] rounded-2xl p-7 hover:shadow-lg transition">
+          <div class="aspect-video rounded-lg mb-5 overflow-hidden">
+            <img src="assets/images/backgrounds/projectgata.jpg" alt="プロジェクト型学習" class="w-full h-full object-cover">
+          </div>
+          <h3 class="card-title mb-3">プロジェクト型学習</h3>
+          <p class="small-text mb-5">講義だけでなく、実際にチームでプロダクトを作り、発表します。</p>
+        </div>
+        <div class="bg-white border border-[var(--line)] rounded-2xl p-7 hover:shadow-lg transition">
+          <div class="aspect-video rounded-lg mb-5 overflow-hidden">
+            <img src="assets/images/backgrounds/seika.jpg" alt="成果発表会" class="w-full h-full object-cover">
+          </div>
+          <h3 class="card-title mb-3">成果発表会</h3>
+          <p class="small-text mb-5">学期末には成果発表会を実施。企業や外部の方も参加します。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Reading -->
+  <section class="relative bg-[var(--bg-weak)]">
+    <div class="left-rail hidden md:block"></div>
+    <div class="container mx-auto px-6 max-w-[88rem] py-20">
+      <div class="grid grid-cols-1 lg:grid-cols-[56px_1fr] gap-4 items-start mb-12">
+        <div class="hidden lg:block lg:-mt-8">
+          <div class="bg-white text-gray-600 text-xs tracking-[0.12em] px-2 py-1 rounded-sm section-label">READING</div>
+        </div>
+        <h2 class="section-title">
+          <span class="badge-title">学習リソース</span>
+        </h2>
+      </div>
+      <!-- ローディング表示 -->
+      <div id="readingLoading" class="text-center py-10">
+        <p class="text-gray-500">読み込み中...</p>
+      </div>
+      <!-- 最新記事（動的に読み込み） -->
+      <div id="latestReadings" class="grid md:grid-cols-3 gap-10 mb-10 hidden"></div>
+      <div class="text-center">
+        <a href="reading.html" class="btn-entry">すべての記事を見る</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- For Business -->
+  <section id="business-section" class="relative">
+    <div class="left-rail hidden md:block"></div>
+    <div class="container mx-auto px-6 max-w-[88rem] py-20">
+      <div class="grid grid-cols-1 lg:grid-cols-[56px_1fr] gap-4 items-start mb-12">
+        <div class="hidden lg:block lg:-mt-8">
+          <div class="bg-white text-gray-600 text-xs tracking-[0.12em] px-2 py-1 rounded-sm section-label">FOR BUSINESS</div>
+        </div>
+        <h2 class="section-title">
+          <span class="badge-title">法人向けサービス</span>
+        </h2>
+      </div>
+      <p class="lead-text mb-12 max-w-3xl">大学での教育ノウハウを活かし、企業向けの研修プログラムを提供しています。</p>
+      <div class="grid md:grid-cols-3 gap-10 mb-12">
+        <div class="bg-white rounded-2xl p-8 hover:shadow-lg transition-shadow border border-gray-100">
+          <div class="flex items-center gap-4 mb-6">
+            <span class="text-5xl font-black text-gray-200 leading-none">01</span>
+            <div class="h-px flex-1 bg-gradient-to-r from-gray-200 to-transparent"></div>
+          </div>
+          <h3 class="subsection-title mb-4">イントロ講座</h3>
+          <p class="small-text text-gray-600">Web3やAIの基礎知識を短時間で習得できる入門プログラム。</p>
+        </div>
+        <div class="bg-white rounded-2xl p-8 hover:shadow-lg transition-shadow border border-gray-100">
+          <div class="flex items-center gap-4 mb-6">
+            <span class="text-5xl font-black text-gray-200 leading-none">02</span>
+            <div class="h-px flex-1 bg-gradient-to-r from-gray-200 to-transparent"></div>
+          </div>
+          <h3 class="subsection-title mb-4">実践ワークショップ</h3>
+          <p class="small-text text-gray-600">チームで手を動かしながら、実際にプロダクトを作る実践型研修。</p>
+        </div>
+        <div class="bg-white rounded-2xl p-8 hover:shadow-lg transition-shadow border border-gray-100">
+          <div class="flex items-center gap-4 mb-6">
+            <span class="text-5xl font-black text-gray-200 leading-none">03</span>
+            <div class="h-px flex-1 bg-gradient-to-r from-gray-200 to-transparent"></div>
+          </div>
+          <h3 class="subsection-title mb-4">カスタム研修</h3>
+          <p class="small-text text-gray-600">貴社の課題や目的に合わせて、カリキュラムをフルカスタマイズ。</p>
+        </div>
+      </div>
+      <div class="text-center">
+        <a href="business.html" class="btn-entry">法人向けサービスの詳細</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Partners -->
+  <section id="partner-section" class="relative bg-[var(--bg-weak)]">
+    <div class="left-rail hidden md:block"></div>
+    <div class="container mx-auto px-6 max-w-[88rem] py-20">
+      <div class="grid grid-cols-1 lg:grid-cols-[56px_1fr] gap-4 items-start mb-12">
+        <div class="hidden lg:block lg:-mt-8">
+          <div class="bg-white text-gray-600 text-xs tracking-[0.12em] px-2 py-1 rounded-sm section-label">PARTNERS</div>
+        </div>
+        <h2 class="section-title">
+          <span class="badge-title">協業パートナー募集</span>
+        </h2>
+      </div>
+      <p class="lead-text mb-10">教育・イベント・技術実装・社会連携など、さまざまな企業・団体との協業を募集しています。</p>
+      <div class="text-center">
+        <a href="partners.html" class="btn-entry">協業について詳しく見る</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- News -->
+  <section class="relative">
+    <div class="left-rail hidden md:block"></div>
+    <div class="container mx-auto px-6 max-w-[88rem] py-20">
+      <div class="grid grid-cols-1 lg:grid-cols-[56px_1fr] gap-4 items-start mb-12">
+        <div class="hidden lg:block">
+          <div class="bg-white text-gray-600 text-xs tracking-[0.12em] px-2 py-1 rounded-sm section-label">NEWS</div>
+        </div>
+        <h2 class="section-title">
+          <span class="badge-title">お知らせ</span>
+        </h2>
+      </div>
+      <div id="index-news-container" class="grid md:grid-cols-3 gap-10 mb-10">
+        <!-- Airtableから最新3件を自動取得して表示 -->
+        <div class="border-b border-[var(--line)] pb-7">
+          <p class="caption mb-3">読み込み中...</p>
+        </div>
+      </div>
+      <div class="text-center">
+        <a href="news.html" class="btn-entry">すべてのお知らせを見る</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="bg-[var(--bg-weak)]">
+    <div class="container mx-auto px-6 max-w-[88rem] py-16">
+      <div class="text-center">
+        <h2 class="subsection-title mb-8">まずはお気軽にお問い合わせください</h2>
+        <a href="contact.html" class="btn-entry inline-block">お問い合わせフォームへ</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-gray-900 text-white py-14">
+    <div class="container mx-auto px-6 max-w-[88rem]">
+      <div class="grid md:grid-cols-4 gap-10 mb-10">
+        <div>
+          <h4 class="font-bold text-base mb-4">web3/AI概論</h4>
+          <p class="small-text text-gray-400">最新テクノロジーを実践で学ぶ、大学発プロジェクト型コミュニティ</p>
+        </div>
+        <div>
+          <h4 class="tiny-text mb-4">ナビゲーション</h4>
+          <ul class="space-y-2.5 small-text">
+            <li><a href="index.html" class="text-gray-400 hover:text-white transition">Home</a></li>
+            <li><a href="chibatech.html" class="text-gray-400 hover:text-white transition">Chibatech</a></li>
+            <li><a href="reading.html" class="text-gray-400 hover:text-white transition">Reading</a></li>
+            <li><a href="business.html" class="text-gray-400 hover:text-white transition">For Business</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="tiny-text mb-4">その他</h4>
+          <ul class="space-y-2.5 small-text">
+            <li><a href="partners.html" class="text-gray-400 hover:text-white transition">Partners</a></li>
+            <li><a href="news.html" class="text-gray-400 hover:text-white transition">News</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="tiny-text mb-4">お問い合わせ</h4>
+          <ul class="space-y-2.5 small-text">
+            <li><a href="contact.html" class="text-gray-400 hover:text-white transition">Contact</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- SNS Links -->
+      <div class="flex justify-center gap-6 py-8 border-t border-gray-800 mt-10">
+        <a href="https://www.instagram.com/web3.ai.gairon/" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-white transition-colors" aria-label="Instagram">
+          <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+          </svg>
+        </a>
+        <a href="https://www.facebook.com/profile.php?id=61586516465601" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-white transition-colors" aria-label="Facebook">
+          <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+          </svg>
+        </a>
+        <a href="https://www.tiktok.com/@web3.ai.gairon" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-white transition-colors" aria-label="TikTok">
+          <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"/>
+          </svg>
+        </a>
+      </div>
+
+      <div class="pt-8 text-center">
+        <p class="caption text-gray-500 leading-relaxed normal-case">
+          web3/AI概論プロジェクトはHENKAKU COMMUNITYから生まれた最新テクノロジーの学びを研究するプロジェクトです。千葉工大の正式科目web3/AI概論を運営しています。
+        </p>
+        <p class="caption text-gray-500 mt-4 normal-case">&copy; 2025 web3/AI概論. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // 最新の学習リソース3件を取得して表示
+    async function loadLatestReadings() {
+      const loading = document.getElementById('readingLoading');
+      const container = document.getElementById('latestReadings');
+
+      try {
+        const response = await fetch('/api/reading');
+        const data = await response.json();
+
+        if (!response.ok || !data.success) {
+          throw new Error(data.error || 'Failed to load resources');
+        }
+
+        // ローディングを非表示
+        loading.classList.add('hidden');
+
+        // 最新3件のみ取得
+        const latestResources = data.resources.slice(0, 3);
+
+        if (latestResources.length === 0) {
+          container.innerHTML = '<p class="text-center text-gray-500 col-span-full">まだ学習リソースがありません。</p>';
+          container.classList.remove('hidden');
+          return;
+        }
+
+        // カードを生成
+        container.innerHTML = latestResources.map(resource => {
+          // サムネイル画像
+          const thumbnail = resource.thumbnail
+            ? `<img src="${resource.thumbnail}" alt="${resource.title}" class="w-full h-full object-cover">`
+            : `<div class="w-full h-full bg-gradient-to-br from-purple-400 to-pink-500 flex items-center justify-center">
+                 <span class="text-white text-4xl font-bold">${resource.title.charAt(0)}</span>
+               </div>`;
+
+          return `
+            <a href="reading-detail.html?id=${resource.id}" class="bg-white rounded-2xl overflow-hidden hover:shadow-lg transition block group">
+              <div class="aspect-video relative bg-gray-100 overflow-hidden">
+                ${thumbnail}
+              </div>
+              <div class="p-7">
+                ${resource.category ? `<div class="flex gap-2 mb-4">
+                  <span class="caption px-2 py-1 bg-gray-100 rounded">${resource.category}</span>
+                </div>` : ''}
+                <h3 class="card-title mb-3 group-hover:text-pink-600 transition">${resource.title}</h3>
+                ${resource.description ? `<p class="small-text line-clamp-2">${resource.description}</p>` : ''}
+              </div>
+            </a>
+          `;
+        }).join('');
+
+        container.classList.remove('hidden');
+
+      } catch (err) {
+        console.error('Error loading latest readings:', err);
+        loading.classList.add('hidden');
+        // エラー時は何も表示しない（静かに失敗）
+      }
+    }
+
+    // ページ読み込み時にデータを取得
+    document.addEventListener('DOMContentLoaded', loadLatestReadings);
+
+    // Markdown形式のリンクをHTMLリンクに変換
+    function convertMarkdownLinks(text) {
+      if (!text) return text;
+
+      // [テキスト](URL) 形式をHTMLリンクに変換
+      const markdownLinkPattern = /\[([^\]]+)\]\(([^)]+)\)/g;
+      return text.replace(markdownLinkPattern, '<a href="$2" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:text-blue-800 underline">$1</a>');
+    }
+
+    // お知らせを最新3件取得して表示
+    async function loadLatestNews() {
+      const container = document.getElementById('index-news-container');
+
+      try {
+        const response = await fetch('/api/news');
+        const data = await response.json();
+
+        if (!data.success || !data.news || data.news.length === 0) {
+          container.innerHTML = `
+            <div class="border-b border-[var(--line)] pb-7">
+              <p class="small-text text-gray-500">現在、お知らせはありません。</p>
+            </div>
+          `;
+          return;
+        }
+
+        // 最新3件のみ表示
+        const latestNews = data.news.slice(0, 3);
+
+        container.innerHTML = latestNews.map(item => {
+          const date = item.date ? new Date(item.date).toLocaleDateString('ja-JP', {
+            year: 'numeric',
+            month: '2-digit',
+            day: '2-digit'
+          }).replace(/\//g, '.') : '';
+
+          return `
+            <a href="news.html" class="block border-b border-[var(--line)] pb-7 hover:bg-gray-50 transition-colors rounded-lg p-4 -m-4 cursor-pointer group">
+              <p class="caption mb-3">${date}</p>
+              <h3 class="card-title mb-3 group-hover:text-pink-600 transition-colors">${item.title}</h3>
+              <p class="small-text">${convertMarkdownLinks(item.summary || '')}</p>
+            </a>
+          `;
+        }).join('');
+
+      } catch (error) {
+        console.error('Error loading news:', error);
+        container.innerHTML = `
+          <div class="border-b border-[var(--line)] pb-7">
+            <p class="small-text text-gray-500">お知らせの読み込みに失敗しました。</p>
+          </div>
+        `;
+      }
+    }
+
+    // ページ読み込み時にお知らせも取得
+    document.addEventListener('DOMContentLoaded', loadLatestNews);
+
+    // スクロールアニメーション
+    const observerOptions = {
+      threshold: 0.05,
+      rootMargin: '0px 0px 0px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('animate');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, observerOptions);
+
+    // アニメーション対象の要素を監視
+    document.addEventListener('DOMContentLoaded', () => {
+      const slideElements = document.querySelectorAll('.slide-in-right');
+      slideElements.forEach(el => observer.observe(el));
+
+      // ページロード時に既に表示されている要素は即座にアニメーション
+      setTimeout(() => {
+        slideElements.forEach(el => {
+          const rect = el.getBoundingClientRect();
+          if (rect.top < window.innerHeight && rect.bottom > 0) {
+            el.classList.add('animate');
+          }
+        });
+      }, 100);
+    });
+  </script>
+
+</body>
+</html>

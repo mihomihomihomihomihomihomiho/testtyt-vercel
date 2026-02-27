@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="ja" class="scroll-smooth">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-78TSL21PG7"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-78TSL21PG7');
+  </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>News - お知らせ - web3/AI概論</title>
+
+  <!-- SEO Meta Tags -->
+  <meta name="description" content="web3/AI概論の最新情報・お知らせ。講座の募集情報、イベント開催、法人研修の事例など、最新ニュースをお届けします。">
+  <meta name="keywords" content="お知らせ,ニュース,募集情報,イベント,講座案内,web3,AI,最新情報">
+  <link rel="canonical" href="https://gairon.henkaku.org/news">
+
+  <!-- Open Graph Tags -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://gairon.henkaku.org/news">
+  <meta property="og:title" content="News - お知らせ | web3/AI概論">
+  <meta property="og:description" content="web3/AI概論の最新情報・お知らせ。講座の募集情報、イベント開催、研修事例など最新ニュースをお届けします。">
+  <meta property="og:image" content="https://gairon.henkaku.org/penguin.png">
+  <meta property="og:site_name" content="web3/AI概論">
+
+  <!-- Twitter Card Tags -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="News - お知らせ | web3/AI概論">
+  <meta name="twitter:description" content="web3/AI概論の最新情報・お知らせ。講座募集、イベント開催など最新ニュースをお届け。">
+  <meta name="twitter:image" content="https://gairon.henkaku.org/penguin.png">
+
+  <!-- Favicons -->
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="48x48" href="/favicon-48x48.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="/favicon-192x192.png">
+  <link rel="icon" type="image/png" sizes="512x512" href="/favicon-512x512.png">
+  <link rel="apple-touch-icon" sizes="192x192" href="/favicon-192x192.png">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+  <style>
+    :root{--bg:#F2F4F7;--bg-weak:#F6F7F9;--text:#111111;--text-body:#1f2937;--text-light:#4b5563;--muted:#6B7280;--muted-light:#9CA3AF;--line:#E5E7EB;--accent:#E50064;--accentHover:#C70057;}
+    body{font-family:'Noto Sans JP',system-ui,-apple-system,Segoe UI,Roboto,sans-serif;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;font-feature-settings:"palt" 1;letter-spacing:-.01em;color:var(--text);background:#fff;font-weight:400;}
+    .hero-title{font-size:clamp(1.5rem,6vw,4.5rem);font-weight:900;line-height:1.1;letter-spacing:.05em;color:var(--text);}
+    .section-title{font-size:clamp(2rem,4.5vw,3.2rem);font-weight:900;line-height:1.15;letter-spacing:.04em;color:var(--text);}
+    .subsection-title{font-size:clamp(1.5rem,3vw,2rem);font-weight:700;line-height:1.3;letter-spacing:.03em;color:var(--text);}
+    .card-title{font-size:1.25rem;font-weight:700;line-height:1.4;letter-spacing:.04em;color:var(--text);}
+    .lead-text{font-size:1.25rem;font-weight:400;line-height:1.7;letter-spacing:.03em;color:var(--text-body);}
+    .body-text{font-size:1.0625rem;font-weight:400;line-height:1.85;letter-spacing:.04em;color:var(--text-body);}
+    .small-text{font-size:0.9375rem;font-weight:400;line-height:1.6;letter-spacing:.04em;color:var(--text-light);}
+    .tiny-text{font-size:0.8125rem;font-weight:500;line-height:1.5;letter-spacing:.06em;color:var(--muted);text-transform:uppercase;}
+    .caption{font-size:0.75rem;font-weight:500;line-height:1.4;letter-spacing:.08em;color:var(--muted-light);text-transform:uppercase;}
+    .btn-entry{background:var(--accent);color:#fff;font-weight:700;font-size:1rem;border-radius:9999px;padding:.75rem 1.5rem;transition:.2s;box-shadow:none;letter-spacing:0;}
+    .btn-entry:hover{background:var(--accentHover);transform:translateY(-1px);}
+    .white-badge{background:#fff;padding:.5rem .75rem;border-radius:.25rem;display:inline-block;font-weight:700;font-size:.875rem;letter-spacing:.01em;}
+    .badge-title{background:#000;color:#fff;padding:.3rem .6rem;box-decoration-break:clone;-webkit-box-decoration-break:clone;border-radius:.15rem;font-weight:900;letter-spacing:.08em;}
+    .section-label{writing-mode:vertical-rl;transform:rotate(180deg);font-weight:500;}
+    .mega-outline{font-weight:900;letter-spacing:.02em;color:transparent;-webkit-text-stroke:1px rgba(255,255,255,.30);text-stroke:1px rgba(255,255,255,.30);writing-mode:vertical-rl;text-orientation:mixed;pointer-events:none;user-select:none;}
+    .diag-mask{clip-path: polygon(0 0, 86% 0, 100% 100%, 0 100%);}
+    .left-rail{position:absolute;left:0;top:0;bottom:0;width:24px;pointer-events:none;background:linear-gradient(#fff,#fff) left 10px top 120px/16px 2px no-repeat,linear-gradient(#fff,#fff) left 10px top 420px/16px 2px no-repeat,linear-gradient(#fff,#fff) left 10px top 720px/16px 2px no-repeat,linear-gradient(#fff,#fff) left 10px top 1020px/16px 2px no-repeat;opacity:.9;}
+    .fixed-logo{position:fixed;left:20px;top:20px;z-index:50;width:80px;height:auto;transition:.2s;}
+    .fixed-logo:hover{transform:scale(1.1);}
+
+    /* スクロールアニメーション - Toyota風ワイプ */
+    .slide-in-right {
+      overflow: hidden;
+      clip-path: inset(0 100% 0 0);
+      transition: clip-path 1s cubic-bezier(0.19, 1, 0.22, 1);
+    }
+    .slide-in-right.animate {
+      clip-path: inset(0 0 0 0);
+    }
+    /* 遅延アニメーション */
+    .slide-in-right:nth-of-type(1) { transition-delay: 0.1s; }
+    .slide-in-right:nth-of-type(2) { transition-delay: 0.25s; }
+
+    /* News Modal */
+    .news-modal{position:fixed;inset:0;z-index:9999;display:none;align-items:center;justify-content:center;padding:1rem;}
+    .news-modal.is-open{display:flex;}
+    .news-modal-overlay{position:absolute;inset:0;background:rgba(0,0,0,0.7);backdrop-filter:blur(6px);animation:fadeIn 0.3s ease;}
+    .news-modal-content{position:relative;background:#fff;border-radius:1.5rem;max-width:900px;width:100%;max-height:90vh;overflow-y:auto;box-shadow:0 25px 70px rgba(0,0,0,0.3);animation:newsModalSlideUp 0.4s cubic-bezier(0.34,1.56,0.64,1);z-index:1;}
+    .news-modal-close{position:absolute;top:1.25rem;right:1.25rem;width:44px;height:44px;border-radius:50%;background:rgba(0,0,0,0.05);border:none;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:all 0.2s;z-index:10;}
+    .news-modal-close:hover{background:rgba(0,0,0,0.15);transform:scale(1.1);}
+    .news-card{cursor:pointer;transition:all 0.3s ease;}
+    .news-card:hover{transform:translateY(-4px);box-shadow:0 12px 24px rgba(0,0,0,0.12);}
+
+    /* Slideshow */
+    .slideshow{position:relative;width:100%;aspect-ratio:16/9;background:#f5f5f5;border-radius:1rem;overflow:hidden;margin-bottom:2rem;}
+    .slideshow-image{width:100%;height:100%;object-fit:cover;display:none;}
+    .slideshow-image.active{display:block;}
+    .slideshow-btn{position:absolute;top:50%;transform:translateY(-50%);width:48px;height:48px;border-radius:50%;background:rgba(255,255,255,0.95);border:none;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:all 0.2s;box-shadow:0 4px 12px rgba(0,0,0,0.15);}
+    .slideshow-btn:hover{background:#fff;transform:translateY(-50%) scale(1.1);}
+    .slideshow-btn-prev{left:1rem;}
+    .slideshow-btn-next{right:1rem;}
+    .slideshow-dots{position:absolute;bottom:1rem;left:50%;transform:translateX(-50%);display:flex;gap:0.5rem;}
+    .slideshow-dot{width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,0.5);cursor:pointer;transition:all 0.2s;}
+    .slideshow-dot.active{background:#fff;width:24px;border-radius:4px;}
+
+    @keyframes fadeIn{from{opacity:0;}to{opacity:1;}}
+    @keyframes newsModalSlideUp{from{opacity:0;transform:translateY(40px) scale(0.95);}to{opacity:1;transform:translateY(0) scale(1);}}
+  </style>
+</head>
+<body>
+  <!-- Fixed Penguin Logo -->
+  <a href="index.html" class="fixed-logo" style="pointer-events:auto;display:block;width:80px;">
+    <img src="penguin.png" alt="Logo" style="width:100%;height:auto;display:block;">
+  </a>
+
+  <header class="relative overflow-hidden">
+    <div class="absolute z-30 right-5 top-5 flex items-center gap-3">
+      <a href="chibatech2026.html" class="btn-entry" style="line-height:1.4;text-align:center;position:fixed;right:70px;top:20px;z-index:60;">2026年4月開講決定<br>受講生募集中</a>
+      <button onclick="document.getElementById('menu').classList.toggle('hidden')" class="w-11 h-11 rounded-full bg-white/95 backdrop-blur shadow-sm flex items-center justify-center">
+        <span class="sr-only">Menu</span>
+        <div class="w-5 h-5 relative">
+          <span class="absolute inset-x-0 top-1 block h-0.5 bg-gray-700 rounded"></span>
+          <span class="absolute inset-x-0 top-2.5 block h-0.5 bg-gray-700 rounded"></span>
+          <span class="absolute inset-x-0 top-4 block h-0.5 bg-gray-700 rounded"></span>
+        </div>
+      </button>
+    </div>
+    <div id="menu" class="hidden fixed inset-0 z-40 bg-gray-900 backdrop-blur-sm">
+      <div class="container mx-auto px-6 py-20 max-w-[88rem]">
+        <button onclick="document.getElementById('menu').classList.add('hidden')" class="absolute top-5 right-5 text-white text-3xl">&times;</button>
+        <nav class="space-y-4 text-white text-2xl font-bold">
+          <a href="index.html" class="block hover:text-pink-400">Home</a>
+          <a href="chibatech.html" class="block hover:text-pink-400">Chibatech</a>
+          <a href="reading.html" class="block hover:text-pink-400">Reading</a>
+          <a href="business.html" class="block hover:text-pink-400">For Business</a>
+          <a href="partners.html" class="block hover:text-pink-400">Partners</a>
+          <a href="news.html" class="block hover:text-pink-400">News</a>
+          <a href="contact.html" class="block hover:text-pink-400">Contact</a>
+        </nav>
+      </div>
+    </div>
+    <div class="relative min-h-[64vh] md:min-h-[72vh]">
+      <div class="absolute inset-0">
+        <img src="https://images.unsplash.com/photo-1504711434969-e33886168f5c?w=1600&q=85" alt="Latest news" class="w-full h-full object-cover">
+        <div class="absolute inset-0 bg-gradient-to-r from-black/35 via-black/10 to-transparent"></div>
+      </div>
+      <div class="absolute right-[2vw] top-[6vh] hidden lg:block">
+        <div class="mega-outline text-[22vw] leading-none">NEWS</div>
+      </div>
+      <div class="relative z-20 container mx-auto px-6 max-w-[88rem] pt-24 md:pt-36 pb-12">
+        <div class="max-w-4xl">
+          <div class="mb-6 slide-in-right">
+            <span class="white-badge inline-block">Latest Updates</span>
+          </div>
+          <div class="slide-in-right">
+            <h1 class="bg-white text-gray-900 hero-title shadow-sm px-4 py-3 inline-block leading-tight">お知らせ</h1>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="relative bg-[var(--bg-weak)]">
+    <div class="left-rail hidden md:block"></div>
+    <div class="container mx-auto px-6 max-w-[88rem] py-20">
+      <div id="news-container" class="space-y-6">
+        <!-- ニュース記事がここに動的に表示されます -->
+        <div class="text-center py-12">
+          <p class="text-gray-500">読み込み中...</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ニュースモーダル -->
+  <div id="newsModal" class="news-modal">
+    <div class="news-modal-overlay" onclick="closeNewsModal()"></div>
+    <div class="news-modal-content">
+      <button class="news-modal-close" onclick="closeNewsModal()" aria-label="閉じる">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
+      </button>
+      <div id="newsModalBody" class="p-8 md:p-12"></div>
+    </div>
+  </div>
+
+  <script>
+    // Markdown形式のリンクをHTMLリンクに変換
+    function convertMarkdownLinks(text) {
+      if (!text) return text;
+
+      // [テキスト](URL) 形式をHTMLリンクに変換
+      const markdownLinkPattern = /\[([^\]]+)\]\(([^)]+)\)/g;
+      return text.replace(markdownLinkPattern, '<a href="$2" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:text-blue-800 underline">$1</a>');
+    }
+
+    // ニュースをAirtableから取得して表示
+    async function loadNews() {
+      const container = document.getElementById('news-container');
+
+      try {
+        const response = await fetch('/api/news');
+        const data = await response.json();
+
+        if (!data.success || !data.news || data.news.length === 0) {
+          container.innerHTML = `
+            <div class="text-center py-12">
+              <p class="text-gray-500">現在、お知らせはありません。</p>
+            </div>
+          `;
+          return;
+        }
+
+        // ニュース記事を表示
+        container.innerHTML = '';
+
+        data.news.forEach(item => {
+          // 日付をフォーマット（YYYY.MM.DD形式）
+          const date = item.date ? new Date(item.date).toLocaleDateString('ja-JP', {
+            year: 'numeric',
+            month: '2-digit',
+            day: '2-digit'
+          }).replace(/\//g, '.') : '';
+
+          // 記事要素を作成
+          const article = document.createElement('div');
+          article.className = 'news-card block bg-white rounded-2xl p-6 md:p-8';
+
+          const thumbnail = item.thumbnailUrl ?
+            `<img src="${item.thumbnailUrl}" alt="${item.title}" class="rounded-xl w-full md:w-64 aspect-video object-cover flex-shrink-0">` :
+            `<div class="bg-gray-200 rounded-xl w-full md:w-64 aspect-video flex-shrink-0"></div>`;
+
+          article.innerHTML = `
+            <div class="flex flex-col md:flex-row md:items-start gap-6">
+              ${thumbnail}
+              <div class="flex-grow">
+                <p class="text-xs text-gray-500 mb-3">${date}</p>
+                <h2 class="font-bold text-xl md:text-2xl mb-3">${item.title}</h2>
+                ${item.summary ? '<div class="prose prose-sm mb-4 rich-text-summary"></div>' : ''}
+                ${item.content ? '<div class="prose prose-sm mt-4 rich-text-content border-t border-gray-200 pt-4"></div>' : ''}
+              </div>
+            </div>
+          `;
+
+          // 概要をHTMLとして挿入（Markdownリンクを変換）
+          if (item.summary) {
+            const summaryContainer = article.querySelector('.rich-text-summary');
+            summaryContainer.innerHTML = convertMarkdownLinks(item.summary);
+          }
+
+          // 本文をHTMLとして挿入（Markdownリンクを変換）
+          if (item.content) {
+            const contentContainer = article.querySelector('.rich-text-content');
+            contentContainer.innerHTML = convertMarkdownLinks(item.content);
+          }
+
+          // クリックでモーダルを開く
+          article.addEventListener('click', () => openNewsModal(item));
+
+          container.appendChild(article);
+        });
+
+      } catch (error) {
+        console.error('Error loading news:', error);
+        container.innerHTML = `
+          <div class="text-center py-12">
+            <p class="text-red-500">ニュースの読み込みに失敗しました。</p>
+          </div>
+        `;
+      }
+    }
+
+    // スライドショーの現在のインデックス
+    let currentSlideIndex = 0;
+
+    // ニュースモーダルを開く
+    function openNewsModal(newsItem) {
+      const modal = document.getElementById('newsModal');
+      const modalBody = document.getElementById('newsModalBody');
+
+      const date = newsItem.date ? new Date(newsItem.date).toLocaleDateString('ja-JP', {
+        year: 'numeric',
+        month: '2-digit',
+        day: '2-digit'
+      }).replace(/\//g, '.') : '';
+
+      // スライドショーまたは単一画像を作成
+      let imageSection = '';
+      if (newsItem.images && newsItem.images.length > 0) {
+        if (newsItem.images.length === 1) {
+          // 単一画像
+          imageSection = `
+            <div class="slideshow">
+              <img src="${newsItem.images[0]}" alt="${newsItem.title}" class="slideshow-image active">
+            </div>
+          `;
+        } else {
+          // 複数画像 - スライドショー
+          imageSection = `
+            <div class="slideshow" id="newsSlideshow">
+              ${newsItem.images.map((img, index) => `
+                <img src="${img}" alt="${newsItem.title}" class="slideshow-image ${index === 0 ? 'active' : ''}">
+              `).join('')}
+              <button class="slideshow-btn slideshow-btn-prev" onclick="changeSlide(-1)">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <polyline points="15 18 9 12 15 6"></polyline>
+                </svg>
+              </button>
+              <button class="slideshow-btn slideshow-btn-next" onclick="changeSlide(1)">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <polyline points="9 18 15 12 9 6"></polyline>
+                </svg>
+              </button>
+              <div class="slideshow-dots">
+                ${newsItem.images.map((_, index) => `
+                  <div class="slideshow-dot ${index === 0 ? 'active' : ''}" onclick="goToSlide(${index})"></div>
+                `).join('')}
+              </div>
+            </div>
+          `;
+        }
+      }
+
+      modalBody.innerHTML = `
+        ${imageSection}
+        <p class="text-xs text-gray-500 mb-3">${date}</p>
+        <h2 class="font-bold text-2xl md:text-3xl mb-4">${newsItem.title}</h2>
+        ${newsItem.summary ? `<div class="prose prose-lg mb-6">${convertMarkdownLinks(newsItem.summary)}</div>` : ''}
+        ${newsItem.content ? `<div class="prose prose-lg mt-6 border-t border-gray-200 pt-6">${convertMarkdownLinks(newsItem.content)}</div>` : ''}
+      `;
+
+      // スライドショーのインデックスをリセット
+      currentSlideIndex = 0;
+
+      // モーダルを表示
+      modal.classList.add('is-open');
+      document.body.style.overflow = 'hidden';
+    }
+
+    // ニュースモーダルを閉じる
+    function closeNewsModal() {
+      const modal = document.getElementById('newsModal');
+      modal.classList.remove('is-open');
+      document.body.style.overflow = '';
+    }
+
+    // スライドを変更
+    function changeSlide(direction) {
+      const slides = document.querySelectorAll('.slideshow-image');
+      const dots = document.querySelectorAll('.slideshow-dot');
+
+      if (slides.length === 0) return;
+
+      slides[currentSlideIndex].classList.remove('active');
+      dots[currentSlideIndex].classList.remove('active');
+
+      currentSlideIndex = (currentSlideIndex + direction + slides.length) % slides.length;
+
+      slides[currentSlideIndex].classList.add('active');
+      dots[currentSlideIndex].classList.add('active');
+    }
+
+    // 特定のスライドに移動
+    function goToSlide(index) {
+      const slides = document.querySelectorAll('.slideshow-image');
+      const dots = document.querySelectorAll('.slideshow-dot');
+
+      if (slides.length === 0) return;
+
+      slides[currentSlideIndex].classList.remove('active');
+      dots[currentSlideIndex].classList.remove('active');
+
+      currentSlideIndex = index;
+
+      slides[currentSlideIndex].classList.add('active');
+      dots[currentSlideIndex].classList.add('active');
+    }
+
+    // ページ読み込み時にニュースを取得
+    document.addEventListener('DOMContentLoaded', loadNews);
+  </script>
+
+  <section class="bg-[var(--bg-weak)]">
+    <div class="container mx-auto px-6 max-w-[88rem] py-12">
+      <div class="text-center">
+        <h2 class="subsection-title mb-6">最新情報をチェック</h2>
+        <a href="index.html" class="btn-entry inline-block">ホームに戻る</a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="bg-gray-900 text-white py-12">
+    <div class="container mx-auto px-6 max-w-[88rem]">
+      <div class="grid md:grid-cols-4 gap-8 mb-8">
+        <div><h4 class="font-bold mb-4">web3/AI概論</h4><p class="text-sm text-gray-400">最新テクノロジーを実践で学ぶ、大学発プロジェクト型コミュニティ</p></div>
+        <div><h4 class="font-bold mb-4 text-sm">ナビゲーション</h4><ul class="space-y-2 text-sm"><li><a href="index.html" class="text-gray-400 hover:text-white">Home</a></li><li><a href="chibatech.html" class="text-gray-400 hover:text-white">Chibatech</a></li><li><a href="reading.html" class="text-gray-400 hover:text-white">Reading</a></li><li><a href="business.html" class="text-gray-400 hover:text-white">For Business</a></li></ul></div>
+        <div><h4 class="font-bold mb-4 text-sm">その他</h4><ul class="space-y-2 text-sm"><li><a href="partners.html" class="text-gray-400 hover:text-white">Partners</a></li><li><a href="news.html" class="text-gray-400 hover:text-white">News</a></li></ul></div>
+        <div><h4 class="font-bold mb-4 text-sm">お問い合わせ</h4><ul class="space-y-2 text-sm"><li><a href="contact.html" class="text-gray-400 hover:text-white">Contact</a></li></ul></div>
+      </div>
+
+      <!-- SNS Links -->
+      <div class="flex justify-center gap-6 py-8 border-t border-gray-800 mt-10">
+        <a href="https://www.instagram.com/web3.ai.gairon/" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-white transition-colors" aria-label="Instagram">
+          <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+          </svg>
+        </a>
+        <a href="https://www.facebook.com/profile.php?id=61586516465601" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-white transition-colors" aria-label="Facebook">
+          <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+          </svg>
+        </a>
+        <a href="https://www.tiktok.com/@web3.ai.gairon" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-white transition-colors" aria-label="TikTok">
+          <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"/>
+          </svg>
+        </a>
+      </div>
+
+      <div class="pt-8 text-center">
+        <p class="text-xs text-gray-500 leading-relaxed">web3/AI概論プロジェクトはHENKAKU COMMUNITYから生まれた最新テクノロジーの学びを研究するプロジェクトです。千葉工大の正式科目web3/AI概論を運営しています。</p>
+        <p class="text-xs text-gray-500 mt-4">&copy; 2025 web3/AI概論. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // スクロールアニメーション
+    const observerOptions = {
+      threshold: 0.05,
+      rootMargin: '0px 0px 0px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('animate');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, observerOptions);
+
+    // アニメーション対象の要素を監視
+    document.addEventListener('DOMContentLoaded', () => {
+      const slideElements = document.querySelectorAll('.slide-in-right');
+      slideElements.forEach(el => observer.observe(el));
+
+      // ページロード時に既に表示されている要素は即座にアニメーション
+      setTimeout(() => {
+        slideElements.forEach(el => {
+          const rect = el.getBoundingClientRect();
+          if (rect.top < window.innerHeight && rect.bottom > 0) {
+            el.classList.add('animate');
+          }
+        });
+      }, 100);
+    });
+  </script>
+
+</body>
+</html>

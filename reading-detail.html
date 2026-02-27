@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="ja" class="scroll-smooth">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-78TSL21PG7"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-78TSL21PG7');
+  </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>学習リソース詳細 - web3/AI概論</title>
+  <link rel="canonical" href="https://gairon.henkaku.org/reading-detail">
+  <!-- Favicons -->
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="48x48" href="/favicon-48x48.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="/favicon-192x192.png">
+  <link rel="icon" type="image/png" sizes="512x512" href="/favicon-512x512.png">
+  <link rel="apple-touch-icon" sizes="192x192" href="/favicon-192x192.png">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+  <style>
+    :root{--bg:#F2F4F7;--bg-weak:#F6F7F9;--text:#111111;--text-body:#1f2937;--text-light:#4b5563;--muted:#6B7280;--muted-light:#9CA3AF;--line:#E5E7EB;--accent:#E50064;--accentHover:#C70057;}
+    body{font-family:'Noto Sans JP',system-ui,-apple-system,Segoe UI,Roboto,sans-serif;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;font-feature-settings:"palt" 1;letter-spacing:-.01em;color:var(--text);background:#fff;font-weight:400;}
+    .hero-title{font-size:clamp(1.5rem,6vw,4.5rem);font-weight:900;line-height:1.1;letter-spacing:.05em;color:var(--text);}
+    .section-title{font-size:clamp(2rem,4.5vw,3.2rem);font-weight:900;line-height:1.15;letter-spacing:.04em;color:var(--text);}
+    .subsection-title{font-size:clamp(1.5rem,3vw,2rem);font-weight:700;line-height:1.3;letter-spacing:.03em;color:var(--text);}
+    .card-title{font-size:1.25rem;font-weight:700;line-height:1.4;letter-spacing:.04em;color:var(--text);}
+    .lead-text{font-size:1.25rem;font-weight:400;line-height:1.7;letter-spacing:.03em;color:var(--text-body);}
+    .body-text{font-size:1.0625rem;font-weight:400;line-height:1.85;letter-spacing:.04em;color:var(--text-body);}
+    .small-text{font-size:0.9375rem;font-weight:400;line-height:1.6;letter-spacing:.04em;color:var(--text-light);}
+    .tiny-text{font-size:0.8125rem;font-weight:500;line-height:1.5;letter-spacing:.06em;color:var(--muted);text-transform:uppercase;}
+    .caption{font-size:0.75rem;font-weight:500;line-height:1.4;letter-spacing:.08em;color:var(--muted-light);text-transform:uppercase;}
+    .btn-entry{background:var(--accent);color:#fff;font-weight:700;font-size:1rem;border-radius:9999px;padding:.75rem 1.5rem;transition:.2s;box-shadow:none;letter-spacing:0;}
+    .btn-entry:hover{background:var(--accentHover);transform:translateY(-1px);}
+    .btn-back{background:#fff;color:var(--text);font-weight:700;font-size:1rem;border-radius:9999px;padding:.75rem 1.5rem;transition:.2s;box-shadow:0 1px 3px rgba(0,0,0,.1);border:1px solid var(--line);}
+    .btn-back:hover{background:var(--bg);transform:translateY(-1px);}
+    .white-badge{background:#fff;padding:.5rem .75rem;border-radius:.25rem;display:inline-block;font-weight:700;font-size:.875rem;letter-spacing:.01em;}
+    .badge-title{background:#000;color:#fff;padding:.3rem .6rem;box-decoration-break:clone;-webkit-box-decoration-break:clone;border-radius:.15rem;font-weight:900;letter-spacing:.08em;}
+    .fixed-logo{position:fixed;left:20px;top:20px;z-index:50;width:80px;height:auto;transition:.2s;}
+    .fixed-logo:hover{transform:scale(1.1);}
+  </style>
+</head>
+<body>
+  <!-- Fixed Penguin Logo -->
+  <a href="index.html" class="fixed-logo" style="pointer-events:auto;display:block;width:80px;">
+    <img src="penguin.png" alt="Logo" style="width:100%;height:auto;display:block;">
+  </a>
+
+  <header class="relative overflow-hidden">
+    <div class="absolute z-30 right-5 top-5 flex items-center gap-3">
+      <a href="chibatech2026.html" class="btn-entry" style="line-height:1.4;text-align:center;position:fixed;right:70px;top:20px;z-index:60;">2026年4月開講決定<br>受講生募集中</a>
+      <button onclick="document.getElementById('menu').classList.toggle('hidden')" class="w-11 h-11 rounded-full bg-white/95 backdrop-blur shadow-sm flex items-center justify-center">
+        <span class="sr-only">Menu</span>
+        <div class="w-5 h-5 relative">
+          <span class="absolute inset-x-0 top-1 block h-0.5 bg-gray-700 rounded"></span>
+          <span class="absolute inset-x-0 top-2.5 block h-0.5 bg-gray-700 rounded"></span>
+          <span class="absolute inset-x-0 top-4 block h-0.5 bg-gray-700 rounded"></span>
+        </div>
+      </button>
+    </div>
+    <div id="menu" class="hidden fixed inset-0 z-40 bg-gray-900 backdrop-blur-sm">
+      <div class="container mx-auto px-6 py-20 max-w-[88rem]">
+        <button onclick="document.getElementById('menu').classList.add('hidden')" class="absolute top-5 right-5 text-white text-3xl">&times;</button>
+        <nav class="space-y-4 text-white text-2xl font-bold">
+          <a href="index.html" class="block hover:text-pink-400">Home</a>
+          <a href="chibatech.html" class="block hover:text-pink-400">Chibatech</a>
+          <a href="reading.html" class="block hover:text-pink-400">Reading</a>
+          <a href="business.html" class="block hover:text-pink-400">For Business</a>
+          <a href="partners.html" class="block hover:text-pink-400">Partners</a>
+          <a href="news.html" class="block hover:text-pink-400">News</a>
+          <a href="contact.html" class="block hover:text-pink-400">Contact</a>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <section class="relative bg-[var(--bg-weak)] min-h-screen">
+    <div class="container mx-auto px-6 max-w-[88rem] py-20">
+      <!-- 戻るボタン -->
+      <div class="mb-8">
+        <a href="reading.html" class="btn-back inline-flex items-center gap-2">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
+          </svg>
+          一覧に戻る
+        </a>
+      </div>
+
+      <!-- ローディング表示 -->
+      <div id="loading" class="text-center py-20">
+        <p class="text-gray-500">読み込み中...</p>
+      </div>
+
+      <!-- エラー表示 -->
+      <div id="error" class="hidden text-center py-20">
+        <p class="text-red-500">データの読み込みに失敗しました。</p>
+        <a href="reading.html" class="btn-back inline-block mt-4">一覧に戻る</a>
+      </div>
+
+      <!-- リソース詳細 -->
+      <div id="resourceDetail" class="hidden">
+        <div class="bg-white rounded-2xl overflow-hidden shadow-lg">
+          <!-- カテゴリ -->
+          <div id="categoryBadge" class="px-8 pt-8 pb-4"></div>
+
+          <!-- タイトル -->
+          <h1 id="resourceTitle" class="px-8 pb-6 section-title"></h1>
+
+          <!-- メディア（動画 or 画像） -->
+          <div id="resourceMedia" class="w-full bg-gray-100"></div>
+
+          <!-- コンテンツ -->
+          <div class="p-8">
+            <!-- 公開日 -->
+            <p id="publishedDate" class="text-sm text-gray-400 mb-6"></p>
+
+            <!-- 説明 -->
+            <div id="description" class="body-text mb-8 whitespace-pre-line"></div>
+
+            <!-- 外部リンク -->
+            <div id="externalLink" class="hidden">
+              <a id="resourceUrl" href="#" target="_blank" rel="noopener noreferrer" class="btn-entry inline-flex items-center gap-2">
+                詳細を見る
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="bg-gray-900 text-white py-12">
+    <div class="container mx-auto px-6 max-w-[88rem]">
+      <div class="grid md:grid-cols-4 gap-8 mb-8">
+        <div><h4 class="font-bold mb-4">web3/AI概論</h4><p class="text-sm text-gray-400">最新テクノロジーを実践で学ぶ、大学発プロジェクト型コミュニティ</p></div>
+        <div><h4 class="font-bold mb-4 text-sm">ナビゲーション</h4><ul class="space-y-2 text-sm"><li><a href="index.html" class="text-gray-400 hover:text-white">Home</a></li><li><a href="chibatech.html" class="text-gray-400 hover:text-white">Chibatech</a></li><li><a href="reading.html" class="text-gray-400 hover:text-white">Reading</a></li><li><a href="business.html" class="text-gray-400 hover:text-white">For Business</a></li></ul></div>
+        <div><h4 class="font-bold mb-4 text-sm">その他</h4><ul class="space-y-2 text-sm"><li><a href="partners.html" class="text-gray-400 hover:text-white">Partners</a></li><li><a href="news.html" class="text-gray-400 hover:text-white">News</a></li></ul></div>
+        <div><h4 class="font-bold mb-4 text-sm">お問い合わせ</h4><ul class="space-y-2 text-sm"><li><a href="contact.html" class="text-gray-400 hover:text-white">Contact</a></li></ul></div>
+      </div>
+
+      <!-- SNS Links -->
+      <div class="flex justify-center gap-6 py-8 border-t border-gray-800 mt-10">
+        <a href="https://www.instagram.com/web3.ai.gairon/" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-white transition-colors" aria-label="Instagram">
+          <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+          </svg>
+        </a>
+        <a href="https://www.facebook.com/profile.php?id=61586516465601" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-white transition-colors" aria-label="Facebook">
+          <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+          </svg>
+        </a>
+        <a href="https://www.tiktok.com/@web3.ai.gairon" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-white transition-colors" aria-label="TikTok">
+          <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"/>
+          </svg>
+        </a>
+      </div>
+
+      <div class="pt-8 text-center">
+        <p class="text-xs text-gray-500 leading-relaxed">web3/AI概論プロジェクトはHENKAKU COMMUNITYから生まれた最新テクノロジーの学びを研究するプロジェクトです。千葉工大の正式科目web3/AI概論を運営しています。</p>
+        <p class="text-xs text-gray-500 mt-4">&copy; 2025 web3/AI概論. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // URLパラメータからIDを取得
+    const urlParams = new URLSearchParams(window.location.search);
+    const resourceId = urlParams.get('id');
+
+    // IDがない場合は一覧に戻る
+    if (!resourceId) {
+      window.location.href = 'reading.html';
+    }
+
+    // Airtableからリソース詳細を取得
+    async function loadResourceDetail() {
+      const loading = document.getElementById('loading');
+      const error = document.getElementById('error');
+      const detail = document.getElementById('resourceDetail');
+
+      try {
+        const response = await fetch(`/api/reading-detail?id=${resourceId}`);
+        const data = await response.json();
+
+        if (!response.ok || !data.success) {
+          throw new Error(data.error || 'Failed to load resource');
+        }
+
+        const resource = data.resource;
+
+        // ローディングを非表示
+        loading.classList.add('hidden');
+
+        // カテゴリ
+        if (resource.category) {
+          document.getElementById('categoryBadge').innerHTML = `
+            <span class="text-sm px-3 py-1 bg-gray-100 rounded-full inline-block">${resource.category}</span>
+          `;
+        }
+
+        // タイトル
+        document.getElementById('resourceTitle').textContent = resource.title;
+
+        // メディア（YouTube埋め込み or サムネイル）
+        const mediaContainer = document.getElementById('resourceMedia');
+        if (resource.youtubeId) {
+          mediaContainer.innerHTML = `
+            <div class="aspect-video">
+              <iframe class="w-full h-full" src="https://www.youtube.com/embed/${resource.youtubeId}" frameborder="0" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe>
+            </div>
+          `;
+        } else if (resource.thumbnail) {
+          mediaContainer.innerHTML = `
+            <img src="${resource.thumbnail}" alt="${resource.title}" class="w-full object-cover max-h-[600px]">
+          `;
+        } else {
+          mediaContainer.innerHTML = `
+            <div class="aspect-video bg-gradient-to-br from-purple-400 to-pink-500 flex items-center justify-center">
+              <span class="text-white text-8xl font-bold">${resource.title.charAt(0)}</span>
+            </div>
+          `;
+        }
+
+        // 公開日
+        if (resource.publishedDate) {
+          document.getElementById('publishedDate').textContent =
+            new Date(resource.publishedDate).toLocaleDateString('ja-JP', {
+              year: 'numeric',
+              month: 'long',
+              day: 'numeric'
+            });
+        }
+
+        // 説明
+        if (resource.description) {
+          document.getElementById('description').textContent = resource.description;
+        } else {
+          document.getElementById('description').remove();
+        }
+
+        // 外部リンク（動画が埋め込まれていない場合のみ表示）
+        if (resource.url && !resource.youtubeId) {
+          document.getElementById('externalLink').classList.remove('hidden');
+          document.getElementById('resourceUrl').href = resource.url;
+        }
+
+        // 詳細を表示
+        detail.classList.remove('hidden');
+
+      } catch (err) {
+        console.error('Error loading resource detail:', err);
+        loading.classList.add('hidden');
+        error.classList.remove('hidden');
+      }
+    }
+
+    // ページ読み込み時にデータを取得
+    document.addEventListener('DOMContentLoaded', loadResourceDetail);
+  </script>
+</body>
+</html>
