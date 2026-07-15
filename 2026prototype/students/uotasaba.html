@@ -194,8 +194,8 @@ AIを「人生の相棒」と捉えつつ、ハルシネーション検証の必
 const SURVEY_URL = "https://airtable.com/app12r6rXG9g4fsFZ/shrFlZS3OzA5aSVxo";
 const SURVEY_OPEN_AT = new Date("2026-07-16T17:00:00+09:00");
 (function(){
-  if (Date.now() < SURVEY_OPEN_AT.getTime()) return;
   document.querySelectorAll('.survey-link').forEach(a => a.href = SURVEY_URL);
+  if (Date.now() < SURVEY_OPEN_AT.getTime()) return;
   const fab = document.getElementById('surveyFab');
   if (fab) fab.classList.add('show');
   const bg = document.getElementById('surveyModal');
