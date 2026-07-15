@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>@spark6432 の学びの物語 ── ChibaTech Prototype 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DotGothic16&family=Press+Start+2P&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{--night0:#050f1f;--navy:#0a2540;--navy2:#10345c;--ink:#1c2a40;--orange:#ff6b35;--glow:#ffb289;
+--red:#e63946;--cyan:#4cc9f0;--gold:#ffd23f;--paper:#fdfaf4;--hairline:#e2dacb;--mut:#7d7466;--green:#8ce0a0;}
+*{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{font-family:"Zen Kaku Gothic New","Hiragino Kaku Gothic ProN","Yu Gothic",sans-serif;color:#fff;
+background:
+ radial-gradient(circle at 12% 22%,rgba(255,255,255,.5) 1px,transparent 1.6px),
+ radial-gradient(circle at 72% 64%,rgba(255,255,255,.4) 1px,transparent 1.6px),
+ radial-gradient(circle at 42% 88%,rgba(76,201,240,.45) 1px,transparent 1.6px),
+ radial-gradient(circle at 90% 12%,rgba(255,178,137,.42) 1.1px,transparent 1.7px),
+ linear-gradient(172deg,var(--night0) 0%,var(--navy) 52%,var(--navy2) 100%);
+background-size:177px 147px,200px 163px,155px 178px,223px 193px,100% 100%;background-attachment:fixed;
+-webkit-print-color-adjust:exact;}
+a{color:var(--cyan);}
+.wrap{max-width:1020px;margin:0 auto;padding:0 20px;}
+.checker{height:10px;background-image:conic-gradient(var(--red) 25%,var(--paper) 0 50%,var(--red) 0 75%,var(--paper) 0);background-size:10px 10px;}
+.dot{font-family:"DotGothic16",sans-serif;font-weight:400;}
+.px8{font-family:"Press Start 2P",monospace;}
+/* header */
+.top-checker{position:sticky;top:0;z-index:50;}
+.garland{display:block;width:100%;height:44px;}
+/* hero */
+.hero{text-align:center;padding:8px 0 30px;position:relative;overflow:hidden;}
+.hero .fw{position:absolute;opacity:.85;}
+.hero .fw1{top:10px;right:4%;width:110px;height:110px;}
+.hero .fw2{top:90px;left:6%;width:70px;height:70px;opacity:.6;}
+.hero img.logo{width:min(560px,86%);height:auto;margin:6px auto 2px;display:block;position:relative;z-index:1;}
+.hero .press{font-size:10px;color:var(--gold);letter-spacing:.3em;margin-bottom:18px;}
+.hero .thanks{font-size:clamp(20px,3.4vw,30px);color:var(--glow);letter-spacing:.05em;text-shadow:3px 3px 0 rgba(230,57,70,.45);margin-bottom:12px;}
+.hero p.lead{font-size:14px;line-height:2;color:rgba(255,255,255,.88);max-width:640px;margin:0 auto 18px;}
+.hero .meta{display:inline-flex;flex-wrap:wrap;gap:10px 26px;justify-content:center;background:rgba(255,255,255,.07);
+border:1px dashed rgba(255,178,137,.6);padding:10px 26px;font-size:13px;font-weight:700;}
+.hero .meta .k{color:var(--glow);font-size:10px;margin-right:8px;letter-spacing:.14em;}
+.btn{display:inline-block;background:var(--red);color:#fff;text-decoration:none;font-weight:700;
+padding:13px 30px;font-size:15px;box-shadow:4px 4px 0 rgba(0,0,0,.4);letter-spacing:.06em;border:none;cursor:pointer;}
+.btn:hover{transform:translate(1px,1px);box-shadow:3px 3px 0 rgba(0,0,0,.4);}
+.btn.gold{background:var(--gold);color:#3a2a00;}
+.btn.ghost{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.5);}
+.hero .cta{margin-top:22px;display:flex;gap:14px;justify-content:center;flex-wrap:wrap;}
+/* stats */
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:14px;margin:8px 0 40px;}
+.stat{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.18);padding:16px 10px;text-align:center;}
+.stat .n{font-family:"DotGothic16",monospace;font-size:34px;color:var(--gold);line-height:1;}
+.stat .l{font-size:11.5px;color:rgba(255,255,255,.8);margin-top:7px;letter-spacing:.08em;}
+/* sections */
+section{margin-bottom:56px;}
+.sec-head{display:flex;align-items:center;gap:12px;margin-bottom:18px;flex-wrap:wrap;}
+.sec-head h2{font-family:"DotGothic16",sans-serif;font-weight:400;font-size:26px;letter-spacing:.04em;}
+.sec-head .badge{font-family:"Press Start 2P",monospace;font-size:9px;color:#fff;background:var(--orange);padding:5px 9px;box-shadow:2px 2px 0 rgba(0,0,0,.35);}
+.sec-head .badge.red{background:var(--red);}
+.sec-head .badge.cyan{background:#2b7f9e;}
+.sec-head .desc{font-size:12px;color:rgba(255,255,255,.65);width:100%;}
+/* cards */
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:14px;}
+.pcard{background:var(--paper);color:var(--ink);padding:16px 16px 14px;box-shadow:5px 5px 0 rgba(0,0,0,.35);display:flex;flex-direction:column;gap:8px;}
+.pcard .row1{display:flex;gap:10px;align-items:flex-start;}
+.pcard .num{flex-shrink:0;width:30px;height:30px;background:var(--red);color:#fff;font-family:"DotGothic16",monospace;font-size:18px;display:flex;align-items:center;justify-content:center;box-shadow:2.5px 2.5px 0 rgba(230,57,70,.3);}
+.pcard.booth .num{background:var(--orange);box-shadow:2.5px 2.5px 0 rgba(255,107,53,.3);}
+.pcard.pitch .num{background:var(--navy);box-shadow:2.5px 2.5px 0 rgba(10,37,64,.3);}
+.pcard h3{font-size:15.5px;color:var(--navy);line-height:1.45;flex:1;}
+.pcard .desc{font-size:12.5px;line-height:1.7;color:#46403a;flex:1;}
+.pcard .who{display:flex;gap:6px;flex-wrap:wrap;}
+.chip{display:inline-block;background:rgba(10,37,64,.08);border:1px solid rgba(10,37,64,.25);color:var(--navy);
+font-size:11.5px;font-weight:700;padding:3px 10px;text-decoration:none;}
+a.chip:hover{background:var(--navy);color:#fff;}
+.pcard .story-link{font-size:12px;font-weight:700;color:var(--red);text-decoration:none;margin-top:2px;}
+.pcard .story-link:hover{text-decoration:underline;}
+/* photo */
+.photo-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:12px;}
+.photo-slot{aspect-ratio:4/3;background:rgba(255,255,255,.06);border:1px dashed rgba(255,255,255,.35);
+display:flex;flex-direction:column;gap:10px;align-items:center;justify-content:center;color:rgba(255,255,255,.55);}
+.photo-slot .px8{font-size:9px;letter-spacing:.12em;}
+.photo-grid img{width:100%;aspect-ratio:4/3;object-fit:cover;display:block;box-shadow:4px 4px 0 rgba(0,0,0,.35);}
+/* award */
+.award{background:var(--night0);border:2px solid #fff;box-shadow:0 0 0 5px var(--night0),inset 0 0 0 3px rgba(76,201,240,.55);padding:26px 30px;display:flex;gap:24px;align-items:center;flex-wrap:wrap;}
+.award h3{font-family:"DotGothic16",sans-serif;font-weight:400;font-size:24px;color:var(--gold);display:flex;align-items:center;gap:14px;flex-wrap:wrap;}
+.award h3 .rslt{font-family:"Press Start 2P",monospace;font-size:13px;color:var(--cyan);}
+.award p{font-size:13.5px;line-height:1.8;color:rgba(255,255,255,.9);}
+/* penguin */
+.linkcard{display:flex;gap:20px;align-items:center;background:rgba(76,201,240,.1);border:1px solid rgba(76,201,240,.45);padding:22px 26px;text-decoration:none;color:#fff;flex-wrap:wrap;}
+.linkcard:hover{background:rgba(76,201,240,.18);}
+.linkcard .t{font-family:"DotGothic16",sans-serif;font-size:20px;color:var(--cyan);}
+.linkcard p{font-size:13px;color:rgba(255,255,255,.85);line-height:1.7;}
+.linkcard .url{font-size:12px;color:var(--cyan);}
+/* course */
+.course{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.16);padding:26px 28px;}
+.course p{font-size:13.5px;line-height:1.9;color:rgba(255,255,255,.88);margin-bottom:16px;}
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;}
+.step{background:rgba(255,255,255,.06);border-top:3px solid var(--orange);padding:14px 16px;}
+.step .s{font-family:"Press Start 2P",monospace;font-size:9px;color:var(--gold);}
+.step h4{font-size:14.5px;margin:8px 0 6px;}
+.step p{font-size:12px;line-height:1.7;color:rgba(255,255,255,.75);margin:0;}
+/* footer */
+footer{border-top:1px solid rgba(255,255,255,.3);padding:26px 0 60px;font-size:12.5px;color:rgba(255,255,255,.75);line-height:1.9;}
+footer strong{color:#fff;}
+/* popup */
+.modal-bg{position:fixed;inset:0;background:rgba(5,15,31,.78);z-index:100;display:none;align-items:center;justify-content:center;padding:20px;}
+.modal-bg.show{display:flex;}
+.modal{background:var(--paper);color:var(--ink);max-width:430px;width:100%;padding:30px 30px 26px;position:relative;
+box-shadow:8px 8px 0 rgba(0,0,0,.5);border:2px solid var(--navy);text-align:center;}
+.modal::before{content:"";display:block;height:8px;margin:-30px -30px 22px;background-image:conic-gradient(var(--red) 25%,var(--paper) 0 50%,var(--red) 0 75%,var(--paper) 0);background-size:8px 8px;}
+.modal .q{font-family:"Press Start 2P",monospace;font-size:10px;color:var(--red);letter-spacing:.15em;margin-bottom:12px;}
+.modal h3{font-family:"DotGothic16",sans-serif;font-weight:400;font-size:22px;color:var(--navy);margin-bottom:12px;}
+.modal p{font-size:13px;line-height:1.8;color:#46403a;margin-bottom:20px;}
+.modal .close{position:absolute;top:10px;right:12px;background:none;border:none;font-size:20px;color:var(--mut);cursor:pointer;}
+.modal .later{display:block;margin:12px auto 0;background:none;border:none;font-size:12px;color:var(--mut);cursor:pointer;text-decoration:underline;}
+.fab{position:fixed;right:18px;bottom:18px;z-index:60;display:none;}
+.fab.show{display:block;}
+.fab a{display:flex;align-items:center;gap:8px;background:var(--gold);color:#3a2a00;font-weight:700;font-size:13px;
+padding:12px 18px;text-decoration:none;box-shadow:4px 4px 0 rgba(0,0,0,.45);}
+/* student page */
+.sp-head{padding:26px 0 8px;}
+.sp-back{font-size:13px;color:var(--cyan);text-decoration:none;}
+.sp-fmt{display:inline-block;font-family:"Press Start 2P",monospace;font-size:9px;background:var(--red);color:#fff;padding:5px 9px;margin:18px 0 10px;box-shadow:2px 2px 0 rgba(0,0,0,.35);}
+.sp-handle{font-family:"DotGothic16",monospace;font-size:clamp(26px,5vw,40px);color:var(--gold);line-height:1.2;word-break:break-all;text-shadow:3px 3px 0 rgba(230,57,70,.4);}
+.sp-title{font-size:16px;font-weight:700;color:rgba(255,255,255,.92);margin:10px 0 4px;}
+.sp-desc{font-size:13px;color:rgba(255,255,255,.7);line-height:1.8;max-width:700px;}
+.story{background:var(--paper);color:var(--ink);padding:34px clamp(20px,5vw,44px) 38px;margin:26px 0;box-shadow:6px 6px 0 rgba(0,0,0,.35);}
+.story .st-label{font-family:"Press Start 2P",monospace;font-size:9px;color:var(--red);letter-spacing:.18em;margin-bottom:14px;}
+.story h2{font-family:"DotGothic16",sans-serif;font-weight:400;font-size:clamp(19px,3vw,25px);color:var(--navy);line-height:1.55;margin-bottom:22px;border-bottom:2px solid var(--orange);padding-bottom:14px;}
+.story p{font-size:14px;line-height:2.05;color:#33302a;margin-bottom:16px;}
+.sp-box{background:rgba(255,255,255,.07);border-left:4px solid var(--cyan);padding:16px 20px;margin-bottom:14px;}
+.sp-box h4{font-size:13px;color:var(--cyan);margin-bottom:8px;letter-spacing:.06em;}
+.sp-box p{font-size:12.5px;line-height:1.9;color:rgba(255,255,255,.85);}
+.sp-cta{text-align:center;margin:36px 0 50px;}
+.sp-cta p{font-size:13px;color:rgba(255,255,255,.8);margin-bottom:14px;}
+@media(max-width:560px){
+  .hero .meta{flex-direction:column;gap:6px;align-items:flex-start;}
+  .award{padding:20px;}
+}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute;"><defs>
+<radialGradient id="lampGlow" cx="50%" cy="50%" r="50%"><stop offset="0%" stop-color="#ffb289" stop-opacity="0.6"/><stop offset="60%" stop-color="#ffb289" stop-opacity="0.18"/><stop offset="100%" stop-color="#ffb289" stop-opacity="0"/></radialGradient>
+<g id="lantern-o"><rect x="4" y="0" width="4" height="2" fill="#5d7a96"/><rect x="2" y="2" width="8" height="2" fill="#c9552a"/><rect x="0" y="4" width="12" height="10" fill="#ff6b35"/><rect x="2" y="4" width="2" height="10" fill="#ffb289"/><rect x="8" y="4" width="2" height="10" fill="#e0562a"/><rect x="2" y="14" width="8" height="2" fill="#c9552a"/><rect x="4" y="16" width="4" height="2" fill="#5d7a96"/></g>
+<g id="lantern-r"><rect x="4" y="0" width="4" height="2" fill="#5d7a96"/><rect x="2" y="2" width="8" height="2" fill="#b32734"/><rect x="0" y="4" width="12" height="10" fill="#e63946"/><rect x="2" y="4" width="2" height="10" fill="#f28b94"/><rect x="8" y="4" width="2" height="10" fill="#c42836"/><rect x="2" y="14" width="8" height="2" fill="#b32734"/><rect x="4" y="16" width="4" height="2" fill="#5d7a96"/></g>
+<g id="fw-burst"><rect x="47" y="47" width="6" height="6" fill="#fff"/><rect x="47" y="30" width="6" height="6" fill="#4cc9f0"/><rect x="47" y="64" width="6" height="6" fill="#4cc9f0"/><rect x="30" y="47" width="6" height="6" fill="#4cc9f0"/><rect x="64" y="47" width="6" height="6" fill="#4cc9f0"/><rect x="35" y="35" width="5" height="5" fill="#ff6b35"/><rect x="60" y="35" width="5" height="5" fill="#ff6b35"/><rect x="35" y="60" width="5" height="5" fill="#ff6b35"/><rect x="60" y="60" width="5" height="5" fill="#ff6b35"/><rect x="48" y="14" width="4" height="4" fill="#ffd23f"/><rect x="48" y="82" width="4" height="4" fill="#ffd23f"/><rect x="14" y="48" width="4" height="4" fill="#ffd23f"/><rect x="82" y="48" width="4" height="4" fill="#ffd23f"/><rect x="24" y="24" width="4" height="4" fill="#e63946"/><rect x="72" y="24" width="4" height="4" fill="#e63946"/><rect x="24" y="72" width="4" height="4" fill="#e63946"/><rect x="72" y="72" width="4" height="4" fill="#e63946"/></g>
+</defs></svg>
+<div class="top-checker"><div class="checker"></div></div>
+<div class="wrap">
+<div class="sp-head">
+  <a class="sp-back" href="/2026prototype">◀ ChibaTech Prototype トップへ戻る</a>
+  <div><span class="sp-fmt">ブース展示</span></div>
+  <div class="sp-handle">@spark6432</div>
+  <div class="sp-title">digi-set</div>
+  <p class="sp-desc">手持ちの服をAIが自動タグ付けし、天気連動で1週間分のコーデを提案するAIクローゼット</p>
+</div>
+<div class="story">
+  <div class="st-label">LEARNING STORY ── 3ヶ月の学びの物語</div>
+  <h2>制限に当たれば道具を替えた粘りの実装者、挑んだのは&quot;今ある服を活かす&quot;ーーー行き届いた設計</h2>
+  <p>@spark6432 さん——ハンドルは「鮭ひろき」——の三ヶ月は、一つのプロダクトをどこまで作り込めるかという、粘りの記録だった。第1回から第10回まで着実に課題を提出し、自己紹介LPからバグリスト、VPC、プロトタイプ、そしてプロダクトの版へと段を上がっていくなかで、機転と作り込みの両方を見せていった。課題が「作る」から「直す」「価値を確かめる」へと重くなっていっても提出の手を止めず、版を上書きし続けたその積み重ねが、後半の作品の密度をそのまま準備していた。</p><p>
+
+序盤の第2回で、彼はSDGs経営体験カードゲーム『サスマネ』を参考に、シングルプレイとマルチプレイの両方に対応したゲームを制作している。一人でも遊べて、複数人でも成立するよう両モードを面倒がらずに用意したところに、既にこの人の作り込み志向が顔を出している。そしてここで印象深いのは、開発中にAIツールの使用制限に突き当たったとき、別のツールへ作業を引き継いで手を止めなかったことだ。</p><p>道具が一つ塞がれても代わりを見つけて前に進む。詰まったところで諦めるのではなく、迂回してでも完成まで運ぶ——この機転は、後の重量級の作り込みを支える地力になっていく。ゲームという題材を選んだこと自体、遊ぶ人の反応を想像しながら作る回路が早くから働いていた証でもある。</p><p>
+
+そして彼のこの授業の集大成が、最終発表『digi-set』——後に『AI Closet』と名を整えたWebアプリだった。出発点は「服はあるのに毎朝何を着るか迷う、買っても着回せない」という、誰もが心当たりのある悩み。彼はそこに「“今ある服を活かす”」という一本の軸を通した。</p><p>撮った服の写真をAIが自動でカテゴリ・色・スタイルまで判定して登録し、天気・手持ち・着用履歴をもとに一週間分のコーデを提案する。さらにコーデ検証ルーム、AIスタイリスト相談チャット、クローゼットの傾向を色や種類ごとに円グラフ化する分析、お気に入りからの似た服の買い足し提案、カテゴリ別に選んで記録できる着用履歴カレンダーまで——一つの悩みを、使う人の生活動線に沿って隅々まで作り込んでいった。
+
+技術の選択にも妥協がない。</p><p>フロントはフレームワーク不使用のSPAにChart.jsとLucide Icons、ホスティングはVercel、認証・DB・画像はFirebase、AIはGoogle Gemini(2.5 Flash系)。しかもAPIキーを守るためにCloudflare Workersをプロキシとして挟み、買い足し提案には楽天市場の商品検索API、天気にはOpen-Meteo、地名にはNominatimと、外部APIを目的ごとに使い分けている。ZOZO検索のShift_JIS対応にencoding-japaneseを噛ませる細やかさや、OpenAI版を別系統で実験しているところにまで、「もっと良くできないか」と手を動かし続けた痕跡が残る。</p><p>一つの小さな体験を成立させるために、これだけの部品を目的別に選び、つなぎ、隠すべきものは隠す。派手さではなく、行き届いた設計そのものが彼の腕前を語っていた。
+
+既存の似たアプリの存在に気づいたときに、意地を張らず素直に名前を変更した判断にも、独りよがりにならず現実を見る目があった。</p><p>派手な活動記録の数ではなく、一つの課題を粘り強く磨き上げる姿勢で語れる人。制限に当たれば道具を替え、悩みに当たれば機能を足し、既に世にあるものを見れば自分の立ち位置を静かに引き直す。手を動かし続けることで質を上げていった、実装者としての三ヶ月だった。</p>
+</div>
+<div class="sp-box"><h4>■ 今年の活躍まとめ</h4><p>【皆勤に近い・作り込み】第1〜10回まで提出。ハンドル『鮭ひろき』。第2回はSDGs経営体験カードゲーム『サスマネ』を参考にシングル/マルチプレイ対応で制作、AIツールの使用制限時は別ツールへ引き継ぐなど機転。最終発表『digi-set』は手持ちの服を登録すると天気・トレンドに合わせてAIがコーデ提案。</p></div><div class="sp-box"><h4>■ コミュニティ / スキルマーケット活動</h4><p>—</p></div>
+<div class="sp-cta">
+  <p>この受講生と話してみたい・連絡先を交換したい企業様は、アンケートよりお知らせください。</p>
+  <a class="btn gold survey-link" href="#" target="_blank" rel="noopener">📋 アンケートで興味を伝える</a>
+</div>
+</div>
+<div class="checker"></div>
+<div class="modal-bg" id="surveyModal">
+  <div class="modal">
+    <button class="close" aria-label="閉じる">✕</button>
+    <div class="q">QUEST!</div>
+    <h3>アンケートにご協力ください！</h3>
+    <p>本日は ChibaTech Prototype にご来場いただき、ありがとうございました。<br>
+    今後の講座運営と、受講生へのフィードバックのため、3分ほどのアンケートにご協力いただけますと幸いです。</p>
+    <a class="btn survey-link" href="#" target="_blank" rel="noopener">アンケートに回答する ▶</a>
+    <button class="later">あとで回答する</button>
+  </div>
+</div>
+<div class="fab" id="surveyFab"><a class="survey-link" href="#" target="_blank" rel="noopener">📋 アンケートはこちら</a></div>
+
+<script>
+const SURVEY_URL = "https://airtable.com/app12r6rXG9g4fsFZ/shrFlZS3OzA5aSVxo";
+const SURVEY_OPEN_AT = new Date("2026-07-16T17:00:00+09:00");
+(function(){
+  if (Date.now() < SURVEY_OPEN_AT.getTime()) return;
+  document.querySelectorAll('.survey-link').forEach(a => a.href = SURVEY_URL);
+  const fab = document.getElementById('surveyFab');
+  if (fab) fab.classList.add('show');
+  const bg = document.getElementById('surveyModal');
+  if (!bg) return;
+  if (localStorage.getItem('ctp2026_survey_dismissed')) return;
+  setTimeout(() => bg.classList.add('show'), 700);
+  const dismiss = () => { bg.classList.remove('show'); localStorage.setItem('ctp2026_survey_dismissed','1'); };
+  bg.querySelector('.close').addEventListener('click', dismiss);
+  bg.querySelector('.later').addEventListener('click', dismiss);
+  bg.addEventListener('click', e => { if (e.target === bg) dismiss(); });
+  bg.querySelector('.btn').addEventListener('click', () => { bg.classList.remove('show'); localStorage.setItem('ctp2026_survey_dismissed','1'); });
+})();
+</script>
+</body></html>
