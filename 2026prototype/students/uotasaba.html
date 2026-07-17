@@ -81,12 +81,35 @@ a.chip:hover{background:var(--navy);color:#fff;}
 .photo-slot{aspect-ratio:4/3;background:rgba(255,255,255,.06);border:1px dashed rgba(255,255,255,.35);
 display:flex;flex-direction:column;gap:10px;align-items:center;justify-content:center;color:rgba(255,255,255,.55);}
 .photo-slot .px8{font-size:9px;letter-spacing:.12em;}
+.photo-grid a{display:block;}
 .photo-grid img{width:100%;aspect-ratio:4/3;object-fit:cover;display:block;box-shadow:4px 4px 0 rgba(0,0,0,.35);}
+.photo-grid a:hover img{outline:2px solid var(--cyan);}
 /* award */
 .award{background:var(--night0);border:2px solid #fff;box-shadow:0 0 0 5px var(--night0),inset 0 0 0 3px rgba(76,201,240,.55);padding:26px 30px;display:flex;gap:24px;align-items:center;flex-wrap:wrap;}
 .award h3{font-family:"DotGothic16",sans-serif;font-weight:400;font-size:24px;color:var(--gold);display:flex;align-items:center;gap:14px;flex-wrap:wrap;}
 .award h3 .rslt{font-family:"Press Start 2P",monospace;font-size:13px;color:var(--cyan);}
 .award p{font-size:13.5px;line-height:1.8;color:rgba(255,255,255,.9);}
+.awards{display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:14px;}
+.acard{background:linear-gradient(165deg,rgba(255,210,63,.14),rgba(5,15,31,.55) 58%);border:1px solid rgba(255,210,63,.5);
+box-shadow:4px 4px 0 rgba(0,0,0,.4);padding:18px 18px 16px;display:flex;flex-direction:column;gap:12px;}
+.acard.grand{grid-column:1/-1;background:linear-gradient(160deg,rgba(255,210,63,.26),rgba(230,57,70,.14) 55%,rgba(5,15,31,.6));
+border-width:2px;padding:24px 24px 22px;}
+.acard h3{font-family:"DotGothic16",sans-serif;font-weight:400;font-size:17px;color:var(--gold);display:flex;align-items:center;gap:9px;letter-spacing:.03em;}
+.acard.grand h3{font-size:24px;}
+.acard h3 .aemoji{font-size:22px;}
+.acard.grand h3 .aemoji{font-size:30px;}
+.acard .winners{display:flex;gap:8px;flex-wrap:wrap;}
+.wchip{display:inline-block;background:rgba(255,210,63,.1);border:1px solid rgba(255,210,63,.6);color:var(--gold);
+font-size:13px;font-weight:700;padding:5px 13px;text-decoration:none;}
+a.wchip:hover{background:var(--gold);color:#3a2a00;}
+.acard.grand .wchip{font-size:16px;padding:8px 18px;}
+/* product links */
+.plink{display:inline-flex;align-items:center;gap:7px;background:rgba(76,201,240,.1);border:1px solid rgba(76,201,240,.65);
+color:var(--cyan);font-size:13px;font-weight:700;padding:9px 18px;text-decoration:none;}
+.plink:hover{background:var(--cyan);color:var(--night0);}
+.sp-links{display:flex;gap:10px;flex-wrap:wrap;margin-top:16px;}
+.sp-award{display:inline-block;font-size:12.5px;font-weight:700;color:#3a2a00;background:var(--gold);
+padding:5px 12px;margin:0 8px 6px 0;box-shadow:2px 2px 0 rgba(0,0,0,.35);}
 /* penguin */
 .linkcard{display:flex;gap:20px;align-items:center;background:rgba(76,201,240,.1);border:1px solid rgba(76,201,240,.45);padding:22px 26px;text-decoration:none;color:#fff;flex-wrap:wrap;}
 .linkcard:hover{background:rgba(76,201,240,.18);}
@@ -154,8 +177,10 @@ padding:12px 18px;text-decoration:none;box-shadow:4px 4px 0 rgba(0,0,0,.45);}
   <a class="sp-back" href="/2026prototype">◀ ChibaTech Prototype トップへ戻る</a>
   <div><span class="sp-fmt">デジタル出店 Demise</span></div>
   <div class="sp-handle">@uotasaba</div>
+  
   <div class="sp-title">ラブ♡100%を目指せ?! 相性診断</div>
   <p class="sp-desc">Mac2台とカメラで、来場者2人がその場で遊べる相性診断ゲーム。ニックネームと質問の回答から相性を判定</p>
+  <div class="sp-links"><a class="plink" href="https://drive.google.com/file/d/1c_aWt_xPDtX5eVC4KgJbECLqlxsITJyq/view" target="_blank" rel="noopener">📄 ポスターを見る（PDF）</a></div>
 </div>
 <div class="story">
   <div class="st-label">LEARNING STORY ── 3ヶ月の学びの物語</div>

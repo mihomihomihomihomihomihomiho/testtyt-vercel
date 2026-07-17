@@ -81,12 +81,35 @@ a.chip:hover{background:var(--navy);color:#fff;}
 .photo-slot{aspect-ratio:4/3;background:rgba(255,255,255,.06);border:1px dashed rgba(255,255,255,.35);
 display:flex;flex-direction:column;gap:10px;align-items:center;justify-content:center;color:rgba(255,255,255,.55);}
 .photo-slot .px8{font-size:9px;letter-spacing:.12em;}
+.photo-grid a{display:block;}
 .photo-grid img{width:100%;aspect-ratio:4/3;object-fit:cover;display:block;box-shadow:4px 4px 0 rgba(0,0,0,.35);}
+.photo-grid a:hover img{outline:2px solid var(--cyan);}
 /* award */
 .award{background:var(--night0);border:2px solid #fff;box-shadow:0 0 0 5px var(--night0),inset 0 0 0 3px rgba(76,201,240,.55);padding:26px 30px;display:flex;gap:24px;align-items:center;flex-wrap:wrap;}
 .award h3{font-family:"DotGothic16",sans-serif;font-weight:400;font-size:24px;color:var(--gold);display:flex;align-items:center;gap:14px;flex-wrap:wrap;}
 .award h3 .rslt{font-family:"Press Start 2P",monospace;font-size:13px;color:var(--cyan);}
 .award p{font-size:13.5px;line-height:1.8;color:rgba(255,255,255,.9);}
+.awards{display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:14px;}
+.acard{background:linear-gradient(165deg,rgba(255,210,63,.14),rgba(5,15,31,.55) 58%);border:1px solid rgba(255,210,63,.5);
+box-shadow:4px 4px 0 rgba(0,0,0,.4);padding:18px 18px 16px;display:flex;flex-direction:column;gap:12px;}
+.acard.grand{grid-column:1/-1;background:linear-gradient(160deg,rgba(255,210,63,.26),rgba(230,57,70,.14) 55%,rgba(5,15,31,.6));
+border-width:2px;padding:24px 24px 22px;}
+.acard h3{font-family:"DotGothic16",sans-serif;font-weight:400;font-size:17px;color:var(--gold);display:flex;align-items:center;gap:9px;letter-spacing:.03em;}
+.acard.grand h3{font-size:24px;}
+.acard h3 .aemoji{font-size:22px;}
+.acard.grand h3 .aemoji{font-size:30px;}
+.acard .winners{display:flex;gap:8px;flex-wrap:wrap;}
+.wchip{display:inline-block;background:rgba(255,210,63,.1);border:1px solid rgba(255,210,63,.6);color:var(--gold);
+font-size:13px;font-weight:700;padding:5px 13px;text-decoration:none;}
+a.wchip:hover{background:var(--gold);color:#3a2a00;}
+.acard.grand .wchip{font-size:16px;padding:8px 18px;}
+/* product links */
+.plink{display:inline-flex;align-items:center;gap:7px;background:rgba(76,201,240,.1);border:1px solid rgba(76,201,240,.65);
+color:var(--cyan);font-size:13px;font-weight:700;padding:9px 18px;text-decoration:none;}
+.plink:hover{background:var(--cyan);color:var(--night0);}
+.sp-links{display:flex;gap:10px;flex-wrap:wrap;margin-top:16px;}
+.sp-award{display:inline-block;font-size:12.5px;font-weight:700;color:#3a2a00;background:var(--gold);
+padding:5px 12px;margin:0 8px 6px 0;box-shadow:2px 2px 0 rgba(0,0,0,.35);}
 /* penguin */
 .linkcard{display:flex;gap:20px;align-items:center;background:rgba(76,201,240,.1);border:1px solid rgba(76,201,240,.45);padding:22px 26px;text-decoration:none;color:#fff;flex-wrap:wrap;}
 .linkcard:hover{background:rgba(76,201,240,.18);}
@@ -182,18 +205,42 @@ padding:12px 18px;text-decoration:none;box-shadow:4px 4px 0 rgba(0,0,0,.45);}
 </div>
 
 <section id="result">
-  <div class="award">
-    <div>
-      <h3><span class="rslt">RESULT</span>賞の発表</h3>
-      <p>受賞プロジェクトは近日このページで発表します。お楽しみに！</p>
-    </div>
-  </div>
+  <div class="sec-head"><h2 class="dot">賞の発表</h2><span class="badge px8" style="background:#b8860b">RESULT</span>
+  <span class="desc">当日の発表・展示をもとに選出された受賞者のみなさんです。名前から各受講生の「学びの物語」へ。</span></div>
+  <div class="awards"><div class="acard grand">
+<h3><span class="aemoji">🏆</span>Product of the Year</h3>
+<div class="winners"><a class="wchip" href="/2026prototype/students/splatoon1ikahan">いかはん</a><a class="wchip" href="/2026prototype/students/flotan">FLOTAN</a></div>
+</div><div class="acard">
+<h3><span class="aemoji">💡</span>Breakthrough Award</h3>
+<div class="winners"><span class="wchip">降谷透</span><a class="wchip" href="/2026prototype/students/reimen0984_99074">れいめん</a><a class="wchip" href="/2026prototype/students/test0k">torque(t0)</a><a class="wchip" href="/2026prototype/students/rucola9299">Rucola＆mandarina</a><a class="wchip" href="/2026prototype/students/ants1180">ant</a><span class="wchip">mimi_333</span><a class="wchip" href="/2026prototype/students/spark6432">鮭ひろき</a><span class="wchip">mimiTABspace</span></div>
+</div><div class="acard">
+<h3><span class="aemoji">🤖</span>AI Engineer of the Year</h3>
+<div class="winners"><a class="wchip" href="/2026prototype/students/gorudorenzu">ゴールドレンズ</a><a class="wchip" href="/2026prototype/students/akihirotada2">Tada2</a><span class="wchip">タキシードネコ</span><span class="wchip">めうちゃ</span></div>
+</div><div class="acard">
+<h3><span class="aemoji">⛓️</span>web3 Pioneer Award</h3>
+<div class="winners"><a class="wchip" href="/2026prototype/students/maiko_p">maiP</a><span class="wchip">ぷた</span></div>
+</div><div class="acard">
+<h3><span class="aemoji">🌏</span>Social Impact Award</h3>
+<div class="winners"><a class="wchip" href="/2026prototype/students/yoshihirokubota">yankubota</a><span class="wchip">chi-vegan</span><a class="wchip" href="/2026prototype/students/ouka-yuki">YUKI</a><a class="wchip" href="/2026prototype/students/mao_toyosaki">うまお</a><a class="wchip" href="/2026prototype/students/otakukun00">おたく</a></div>
+</div><div class="acard">
+<h3><span class="aemoji">🎨</span>Experience Design Award</h3>
+<div class="winners"><a class="wchip" href="/2026prototype/students/-maclaser">Machiroy</a><a class="wchip" href="/2026prototype/students/hakumai0074">はくまい</a><span class="wchip">ウォーターサーバー</span></div>
+</div><div class="acard">
+<h3><span class="aemoji">🎉</span>Best Entertainment Award</h3>
+<div class="winners"><a class="wchip" href="/2026prototype/students/o_otiek">otiek</a><a class="wchip" href="/2026prototype/students/renoa3208">れのあ</a><a class="wchip" href="/2026prototype/students/kouki_1005">@kouki_1005</a></div>
+</div><div class="acard">
+<h3><span class="aemoji">🤖</span>AI Experience Award</h3>
+<div class="winners"><a class="wchip" href="/2026prototype/students/mmm-sszuka">Satoryudev</a><a class="wchip" href="/2026prototype/students/_yoshimin">Yoshimin</a></div>
+</div><div class="acard">
+<h3><span class="aemoji">🎓</span>Tech Evangelist Award</h3>
+<div class="winners"><a class="wchip" href="/2026prototype/students/oahan">Axe0320</a><a class="wchip" href="/2026prototype/students/ksmochi1">くしもち</a><a class="wchip" href="/2026prototype/students/kute1108">くて</a></div>
+</div></div>
 </section>
 
 <section id="photos">
   <div class="sec-head"><h2 class="dot">当日写真館</h2><span class="badge cyan px8">PHOTO</span>
-  <span class="desc">当日の会場のようすを順次アップしていきます。</span></div>
-  <div class="photo-grid"><div class="photo-slot"><svg width="34" height="26" viewBox="0 0 17 13"><rect x="0" y="2" width="17" height="11" fill="rgba(255,255,255,.25)"/><rect x="5" y="0" width="7" height="2" fill="rgba(255,255,255,.25)"/><rect x="6" y="4" width="5" height="5" fill="rgba(5,15,31,.6)"/><rect x="13" y="3" width="2" height="2" fill="#ffd23f"/></svg><span class="px8">COMING SOON</span></div><div class="photo-slot"><svg width="34" height="26" viewBox="0 0 17 13"><rect x="0" y="2" width="17" height="11" fill="rgba(255,255,255,.25)"/><rect x="5" y="0" width="7" height="2" fill="rgba(255,255,255,.25)"/><rect x="6" y="4" width="5" height="5" fill="rgba(5,15,31,.6)"/><rect x="13" y="3" width="2" height="2" fill="#ffd23f"/></svg><span class="px8">COMING SOON</span></div><div class="photo-slot"><svg width="34" height="26" viewBox="0 0 17 13"><rect x="0" y="2" width="17" height="11" fill="rgba(255,255,255,.25)"/><rect x="5" y="0" width="7" height="2" fill="rgba(255,255,255,.25)"/><rect x="6" y="4" width="5" height="5" fill="rgba(5,15,31,.6)"/><rect x="13" y="3" width="2" height="2" fill="#ffd23f"/></svg><span class="px8">COMING SOON</span></div><div class="photo-slot"><svg width="34" height="26" viewBox="0 0 17 13"><rect x="0" y="2" width="17" height="11" fill="rgba(255,255,255,.25)"/><rect x="5" y="0" width="7" height="2" fill="rgba(255,255,255,.25)"/><rect x="6" y="4" width="5" height="5" fill="rgba(5,15,31,.6)"/><rect x="13" y="3" width="2" height="2" fill="#ffd23f"/></svg><span class="px8">COMING SOON</span></div><div class="photo-slot"><svg width="34" height="26" viewBox="0 0 17 13"><rect x="0" y="2" width="17" height="11" fill="rgba(255,255,255,.25)"/><rect x="5" y="0" width="7" height="2" fill="rgba(255,255,255,.25)"/><rect x="6" y="4" width="5" height="5" fill="rgba(5,15,31,.6)"/><rect x="13" y="3" width="2" height="2" fill="#ffd23f"/></svg><span class="px8">COMING SOON</span></div><div class="photo-slot"><svg width="34" height="26" viewBox="0 0 17 13"><rect x="0" y="2" width="17" height="11" fill="rgba(255,255,255,.25)"/><rect x="5" y="0" width="7" height="2" fill="rgba(255,255,255,.25)"/><rect x="6" y="4" width="5" height="5" fill="rgba(5,15,31,.6)"/><rect x="13" y="3" width="2" height="2" fill="#ffd23f"/></svg><span class="px8">COMING SOON</span></div><div class="photo-slot"><svg width="34" height="26" viewBox="0 0 17 13"><rect x="0" y="2" width="17" height="11" fill="rgba(255,255,255,.25)"/><rect x="5" y="0" width="7" height="2" fill="rgba(255,255,255,.25)"/><rect x="6" y="4" width="5" height="5" fill="rgba(5,15,31,.6)"/><rect x="13" y="3" width="2" height="2" fill="#ffd23f"/></svg><span class="px8">COMING SOON</span></div><div class="photo-slot"><svg width="34" height="26" viewBox="0 0 17 13"><rect x="0" y="2" width="17" height="11" fill="rgba(255,255,255,.25)"/><rect x="5" y="0" width="7" height="2" fill="rgba(255,255,255,.25)"/><rect x="6" y="4" width="5" height="5" fill="rgba(5,15,31,.6)"/><rect x="13" y="3" width="2" height="2" fill="#ffd23f"/></svg><span class="px8">COMING SOON</span></div></div>
+  <span class="desc">当日の会場のようす。クリックで拡大できます。</span></div>
+  <div class="photo-grid"><a href="/2026prototype/photos/photo01.jpg" target="_blank" rel="noopener"><img src="/2026prototype/photos/photo01.jpg" alt="ChibaTech Prototype 当日のようす" loading="lazy"></a><a href="/2026prototype/photos/photo02.jpg" target="_blank" rel="noopener"><img src="/2026prototype/photos/photo02.jpg" alt="ChibaTech Prototype 当日のようす" loading="lazy"></a><a href="/2026prototype/photos/photo03.jpg" target="_blank" rel="noopener"><img src="/2026prototype/photos/photo03.jpg" alt="ChibaTech Prototype 当日のようす" loading="lazy"></a><a href="/2026prototype/photos/photo04.jpg" target="_blank" rel="noopener"><img src="/2026prototype/photos/photo04.jpg" alt="ChibaTech Prototype 当日のようす" loading="lazy"></a><a href="/2026prototype/photos/photo05.jpg" target="_blank" rel="noopener"><img src="/2026prototype/photos/photo05.jpg" alt="ChibaTech Prototype 当日のようす" loading="lazy"></a><a href="/2026prototype/photos/photo06.jpg" target="_blank" rel="noopener"><img src="/2026prototype/photos/photo06.jpg" alt="ChibaTech Prototype 当日のようす" loading="lazy"></a><a href="/2026prototype/photos/photo07.jpg" target="_blank" rel="noopener"><img src="/2026prototype/photos/photo07.jpg" alt="ChibaTech Prototype 当日のようす" loading="lazy"></a></div>
 </section>
 
 <section id="presentations">
