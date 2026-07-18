@@ -1,0 +1,1381 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>web3/AI概論 第4期 最終発表会 ご案内</title>
+<style>
+@page {
+  size: A4;
+  margin: 0;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html, body {
+  font-family: "Hiragino Kaku Gothic ProN", "Yu Gothic", "Noto Sans JP", sans-serif;
+  color: #1a1a1a;
+  background: #e5e5e5;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+
+.page {
+  width: 210mm;
+  height: 297mm;
+  background: white;
+  margin: 20px auto;
+  padding: 10mm 11mm;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+  page-break-after: always;
+}
+
+.page:last-child { page-break-after: auto; }
+
+@media print {
+  body { background: white; }
+  .page { margin: 0; box-shadow: none; }
+}
+
+/* ========== 表面 ========== */
+.front .hero {
+  position: relative;
+  width: calc(100% + 22mm);
+  height: 62mm;
+  margin: -10mm -11mm 4mm -11mm;
+  background: linear-gradient(135deg, #0a2540 0%, #1e3a5f 100%);
+  overflow: hidden;
+}
+.front .hero img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.42;
+}
+.front .hero-content {
+  position: absolute;
+  bottom: 5mm;
+  left: 11mm;
+  right: 11mm;
+  color: white;
+}
+.front .label {
+  display: inline-block;
+  background: #ff6b35;
+  color: white;
+  padding: 1.2mm 3mm;
+  font-size: 9pt;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  margin-bottom: 2.5mm;
+}
+.front h1 {
+  font-size: 26pt;
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  margin-bottom: 2.5mm;
+}
+.front .subcopy {
+  font-size: 9pt;
+  line-height: 1.55;
+  opacity: 0.95;
+  white-space: nowrap;
+}
+
+.event-info {
+  background: #0a2540;
+  color: white;
+  padding: 4mm 6mm;
+  margin-bottom: 4mm;
+  border-left: 4mm solid #ff6b35;
+}
+.event-info .info-grid {
+  display: grid;
+  grid-template-columns: 1fr 56mm;
+  gap: 5mm;
+  align-items: start;
+}
+.event-info table {
+  width: 100%;
+  border-collapse: collapse;
+}
+.event-info td {
+  padding: 0.7mm 0;
+  font-size: 9pt;
+  vertical-align: top;
+  font-weight: 500;
+  white-space: nowrap;
+}
+.event-info td:first-child {
+  width: 24mm;
+  font-weight: 600;
+  color: #ffb289;
+  font-size: 8pt;
+  letter-spacing: 0.1em;
+  padding-right: 3mm;
+  padding-top: 1mm;
+}
+.event-info .schedule {
+  border-left: 1pt solid rgba(255,178,137,0.35);
+  padding-left: 4mm;
+}
+.event-info .schedule h4 {
+  color: #ffb289;
+  font-size: 8pt;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  margin-bottom: 1.5mm;
+}
+.event-info .schedule ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.event-info .schedule li {
+  font-size: 8.5pt;
+  padding: 0.3mm 0;
+  display: flex;
+  gap: 2.5mm;
+  font-weight: 500;
+  line-height: 1.4;
+  white-space: nowrap;
+}
+.event-info .schedule .time {
+  font-family: "Helvetica Neue", "Arial", sans-serif;
+  font-weight: 700;
+  color: #ffb289;
+  min-width: 11mm;
+  font-size: 9pt;
+}
+.event-info .event-note {
+  font-size: 7.6pt;
+  color: rgba(255,255,255,0.85);
+  margin-top: 2.5mm;
+  padding-top: 2mm;
+  border-top: 0.5pt solid rgba(255,178,137,0.3);
+  line-height: 1.5;
+}
+.event-info .event-note strong {
+  color: #ffb289;
+  font-weight: 700;
+}
+.event-info .schedule .schedule-context {
+  font-size: 7pt;
+  color: rgba(255,255,255,0.9);
+  line-height: 1.5;
+  margin-bottom: 2mm;
+  padding-bottom: 1.8mm;
+  border-bottom: 0.5pt solid rgba(255,178,137,0.3);
+}
+.event-info .schedule .schedule-context strong {
+  color: #ffb289;
+  font-weight: 700;
+}
+
+.section { margin-bottom: 3.5mm; }
+.course-summary {
+  border: none;
+  padding: 0;
+  margin-bottom: 3mm;
+}
+.course-summary .section { margin-bottom: 3mm; }
+.course-summary .section:last-child { margin-bottom: 0; }
+.course-summary .section h2 {
+  font-size: 10pt;
+  border-bottom: none;
+  padding-bottom: 0;
+  color: #1a3552;
+  margin-bottom: 1.5mm;
+}
+.course-summary .section .lead,
+.course-summary .section .tech-intro,
+.course-summary .section p,
+.course-summary .section li { font-size: 8pt; }
+.course-summary .tag { font-size: 7.5pt; }
+.course-summary .cat-label { font-size: 7pt; color: #1a1a1a; }
+.course-summary .note-label { font-size: 7pt; }
+.course-summary .note-text { font-size: 6.5pt; }
+.course-summary .section .lead strong,
+.course-summary .section .tech-intro strong { color: #1a1a1a !important; }
+.course-summary .cat-label { color: #1a1a1a !important; }
+.section h2 {
+  font-size: 11.5pt;
+  font-weight: 700;
+  color: #0a2540;
+  border-bottom: 1.5pt solid #0a2540;
+  padding-bottom: 1mm;
+  margin-bottom: 2.2mm;
+  letter-spacing: 0.02em;
+}
+.section p, .section li {
+  font-size: 8.8pt;
+  line-height: 1.55;
+  margin-bottom: 1.2mm;
+}
+.section ul { padding-left: 4mm; }
+.section li::marker { color: #ff6b35; }
+
+.section .lead {
+  font-size: 8.8pt;
+  line-height: 1.6;
+  margin-bottom: 3mm;
+  color: #333;
+}
+.section .lead strong {
+  color: #ff6b35;
+  font-weight: 700;
+}
+.section .tech-intro {
+  font-size: 7.8pt;
+  line-height: 1.5;
+  margin-bottom: 2mm;
+  color: #333;
+}
+.section .tech-intro strong {
+  color: #ff6b35;
+  font-weight: 700;
+}
+
+.tech-wrap {
+  display: grid;
+  grid-template-columns: 1fr 50mm;
+  gap: 4mm;
+  margin-top: 1.5mm;
+  align-items: center;
+}
+.tech-notes {
+  display: flex;
+  flex-direction: column;
+  gap: 2mm;
+  border-left: 1.5pt solid #ddd;
+  padding-left: 4mm;
+}
+.note-item .note-label {
+  font-size: 7.5pt;
+  font-weight: 700;
+  color: #0a2540;
+  margin-bottom: 0.5mm;
+}
+.note-item .note-text {
+  font-size: 7pt;
+  line-height: 1.45;
+  color: #777;
+}
+.tech-cloud {
+  display: flex;
+  flex-direction: column;
+  gap: 1.8mm;
+}
+.cat-group {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1.5mm;
+}
+.cat-label {
+  font-size: 7.5pt;
+  font-weight: 700;
+  color: #ff6b35;
+  letter-spacing: 0.05em;
+  min-width: 26mm;
+}
+.tag {
+  display: inline-block;
+  background: #f0f2f5;
+  border: 0.4pt solid #c8ced5;
+  color: #0a2540;
+  padding: 0.6mm 2mm;
+  font-size: 8pt;
+  font-weight: 500;
+  border-radius: 1mm;
+  line-height: 1.4;
+}
+.tag.highlight {
+  background: #0a2540;
+  color: white;
+  border-color: #0a2540;
+}
+
+.merit-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2mm;
+}
+.merit-box {
+  background: #f7f5f1;
+  padding: 2.5mm 3.5mm;
+  border-left: 2.5mm solid #ff6b35;
+}
+.merit-box .title {
+  font-weight: 700;
+  font-size: 9pt;
+  color: #0a2540;
+  margin-bottom: 0.8mm;
+  line-height: 1.35;
+}
+.merit-box .desc {
+  font-size: 7.8pt;
+  line-height: 1.45;
+  color: #444;
+}
+
+.back-flip {
+  text-align: center;
+  background: #0a2540;
+  color: white;
+  padding: 3mm;
+  font-size: 9.5pt;
+  font-weight: 600;
+  margin-top: 4mm;
+  letter-spacing: 0.05em;
+}
+
+/* ========== 中面・裏面 共通ページタイトル ========== */
+.middle .page-title,
+.back .page-title {
+  text-align: center;
+  margin-bottom: 4mm;
+  padding-bottom: 2.5mm;
+  border-bottom: 2pt solid #0a2540;
+}
+.middle .page-title h1,
+.back .page-title h1 {
+  font-size: 16pt;
+  font-weight: 700;
+  color: #0a2540;
+  margin-bottom: 0.8mm;
+  letter-spacing: -0.01em;
+}
+.middle .page-title .en,
+.back .page-title .en {
+  font-size: 7pt;
+  color: #888;
+  letter-spacing: 0.15em;
+}
+.middle .page-lead {
+  font-size: 8.5pt;
+  line-height: 1.5;
+  color: #333;
+  margin-bottom: 3mm;
+  text-align: center;
+}
+.middle .page-lead strong {
+  color: #ff6b35;
+  font-weight: 700;
+}
+
+/* ========== 中面・新規セクション ========== */
+.persona-box {
+  background: none;
+  border: none;
+  padding: 0;
+  margin-bottom: 3mm;
+}
+.persona-box .lead {
+  font-size: 8.8pt;
+  line-height: 1.6;
+  color: #333;
+  margin-bottom: 2.5mm;
+}
+.persona-box .lead strong {
+  color: #ff6b35;
+  font-weight: 700;
+}
+.persona-keywords {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 3mm;
+}
+.persona-card {
+  background: white;
+  border: 0.5pt solid #ff6b35;
+  padding: 2mm 3mm 2.5mm 3mm;
+  border-radius: 1mm;
+}
+.persona-card .kw-num {
+  font-family: "Helvetica Neue", "Arial", sans-serif;
+  font-size: 9pt;
+  font-weight: 700;
+  color: #ff6b35;
+  letter-spacing: 0.05em;
+  margin-bottom: 0.5mm;
+}
+.persona-card .kw-label {
+  font-size: 12pt;
+  font-weight: 700;
+  color: #0a2540;
+  margin: 0.3mm 0 1.5mm 0;
+  line-height: 1.2;
+}
+.persona-card .kw-desc {
+  font-size: 8.2pt;
+  line-height: 1.5;
+  color: #444;
+}
+
+/* 授業プロセス (v3) */
+.persona-box .process-list {
+  display: flex;
+  flex-direction: column;
+  margin: 2mm 0 2mm 0;
+}
+.lp-row {
+  display: grid;
+  grid-template-columns: 18mm 1fr;
+  gap: 3mm;
+  align-items: baseline;
+  padding: 1.4mm 0;
+  border-bottom: 0.4pt solid #e8e8e8;
+}
+.lp-row:last-child { border-bottom: none; }
+.lp-step {
+  font-family: "Helvetica Neue", "Arial", sans-serif;
+  font-size: 7.8pt;
+  font-weight: 700;
+  color: #ff6b35;
+  letter-spacing: 0.1em;
+}
+.lp-body { display: block; }
+.lp-label {
+  font-size: 9pt;
+  font-weight: 700;
+  color: #0a2540;
+  line-height: 1.25;
+  margin-bottom: 0.5mm;
+  display: inline;
+}
+.lp-desc {
+  font-size: 8pt;
+  color: #333;
+  line-height: 1.5;
+  display: inline;
+}
+.lp-label::after { content: " ── "; color: #999; font-weight: 400; }
+/* v4 授業写真ストリップ */
+.v4-photo-strip {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 2mm;
+  margin: 1mm 0 4mm 0;
+}
+.v4-photo-strip img {
+  width: 100%;
+  height: 44mm;
+  object-fit: cover;
+  border-radius: 0.5mm;
+  box-shadow: 0 0.5pt 1.5pt rgba(0,0,0,0.2);
+  display: block;
+}
+
+.persona-box .skill-paragraph {
+  font-size: 7.6pt;
+  line-height: 1.55;
+  color: #555;
+  margin-top: 2mm;
+  padding-top: 1.8mm;
+  border-top: 0.4pt dashed #ccc;
+}
+.persona-box .skill-paragraph strong { color: #0a2540; font-weight: 700; }
+.persona-box .closing-note {
+  font-size: 8pt;
+  line-height: 1.55;
+  color: #333;
+  margin-top: 1.8mm;
+  padding-top: 1.8mm;
+  border-top: 0.5pt solid #ddd;
+}
+.persona-box .closing-note strong { color: #0a2540; font-weight: 700; }
+
+.scene-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2.5mm;
+  margin-top: 2mm;
+}
+.scene-box {
+  background: #f7f5f1;
+  padding: 1.8mm 3mm 2mm 3mm;
+  border-top: none;
+  border-left: none;
+}
+.scene-box .role {
+  font-size: 9.5pt;
+  font-weight: 700;
+  color: #0a2540;
+  margin-bottom: 1mm;
+}
+.scene-box .scene {
+  font-size: 8pt;
+  line-height: 1.5;
+  color: #444;
+}
+.scene-box .scene-skill {
+  font-size: 7pt;
+  font-weight: 700;
+  color: #ff6b35;
+  margin-top: 1.2mm;
+  padding-top: 1mm;
+  border-top: 0.3pt solid #ddd;
+  letter-spacing: 0.02em;
+  line-height: 1.35;
+}
+
+.skill-list {
+  display: flex;
+  flex-direction: column;
+  margin-top: 1.5mm;
+}
+.skill-item {
+  padding: 1.3mm 0 1.3mm 10mm;
+  position: relative;
+  border-bottom: 0.4pt solid #e8e8e8;
+}
+.skill-item:last-child { border-bottom: none; }
+.skill-item .num {
+  position: absolute;
+  left: 0;
+  top: 2.3mm;
+  font-family: "Helvetica Neue", "Arial", sans-serif;
+  font-size: 10pt;
+  font-weight: 700;
+  color: #ff6b35;
+  letter-spacing: 0.04em;
+}
+.skill-item .body {
+  font-size: 9.2pt;
+  font-weight: 600;
+  line-height: 1.4;
+  color: #1a1a1a;
+  margin-bottom: 0.5mm;
+}
+.skill-item .tech {
+  font-size: 6.8pt;
+  color: #888;
+  line-height: 1.35;
+}
+
+/* 会場・写真セクション (v3) */
+.venue-section { margin-bottom: 4mm; }
+.venue-grid {
+  display: grid;
+  grid-template-columns: 1fr 76mm;
+  gap: 3mm;
+  align-items: stretch;
+}
+.venue-photos-wrap {
+  display: flex;
+  flex-direction: column;
+}
+.venue-photos {
+  display: grid;
+  grid-template-columns: 1.7fr 1fr 1fr;
+  grid-template-rows: 1.2fr 1fr;
+  grid-template-areas:
+    "a b c"
+    "a d e";
+  gap: 1mm;
+  flex: 1;
+  min-height: 50mm;
+}
+.venue-photos img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 0.5mm;
+  display: block;
+  box-shadow: 0 0.5pt 1.5pt rgba(0,0,0,0.2);
+}
+.venue-photos img:nth-child(1) { grid-area: a; }
+.venue-photos img:nth-child(2) { grid-area: b; }
+.venue-photos img:nth-child(3) { grid-area: c; }
+.venue-photos img:nth-child(4) { grid-area: d; }
+.venue-photos img:nth-child(5) { grid-area: e; }
+.venue-photos-caption {
+  font-size: 6.5pt;
+  color: #888;
+  margin-top: 1.2mm;
+  letter-spacing: 0.02em;
+  line-height: 1.3;
+}
+.venue-map {
+  background: white;
+  border: 0.5pt solid #d8d3cb;
+  padding: 2mm 2.5mm 2.5mm 2.5mm;
+  display: flex;
+  flex-direction: column;
+}
+.venue-map .vm-title {
+  font-size: 8.5pt;
+  font-weight: 700;
+  color: #0a2540;
+  margin-bottom: 1.5mm;
+  text-align: center;
+  letter-spacing: 0.02em;
+}
+.venue-map .vm-svg {
+  width: 100%;
+  flex: 1;
+  height: auto;
+  min-height: 36mm;
+}
+.venue-map .vm-caption {
+  font-size: 6.5pt;
+  color: #555;
+  text-align: center;
+  margin-top: 1.5mm;
+  letter-spacing: 0.02em;
+}
+
+/* ========== 裏面 ========== */
+.back-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3mm;
+  align-items: stretch;
+}
+.back-grid > div {
+  display: flex;
+  flex-direction: column;
+  gap: 3mm;
+}
+.back-grid > div > .stat-card:last-child {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+.back-grid > div > .stat-card:last-child > table.data,
+.back-grid > div > .stat-card:last-child > .pie-wrap {
+  flex-shrink: 0;
+}
+.stat-card { margin-bottom: 0 !important; }
+
+.stat-card {
+  background: #f7f5f1;
+  padding: 3mm 3.5mm;
+  margin-bottom: 3mm;
+}
+.stat-card h3 {
+  font-size: 9pt;
+  font-weight: 700;
+  color: #0a2540;
+  margin-bottom: 1.5mm;
+  border-bottom: 1pt solid #ddd;
+  padding-bottom: 0.8mm;
+}
+.cohort-list {
+  font-size: 7.5pt;
+  line-height: 1.55;
+  font-family: "SF Mono", "Menlo", monospace;
+}
+.cohort-list .target {
+  color: #ff6b35;
+  font-weight: 700;
+}
+.cohort-total {
+  margin-top: 1.5mm;
+  padding-top: 1.5mm;
+  border-top: 1pt solid #ddd;
+  font-weight: 700;
+  font-size: 8pt;
+  color: #0a2540;
+  font-family: "Hiragino Kaku Gothic ProN", "Yu Gothic", sans-serif;
+}
+
+.cohort-body {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 4mm;
+  align-items: stretch;
+}
+.highlight-stats {
+  display: flex;
+  flex-direction: column;
+  gap: 2mm;
+}
+.hs-item {
+  background: #0a2540;
+  color: white;
+  padding: 2.5mm 3mm;
+  border-radius: 1mm;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.hs-label {
+  font-size: 6.5pt;
+  font-weight: 600;
+  color: #ffb289;
+  letter-spacing: 0.1em;
+  margin-bottom: 0.8mm;
+}
+.hs-value {
+  font-size: 12pt;
+  font-weight: 700;
+  font-family: "Helvetica Neue", "Arial", sans-serif;
+  line-height: 1;
+  display: flex;
+  align-items: baseline;
+  gap: 1mm;
+}
+.hs-value strong { font-size: 18pt; font-weight: 700; }
+.hs-value .unit { font-size: 8pt; font-weight: 400; }
+.hs-value .pct-badge {
+  margin-left: auto;
+  background: #ff6b35;
+  color: white;
+  font-size: 8.5pt;
+  font-weight: 700;
+  padding: 0.5mm 2mm;
+  border-radius: 1mm;
+  font-family: "Helvetica Neue", "Arial", sans-serif;
+}
+.hs-note {
+  font-size: 6.5pt;
+  color: rgba(255,255,255,0.7);
+  margin-top: 1mm;
+  line-height: 1.3;
+}
+.highlight-stats.three .hs-item { padding: 2mm 3mm; }
+.highlight-stats.three .hs-value strong { font-size: 15pt; }
+.highlight-stats.three .hs-label { font-size: 6.3pt; }
+.highlight-stats.three .hs-note { font-size: 6.3pt; }
+
+.pie-wrap {
+  margin-top: 3mm;
+  padding-top: 2.5mm;
+  border-top: 1pt solid #ddd;
+}
+.pie-title {
+  font-size: 8pt;
+  font-weight: 700;
+  color: #0a2540;
+  margin-bottom: 2mm;
+}
+.pie-row {
+  display: grid;
+  grid-template-columns: 32mm 1fr;
+  gap: 4mm;
+  align-items: center;
+}
+.pie-svg {
+  width: 32mm;
+  height: 32mm;
+}
+.pie-legend {
+  display: flex;
+  flex-direction: column;
+  gap: 1mm;
+  font-size: 7pt;
+  color: #333;
+}
+.pl-item {
+  display: flex;
+  align-items: center;
+  gap: 2mm;
+}
+.pl-sw {
+  width: 3mm;
+  height: 3mm;
+  border-radius: 0.5mm;
+  display: inline-block;
+  flex-shrink: 0;
+}
+.pl-item strong {
+  margin-left: auto;
+  color: #0a2540;
+  font-weight: 700;
+  font-family: "Helvetica Neue", "Arial", sans-serif;
+}
+
+table.data {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 7.5pt;
+  table-layout: auto;
+}
+table.data th, table.data td {
+  padding: 1mm 1.5mm;
+  text-align: left;
+  border-bottom: 0.5pt solid #ddd;
+}
+table.data td strong {
+  white-space: nowrap;
+}
+table.data th {
+  background: #0a2540;
+  color: white;
+  font-weight: 600;
+  font-size: 7pt;
+}
+table.data tr:last-child td { border-bottom: none; }
+table.data .pct {
+  text-align: right;
+  font-weight: 700;
+  color: #ff6b35;
+  font-size: 8.5pt;
+}
+
+.products {
+  margin-top: 3mm;
+}
+.products h3 {
+  font-size: 9pt;
+  font-weight: 700;
+  color: #0a2540;
+  margin-bottom: 2mm;
+  border-bottom: 1pt solid #0a2540;
+  padding-bottom: 0.8mm;
+}
+.product-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 2.5mm;
+}
+.product-card {
+  background: white;
+  border: 0.5pt solid #ddd;
+  padding: 1.5mm;
+  font-size: 7pt;
+}
+.product-card img {
+  width: 100%;
+  height: 18mm;
+  object-fit: cover;
+  border: 0.5pt solid #eee;
+  margin-bottom: 1mm;
+}
+.product-card .pname {
+  font-weight: 700;
+  color: #0a2540;
+  font-size: 7.5pt;
+  line-height: 1.25;
+  margin-bottom: 0.5mm;
+}
+.product-card .pmeta {
+  color: #888;
+  font-size: 6pt;
+  margin-bottom: 0.8mm;
+  line-height: 1.3;
+}
+.product-card .pdesc {
+  line-height: 1.4;
+  color: #444;
+  font-size: 6.5pt;
+}
+.product-card .purl {
+  display: block;
+  margin-top: 0.8mm;
+  padding-top: 0.7mm;
+  border-top: 0.3pt solid #eee;
+  font-size: 5.8pt;
+  color: #ff6b35;
+  font-family: "SF Mono", "Menlo", monospace;
+  word-break: break-all;
+  line-height: 1.3;
+}
+.product-card .purl a { color: inherit; text-decoration: none; }
+.product-card .purl a:hover { text-decoration: underline; }
+
+.prev-record {
+  margin-top: 3mm;
+  background: #0a2540;
+  color: white;
+  padding: 3mm 4mm;
+}
+.prev-record .layout {
+  display: grid;
+  grid-template-columns: 1fr 92mm;
+  gap: 3mm;
+  align-items: start;
+}
+.prev-record .photos {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5mm;
+}
+.prev-record .photo {
+  border-radius: 1mm;
+  overflow: hidden;
+}
+.prev-record .photo img {
+  width: 100%;
+  height: 26mm;
+  object-fit: cover;
+  display: block;
+}
+.prev-record .photo .caption {
+  font-size: 5.5pt;
+  color: rgba(255,255,255,0.65);
+  margin-top: 0.6mm;
+  letter-spacing: 0.03em;
+  line-height: 1.2;
+}
+.prev-record h3 {
+  font-size: 9pt;
+  font-weight: 700;
+  color: #ffb289;
+  margin-bottom: 1.5mm;
+  letter-spacing: 0.02em;
+}
+.prev-record ul {
+  list-style: none;
+  font-size: 7.5pt;
+  line-height: 1.55;
+}
+.prev-record li::before {
+  content: "▸ ";
+  color: #ff6b35;
+}
+.prev-record .examples {
+  margin-top: 1.5mm;
+  padding-top: 1.5mm;
+  border-top: 0.5pt solid #1e3a5f;
+  font-size: 7pt;
+  opacity: 0.85;
+  line-height: 1.5;
+}
+
+.partners {
+  margin-top: 3mm;
+  display: grid;
+  grid-template-columns: 65mm 1fr;
+  gap: 4mm;
+  align-items: start;
+}
+.partners h3 {
+  font-size: 9pt;
+  font-weight: 700;
+  color: #0a2540;
+  margin-bottom: 1mm;
+}
+.partners .org { font-size: 7.5pt; line-height: 1.55; }
+.partners .org strong { color: #0a2540; }
+.partners .credits { font-size: 7pt; line-height: 1.5; color: #555; }
+.partners .credits strong { color: #0a2540; }
+</style>
+</head>
+<body>
+
+<!-- ========== 1ページ目 / 表面：案内 ========== -->
+<div class="page front">
+  <div class="hero">
+    <img src="素材_チラシ用/_opt/前年Expo/01_発表会全景.jpg" alt="発表会の様子">
+    <div class="hero-content">
+      <span class="label">2026.7.16 THU OPEN</span>
+      <h1>現場でAIを"相棒"にして<br>動かせる学生と、直接ふれる一日。</h1>
+      <p class="subcopy">
+        千葉工業大学「web3/AI概論」第4期 最終発表会「ChibaTech Prototype」を開催いたします。<br>
+        3ヶ月間AIエージェント開発に取り組んだ受講生が、ピッチ・ポスター・展示ブースの3形式で成果を披露します。<br>
+        <strong style="color:#ffb289;">AI時代の人材像を、実際の成果物とともにご覧いただける機会です。ぜひ、お越しください。</strong>
+      </p>
+    </div>
+  </div>
+
+  <div class="event-info">
+    <div class="info-grid">
+      <table>
+        <tr><td>開催日時</td><td>2026年7月16日（木）15:00 - 17:00</td></tr>
+        <tr><td>会場</td><td>千葉工業大学 津田沼キャンパス 7号館2F 722教室</td></tr>
+        <tr><td>形式</td><td>ピッチ大会 / ポスター発表 / プロダクト展示ブース</td></tr>
+        <tr><td>対象</td><td style="white-space:normal;">採用ご担当・人事責任者の皆さま／エンジニア・DX推進・新規事業など、現場部門ご担当・ご責任者の皆さま</td></tr>
+        <tr><td>募集枠</td><td><strong style="color:#ffb289;">先着20社程度</strong></td></tr>
+        <tr><td>参加費</td><td>無料（入退場自由）</td></tr>
+      </table>
+      <div class="schedule">
+        <div class="schedule-context">本イベントは、学部生・大学院生・社会人を対象に開講している<strong>総合科学特論「web3/AI概論」の最終発表会</strong>を、企業の皆さまにもご覧いただける<strong>公開形式</strong>として開催いたします。</div>
+        <h4>当日プログラム</h4>
+        <ul>
+          <li><span class="time">15:00</span>開会・講師挨拶</li>
+          <li><span class="time">15:10</span>ピッチ大会</li>
+          <li><span class="time">16:00</span>ポスター発表・展示ブース</li>
+          <li><span class="time">16:55</span>クロージング</li>
+        </ul>
+      </div>
+    </div>
+    <div class="event-note">▸ ご参加企業様には<strong>事前に受講生プロファイルを共有</strong>いたします。当日は学生側も貴社情報を把握した上で対話に臨みます。</div>
+  </div>
+
+  <div class="section">
+    <h2 style="font-size:11pt;">3ヶ月間の学びの集大成を発表 ─ 学生の技術力と創造力をご覧いただける ChibaTech Prototype</h2>
+    <p class="lead">4月から7月までの<strong>3ヶ月間</strong>、毎日課題に取り組み、夜通し話し合うweb3/AI概論の受講生たちが、デジタルプロダクトや研究の成果を発表いたします。ChibaTech Prototypeは、単なる講義の最終発表会ではありません──<strong>3ヶ月間の挑戦と試行錯誤が結実した、AI時代の実装力を持つ学生と、企業の皆さまが直接ふれあう一日</strong>です。気になった学生とは展示ブースでその場で連絡先を交換でき、<strong>カジュアル面談・選考誘導</strong>までその日のうちに踏み込めます。学生が手がけた "動くもの" は展示ブースで実機にアクセスでき、技術力を直接見極められます。気に入ったチームへは <strong>インターンや長期協業のオファー</strong>、スポンサーシップのご相談もその場で承ります。</p>
+  </div>
+
+  <!-- 会場・写真 -->
+  <div class="venue-section">
+    <div class="venue-grid">
+      <div class="venue-photos-wrap">
+        <div class="venue-photos">
+          <img src="素材_チラシ用/_opt/web3AI/chibatech_header.jpg" alt="ChibaTech会場の参加者">
+          <img src="素材_チラシ用/_opt/前年Expo/06_プロダクト展示.jpg" alt="プロダクト展示">
+          <img src="素材_チラシ用/_opt/前年Expo/05_決済デモ.jpg" alt="決済デモ">
+          <img src="素材_チラシ用/_opt/web3AI/seika.jpg" alt="成果発表の様子">
+          <img src="素材_チラシ用/_opt/web3AI/projectgata.jpg" alt="プロジェクト型授業の様子">
+        </div>
+        <div class="venue-photos-caption">前年度 ChibaTech Expo 2025 の会場の熱気 ── ピッチ・展示・対話・デモが同時多発する一日</div>
+      </div>
+      <div class="venue-map">
+        <div class="vm-title">ChibaTech Prototype 会場レイアウト</div>
+        <svg class="vm-svg" viewBox="0 0 200 110" preserveAspectRatio="xMidYMid meet">
+          <rect x="2" y="2" width="196" height="106" fill="none" stroke="#0a2540" stroke-width="1.5"/>
+          <rect x="6" y="6" width="32" height="14" fill="#fff4ed" stroke="#ff6b35" stroke-width="0.6"/>
+          <text x="22" y="16" font-size="6" text-anchor="middle" fill="#0a2540" font-weight="bold">受付</text>
+          <rect x="55" y="6" width="120" height="28" fill="#0a2540"/>
+          <text x="115" y="20" font-size="8.5" text-anchor="middle" fill="#ffb289" font-weight="bold">ピッチ大会ステージ</text>
+          <text x="115" y="29" font-size="5.5" text-anchor="middle" fill="rgba(255,255,255,0.85)">15:10 - 16:00</text>
+          <rect x="6" y="44" width="92" height="34" fill="#f7f5f1" stroke="#0a2540" stroke-width="0.5"/>
+          <text x="52" y="59" font-size="7.5" text-anchor="middle" fill="#0a2540" font-weight="bold">ポスター発表エリア</text>
+          <text x="52" y="69" font-size="5.5" text-anchor="middle" fill="#666">16:00 - 16:55</text>
+          <rect x="102" y="44" width="92" height="34" fill="#fff4ed" stroke="#ff6b35" stroke-width="0.5"/>
+          <text x="148" y="59" font-size="7.5" text-anchor="middle" fill="#0a2540" font-weight="bold">プロダクト展示ブース</text>
+          <text x="148" y="69" font-size="5.5" text-anchor="middle" fill="#ff6b35">16:00 - 16:55</text>
+          <rect x="6" y="84" width="188" height="20" fill="#e9ecf2" stroke="#5d7a96" stroke-width="0.5"/>
+          <text x="100" y="96" font-size="6.5" text-anchor="middle" fill="#0a2540" font-weight="bold">企業 × 学生 交流・名刺交換エリア</text>
+        </svg>
+        <div class="vm-caption">千葉工業大学 津田沼キャンパス 7号館2F 722教室</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>ご来場をおすすめしたい企業様</h2>
+    <div class="merit-grid">
+      <div class="merit-box">
+        <div class="title">AI活用人材の採用をご検討中の企業様</div>
+        <div class="desc">3ヶ月間AIエージェント開発に取り組んだ学生の実装力に、動くプロダクトを介して直接ふれていただけます。面接では見えにくい "自走力・課題発見力" まで見極められます。</div>
+      </div>
+      <div class="merit-box">
+        <div class="title">新卒・中途あわせて接点を持ちたい企業様</div>
+        <div class="desc"><strong>学生109名＋社会人受講生50名</strong>とお会いいただけます。</div>
+      </div>
+      <div class="merit-box">
+        <div class="title">採用ブランディング・産学連携をご検討の企業様</div>
+        <div class="desc">スポンサーシップ・インターン・長期協業など、長期接点づくりもご相談可能です。</div>
+      </div>
+      <div class="merit-box">
+        <div class="title">現場部門ご責任者と同行ご来場の企業様</div>
+        <div class="desc">エンジニア・事業開発・DX推進など現場ご責任者がご一緒だと、技術力の評価や活用イメージのすり合わせがスムーズに進みます。</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="back-flip">▶ 次頁では「AI活用人材とは何か」を、入社後の活躍イメージとともに詳しくご紹介します</div>
+</div>
+
+<!-- ========== 2ページ目 / 中面：人材紹介 ========== -->
+<div class="page middle">
+  <div class="page-title">
+    <h1>社会を変革する最前線の技術を実践的に学ぶ、<br>千葉工業大学「web3/AI概論」</h1>
+    <div class="en">CHIBA INSTITUTE OF TECHNOLOGY — WEB3 / AI INTRODUCTION (4TH SEASON)</div>
+  </div>
+
+  <!-- 講座紹介 (枠なし) -->
+  <div class="course-summary">
+  <div class="section">
+    <p class="lead">最先端技術の基礎を学びながら、<strong>実際に手を動かして "使える" 技術者を社会に輩出する</strong>── web3/AI概論では、生成AIやAIエージェントを駆使したプロジェクト型授業を通じて、"つくる学び" を社会へ実装しています。ここで生まれるのは、学びの延長ではなく、社会に新しい仕組みを提案する <strong>"動く実験"</strong>。教室から社会へ、学びがそのままアクションにつながる、新しい学びが広がっています。</p>
+  </div>
+
+  <div class="section">
+    <h2>▶▶▶ 今年学んでいる技術 ─ 第4期の中核：AIエージェント開発</h2>
+    <p class="tech-intro">第4期(2026年度)の中核テーマは <strong>AIエージェント開発</strong>。生成AIが「質問に答える」のに対し、エージェントは<strong>「自律的にタスクを遂行する」</strong>存在。情報収集・分析・企画立案・実装・検証を、AIと協働しながら進めます。</p>
+    <div class="tech-wrap">
+      <div class="tech-cloud">
+        <div class="cat-group">
+          <span class="cat-label">AI開発</span>
+          <span class="tag highlight">Microsoft Amplifier</span>
+          <span class="tag">Claude Code</span>
+          <span class="tag">Cursor</span>
+          <span class="tag">Replit</span>
+          <span class="tag">v0</span>
+        </div>
+        <div class="cat-group">
+          <span class="cat-label">エージェント・決済</span>
+          <span class="tag">OpenClaw</span>
+          <span class="tag">NanoClaw</span>
+          <span class="tag">Hermes Agent</span>
+          <span class="tag">x402</span>
+        </div>
+        <div class="cat-group">
+          <span class="cat-label">インフラ</span>
+          <span class="tag">Vercel</span>
+          <span class="tag">GitHub</span>
+          <span class="tag">TypeScript</span>
+          <span class="tag">React</span>
+        </div>
+      </div>
+      <aside class="tech-notes">
+        <div class="note-item">
+          <div class="note-label">Microsoft Amplifier</div>
+          <div class="note-text">国内大学初導入のメタ認知AI開発システム</div>
+        </div>
+        <div class="note-item">
+          <div class="note-label">x402</div>
+          <div class="note-text">AIエージェント向けマイクロペイメント規格</div>
+        </div>
+      </aside>
+    </div>
+  </div>
+  </div>
+
+  <!-- 授業で繰り返し体験するプロセス -->
+  <div class="section persona-box">
+    <h2>課題発見 → プロダクト設計 → 反復改善 ── 授業で繰り返し体験する3つのステップ</h2>
+    <p class="lead">AIを使える学生は増えています。本講座が育てているのは、その先 ──<strong>「現場の課題を自分で見いだし、AIで新たな機会に変え、実行を通じて価値を生み出せる学生」</strong>。3ヶ月間の授業で繰り返し体験するのは、<strong>課題発見・プロダクト設計・反復改善</strong>という一連の動き方そのものです。</p>
+    <div class="process-list">
+      <div class="lp-row">
+        <span class="lp-step">STEP 1</span>
+        <div class="lp-body">
+          <span class="lp-label">課題を見つける</span><span class="lp-desc">身の回りや社会のなかから、自分の視点で「取り組むべき問い」を定義する</span>
+        </div>
+      </div>
+      <div class="lp-row">
+        <span class="lp-step">STEP 2</span>
+        <div class="lp-body">
+          <span class="lp-label">プロダクトを形にする</span><span class="lp-desc">AIと協働しながら、要件を整理し、動くWebサービスを設計・実装する</span>
+        </div>
+      </div>
+      <div class="lp-row">
+        <span class="lp-step">STEP 3</span>
+        <div class="lp-body">
+          <span class="lp-label">使われ方を見て改善する</span><span class="lp-desc">ユーザーの反応を観察し、設計と実装を反復改善していく</span>
+        </div>
+      </div>
+    </div>
+    <p class="closing-note">3ヶ月間のweb3/AI概論で <strong>「課題発見と実装、両方を自走できる素地」</strong>を身につけた学生が一堂に会するこの機会を、ぜひ採用や協業のご検討の場としてご活用ください。</p>
+  </div>
+
+  <!-- 授業の様子（写真ストリップ） -->
+  <div class="v4-photo-strip">
+    <img src="素材_チラシ用/_opt/写真/250710160549213.jpg" alt="課題に取り組む学生">
+    <img src="素材_チラシ用/_opt/写真/53030643228.jpg" alt="集中・思索する学生">
+    <img src="素材_チラシ用/_opt/写真/P7100636.jpg" alt="授業でのアイデア共有">
+  </div>
+
+  <!-- 入社後の活躍イメージ -->
+  <div class="section">
+    <h2>入社後の活躍イメージ ─ 4つの職種で即戦力に</h2>
+    <div class="scene-grid">
+      <div class="scene-box">
+        <div class="role">事業企画／新規事業</div>
+        <div class="scene">業務ヒアリングから「取り組むべき問い」を自分で定義し、AIと協働でPoCを組み、"動くもの"で提案・合意形成できる。</div>
+        <div class="scene-skill">課題を機会に変える視点 × プロトで提案する力</div>
+      </div>
+      <div class="scene-box">
+        <div class="role">エンジニア／開発職</div>
+        <div class="scene">AIと対話しながら要件定義から本番実装まで完遂。設計判断とコードレビュー観点を自分で下せる。</div>
+        <div class="scene-skill">要件定義から実装まで完遂する自走力 × AIをチームメイトにする協働力</div>
+      </div>
+      <div class="scene-box">
+        <div class="role">営業・マーケ・CS</div>
+        <div class="scene">日常業務の中に「問い」を見いだし、AIで仕組み化。属人的な成果を再現性ある仕組みに変えていく。</div>
+        <div class="scene-skill">業務の中に問いを見いだす力 × 反復で改善する習慣</div>
+      </div>
+      <div class="scene-box">
+        <div class="role">DX推進／コーポレート</div>
+        <div class="scene">現場の課題を起点に業務オペをAI込みで再設計、小さく試して合意を作りながら横展開していく。</div>
+        <div class="scene-skill">全体俯瞰の設計力 × 反復で合意を作る進め方</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="back-flip">▶ 次頁では、受講生プロファイル・実装力データ・実プロダクト事例・前年度実績をご紹介します</div>
+</div>
+
+<!-- ========== 3ページ目 / 裏面：データ＆実績 ========== -->
+<div class="page back">
+  <div class="page-title">
+    <h1>受講生プロファイル</h1>
+    <div class="en">DATA &amp; PROTOTYPES — WHAT THEY'RE BUILDING</div>
+  </div>
+
+  <div class="back-grid">
+    <div>
+      <div class="stat-card">
+        <h3>第4期 受講生の構成</h3>
+        <div class="cohort-body">
+          <div class="cohort-list">
+            履修生　　　　 187名<br>
+            <span class="target">└ 学部3年　　　 89名</span><br>
+            <span class="target">└ 修士1年　　　 20名</span><br>
+            └ 学部4年　　　 68名<br>
+            └ その他　　　　10名<br>
+            <span class="target">社会人受講生　 50名</span>
+          </div>
+          <div class="highlight-stats three">
+            <div class="hs-item">
+              <div class="hs-label">新卒採用ターゲット</div>
+              <div class="hs-value"><strong>109</strong><span class="unit">名</span></div>
+              <div class="hs-note">学部3年 + 修士1年</div>
+            </div>
+            <div class="hs-item">
+              <div class="hs-label">うち情報系学科</div>
+              <div class="hs-value"><strong>64</strong><span class="unit">名</span> <span class="pct-badge">59%</span></div>
+              <div class="hs-note">情報工学・知能メディア ほか</div>
+            </div>
+            <div class="hs-item">
+              <div class="hs-label">社会人受講生</div>
+              <div class="hs-value"><strong>50</strong><span class="unit">名</span></div>
+              <div class="hs-note">中途／業務委託／副業候補としてご相談可</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="stat-card">
+        <h3>受講生の実装力</h3>
+        <table class="data">
+          <thead><tr><th>できていること</th><th style="text-align:right;">該当者</th><th style="text-align:right;">比率</th></tr></thead>
+          <tbody>
+            <tr><td>自分のサービスを公開・運用している(Vercel)</td><td style="text-align:right;">145名</td><td class="pct">78%</td></tr>
+            <tr><td>AIと協働で動くプロダクトをリリース済</td><td style="text-align:right;">137名</td><td class="pct">73%</td></tr>
+            <tr><td>コードをチーム開発できる形で管理(GitHub)</td><td style="text-align:right;">126名</td><td class="pct">67%</td></tr>
+            <tr><td>毎週のアプリ開発課題を期日内に提出継続中</td><td style="text-align:right;">98名</td><td class="pct">52%</td></tr>
+          </tbody>
+        </table>
+        <p style="margin-top:2mm; font-size:7.5pt; color:#444;">過半数の学生が、AIと協働して動くプロダクトを自分で公開・運用した実績を有しています。(授業は2026年7月まで継続中)</p>
+      </div>
+    </div>
+
+    <div>
+      <div class="stat-card">
+        <h3>7学部にわたる学際的バックグラウンド</h3>
+        <table class="data">
+          <tbody>
+            <tr><td><strong>工学部</strong></td><td>機械 / 電気電子 / 情報通信システム / 応用化学</td></tr>
+            <tr><td><strong>創造工学部</strong></td><td>未来ロボティクス / 知能メディア / 生命科学</td></tr>
+            <tr><td><strong>情報変革科学部</strong></td><td>情報工学 / 認知情報科学 / 高度応用情報科学</td></tr>
+            <tr><td><strong>未来変革科学部</strong></td><td>デジタル変革 / 経営デザイン</td></tr>
+            <tr><td><strong>建築都市環境学部</strong></td><td>建築 / 都市環境 / デザイン科学</td></tr>
+            <tr><td><strong>社会システム科学部</strong></td><td>プロジェクトマネジメント / 金融経営リスク</td></tr>
+            <tr><td><strong>大学院 各研究科</strong></td><td>工学・創造工学・先進工学・情報科学・社会システム科学</td></tr>
+          </tbody>
+        </table>
+        <p style="margin-top:2mm; font-size:7.5pt; color:#444;">技術職に加え、企画・PM・デザイン・ビジネス職にも適性のある人材が在籍しています。</p>
+
+        <div class="pie-wrap">
+          <div class="pie-title">就活生109名の学部別構成比</div>
+          <div class="pie-row">
+            <svg class="pie-svg" viewBox="0 0 100 100">
+              <circle r="25" cx="50" cy="50" fill="transparent" stroke="#0a2540" stroke-width="50"
+                stroke-dasharray="42 158" stroke-dashoffset="0" transform="rotate(-90 50 50)"/>
+              <circle r="25" cx="50" cy="50" fill="transparent" stroke="#ff6b35" stroke-width="50"
+                stroke-dasharray="37.5 162.5" stroke-dashoffset="-42" transform="rotate(-90 50 50)"/>
+              <circle r="25" cx="50" cy="50" fill="transparent" stroke="#1e3a5f" stroke-width="50"
+                stroke-dasharray="27 173" stroke-dashoffset="-79.5" transform="rotate(-90 50 50)"/>
+              <circle r="25" cx="50" cy="50" fill="transparent" stroke="#5d7a96" stroke-width="50"
+                stroke-dasharray="28.7 171.3" stroke-dashoffset="-106.5" transform="rotate(-90 50 50)"/>
+              <circle r="25" cx="50" cy="50" fill="transparent" stroke="#ffb289" stroke-width="50"
+                stroke-dasharray="20 180" stroke-dashoffset="-135.2" transform="rotate(-90 50 50)"/>
+              <circle r="25" cx="50" cy="50" fill="transparent" stroke="#c8ced5" stroke-width="50"
+                stroke-dasharray="1.5 198.5" stroke-dashoffset="-155.2" transform="rotate(-90 50 50)"/>
+            </svg>
+            <div class="pie-legend">
+              <div class="pl-item"><span class="pl-sw" style="background:#0a2540;"></span>情報変革科学部 <strong>27%</strong></div>
+              <div class="pl-item"><span class="pl-sw" style="background:#ff6b35;"></span>工学部 <strong>24%</strong></div>
+              <div class="pl-item"><span class="pl-sw" style="background:#5d7a96;"></span>大学院 各研究科 <strong>18%</strong></div>
+              <div class="pl-item"><span class="pl-sw" style="background:#1e3a5f;"></span>未来変革科学部 <strong>17%</strong></div>
+              <div class="pl-item"><span class="pl-sw" style="background:#ffb289;"></span>創造工学部 <strong>13%</strong></div>
+              <div class="pl-item"><span class="pl-sw" style="background:#c8ced5;"></span>建築都市環境学部 <strong>1%</strong></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="products">
+    <h3>受講生が開発した実プロダクト（一部抜粋）</h3>
+    <div class="product-grid">
+      <div class="product-card">
+        <img src="素材_チラシ用/_opt/プロダクト/02_Citation.jpg" alt="Citation Converter">
+        <div class="pname">Citation⇄BibTeX Converter</div>
+        <div class="pmeta">修士1年・情報科学研究科 / @oahan</div>
+        <div class="pdesc">論文の引用整形をGUI化。React + TypeScript + Vite + Claude Code + Crossref API。</div>
+        <div class="purl">↗ <a href="https://citation-bibtex-converter.vercel.app/">https://citation-bibtex-converter.vercel.app/</a></div>
+      </div>
+      <div class="product-card">
+        <img src="素材_チラシ用/_opt/プロダクト/01_ARCHETYPE.jpg" alt="ARCHETYPE">
+        <div class="pname">ARCHETYPE 企業研究・自己分析</div>
+        <div class="pmeta">学部3年・情報通信システム工学科 / 井上 頼</div>
+        <div class="pdesc">企業情報の自動収集と要約、自己分析×相性スコア、経営健全性ダッシュボード。</div>
+        <div class="purl">↗ <a href="https://career-research-app-archetype.vercel.app/">https://career-research-app-archetype.vercel.app/</a></div>
+      </div>
+      <div class="product-card">
+        <img src="素材_チラシ用/_opt/プロダクト/04_RecoverAI.jpg" alt="Recover AI">
+        <div class="pname">Recover AI コンディショニング</div>
+        <div class="pmeta">学部3年・経営デザイン科学科 / 高橋 広志</div>
+        <div class="pdesc">活動量から最適なリカバリストレッチと翌朝のスケジュールを提案するヘルスケアアプリ。</div>
+        <div class="purl">↗ <a href="https://ai-conditioning-app.vercel.app/">https://ai-conditioning-app.vercel.app/</a></div>
+      </div>
+      <div class="product-card">
+        <img src="素材_チラシ用/_opt/プロダクト/06_LawNavi.jpg" alt="Law Navi">
+        <div class="pname">Law Navi 法律抵触判定</div>
+        <div class="pmeta">修士1年・デザイン科学専攻 / @mwmw___</div>
+        <div class="pdesc">法律に詳しくない方向けに、状況を入力すると関連法律を示す社会課題対応ツール。</div>
+        <div class="purl">↗ <a href="https://law-navi-mu.vercel.app/">https://law-navi-mu.vercel.app/</a></div>
+      </div>
+      <div class="product-card">
+        <img src="素材_チラシ用/_opt/プロダクト/05_ちりつも.jpg" alt="ちりつも">
+        <div class="pname">ちりつも 自動おつり投資</div>
+        <div class="pmeta">学部3年・経営デザイン科学科 / 齋木 琳太朗</div>
+        <div class="pdesc">買い物のおつりを自動で少額投資し、投資の心理的ハードルを下げる金融プロダクト。</div>
+        <div class="purl">↗ <a href="https://chiritsumo-flame.vercel.app/">https://chiritsumo-flame.vercel.app/</a></div>
+      </div>
+      <div class="product-card">
+        <img src="素材_チラシ用/_opt/プロダクト/11_AIDownloads.jpg" alt="AI Downloads">
+        <div class="pname">AI Downloads 整理ダッシュボード</div>
+        <div class="pmeta">学部3年・情報工学科 / 飛田 啓斗</div>
+        <div class="pdesc">散らかったDownloadsをAIが中身を読んで自動で棚分け＋横断検索。</div>
+        <div class="purl">↗ <a href="https://kei-tk.github.io/kei_41529-web3ai-2026/">https://kei-tk.github.io/kei_41529-web3ai-2026/</a></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="prev-record">
+    <div class="layout">
+      <div class="text">
+        <h3>前年度「ChibaTech Expo 2025」の実績</h3>
+        <ul>
+          <li>参加者 <strong>240名</strong>（プログラミング未経験者が <strong>70%</strong>）</li>
+          <li><strong>60チーム</strong>が成果発表、<strong>75種類</strong>のプロダクトが誕生</li>
+          <li>東京都主催ハッカソンでファイナリストに選出</li>
+          <li>学生発プロダクトによる資金調達を実現</li>
+          <li>AI個別指導 累計132時間（教育費換算 約39.6万円相当）</li>
+        </ul>
+      </div>
+      <div class="photos">
+        <div class="photo">
+          <img src="素材_チラシ用/_opt/前年Expo/02_ブース展示.jpg" alt="ChibaTech Expo 2025 ブース展示の様子">
+          <div class="caption">企業の方とのブース対話</div>
+        </div>
+        <div class="photo">
+          <img src="素材_チラシ用/_opt/前年Expo/03_プレゼン詳細.jpg" alt="ChibaTech Expo 2025 プレゼンテーション">
+          <div class="caption">プレゼンテーション会場</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="partners">
+    <div>
+      <h3>主催・運営</h3>
+      <div class="org">
+        <strong>株式会社DOU</strong>(人材開発・採用支援事業)<br>
+        <strong>千葉工業大学</strong>(教育機関として講座を主催)
+      </div>
+    </div>
+    <div>
+      <h3>講師陣</h3>
+      <div class="credits">
+        <strong>科目責任者</strong>: 伊藤穰一（千葉工業大学 学長・変革センター所長）<br>
+        <strong>講義担当</strong>: 西村奈々 / 下瀬浩一 / 石部達也（株式会社DOU 代表取締役社長）/ 品田美帆 ほか
+      </div>
+    </div>
+  </div>
+
+</div>
+
+</body>
+</html>

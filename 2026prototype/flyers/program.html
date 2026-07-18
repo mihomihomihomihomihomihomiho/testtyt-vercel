@@ -1,0 +1,966 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>ChibaTech Prototype 当日プログラム（デジタル縁日 v3）</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DotGothic16&family=Press+Start+2P&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+@page { size: A4; margin: 0; }
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --night0: #050f1f;
+  --navy: #0a2540;
+  --navy2: #10345c;
+  --ink: #1c2a40;
+  --orange: #ff6b35;
+  --glow: #ffb289;
+  --red: #e63946;
+  --cyan: #4cc9f0;
+  --paper: #fdfaf4;
+  --hairline: #e2dacb;
+  --mut: #7d7466;
+}
+
+html, body {
+  font-family: "Zen Kaku Gothic New", "Hiragino Kaku Gothic ProN", "Yu Gothic", sans-serif;
+  color: var(--ink);
+  background: #e7e2d8;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+
+.page {
+  width: 210mm;
+  height: 297mm;
+  background: var(--paper);
+  background-image: radial-gradient(circle, rgba(10,37,64,0.05) 0.5px, transparent 0.5px);
+  background-size: 3.4mm 3.4mm;
+  margin: 20px auto;
+  padding: 8mm 11mm;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.12);
+  page-break-after: always;
+}
+.page:last-child { page-break-after: auto; }
+
+@media print {
+  body { background: white; }
+  .page { margin: 0; box-shadow: none; }
+}
+
+/* ========== 市松ピクセル帯 ========== */
+.checker {
+  width: calc(100% + 22mm);
+  margin: 0 -11mm 2.2mm -11mm;
+  height: 2.8mm;
+  background-image: conic-gradient(var(--red) 25%, var(--navy) 0 50%, var(--red) 0 75%, var(--navy) 0);
+  background-size: 2.8mm 2.8mm;
+}
+
+/* ========== ヒーロー（夜空ポスター） ========== */
+.hero {
+  width: calc(100% + 22mm);
+  margin: -8mm -11mm 0 -11mm;
+  background:
+    radial-gradient(130% 90% at 50% 118%, rgba(255,107,53,0.28) 0%, transparent 52%),
+    linear-gradient(168deg, var(--night0) 0%, var(--navy) 58%, var(--navy2) 100%);
+  color: white;
+  padding: 0 11mm 3.4mm 11mm;
+  position: relative;
+  overflow: hidden;
+}
+.hero .sky { position: absolute; inset: 0; width: 100%; height: 100%; }
+.hero .fw { position: absolute; }
+.hero .fw1 { top: 6mm; right: 7mm; width: 34mm; height: 34mm; }
+.hero .fw2 { top: 20mm; right: 40mm; width: 17mm; height: 17mm; opacity: 0.75; }
+.hero .fw3 { top: 6mm; right: 52mm; width: 11mm; height: 11mm; opacity: 0.5; }
+.garland { display: block; width: 100%; margin-bottom: 1.4mm; position: relative; z-index: 2; }
+.hero-body { position: relative; z-index: 1; }
+.hero .label {
+  display: inline-block;
+  background: var(--red);
+  color: white;
+  padding: 1.1mm 3.2mm;
+  font-size: 7.5pt;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  margin-bottom: 1.8mm;
+}
+.hero .eyebrow {
+  font-family: "Press Start 2P", monospace;
+  font-size: 5.6pt;
+  color: var(--cyan);
+  letter-spacing: 0.22em;
+  margin-bottom: 1.2mm;
+}
+.hero h1 {
+  font-family: "DotGothic16", sans-serif;
+  font-size: 24pt;
+  font-weight: 400;
+  line-height: 1.05;
+  letter-spacing: 0.01em;
+  text-shadow: 0.9mm 0.9mm 0 rgba(230,57,70,0.5), 1.8mm 1.8mm 0 rgba(76,201,240,0.28);
+  margin-bottom: 1.4mm;
+}
+.hero .catch {
+  font-size: 8.2pt;
+  line-height: 1.6;
+  opacity: 0.95;
+}
+.hero .catch .big {
+  display: block;
+  font-family: "DotGothic16", sans-serif;
+  font-size: 11.5pt;
+  color: var(--glow);
+  margin-bottom: 0.5mm;
+  letter-spacing: 0.04em;
+}
+.hero .sub {
+  font-size: 8.5pt;
+  font-weight: 700;
+  color: rgba(255,255,255,0.85);
+  margin-top: 0.6mm;
+}
+.ticket {
+  margin-top: 2mm;
+  display: flex;
+  gap: 8mm;
+  align-items: center;
+  border: 0.7pt dashed rgba(255,178,137,0.65);
+  background: rgba(255,255,255,0.055);
+  padding: 1.7mm 5mm;
+  font-size: 9.5pt;
+  font-weight: 700;
+}
+.ticket .k {
+  font-family: "Press Start 2P", monospace;
+  font-size: 5.2pt;
+  color: var(--glow);
+  letter-spacing: 0.14em;
+  margin-right: 2.2mm;
+}
+
+/* ========== タイムテーブル（すごろくレール） ========== */
+.timeline {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 2.5mm;
+  margin-bottom: 2.4mm;
+  position: relative;
+}
+.timeline::before {
+  content: "";
+  position: absolute;
+  top: 2.2mm;
+  left: 1mm;
+  right: 1mm;
+  border-top: 0.9pt dashed #c3b9a5;
+}
+.tl-item { position: relative; padding-top: 5.4mm; }
+.tl-item .node {
+  position: absolute;
+  top: 0.6mm;
+  left: 0;
+  width: 3.4mm;
+  height: 3.4mm;
+  background: var(--navy);
+  box-shadow: 0.9mm 0.9mm 0 rgba(10,37,64,0.18);
+}
+.tl-item.hot .node { background: var(--orange); box-shadow: 0.9mm 0.9mm 0 rgba(255,107,53,0.25); }
+.tl-item:last-child .node { background: var(--red); box-shadow: 0.9mm 0.9mm 0 rgba(230,57,70,0.22); }
+.tl-item .chip {
+  position: absolute;
+  top: 0.4mm;
+  left: 5.4mm;
+  font-family: "Press Start 2P", monospace;
+  font-size: 4.6pt;
+  color: var(--cyan);
+  letter-spacing: 0.1em;
+}
+.tl-item:last-child .chip { color: var(--red); }
+.tl-item .time {
+  font-family: "DotGothic16", monospace;
+  font-size: 10.5pt;
+  color: var(--navy);
+  line-height: 1;
+}
+.tl-item.hot .time { color: var(--orange); }
+.tl-item .what {
+  font-size: 8.2pt;
+  font-weight: 700;
+  color: var(--ink);
+  line-height: 1.3;
+  margin-top: 0.8mm;
+}
+.tl-item .note {
+  font-size: 6.2pt;
+  color: var(--mut);
+  line-height: 1.4;
+  margin-top: 0.5mm;
+}
+
+/* ========== セクション見出し ========== */
+.sec-head {
+  display: flex;
+  align-items: baseline;
+  gap: 2.6mm;
+  border-bottom: 1.3pt solid var(--navy);
+  padding-bottom: 1mm;
+  margin-bottom: 1.5mm;
+  position: relative;
+}
+.sec-head::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -2.4pt;
+  width: 24mm;
+  height: 1.1pt;
+  background: var(--orange);
+}
+.sec-head.demise-head::after { background: var(--red); }
+.sec-head .lantern { align-self: center; flex-shrink: 0; }
+.sec-head h2 {
+  font-family: "DotGothic16", sans-serif;
+  font-size: 13pt;
+  font-weight: 400;
+  color: var(--navy);
+  letter-spacing: 0.03em;
+}
+.sec-head .badge {
+  font-family: "Press Start 2P", monospace;
+  font-size: 5.8pt;
+  color: white;
+  background: var(--orange);
+  padding: 0.8mm 2.2mm;
+  letter-spacing: 0.04em;
+}
+.sec-head .badge.red { background: var(--red); }
+.sec-head .desc {
+  font-size: 6.8pt;
+  color: var(--mut);
+  margin-left: auto;
+}
+
+/* ========== 一覧 ========== */
+table.list {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 1.8mm;
+}
+table.list td {
+  padding: 0.72mm 1.6mm 0.72mm 0;
+  border-bottom: 0.4pt solid var(--hairline);
+  vertical-align: top;
+  font-size: 7pt;
+  line-height: 1.4;
+}
+table.list tr:last-child td { border-bottom: none; }
+table.list td.num { width: 6.6mm; padding-top: 0.85mm; }
+table.list td.num .sq {
+  display: inline-block;
+  width: 4.4mm;
+  height: 4.4mm;
+  border: 0.6pt solid var(--orange);
+  color: var(--orange);
+  font-family: "DotGothic16", monospace;
+  font-size: 8.5pt;
+  text-align: center;
+  line-height: 4.1mm;
+}
+table.list.demise td.num .sq { border-color: var(--red); color: var(--red); }
+table.list td.who { width: 53mm; padding-right: 3mm; }
+table.list .pname {
+  font-weight: 700;
+  color: var(--navy);
+  font-size: 7.8pt;
+  line-height: 1.3;
+}
+table.list .person {
+  font-size: 6.4pt;
+  color: var(--mut);
+  margin-top: 0.3mm;
+  letter-spacing: 0.04em;
+}
+table.list td.desc { color: #46403a; }
+
+/* ========== 表面フッター ========== */
+.front-foot { margin-top: 1mm; }
+.back-flip {
+  text-align: center;
+  background: var(--navy);
+  color: white;
+  padding: 2.2mm;
+  font-family: "DotGothic16", sans-serif;
+  font-size: 9.5pt;
+  letter-spacing: 0.06em;
+}
+.back-flip .hl { color: var(--glow); }
+.back-flip .sq { color: var(--cyan); }
+
+/* ========== 裏面ヘッダー ========== */
+.back .page-head {
+  width: calc(100% + 22mm);
+  margin: -8mm -11mm 0 -11mm;
+  background:
+    radial-gradient(130% 110% at 50% 130%, rgba(255,107,53,0.24) 0%, transparent 50%),
+    linear-gradient(168deg, var(--night0) 0%, var(--navy) 58%, var(--navy2) 100%);
+  color: white;
+  padding: 0 11mm 3.4mm 11mm;
+  position: relative;
+  overflow: hidden;
+}
+.back .page-head .fw { position: absolute; }
+.back .page-head .fw1 { top: -2mm; right: 26mm; width: 14mm; height: 14mm; opacity: 0.5; }
+.back .page-head .fw2 { top: 2mm; right: 46mm; width: 8mm; height: 8mm; opacity: 0.35; }
+.back .head-row {
+  display: flex;
+  align-items: baseline;
+  gap: 4.5mm;
+  position: relative;
+  z-index: 1;
+}
+.back .head-row .eyebrow {
+  font-family: "Press Start 2P", monospace;
+  font-size: 5.2pt;
+  color: var(--cyan);
+  letter-spacing: 0.2em;
+}
+.back .head-row h1 {
+  font-family: "DotGothic16", sans-serif;
+  font-size: 18pt;
+  font-weight: 400;
+  text-shadow: 0.7mm 0.7mm 0 rgba(230,57,70,0.5), 1.4mm 1.4mm 0 rgba(76,201,240,0.28);
+}
+.back .head-row .time-badge {
+  font-family: "DotGothic16", monospace;
+  font-size: 13pt;
+  color: var(--glow);
+}
+.back .head-row .desc {
+  font-size: 7.8pt;
+  opacity: 0.9;
+  margin-left: auto;
+}
+
+/* ========== ピッチ（プログラム誌風） ========== */
+.pitch-list {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 2.6mm;
+}
+.pitch-card {
+  display: grid;
+  grid-template-columns: 15mm 1fr;
+  gap: 3.5mm;
+  padding: 1.9mm 0;
+  border-bottom: 0.4pt solid var(--hairline);
+  align-items: start;
+}
+.pitch-card:last-child { border-bottom: none; }
+.pitch-card .no {
+  text-align: left;
+  padding-top: 0.4mm;
+}
+.pitch-card .no .lbl {
+  display: block;
+  font-family: "Press Start 2P", monospace;
+  font-size: 4.4pt;
+  color: var(--mut);
+  letter-spacing: 0.12em;
+  margin-bottom: 0.8mm;
+}
+.pitch-card .no .n {
+  display: inline-block;
+  width: 7.5mm;
+  height: 7.5mm;
+  border: 0.7pt solid var(--orange);
+  color: var(--orange);
+  font-family: "DotGothic16", monospace;
+  font-size: 13pt;
+  text-align: center;
+  line-height: 7mm;
+  box-shadow: 1mm 1mm 0 rgba(255,107,53,0.18);
+}
+.pitch-card .title {
+  font-size: 10.5pt;
+  font-weight: 700;
+  color: var(--navy);
+  line-height: 1.3;
+}
+.pitch-card .speaker {
+  font-size: 7.8pt;
+  font-weight: 700;
+  color: var(--red);
+  margin-top: 0.5mm;
+}
+.pitch-card .speaker::before { content: "▸ "; color: var(--orange); }
+.pitch-card .desc {
+  font-size: 7.5pt;
+  color: #46403a;
+  line-height: 1.5;
+  margin-top: 0.7mm;
+}
+
+/* ========== RESULTウィンドウ ========== */
+.award-box {
+  background: var(--navy);
+  color: white;
+  padding: 2.6mm 4.5mm;
+  margin: 0 0.4mm 2.6mm 0.4mm;
+  border: 1pt solid white;
+  box-shadow: 0 0 0 1.1mm var(--navy), inset 0 0 0 0.6mm var(--navy), inset 0 0 0 0.8mm rgba(76,201,240,0.5);
+}
+.award-box h3 {
+  font-family: "DotGothic16", sans-serif;
+  font-size: 11pt;
+  font-weight: 400;
+  color: var(--glow);
+  margin-bottom: 1mm;
+}
+.award-box h3 .rslt {
+  font-family: "Press Start 2P", monospace;
+  font-size: 6.2pt;
+  color: var(--cyan);
+  margin-right: 2.6mm;
+}
+.award-box h3 .time { margin-right: 2.2mm; }
+.award-box p { font-size: 7.7pt; line-height: 1.55; opacity: 0.95; }
+.award-box strong { color: var(--glow); }
+
+/* ========== 会場マップ＋ポータル ========== */
+.bottom-grid {
+  display: grid;
+  grid-template-columns: 1fr 78mm;
+  gap: 3.5mm;
+  align-items: stretch;
+  margin: 0 0.4mm 2.2mm 0.4mm;
+}
+.venue-map {
+  background: white;
+  border: 0.7pt solid var(--navy);
+  box-shadow: 1.1mm 1.1mm 0 rgba(10,37,64,0.14);
+  padding: 2.2mm 3mm 2.4mm 3mm;
+  display: flex;
+  flex-direction: column;
+}
+.venue-map .vm-title {
+  font-family: "DotGothic16", sans-serif;
+  font-size: 9.5pt;
+  color: var(--navy);
+  margin-bottom: 1.2mm;
+  letter-spacing: 0.02em;
+}
+.venue-map .vm-svg { width: 100%; flex: 1; min-height: 24mm; }
+.venue-map .vm-caption { font-size: 6.1pt; color: var(--mut); margin-top: 1mm; }
+.portal-box {
+  background: var(--navy);
+  color: white;
+  padding: 2.2mm 4mm 2.6mm 4mm;
+  display: flex;
+  flex-direction: column;
+  border: 1pt solid white;
+  box-shadow: 0 0 0 1.1mm var(--navy), inset 0 0 0 0.6mm var(--navy), inset 0 0 0 0.8mm rgba(76,201,240,0.5);
+}
+.portal-box h3 {
+  font-family: "DotGothic16", sans-serif;
+  font-size: 10pt;
+  font-weight: 400;
+  color: var(--glow);
+  margin-bottom: 1.1mm;
+}
+.portal-box p { font-size: 7pt; line-height: 1.5; opacity: 0.95; }
+.portal-box p strong { color: var(--glow); }
+.portal-box .qr-row {
+  display: flex;
+  gap: 3.5mm;
+  align-items: center;
+  margin-top: auto;
+  padding-top: 1.6mm;
+}
+.qr-slot {
+  width: 18mm;
+  height: 18mm;
+  background: white;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #bbb;
+  font-size: 5.8pt;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  border: 1.2pt dashed #c8ced5;
+}
+.portal-box .qr-note { font-size: 7.4pt; font-weight: 700; line-height: 1.5; }
+.portal-box .qr-note .arrow { color: var(--cyan); }
+.portal-box .qr-note small {
+  display: block;
+  font-size: 6.1pt;
+  font-weight: 400;
+  color: rgba(255,255,255,0.7);
+  margin-top: 0.8mm;
+}
+
+.photo-note {
+  border-left: 2mm solid var(--navy);
+  background: rgba(10,37,64,0.05);
+  padding: 1.4mm 3mm;
+  font-size: 6.7pt;
+  line-height: 1.45;
+  color: #46403a;
+}
+.photo-note strong { color: var(--navy); }
+
+.back-foot {
+  position: absolute;
+  left: 11mm;
+  right: 11mm;
+  bottom: 6mm;
+  border-top: 1pt solid var(--navy);
+  padding-top: 1.8mm;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  font-size: 6.7pt;
+  color: var(--mut);
+  line-height: 1.5;
+}
+.back-foot strong { color: var(--navy); }
+.back-foot .right { text-align: right; }
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute;">
+  <defs>
+    <radialGradient id="lampGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#ffb289" stop-opacity="0.55"/>
+      <stop offset="60%" stop-color="#ffb289" stop-opacity="0.16"/>
+      <stop offset="100%" stop-color="#ffb289" stop-opacity="0"/>
+    </radialGradient>
+    <g id="lantern-o">
+      <rect x="4" y="0" width="4" height="2" fill="#5d7a96"/>
+      <rect x="2" y="2" width="8" height="2" fill="#c9552a"/>
+      <rect x="0" y="4" width="12" height="10" fill="#ff6b35"/>
+      <rect x="2" y="4" width="2" height="10" fill="#ffb289"/>
+      <rect x="8" y="4" width="2" height="10" fill="#e0562a"/>
+      <rect x="2" y="14" width="8" height="2" fill="#c9552a"/>
+      <rect x="4" y="16" width="4" height="2" fill="#5d7a96"/>
+    </g>
+    <g id="lantern-r">
+      <rect x="4" y="0" width="4" height="2" fill="#5d7a96"/>
+      <rect x="2" y="2" width="8" height="2" fill="#b32734"/>
+      <rect x="0" y="4" width="12" height="10" fill="#e63946"/>
+      <rect x="2" y="4" width="2" height="10" fill="#f28b94"/>
+      <rect x="8" y="4" width="2" height="10" fill="#c42836"/>
+      <rect x="2" y="14" width="8" height="2" fill="#b32734"/>
+      <rect x="4" y="16" width="4" height="2" fill="#5d7a96"/>
+    </g>
+    <g id="fw-burst">
+      <rect x="47" y="47" width="6" height="6" fill="#fff"/>
+      <rect x="47" y="30" width="6" height="6" fill="#4cc9f0"/>
+      <rect x="47" y="64" width="6" height="6" fill="#4cc9f0"/>
+      <rect x="30" y="47" width="6" height="6" fill="#4cc9f0"/>
+      <rect x="64" y="47" width="6" height="6" fill="#4cc9f0"/>
+      <rect x="35" y="35" width="5" height="5" fill="#ff6b35"/>
+      <rect x="60" y="35" width="5" height="5" fill="#ff6b35"/>
+      <rect x="35" y="60" width="5" height="5" fill="#ff6b35"/>
+      <rect x="60" y="60" width="5" height="5" fill="#ff6b35"/>
+      <rect x="48" y="14" width="4" height="4" fill="#ffb289"/>
+      <rect x="48" y="82" width="4" height="4" fill="#ffb289"/>
+      <rect x="14" y="48" width="4" height="4" fill="#ffb289"/>
+      <rect x="82" y="48" width="4" height="4" fill="#ffb289"/>
+      <rect x="24" y="24" width="4" height="4" fill="#e63946"/>
+      <rect x="72" y="24" width="4" height="4" fill="#e63946"/>
+      <rect x="24" y="72" width="4" height="4" fill="#e63946"/>
+      <rect x="72" y="72" width="4" height="4" fill="#e63946"/>
+      <rect x="48" y="2" width="3" height="3" fill="#4cc9f0"/>
+      <rect x="48" y="95" width="3" height="3" fill="#4cc9f0"/>
+      <rect x="2" y="48" width="3" height="3" fill="#4cc9f0"/>
+      <rect x="95" y="48" width="3" height="3" fill="#4cc9f0"/>
+    </g>
+    <g id="lantern-mini">
+      <rect x="3" y="0" width="3" height="1.5" fill="#5d7a96"/>
+      <rect x="1.5" y="1.5" width="6" height="1.5" fill="#c9552a"/>
+      <rect x="0" y="3" width="9" height="7" fill="#ff6b35"/>
+      <rect x="1.5" y="3" width="1.5" height="7" fill="#ffb289"/>
+      <rect x="1.5" y="10" width="6" height="1.5" fill="#c9552a"/>
+      <rect x="3" y="11.5" width="3" height="1.5" fill="#5d7a96"/>
+    </g>
+    <g id="stars">
+      <rect x="30" y="18" width="2" height="2" fill="rgba(255,255,255,0.8)"/>
+      <rect x="90" y="8" width="1.6" height="1.6" fill="rgba(255,255,255,0.55)"/>
+      <rect x="150" y="26" width="2" height="2" fill="rgba(76,201,240,0.7)"/>
+      <rect x="215" y="12" width="1.6" height="1.6" fill="rgba(255,255,255,0.6)"/>
+      <rect x="275" y="30" width="2" height="2" fill="rgba(255,178,137,0.7)"/>
+      <rect x="335" y="10" width="1.6" height="1.6" fill="rgba(255,255,255,0.5)"/>
+      <rect x="395" y="24" width="2" height="2" fill="rgba(255,255,255,0.75)"/>
+      <rect x="450" y="14" width="1.6" height="1.6" fill="rgba(76,201,240,0.6)"/>
+      <rect x="505" y="30" width="2" height="2" fill="rgba(255,255,255,0.6)"/>
+      <rect x="60" y="42" width="1.6" height="1.6" fill="rgba(76,201,240,0.55)"/>
+      <rect x="185" y="46" width="1.6" height="1.6" fill="rgba(255,255,255,0.5)"/>
+      <rect x="310" y="44" width="1.6" height="1.6" fill="rgba(255,178,137,0.6)"/>
+      <rect x="430" y="40" width="1.6" height="1.6" fill="rgba(255,255,255,0.55)"/>
+      <rect x="120" y="60" width="2" height="2" fill="rgba(255,255,255,0.45)"/>
+      <rect x="250" y="58" width="1.6" height="1.6" fill="rgba(76,201,240,0.5)"/>
+      <rect x="370" y="62" width="1.6" height="1.6" fill="rgba(255,255,255,0.5)"/>
+    </g>
+  </defs>
+</svg>
+
+<!-- ========== 表面 ========== -->
+<div class="page front">
+  <div class="hero">
+    <svg class="sky" viewBox="0 0 560 200" preserveAspectRatio="xMidYMin slice"><use href="#stars"/></svg>
+    <svg class="fw fw1" viewBox="0 0 100 100"><use href="#fw-burst"/></svg>
+    <svg class="fw fw2" viewBox="0 0 100 100"><use href="#fw-burst"/></svg>
+    <svg class="fw fw3" viewBox="0 0 100 100"><use href="#fw-burst"/></svg>
+    <svg class="garland" viewBox="0 0 840 34" preserveAspectRatio="xMidYMin meet">
+      <path d="M0,4 Q105,15 210,7 T420,7 T630,7 T840,4" fill="none" stroke="rgba(255,178,137,0.55)" stroke-width="1.5" stroke-dasharray="4 3"/>
+      <circle cx="40" cy="19" r="15" fill="url(#lampGlow)"/>
+      <circle cx="136" cy="22" r="13" fill="url(#lampGlow)"/>
+      <circle cx="232" cy="18" r="15" fill="url(#lampGlow)"/>
+      <circle cx="328" cy="21" r="13" fill="url(#lampGlow)"/>
+      <circle cx="424" cy="18" r="15" fill="url(#lampGlow)"/>
+      <circle cx="520" cy="21" r="13" fill="url(#lampGlow)"/>
+      <circle cx="616" cy="18" r="15" fill="url(#lampGlow)"/>
+      <circle cx="712" cy="22" r="13" fill="url(#lampGlow)"/>
+      <circle cx="800" cy="18" r="15" fill="url(#lampGlow)"/>
+      <use href="#lantern-o" x="34" y="10"/>
+      <use href="#lantern-r" x="130" y="13"/>
+      <use href="#lantern-o" x="226" y="9"/>
+      <use href="#lantern-r" x="322" y="12"/>
+      <use href="#lantern-o" x="418" y="9"/>
+      <use href="#lantern-r" x="514" y="12"/>
+      <use href="#lantern-o" x="610" y="9"/>
+      <use href="#lantern-r" x="706" y="13"/>
+      <use href="#lantern-o" x="794" y="9"/>
+    </svg>
+    <div class="hero-body">
+      <span class="label">ご来場企業様向け 当日プログラム</span>
+      <div class="eyebrow">CHIBA INSTITUTE OF TECHNOLOGY ── WEB3 / AI DIGITAL ENNICHI</div>
+      <h1>ChibaTech Prototype</h1>
+      <div class="catch">
+        <span class="big">ようこそ、デジタル縁日へ。</span>
+        学生のプロダクトを、見て・触って・遊べる一日です。本紙を片手に、各屋台（ブース）をぜひお楽しみください。
+      </div>
+      <div class="sub">千葉工業大学「web3/AI概論」第4期 最終発表会</div>
+      <div class="ticket">
+        <span><span class="k">DATE</span>2026年7月16日（木）15:00 - 17:00</span>
+        <span><span class="k">PLACE</span>千葉工業大学 津田沼キャンパス 7号館2F 演習室722</span>
+      </div>
+    </div>
+  </div>
+  <div class="checker"></div>
+
+  <div class="timeline">
+    <div class="tl-item">
+      <span class="node"></span><span class="chip">START</span>
+      <div class="time">14:50</div>
+      <div class="what">企業様 受付</div>
+      <div class="note">演習室722前にて</div>
+    </div>
+    <div class="tl-item">
+      <span class="node"></span>
+      <div class="time">15:00</div>
+      <div class="what">開会・ご案内</div>
+      <div class="note">講師より当日の流れをご案内（学生・企業様合同）</div>
+    </div>
+    <div class="tl-item hot">
+      <span class="node"></span>
+      <div class="time">15:10</div>
+      <div class="what">ブース周遊タイム</div>
+      <div class="note">ポスター発表・デジタル出店（Demise）・展示・お買い物体験</div>
+    </div>
+    <div class="tl-item hot">
+      <span class="node"></span>
+      <div class="time">15:40</div>
+      <div class="what">ピッチ大会</div>
+      <div class="note">受講生8名によるプレゼンテーション → 詳細は裏面へ</div>
+    </div>
+    <div class="tl-item">
+      <span class="node"></span><span class="chip">GOAL</span>
+      <div class="time">16:30</div>
+      <div class="what">賞の発表</div>
+      <div class="note">16:50 終了予定</div>
+    </div>
+  </div>
+
+  <div class="sec-head">
+    <svg class="lantern" width="13" height="19" viewBox="0 0 9 13"><use href="#lantern-mini"/></svg>
+    <h2>展示ブース</h2>
+    <span class="badge">11 BOOTHS</span>
+    <span class="desc">実際に動くプロダクトを、開発した受講生本人がご紹介します</span>
+  </div>
+  <table class="list">
+    <tr>
+      <td class="num"><span class="sq">1</span></td>
+      <td class="who"><div class="pname">メタバーススナックUMAO</div><div class="person">@mao_toyosaki</div></td>
+      <td class="desc">「AIは居場所になれるのか？」── スナックに"入店"し、AIママや常連キャラクターとの会話を体験。また来たくなる居場所をAIでつくれるか検証中</td>
+    </tr>
+    <tr>
+      <td class="num"><span class="sq">2</span></td>
+      <td class="who"><div class="pname">Trust Design Navi（TDN）</div><div class="person">@rucola9299</div></td>
+      <td class="desc">40–50代が主体的に「終活」へ備える、学ぶ・決める・託すの3レイヤー型Webプラットフォーム。診断・AIナビゲーター・家系図エディタを搭載</td>
+    </tr>
+    <tr>
+      <td class="num"><span class="sq">3</span></td>
+      <td class="who"><div class="pname">life-tips</div><div class="person">@ants1180</div></td>
+      <td class="desc">生活の知恵をみんなで共有する掲示板アプリ</td>
+    </tr>
+    <tr>
+      <td class="num"><span class="sq">4</span></td>
+      <td class="who"><div class="pname">進路版ピンタレスト</div><div class="person">@ouka.yuki</div></td>
+      <td class="desc">学部学科診断×研究記事×お気に入りボード。ユーザー同士がボードを見せ合い、興味を広げ深める進路探索サービス</td>
+    </tr>
+    <tr>
+      <td class="num"><span class="sq">5</span></td>
+      <td class="who"><div class="pname">マルチDAO クエスト手帳</div><div class="person">@maiko_p</div></td>
+      <td class="desc">Discordで話すだけでDAOに参加。AIボット「Dappy」が貢献を記録し、月次でトークン化するマルチDAOプラットフォーム</td>
+    </tr>
+    <tr>
+      <td class="num"><span class="sq">6</span></td>
+      <td class="who"><div class="pname">Plan-co（ぷらんこ）</div><div class="person">@2525_333</div></td>
+      <td class="desc">「次どこ行く？」をリアルタイム投票×AI提案×ルーレットでゲーム感覚に決める、協調型おでかけプランナー（PWA）</td>
+    </tr>
+    <tr>
+      <td class="num"><span class="sq">7</span></td>
+      <td class="who"><div class="pname">yomitoku（よみとく）</div><div class="person">@mwmw___</div></td>
+      <td class="desc">法律・契約・規約をAIが根拠付きでやさしく読み解くナビ。実在判例の提示や契約書の条項解説も</td>
+    </tr>
+    <tr>
+      <td class="num"><span class="sq">8</span></td>
+      <td class="who"><div class="pname">digi-set</div><div class="person">@spark6432</div></td>
+      <td class="desc">手持ちの服をAIが自動タグ付けし、天気連動で1週間分のコーデを提案するAIクローゼット</td>
+    </tr>
+    <tr>
+      <td class="num"><span class="sq">9</span></td>
+      <td class="who"><div class="pname">顔認識クレーンゲーム ／ RAG動画検索</div><div class="person">@ooooottttt0486</div></td>
+      <td class="desc">顔認識でプレイヤーごとの利用を判定するクレーンゲーム（Unity）と、自然な言葉で自分の動画を探せるRAG検索システム</td>
+    </tr>
+    <tr>
+      <td class="num"><span class="sq">10</span></td>
+      <td class="who"><div class="pname">AI家計簿</div><div class="person">@akihirotada2</div></td>
+      <td class="desc">物価高時代の新しい家計簿。続けられる工夫と、AIならではのレポート機能</td>
+    </tr>
+    <tr>
+      <td class="num"><span class="sq">11</span></td>
+      <td class="who"><div class="pname">効率化によって消えつつある人間らしさについて</div><div class="person">@otakukun00</div></td>
+      <td class="desc">効率主義へのアンチテーゼ。哲学的な問いに向き合い内省するプライベートジャーナルアプリ</td>
+    </tr>
+  </table>
+
+  <div class="sec-head demise-head">
+    <svg class="lantern" width="13" height="19" viewBox="0 0 9 13"><use href="#lantern-mini"/></svg>
+    <h2>デジタル出店 Demise</h2>
+    <span class="badge red">9 STORES</span>
+    <span class="desc">縁日のように"遊べる"デジタル出店 ── その場でぜひご体験ください</span>
+  </div>
+  <table class="list demise">
+    <tr>
+      <td class="num"><span class="sq">1</span></td>
+      <td class="who"><div class="pname">Voiceチェンジャー</div><div class="person">@_yoshimin</div></td>
+      <td class="desc">好きな芸能人やキャラクターの声に、自分の声をリアルタイム変換するボイスチェンジャー。「もし愛犬が話したら？」の実現も構想中</td>
+    </tr>
+    <tr>
+      <td class="num"><span class="sq">2</span></td>
+      <td class="who"><div class="pname">たばこみゅにけーしょん</div><div class="person">@kouki_1005</div></td>
+      <td class="desc">一人暮らし大学生向けに、酒・タバコの情報を「教科書×匿名掲示板×AI要約」の3層で扱うWebアプリ。法律面の注意喚起コーナーも</td>
+    </tr>
+    <tr>
+      <td class="num"><span class="sq">3</span></td>
+      <td class="who"><div class="pname">見やすいWebページを作ろう</div><div class="person">@oahan</div></td>
+      <td class="desc">色・フォント・レイアウトを自由に組み合わせてWebページをデザインし、生成AIが3つの観点から採点する体験型Webゲーム</td>
+    </tr>
+    <tr>
+      <td class="num"><span class="sq">4</span></td>
+      <td class="who"><div class="pname">ICHIGOでガチャガチャ！！！</div><div class="person">@o_otiek</div></td>
+      <td class="desc">スマホ・PCで決済するとロックが解除される"物理"ガチャガチャ。マイコン（ESP）×サーボモーターで制作</td>
+    </tr>
+    <tr>
+      <td class="num"><span class="sq">5</span></td>
+      <td class="who"><div class="pname">ラブ♡100%を目指せ?! 相性診断</div><div class="person">@hakumai0074・比志 佳代</div></td>
+      <td class="desc">Mac2台とカメラで、来場者2人がその場で遊べる相性診断ゲーム。ニックネームと質問の回答から相性を判定</td>
+    </tr>
+    <tr>
+      <td class="num"><span class="sq">6</span></td>
+      <td class="who"><div class="pname">常世の金魚すくい</div><div class="person">@.maclaser</div></td>
+      <td class="desc">テキストを入れると毎回違う絵をAIが生成する「金魚すくいの出店」。秘密のキーワードで物語体験が始まる、遊べる批評SF</td>
+    </tr>
+    <tr>
+      <td class="num"><span class="sq">7</span></td>
+      <td class="who"><div class="pname">プロトタイプ勝負</div><div class="person">@ksmochi1</div></td>
+      <td class="desc">お題により近いものをAIで出力できた方が勝ち ── その場で競うAIプロトタイピング対決</td>
+    </tr>
+    <tr>
+      <td class="num"><span class="sq">8</span></td>
+      <td class="who"><div class="pname">個人事業主向け複式簿記アプリ</div><div class="person">@tbd_cit</div></td>
+      <td class="desc">ブロックチェーン取引の複式簿記作成をサポート。帳簿がブラウザ内で完結するローカルファースト設計（Rust×WASM）</td>
+    </tr>
+    <tr>
+      <td class="num"><span class="sq">9</span></td>
+      <td class="who"><div class="pname">AI GRIMOIRE ─ 声で戦う詠唱エンタメ</div><div class="person">@mmm.sszuka</div></td>
+      <td class="desc">声で呪文を詠唱して戦うゲーム。気迫を込めて叫ぶほど魔法が強くなり、最後はAIが声質タイプを診断</td>
+    </tr>
+  </table>
+
+  <div class="front-foot">
+    <div class="back-flip"><span class="sq">▶</span> 裏面は <span class="hl">ピッチ大会（15:40 - 16:30）</span> のプログラムです</div>
+  </div>
+</div>
+
+<!-- ========== 裏面 ========== -->
+<div class="page back">
+  <div class="page-head">
+    <svg class="fw fw1" viewBox="0 0 100 100"><use href="#fw-burst"/></svg>
+    <svg class="fw fw2" viewBox="0 0 100 100"><use href="#fw-burst"/></svg>
+    <svg class="garland" viewBox="0 0 840 34" preserveAspectRatio="xMidYMin meet">
+      <path d="M0,4 Q105,15 210,7 T420,7 T630,7 T840,4" fill="none" stroke="rgba(255,178,137,0.55)" stroke-width="1.5" stroke-dasharray="4 3"/>
+      <circle cx="40" cy="19" r="14" fill="url(#lampGlow)"/>
+      <circle cx="232" cy="18" r="14" fill="url(#lampGlow)"/>
+      <circle cx="424" cy="18" r="14" fill="url(#lampGlow)"/>
+      <circle cx="616" cy="18" r="14" fill="url(#lampGlow)"/>
+      <circle cx="800" cy="18" r="14" fill="url(#lampGlow)"/>
+      <use href="#lantern-r" x="34" y="10"/>
+      <use href="#lantern-o" x="130" y="13"/>
+      <use href="#lantern-r" x="226" y="9"/>
+      <use href="#lantern-o" x="322" y="12"/>
+      <use href="#lantern-r" x="418" y="9"/>
+      <use href="#lantern-o" x="514" y="12"/>
+      <use href="#lantern-r" x="610" y="9"/>
+      <use href="#lantern-o" x="706" y="13"/>
+      <use href="#lantern-r" x="794" y="9"/>
+    </svg>
+    <div class="head-row">
+      <h1>ピッチ大会</h1>
+      <span class="time-badge">15:40 - 16:30</span>
+      <span class="desc">受講生8名が、3ヶ月間の集大成をプレゼンテーションします</span>
+    </div>
+  </div>
+  <div class="checker"></div>
+
+  <div class="pitch-list">
+    <div class="pitch-card">
+      <div class="no"><span class="lbl">PITCH</span><span class="n">1</span></div>
+      <div>
+        <div class="title">おそのおうち自動化システム</div>
+        <div class="speaker">@gorudorenzu</div>
+        <div class="desc">実店舗業務の自動化に挑む ── AIエージェント × ローカルLLM × MCP の実践的な活用事例をプレゼンテーション</div>
+      </div>
+    </div>
+    <div class="pitch-card">
+      <div class="no"><span class="lbl">PITCH</span><span class="n">2</span></div>
+      <div>
+        <div class="title">仕訳帳監査システム</div>
+        <div class="speaker">@pingguanyangren</div>
+        <div class="desc">仕訳帳のデータを取り込み、自動で監査・評価を行うシステム</div>
+      </div>
+    </div>
+    <div class="pitch-card">
+      <div class="no"><span class="lbl">PITCH</span><span class="n">3</span></div>
+      <div>
+        <div class="title">rowke（ローク）── 子どもの"成長の航跡"を見つけるアート教室アプリ</div>
+        <div class="speaker">@flotan</div>
+        <div class="desc">「上手い・下手」で評価しないアート教室アプリ。AI講師「Wake先生」が視点を広げて寄り添い、3Dバーチャル展示室や"世界に一枚の修了証"で、先生と保護者が子どもの成長を見守る</div>
+      </div>
+    </div>
+    <div class="pitch-card">
+      <div class="no"><span class="lbl">PITCH</span><span class="n">4</span></div>
+      <div>
+        <div class="title">AI Cording with Joy-Con</div>
+        <div class="speaker">@reimen0984_99074</div>
+        <div class="desc">Claude Code の承認待ちを Joy-Con の振動でお知らせ ── ゲームコントローラーでAIコーディング体験をほんの少し快適に</div>
+      </div>
+    </div>
+    <div class="pitch-card">
+      <div class="no"><span class="lbl">PITCH</span><span class="n">5</span></div>
+      <div>
+        <div class="title">明日を、いっしょに読む ── B.Forecast</div>
+        <div class="speaker">@yoshihirokubota</div>
+        <div class="desc">POS・レジのCSVを取り込むだけで「明日どれだけ売れるか」「今日いくつ発注すべきか」を1画面で提示する、中小小売・食品事業者向けの需要予測ダッシュボード</div>
+      </div>
+    </div>
+    <div class="pitch-card">
+      <div class="no"><span class="lbl">PITCH</span><span class="n">6</span></div>
+      <div>
+        <div class="title">取り調べ開発</div>
+        <div class="speaker">@test0k</div>
+        <div class="desc">AIが人間から徹底的に聞き出す ── 開発初学者がAIに適切なコンテキストを渡せるようにする、要件定義サポートシステム</div>
+      </div>
+    </div>
+    <div class="pitch-card">
+      <div class="no"><span class="lbl">PITCH</span><span class="n">7</span></div>
+      <div>
+        <div class="title">My Portal ── 望む成果を確実に創り出すためのダッシュボード</div>
+        <div class="speaker">@chica_75969</div>
+        <div class="desc">自作ツール群を統合するモジュール型ダッシュボード。「AIに委ねるべき領域と、人間が保持すべき領域」の研究知見もあわせて語る</div>
+      </div>
+    </div>
+    <div class="pitch-card">
+      <div class="no"><span class="lbl">PITCH</span><span class="n">8</span></div>
+      <div>
+        <div class="title">タイトル未定（当日発表）</div>
+        <div class="speaker">@splatoon1ikahan</div>
+        <div class="desc">現在開発中のプロダクト（MVP）を当日発表予定 ── どんなプロダクトが登場するかは、当日のお楽しみ</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="award-box">
+    <h3><span class="rslt">RESULT</span><span class="time">16:30 - 16:50</span>賞の発表</h3>
+    <p>ピッチ・ブースをふまえた賞の発表を行います。<strong>企業の皆さまよりコメントを頂戴する場合がございます</strong>が、ご無理のない範囲で結構です（強制ではございません）。学生への率直なフィードバックを、ぜひお聞かせください。</p>
+  </div>
+
+  <div class="bottom-grid">
+    <div class="venue-map">
+      <div class="vm-title">会場マップ（7号館2F 演習室722）</div>
+      <svg class="vm-svg" viewBox="0 0 200 96" preserveAspectRatio="xMidYMid meet">
+        <rect x="2" y="2" width="196" height="92" fill="none" stroke="#0a2540" stroke-width="1.5"/>
+        <rect x="6" y="6" width="30" height="13" fill="#fff4ed" stroke="#e63946" stroke-width="0.6"/>
+        <text x="21" y="14.5" font-size="5.8" text-anchor="middle" fill="#0a2540" font-weight="bold">受付</text>
+        <rect x="52" y="6" width="122" height="24" fill="#0a2540"/>
+        <text x="113" y="17" font-size="7.5" text-anchor="middle" fill="#ffb289" font-weight="bold">ピッチステージ</text>
+        <text x="113" y="25" font-size="5" text-anchor="middle" fill="rgba(255,255,255,0.85)">15:40 - 16:30 ピッチ大会 ／ 16:30 - 16:50 賞の発表</text>
+        <rect x="6" y="38" width="92" height="30" fill="#f7f5f1" stroke="#0a2540" stroke-width="0.5"/>
+        <text x="52" y="51" font-size="6.8" text-anchor="middle" fill="#0a2540" font-weight="bold">展示ブース（11）</text>
+        <text x="52" y="60" font-size="5" text-anchor="middle" fill="#666">15:10 - 15:40 ブース周遊タイム</text>
+        <rect x="102" y="38" width="92" height="30" fill="#fff4ed" stroke="#e63946" stroke-width="0.5"/>
+        <text x="148" y="51" font-size="6.8" text-anchor="middle" fill="#0a2540" font-weight="bold">デジタル出店 Demise（9）</text>
+        <text x="148" y="60" font-size="5" text-anchor="middle" fill="#e63946">15:10 - 15:40 ブース周遊タイム</text>
+        <rect x="6" y="74" width="188" height="16" fill="#e9ecf2" stroke="#5d7a96" stroke-width="0.5"/>
+        <text x="100" y="84" font-size="6" text-anchor="middle" fill="#0a2540" font-weight="bold">企業 × 学生 交流・名刺交換エリア</text>
+      </svg>
+      <div class="vm-caption">※ 配置は目安です。当日、変更となる場合がございます。</div>
+    </div>
+    <div class="portal-box">
+      <h3>企業様向けポータルサイト</h3>
+      <p>学生のより詳しいプロフィール・プロダクト情報のご覧や、当日のお写真のアップなど、<strong>企業様向けポータルサイト</strong>をご用意しております。</p>
+      <div class="qr-row">
+        <div class="qr-slot">QRコード</div>
+        <div class="qr-note"><span class="arrow">◀</span> ポータルサイトはこちらから<small>スマートフォンでQRコードを読み取ってアクセスしてください。</small></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="photo-note"><strong>【撮影について】</strong>当日は運営による写真・動画撮影が入ります。撮影した写真等は大学・講座の広報（Webサイト・SNS・次年度のご案内等）に使用させていただく場合がございます。ご都合の悪い方は受付またはお近くのスタッフまでお申し付けください。</div>
+
+  <div class="back-foot">
+    <div>
+      <strong>ChibaTech Prototype</strong> ── 千葉工業大学「web3/AI概論」第4期 最終発表会<br>
+      2026年7月16日（木）15:00 - 17:00 ／ 千葉工業大学 津田沼キャンパス 7号館2F 演習室722
+    </div>
+    <div class="right">
+      お問い合わせ: 品田 美帆（web3/AI概論 担当）miho.shinada@chibatech.ac.jp<br>
+      講座詳細: portal.gairon.org/lectures
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
